@@ -1,0 +1,17 @@
+{
+  "frames": [
+    {
+      "url": "https://notebooklm.google.com/",
+      "displayName": "Notebooklm",
+      "icon": "book-text",
+      "hideOnMobile": true,
+      "addRibbonIcon": true,
+      "openInCenter": true,
+      "zoomLevel": 1,
+      "forceIframe": false,
+      "customCss": "",
+      "customJs": ""
+    }
+  ],
+  "padding": 5
+}
