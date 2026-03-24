@@ -1,16 +1,25 @@
 {
   "database": "Zotero",
-  "noteImportFolder": "",
+  "noteImportFolder": "literature",
   "pdfExportImageDPI": 120,
   "pdfExportImageFormat": "jpg",
   "pdfExportImageQuality": 90,
   "citeFormats": [
     {
       "name": "APA 7th",
-      "format": "formatted-citation"
+      "format": "formatted-bibliography",
+      "cslStyle": "American Psychological Association 7th edition"
     }
   ],
-  "exportFormats": [],
+  "exportFormats": [
+    {
+      "name": "Literature Note",
+      "outputPathTemplate": "{{year}}/{{citekey}} - {{title}}",
+      "imageOutputPathTemplate": "{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "Zotero_Template.md"
+    }
+  ],
   "citeSuggestTemplate": "[[{{citekey}}]]",
   "openNoteAfterImport": false,
   "whichNotesToOpenAfterImport": "first-imported-note",
