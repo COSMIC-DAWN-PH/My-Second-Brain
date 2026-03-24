@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
+                "file": "Rydberg atom/Untitled.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "哈密顿量模拟 (Hamiltonian Simulation)"
+              "title": "Untitled"
             }
           }
         ]
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
+                "file": "Rydberg atom/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 哈密顿量模拟 (Hamiltonian Simulation)"
+              "title": "Backlinks for Untitled"
             }
           },
           {
@@ -114,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
+                "file": "Rydberg atom/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 哈密顿量模拟 (Hamiltonian Simulation)"
+              "title": "Outgoing links from Untitled"
             }
           },
           {
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
+                "file": "Rydberg atom/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 哈密顿量模拟 (Hamiltonian Simulation)"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -198,11 +198,11 @@
   },
   "active": "6d22379477f0def5",
   "lastOpenFiles": [
+    "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
+    "Rydberg atom/Untitled.md",
     "Rydberg atom/Neutral_Atom_Test.md",
     "Zotero_Template.md",
     "新建 Microsoft Word 文档.docx",
-    "Rydberg atom/Untitled.md",
-    "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
     "Untitled.canvas",
     "readme.md",
     "2026-03-24.md",
