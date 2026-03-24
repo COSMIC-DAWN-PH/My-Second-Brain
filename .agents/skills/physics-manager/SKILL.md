@@ -45,6 +45,7 @@ status: Draft  # 可选值: Draft / In-Progress / Evergreen
 | `authors` | 作者列表 | 来自 Zotero 元数据 |
 | `tags` | 标签 | 固定包含 `[Reference, Physics, Quantum]` |
 | `year` | 发表年份 | 由 `{{date}}` 格式化提取 |
+| `notes` | Better Notes 子笔记 | 渲染至 `## 📝 Zotero 笔记 (Better Notes)` 区块 |
 
 ### 2.3 LaTeX 公式规范
 - **行内公式**：使用 `$...$`，例如 `$\hat{H}$`
@@ -60,13 +61,14 @@ status: Draft  # 可选值: Draft / In-Progress / Evergreen
 
 1. **元数据验证**：确认 `citekey`、`title`、`year`、`tags` 字段完整。
 2. **摘要提炼**：基于 `## 📖 摘要` 中的内容，提取 1-3 条核心发现。
-3. **批注结构化**：遍历 `## 🖋️ PDF 批注` 中的高亮与评论，按以下类别归类：
+3. **笔记整合**：若 `## 📝 Zotero 笔记 (Better Notes)` 区块存在（`notes.length > 0`），将其中的 Better Notes 子笔记内容并入分析，与批注互相印证。
+4. **批注结构化**：遍历 `## 🖋️ PDF 批注` 中的高亮与评论，按以下类别归类：
    - 🔬 **实验方法**
    - 📐 **关键公式/模型**
    - 💡 **创新点/贡献**
    - ❓ **待深入问题**
-4. **知识关联**：自动识别批注中的关键词，建立 `[[双链]]`（参见第 1 节）。
-5. **AI 建议生成**：在 `## 💡 AI 助理建议` 区块中，围绕该文献在 **Rydberg Blockade / 中性原子量子计算** 研究中的定位给出结构化评述。
+5. **知识关联**：自动识别批注与 Better Notes 中的关键词，建立 `[[双链]]`（参见第 1 节）。
+6. **AI 建议生成**：在 `## 💡 AI 助理建议` 区块中，围绕该文献在 **Rydberg Blockade / 中性原子量子计算** 研究中的定位给出结构化评述。
 
 ---
 

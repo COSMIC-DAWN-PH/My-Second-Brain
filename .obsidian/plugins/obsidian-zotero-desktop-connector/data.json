@@ -14,8 +14,8 @@
   "exportFormats": [
     {
       "name": "Literature Note",
-      "outputPathTemplate": "literature/{{citekey}}.md",
-      "imageOutputPathTemplate": "assets/{{citekey}}",
+      "outputPathTemplate": "Literature/{{citekey}}.md",
+      "imageOutputPathTemplate": "Assets/{{citekey}}",
       "imageBaseNameTemplate": "image",
       "templatePath": "Zotero_Template.md"
     }
