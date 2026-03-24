@@ -7,12 +7,12 @@
   "citeFormats": [
     {
       "name": "APA 7th",
-      "format": "latex",
-      "command": "cite"
+      "format": "formatted-citation"
     }
   ],
   "exportFormats": [],
   "citeSuggestTemplate": "[[{{citekey}}]]",
   "openNoteAfterImport": false,
-  "whichNotesToOpenAfterImport": "first-imported-note"
+  "whichNotesToOpenAfterImport": "first-imported-note",
+  "shouldConcat": true
 }
