@@ -13,26 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/Neutral_Atom_Test.md",
+                "file": "Rydberg atom/Untitled.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Neutral_Atom_Test"
-            }
-          },
-          {
-            "id": "2146e24e093490f6",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Untitled"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -105,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Rydberg atom/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Untitled"
             }
           },
           {
@@ -123,11 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Rydberg atom/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Untitled"
             }
           },
           {
@@ -165,12 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Rydberg atom/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -203,15 +196,16 @@
       "obsidian-custom-frames:Open Notebooklm": false
     }
   },
-  "active": "2146e24e093490f6",
+  "active": "6d22379477f0def5",
   "lastOpenFiles": [
-    "Rydberg atom/Neutral_Atom_Test.md",
-    "2026-03-24.md",
-    "Rydberg atom/Untitled.md",
     "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
+    "Rydberg atom/Neutral_Atom_Test.md",
+    "Rydberg atom/Untitled.md",
+    "Untitled.canvas",
+    "readme.md",
+    "2026-03-24.md",
     "Rydberg atom/re.md",
     "Untitled.base",
-    "readme.md",
     "2026-03-17.md",
     "未命名 1.base",
     "未命名.base",
