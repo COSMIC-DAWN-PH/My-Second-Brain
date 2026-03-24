@@ -23,5 +23,6 @@
   "citeSuggestTemplate": "[[{{citekey}}]]",
   "openNoteAfterImport": false,
   "whichNotesToOpenAfterImport": "first-imported-note",
-  "shouldConcat": true
+  "shouldConcat": true,
+  "exeOverridePath": "C:\\Personal Profie\\Profile\\SCIENCE REASERCH\\Quantum Computing\\tools\\pdfannots2json.exe"
 }
