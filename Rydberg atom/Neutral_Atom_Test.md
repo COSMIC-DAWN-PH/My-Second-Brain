@@ -1,6 +1,9 @@
 ---
 aliases: []
-tags: [Physics, UCAS, Quantum]
+tags:
+  - Physics
+  - UCAS
+  - Quantum
 date: 2026-03-17
 status: Draft/Evergreen
 ---
