@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Literature/generall quantum 2026.md",
+                "file": "tools/Zotero_Template.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "generall quantum 2026"
+              "title": "Zotero_Template"
             }
           }
         ]
@@ -197,8 +197,8 @@
   },
   "active": "6d22379477f0def5",
   "lastOpenFiles": [
-    "Daily Notes/2026-03-29.md",
     "Literature/generall quantum 2026.md",
+    "Daily Notes/2026-03-29.md",
     "Rydberg atom/Pauli Matrices.md",
     "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
     "Rydberg atom/拉比振荡 (Rabi Flopping).md",
