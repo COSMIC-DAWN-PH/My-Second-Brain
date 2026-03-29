@@ -20,9 +20,10 @@ year: {{date | format("YYYY")}}
 
 ## 🖋️ PDF 批注
 {% for annotation in annotations -%}
-{% if annotation.annotatedText -%}
+{% if annotation.annotatedText %}
+
 > {{annotation.annotatedText}} [p.{{annotation.pageLabel}}](zotero://select/library/items/{{itemKey}})
-{%- endif %}
+{% endif %}
 
 {% if annotation.comment %}
 **我的评价**：{{annotation.comment}}
