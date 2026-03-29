@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Daily Notes/2026-03-29.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
@@ -197,6 +197,9 @@
   },
   "active": "6d22379477f0def5",
   "lastOpenFiles": [
+    "Literature/generall quantum 2026.md",
+    "Literature/看文章 顺序.md",
+    "Daily Notes/2026-03-29.md",
     "tools/Zotero_Template.md",
     "Rydberg atom/CZ门 (CZ Gate).md",
     "Rydberg atom/深度电路执行 (Deep-Circuit Execution).md",
@@ -209,8 +212,6 @@
     "Rydberg atom/反对易关系 (Anti-Commutation).md",
     "Rydberg atom/表面码 (Surface Code).md",
     "Rydberg atom/Neutral_Atom_Test.md",
-    "Daily Notes/2026-03-29.md",
-    "Literature/generall quantum 2026.md",
     "Rydberg atom/量子芝诺效应 (Quantum Zeno Effect).md",
     "Rydberg atom/拉比振荡 (Rabi Flopping).md",
     "Untitled.md",
@@ -226,7 +227,6 @@
     "literature/bluvsteinFaulttolerantNeutralatomArchitecture2026.md",
     "literature",
     "assets",
-    "readme.md",
     "新建 Microsoft Word 文档.docx",
     "Untitled.canvas",
     "Untitled.base",
