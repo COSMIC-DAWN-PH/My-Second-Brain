@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily Notes/2026-03-29.md",
-                "mode": "source",
-                "source": false
+                "file": "Literature/generall quantum 2026.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "2026-03-29"
+              "title": "generall quantum 2026"
             }
           }
         ]
@@ -176,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -197,14 +197,15 @@
   },
   "active": "6d22379477f0def5",
   "lastOpenFiles": [
-    "Rydberg atom/Pauli Matrices.md",
-    "Rydberg atom/Neutral_Atom_Test.md",
     "Daily Notes/2026-03-29.md",
+    "Literature/generall quantum 2026.md",
+    "Rydberg atom/Pauli Matrices.md",
+    "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
+    "Rydberg atom/拉比振荡 (Rabi Flopping).md",
+    "Rydberg atom/Neutral_Atom_Test.md",
     "Untitled.md",
     "Daily Notes",
-    "Rydberg atom/拉比振荡 (Rabi Flopping).md",
     "2026-03-17.md",
-    "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
     "Rydberg atom/Rabi Oscillation.md",
     "Literature/bluvstein2026.md",
     "Literature/bluvstein2022.md",
