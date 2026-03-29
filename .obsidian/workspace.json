@@ -11,10 +11,14 @@
             "id": "6d22379477f0def5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Rydberg atom/拉比振荡 (Rabi Flopping).md",
+                "mode": "preview",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "拉比振荡 (Rabi Flopping)"
             }
           }
         ]
@@ -191,13 +195,17 @@
       "obsidian-custom-frames:Open Notebooklm": false
     }
   },
-  "active": "49d286389025c158",
+  "active": "6d22379477f0def5",
   "lastOpenFiles": [
+    "2026-03-17.md",
+    "2026-03-29.md",
+    "Rydberg atom/拉比振荡 (Rabi Flopping).md",
+    "Rydberg atom/Neutral_Atom_Test.md",
+    "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
+    "Rydberg atom/Rabi Oscillation.md",
     "Literature/bluvstein2026.md",
     "Literature/bluvstein2022.md",
     "tools/Zotero_Template.md",
-    "Rydberg atom/Neutral_Atom_Test.md",
-    "Rydberg atom/Untitled.md",
     "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
     "Literature/bluvsteinFaulttolerantNeutralatomArchitecture2026.md",
     "Zotero_Template.md",
@@ -211,7 +219,6 @@
     "2026-03-24.md",
     "Rydberg atom/re.md",
     "Untitled.base",
-    "2026-03-17.md",
     "未命名 1.base",
     "未命名.base",
     "Rydberg atom"
