@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/拉比振荡 (Rabi Flopping).md",
-                "mode": "preview",
+                "file": "Daily Notes/2026-03-29.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "拉比振荡 (Rabi Flopping)"
+              "title": "2026-03-29"
             }
           }
         ]
@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -176,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -195,11 +195,13 @@
       "obsidian-custom-frames:Open Notebooklm": false
     }
   },
-  "active": "6d22379477f0def5",
+  "active": "2361ce31802e047d",
   "lastOpenFiles": [
-    "2026-03-17.md",
-    "2026-03-29.md",
+    "Untitled.md",
+    "Daily Notes/2026-03-29.md",
+    "Daily Notes",
     "Rydberg atom/拉比振荡 (Rabi Flopping).md",
+    "2026-03-17.md",
     "Rydberg atom/Neutral_Atom_Test.md",
     "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
     "Rydberg atom/Rabi Oscillation.md",
