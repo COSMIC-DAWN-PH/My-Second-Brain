@@ -17,7 +17,7 @@
       "outputPathTemplate": "Literature/{{citekey}}.md",
       "imageOutputPathTemplate": "Assets/{{citekey}}",
       "imageBaseNameTemplate": "image",
-      "templatePath": "Zotero_Template.md"
+      "templatePath": "tools/Zotero_Template.md"
     }
   ],
   "citeSuggestTemplate": "[[{{citekey}}]]",

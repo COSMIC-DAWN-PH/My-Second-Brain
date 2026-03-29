@@ -11,15 +11,10 @@
             "id": "6d22379477f0def5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Rydberg atom/Neutral_Atom_Test.md",
-                "mode": "preview",
-                "source": true,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Neutral_Atom_Test"
+              "title": "New tab"
             }
           }
         ]
@@ -55,7 +50,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": true,
+                "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -95,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Rydberg atom/Untitled.md",
+                "file": "Literature/bluvstein2026.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Untitled"
+              "title": "Backlinks for bluvstein2026"
             }
           },
           {
@@ -114,12 +109,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Rydberg atom/Untitled.md",
+                "file": "Literature/bluvstein2026.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Untitled"
+              "title": "Outgoing links from bluvstein2026"
             }
           },
           {
@@ -177,7 +172,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -196,9 +191,11 @@
       "obsidian-custom-frames:Open Notebooklm": false
     }
   },
-  "active": "6d22379477f0def5",
+  "active": "49d286389025c158",
   "lastOpenFiles": [
     "Literature/bluvstein2026.md",
+    "Literature/bluvstein2022.md",
+    "tools/Zotero_Template.md",
     "Rydberg atom/Neutral_Atom_Test.md",
     "Rydberg atom/Untitled.md",
     "Rydberg atom/哈密顿量模拟 (Hamiltonian Simulation).md",
