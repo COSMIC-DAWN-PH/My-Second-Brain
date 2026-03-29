@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Literature/generall quantum 2026.md",
+                "file": "Daily Notes/2026-03-29.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "generall quantum 2026"
+              "title": "2026-03-29"
             }
           }
         ]
@@ -197,22 +197,22 @@
   },
   "active": "6d22379477f0def5",
   "lastOpenFiles": [
-    "Rydberg atom/表面码 (Surface Code).md",
-    "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
-    "Rydberg atom/反对易关系 (Anti-Commutation).md",
-    "Rydberg atom/横向纠缠门 (Transversal Gate).md",
-    "Rydberg atom/门算符本征态 (Gate Eigenstates).md",
+    "tools/Zotero_Template.md",
+    "Rydberg atom/CZ门 (CZ Gate).md",
     "Rydberg atom/深度电路执行 (Deep-Circuit Execution).md",
     "Rydberg atom/张量积 (Tensor Product).md",
-    "Rydberg atom/CZ门 (CZ Gate).md",
+    "Rydberg atom/泡利矩阵(Pauli Matrices).md",
+    "Rydberg atom/门算符本征态 (Gate Eigenstates).md",
+    "Rydberg atom/量子纠错 (QEC).md",
+    "Rydberg atom/横向纠缠门 (Transversal Gate).md",
+    "Rydberg atom/光镊阵列 (Optical Tweezer Arrays).md",
+    "Rydberg atom/反对易关系 (Anti-Commutation).md",
+    "Rydberg atom/表面码 (Surface Code).md",
     "Rydberg atom/Neutral_Atom_Test.md",
-    "Rydberg atom/Pauli Matrices.md",
+    "Daily Notes/2026-03-29.md",
+    "Literature/generall quantum 2026.md",
     "Rydberg atom/量子芝诺效应 (Quantum Zeno Effect).md",
     "Rydberg atom/拉比振荡 (Rabi Flopping).md",
-    "Rydberg atom/量子纠错 (QEC).md",
-    "Literature/generall quantum 2026.md",
-    "Daily Notes/2026-03-29.md",
-    "tools/Zotero_Template.md",
     "Untitled.md",
     "Daily Notes",
     "2026-03-17.md",

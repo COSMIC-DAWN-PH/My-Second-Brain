@@ -1,5 +1,5 @@
 ---
-aliases: [Anti-Commutation, 反对易, 反对易关系, Anticommutator, {A,B}]
+aliases: [ Anti-Commutation, 反对易, 反对易关系, Anticommutator, {A,B}]
 tags: [Physics, Quantum, Mathematics, Algebra, PauliMatrices]
 date: 2026-03-29
 status: Draft
