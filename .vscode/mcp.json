@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "obsidian": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "obsidian-mcp",
+        "C:/Personal Profie/Profile/SCIENCE REASERCH/Quantum Computing"
+      ]
+    }
+  }
+}
