@@ -18,7 +18,7 @@ Each note follows a strict structure:
 
 1. **YAML frontmatter**: `aliases`, `tags`, `date`, `status` (Draft / In-Progress / Evergreen), `source` (linked to literature note)
 2. **Blockquote source annotation**: `> 来源批注：*"quote"* — Author et al., year, p.X`
-3. **Wiki-link cross-references**: `[[概念名 (English)]]` for all linked concepts
+3. **Wiki-link cross-references**: `[[English-Name]]` for all linked concepts
 4. **Core formula table** at end: `## 📐 核心公式摘要` with Symbol / Meaning / Formula columns
 5. **Math**: `$...$` inline, `$$...$$` block only (no `\begin{equation}`)
 
@@ -49,8 +49,40 @@ Key skill behaviors:
 - **Line breaks**: Soft-wrapped markdown (no hard line breaks)
 - **Tags**: `[Physics, Quantum, ...]` — see existing notes for tag conventions
 - **Status values**: `Draft` → `In-Progress` → `Evergreen`
-- **Bilingual naming**: Files named `中文名 (English).md` for knowledge notes
-- **Wiki links**: Always use `[[filename]]` syntax, prefer the English suffix for disambiguation: `[[量子纠错 (QEC)]]`
+- **English-only naming**: Files named `English-Name.md` for knowledge notes. Chinese aliases go in YAML `aliases` field.
+- **Wiki links**: Always use `[[English-Name]]` syntax, with optional display text: `[[Rydberg-Blockade|里德伯阻塞]]`
+
+## Python 图表（替代 Mermaid）
+
+所有曲线图/分布图/统计图统一用 **Python + matplotlib** 绘制，配合 Obsidian Execute Code 插件实时渲染。
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+x = np.linspace(0, 10, 200)
+y = np.sin(x)
+
+plt.figure(figsize=(8, 4))
+plt.plot(x, y)
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.title('示例')
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+**注意事项：**
+- 含数学公式的标签用 raw string + `$...$` 包裹（如 `r'能量 $\varepsilon$'`）
+- 中文字体优先 `Microsoft YaHei`（Win11 自带）
+- 用 `plt.tight_layout()` 避免裁切
+- 图尽量独立说明问题（标题、轴标签、图例完整）
+
+> 本 vault 不再使用 Mermaid 图表，所有数据图均由 Python 生成。
 
 ## Commands
 

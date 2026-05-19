@@ -105,7 +105,7 @@ n. 横向；截线或贯线；横行肌🔤
 
 
 
-**我的评价**：[[量子纠错 (QEC)]] — 知识笔记已建立 ✅
+**我的评价**：[[QEC]] — 知识笔记已建立 ✅
 
 > Using a quantum processor based on reconfigurable neutral atom arrays and leveraging key hardware upgrades [p.39](zotero://select/library/items/SL8QGCV5)
 
@@ -118,44 +118,44 @@ Methods
 
 
 
-**我的评价**：[[深度电路执行 (Deep-Circuit Execution)]] — 知识笔记已建立 ✅
+**我的评价**：[[Deep-Circuit-Execution]] — 知识笔记已建立 ✅
 
 > a distance-5 surface code [p.40](zotero://select/library/items/SL8QGCV5)
 
 
 
-**我的评价**：[[表面码 (Surface Code)]] — 知识笔记已建立 ✅
+**我的评价**：[[Surface-Code]] — 知识笔记已建立 ✅
 
 
-**我的评价**：[[量子芝诺效应 (Quantum Zeno Effect)]] — 知识笔记已建立 ✅
-[[CZ门 (CZ Gate)]] — 知识笔记已建立 ✅
-[[量子纠错 (QEC)]] — 知识笔记已建立 ✅
-[[张量积 (Tensor Product)]] — 知识笔记已建立 ✅
-[[门算符本征态 (Gate Eigenstates)]] — 知识笔记已建立 ✅
+**我的评价**：[[Quantum-Zeno-Effect]] — 知识笔记已建立 ✅
+[[CZ-Gate]] — 知识笔记已建立 ✅
+[[QEC]] — 知识笔记已建立 ✅
+[[Tensor-Product]] — 知识笔记已建立 ✅
+[[Gate-Eigenstates]] — 知识笔记已建立 ✅
 
 > optical tweezers [p.40](zotero://select/library/items/SL8QGCV5)
 
 
 
-**我的评价**：[[光镊阵列 (Optical Tweezer Arrays)]] — 知识笔记已建立 ✅
+**我的评价**：[[Optical-Tweezer-Arrays]] — 知识笔记已建立 ✅
 
 > Rabi oscillation [p.40](zotero://select/library/items/SL8QGCV5)
 
 
 
-**我的评价**：[[拉比振荡 (Rabi Flopping)]] — 知识笔记已建立 ✅
+**我的评价**：[[Rabi-Flopping]] — 知识笔记已建立 ✅
 
 > transversal entangling gate [p.49](zotero://select/library/items/SL8QGCV5)
 
 
 
-**我的评价**：[[横向纠缠门 (Transversal Gate)]] — 知识笔记已建立 ✅
+**我的评价**：[[Transversal-Gate]] — 知识笔记已建立 ✅
 
 > XL = XXXX ... maps to → (X + iθY)(X + iθY)(X + iθY)(X + iθY) ... = XXXX ... + iθYXXX .... + (iθ)dYYYY ... [p.49](zotero://select/library/items/SL8QGCV5)
 
 
 
-**我的评价**：[[反对易关系 (Anti-Commutation)]] — **反对易（anti-commute）** 知识笔记已建立 ✅
+**我的评价**：[[Anti-Commutation]] — **反对易（anti-commute）** 知识笔记已建立 ✅
 
 ---
 
@@ -163,17 +163,17 @@ Methods
 
 本文献笔记已为以下批注概念建立独立知识笔记并完成双向链接：
 
-| 概念 | 知识笔记 | 批注页码 | 状态 |
-|---|---|---|---|
-| 量子纠错 | [[量子纠错 (QEC)]] | p.39 | ✅ 双链已建立 |
-| 深度电路执行 | [[深度电路执行 (Deep-Circuit Execution)]] | p.39 | ✅ 双链已建立 |
-| 表面码 | [[表面码 (Surface Code)]] | p.40 | ✅ 双链已建立 |
-| 量子芝诺效应 | [[量子芝诺效应 (Quantum Zeno Effect)]] | p.40 | ✅ 双链已建立 |
-| CZ 门 | [[CZ门 (CZ Gate)]] | p.40 | ✅ 双链已建立 |
-| 张量积 | [[张量积 (Tensor Product)]] | p.40 | ✅ 双链已建立 |
-| 门算符本征态 | [[门算符本征态 (Gate Eigenstates)]] | p.40 | ✅ 双链已建立 |
-| 光镊阵列 | [[光镊阵列 (Optical Tweezer Arrays)]] | p.40 | ✅ 双链已建立 |
-| 拉比振荡 | [[拉比振荡 (Rabi Flopping)]] | p.40 | ✅ 双链已建立 |
-| 横向纠缠门 | [[横向纠缠门 (Transversal Gate)]] | p.49 | ✅ 双链已建立 |
-| 反对易关系 | [[反对易关系 (Anti-Commutation)]] | p.49 | ✅ 双链已建立 |
-| 泡利矩阵 | [[泡利矩阵(Pauli Matrices)]] | 基础概念 | ✅ 双链已建立 |
+|| 概念 | 知识笔记 | 批注页码 | 状态 |
+|---|---|---|---|---|
+|| 量子纠错 | [[QEC]] | p.39 | ✅ 双链已建立 |
+|| 深度电路执行 | [[Deep-Circuit-Execution]] | p.39 | ✅ 双链已建立 |
+|| 表面码 | [[Surface-Code]] | p.40 | ✅ 双链已建立 |
+|| 量子芝诺效应 | [[Quantum-Zeno-Effect]] | p.40 | ✅ 双链已建立 |
+|| CZ 门 | [[CZ-Gate]] | p.40 | ✅ 双链已建立 |
+|| 张量积 | [[Tensor-Product]] | p.40 | ✅ 双链已建立 |
+|| 门算符本征态 | [[Gate-Eigenstates]] | p.40 | ✅ 双链已建立 |
+|| 光镊阵列 | [[Optical-Tweezer-Arrays]] | p.40 | ✅ 双链已建立 |
+|| 拉比振荡 | [[Rabi-Flopping]] | p.40 | ✅ 双链已建立 |
+|| 横向纠缠门 | [[Transversal-Gate]] | p.49 | ✅ 双链已建立 |
+|| 反对易关系 | [[Anti-Commutation]] | p.49 | ✅ 双链已建立 |
+|| 泡利矩阵 | [[Pauli-Matrices]] | 基础概念 | ✅ 双链已建立 |
