@@ -11,12 +11,14 @@
             "id": "6d22379477f0def5",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Daily Notes/2026-03-29.pdf"
+                "file": "Handout by AI/2023-parallel-gates-讲义.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "2026-03-29"
+              "icon": "lucide-file",
+              "title": "2023-parallel-gates-讲义"
             }
           }
         ]
@@ -193,13 +195,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2361ce31802e047d",
+  "active": "49d286389025c158",
   "lastOpenFiles": [
-    "ai文献讲义/2023-parallel-gates-讲义.pdf",
-    "ai文献讲义/2023-parallel-gates-讲义.md",
-    "ai文献讲义",
-    "Daily Notes/2026-03-29.md",
     "Daily Notes/2026-03-29.pdf",
+    "Handout by AI/2023-parallel-gates-讲义.pdf",
+    "Handout by AI/2023-parallel-gates-讲义.md",
+    "Handout by AI",
+    "Daily Notes/2026-03-29.md",
     "Literature/看文章 顺序.md",
     "Literature/generall quantum 2026.md",
     "Rydberg atom/表面码 (Surface Code).md",
