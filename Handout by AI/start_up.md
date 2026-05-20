@@ -51,7 +51,7 @@ $$
 > 如果我们选 $m_F \neq 0$ 的态，磁场的微小波动就会剧烈改变 $|0\rangle$ 和 $|1\rangle$ 的能量差，导致相位漂移，也就是去相干！
 > 而由于我们选了 $m_F = 0$，**一阶 Zeeman 位移恰好为零**！这使得编码在其中的量子比特对磁场涨落有极强的免疫力，相干时间（$T_2^*$）极大延长。这就是用单原子做量子比特的天然优势——高度一致且极其稳定。
 
-在实验中，研究人员利用 `[[Optical-Tweezer-Arrays|光镊阵列]]` 将一个个铷原子囚禁在高度聚焦的激光束中，排列成一维或二维的阵列，每个光镊里刚好装一个原子，从而构建出极其整齐的量子比特阵列。
+在实验中，研究人员利用 [[Optical-Tweezer-Arrays|光镊阵列]] 将一个个铷原子囚禁在高度聚焦的激光束中，排列成一维或二维的阵列，每个光镊里刚好装一个原子，从而构建出极其整齐的量子比特阵列。
 
 ---
 
@@ -61,7 +61,7 @@ $$
 
 ### 1. 单比特相干驱动：拉比振荡
 
-如果你还记得 `[[Rabi-Flopping|拉比振荡]]` 的物理图像：当一束微波或拉曼激光共振地照射原子时，原子会在 $|0\rangle$ 和 $|1\rangle$ 之间周期性地摆动。
+如果你还记得 [[Rabi-Flopping|拉比振荡]]的物理图像：当一束微波或拉曼激光共振地照射原子时，原子会在 $|0\rangle$ 和 $|1\rangle$ 之间周期性地摆动。
 在基矢表象 $\{|0\rangle, |1\rangle\}$ 下，系统的共振驱动 Hamiltonian 写为：
 $$
 H = \frac{\hbar\Omega}{2} \sigma_x = \frac{\hbar\Omega}{2} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
@@ -78,18 +78,18 @@ $$
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 配合 Obsidian Execute Code 插件运行
-t = np.linspace(0, 3.0, 300) # 时间单位 pi/Omega
+# Compatible with Obsidian Execute Code plugin
+t = np.linspace(0, 3.0, 300) # Time in units of pi/Omega
 P_res = np.sin(np.pi * t / 2) ** 2
 tilde_omega = np.sqrt(1.0 + 1.5**2)
 P_detuned = (1.0 / tilde_omega**2) * np.sin(tilde_omega * np.pi * t / 2) ** 2
 
 plt.figure(figsize=(7, 4.0))
-plt.plot(t, P_res, '-', color='#1f77b4', lw=2, label=r'共振驱动 ($\Delta = 0$)')
-plt.plot(t, P_detuned, '--', color='#ff7f0e', lw=2, label=r'失谐驱动 ($\Delta = 1.5\,\Omega$)')
-plt.xlabel(r'时间 $t$ ($\pi/\Omega$)')
-plt.ylabel(r'跃迁概率 $P_{|1\rangle}$')
-plt.title('二能级系统拉比振荡动力学')
+plt.plot(t, P_res, '-', color='#1f77b4', lw=2, label=r'Resonant ($\Delta = 0$)')
+plt.plot(t, P_detuned, '--', color='#ff7f0e', lw=2, label=r'Detuned ($\Delta = 1.5\,\Omega$)')
+plt.xlabel(r'Time $t$ ($\pi/\Omega$)')
+plt.ylabel(r'Transition Probability $P_{|1\rangle}$')
+plt.title('Rabi Oscillations Coherent Dynamics')
 plt.grid(alpha=0.3, ls=':')
 plt.legend(frameon=False)
 plt.tight_layout()
@@ -149,7 +149,7 @@ $$
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 模拟参数（单位：MHz, ns）
+# Simulation parameters (in MHz, ns)
 Delta = 7800.0  
 Om_r = 303.0        
 Om_b = 237.0        
@@ -157,7 +157,7 @@ T = 275.0
 dt = 0.1
 t = np.arange(0, T, dt)
 
-# 双光子相位调制波形对应的失谐
+# Detuning profile from two-photon phase modulation
 A = 2 * np.pi * 0.1122
 omega = 1.0431 * (2 * np.pi * 4.6 / 1000)
 phi_0 = -0.7318
@@ -181,7 +181,7 @@ def simulate(sign):
         H[1, 1] = -Delta
         H[2, 2] = -sign * delta_profile[idx]
         
-        # 演化
+        # RK4 Time Evolution
         k1 = -1j * np.dot(H * coeff, psi)
         k2 = -1j * np.dot(H * coeff, psi + k1 * dt / 2)
         k3 = -1j * np.dot(H * coeff, psi + k2 * dt / 2)
@@ -195,11 +195,11 @@ P_bad = simulate(1)
 P_good = simulate(-1)
 
 plt.figure(figsize=(7, 4.0))
-plt.plot(t, np.array(P_bad) * 1e4, '-', color='#d62728', label='亮态分支 (错误相位)')
-plt.plot(t, np.array(P_good) * 1e4, '-', color='#2ca02c', lw=2, label='暗态分支 (论文暗态锁定制备)')
-plt.xlabel('时间 $t$ (ns)')
-plt.ylabel(r'中间态布居数 $P_{|e\rangle}$ ($\times 10^{-4}$)')
-plt.title('论文核心：利用暗态抑制自发辐射散射')
+plt.plot(t, np.array(P_bad) * 1e4, '-', color='#d62728', label=r'Bright State Branch ($\delta\Delta > 0$)')
+plt.plot(t, np.array(P_good) * 1e4, '-', color='#2ca02c', lw=2, label=r'Dark State Branch ($\delta\Delta < 0$)')
+plt.xlabel('Time $t$ (ns)')
+plt.ylabel(r'Intermediate State Population $P_{|e\rangle}$ ($\times 10^{-4}$)')
+plt.title(r'Dark State Suppression ($\Delta = 7.8\,\mathrm{GHz}$)')
 plt.grid(alpha=0.3, ls=':')
 plt.legend(frameon=False)
 plt.tight_layout()
@@ -212,7 +212,7 @@ plt.show()
 
 ## 🛑 第三部分：里德伯阻塞与两粒子希尔伯特空间的奇妙膨胀
 
-单比特控制好了，现在我们要让两个量子比特发生关联，制造量子纠缠。在中性原子体系中，唯一的纠缠魔法道具就是：**`[[Rydberg-Blockade|里德伯阻塞（Rydberg Blockade）]]`**。
+单比特控制好了，现在我们要让两个量子比特发生关联，制造量子纠缠。在中性原子体系中，唯一的纠缠魔法道具就是：**[[Rydberg-Blockade|里德伯阻塞（Rydberg Blockade）]]**。
 
 ### 1. 物理图像：为什么主量子数 $n=53$ 的态相互作用如此巨大？
 
@@ -240,25 +240,25 @@ $$
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 阻塞相互作用势能图
+# Van der Waals interaction potential
 r = np.linspace(1.5, 6.0, 500)
 C6 = 28800.0  # MHz * um^6
 V = C6 / (r ** 6)
 Omega = 4.6
 
 plt.figure(figsize=(7, 4.0))
-plt.plot(r, V, '-', color='#d62728', lw=2, label=r'范德华相互作用势 $V(r) = C_6/r^6$')
-plt.axhline(y=Omega, color='#2ca02c', ls='-.', label=r'激光耦合强度 $\Omega = 4.6\,\mathrm{MHz}$')
+plt.plot(r, V, '-', color='#d62728', lw=2, label=r'Van der Waals Potential $V(r) = C_6/r^6$')
+plt.axhline(y=Omega, color='#2ca02c', ls='-.', label=r'Rabi Frequency $\Omega = 4.6\,\mathrm{MHz}$')
 Rb = (C6 / Omega) ** (1/6)
-plt.axvline(x=Rb, color='#9467bd', ls=':', label=f'里德伯阻塞半径 $R_b \\approx {Rb:.2f}\\,\\mu\\mathrm{m}$')
-plt.fill_between(r[r <= Rb], 0, V[r <= Rb], color='#d62728', alpha=0.1, label='里德伯阻塞区')
+plt.axvline(x=Rb, color='#9467bd', ls=':', label=fr'Blockade Radius $R_b \approx {Rb:.2f}\,\mu m$')
+plt.fill_between(r[r <= Rb], 0, V[r <= Rb], color='#d62728', alpha=0.1, label='Blockade Region')
 plt.scatter([2.0], [450.0], color='black', zorder=5)
-plt.annotate(r'实际工作点 $d = 2.0\,\mu\mathrm{m}$', xy=(2.0, 450.0), xytext=(2.6, 300.0),
+plt.annotate(r'Operating Point $d = 2.0\,\mu m$', xy=(2.0, 450.0), xytext=(2.6, 300.0),
              arrowprops=dict(facecolor='black', shrink=0.08, width=0.5, headwidth=4))
 plt.yscale('log')
 plt.ylim(1e-1, 2e4)
-plt.xlabel(r'原子间距 $r$ ($\mu\mathrm{m}$)')
-plt.ylabel(r'相互作用能量 $V(r)/2\pi$ (MHz)')
+plt.xlabel(r'Atomic Separation $r$ ($\mu m$)')
+plt.ylabel(r'Interaction Energy $V(r)/2\pi$ (MHz)')
 plt.grid(alpha=0.3, ls=':')
 plt.legend(frameon=False)
 plt.tight_layout()
@@ -274,7 +274,7 @@ plt.show()
 对于两个靠得很近（$d < R_b$）的原子，它们的联合状态处于四维计算基空间：
 $$
 \mathcal{H}_{\mathrm{comp}} = \operatorname{span}\{|00\rangle, |01\rangle, |10\rangle, |11\rangle\}
-```
+$$
 根据门操作协议，状态 $|0\rangle$ 的原子对里德伯激发激光是不响应的。因此，激光只作用在基态 $|1\rangle$ 上。
 让我们对不同的初始输入状态，分别写出它们在里德伯激光照射下的动力学行为：
 
@@ -328,7 +328,7 @@ $$
 
 ## 🎨 第四部分：最佳控制门方案——时间最优与平滑振幅门
 
-现在我们有了实现纠缠的筹码：单原子状态以速度 $\Omega$ 摆动，双原子状态以速度 $\sqrt{2}\Omega$ 摆动。那么我们如何设计一束精确的激光脉冲，让它们演化完毕后，刚好实现一个 `[[CZ-Gate|CZ 纠缠门]]` 呢？
+现在我们有了实现纠缠的筹码：单原子状态以速度 $\Omega$ 摆动，双原子状态以速度 $\sqrt{2}\Omega$ 摆动。那么我们如何设计一束精确的激光脉冲，让它们演化完毕后，刚好实现一个 [[CZ-Gate|CZ 纠缠门]] 呢？
 
 ### 1. CZ 门的目标条件
 
@@ -374,7 +374,7 @@ $$
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 绘制论文中的两种门脉冲波形
+# Plotting the two gate waveforms from the paper
 fig, axes = plt.subplots(2, 2, figsize=(10, 7.0))
 
 # 1. Time-optimal Waveform
@@ -392,14 +392,14 @@ for i in range(len(t_to)):
     elif t_to[i] > T_to - 15: amp_to[i] *= np.sin(np.pi * (T_to - t_to[i]) / 30)**2
 
 axes[0, 0].plot(t_to, amp_to, color='#1f77b4', lw=2)
-axes[0, 0].set_ylabel('拉比频率 (MHz)')
-axes[0, 0].set_title('时间最优门 - 振幅波形')
+axes[0, 0].set_ylabel('Rabi Frequency (MHz)')
+axes[0, 0].set_title('Time-Optimal Gate: Amplitude')
 axes[0, 0].grid(alpha=0.3, ls=':')
 
 axes[1, 0].plot(t_to, phi_to / (2*np.pi), color='#ff7f0e', lw=2)
-axes[1, 0].set_xlabel('时间 $t$ (ns)')
-axes[1, 0].set_ylabel('激光相位 (2pi)')
-axes[1, 0].set_title('时间最优门 - 相位波形')
+axes[1, 0].set_xlabel('Time $t$ (ns)')
+axes[1, 0].set_ylabel(r'Laser Phase $\phi/(2\pi)$')
+axes[1, 0].set_title('Time-Optimal Gate: Phase')
 axes[1, 0].grid(alpha=0.3, ls=':')
 
 # 2. Smooth-amplitude Waveform
@@ -416,12 +416,12 @@ amp_sa = amp_ratio * (4.6 / np.max(amp_ratio))
 phi_sa = delta_0 * tau + B * np.tanh(lambd * tau)
 
 axes[0, 1].plot(t_sa, amp_sa, color='#2ca02c', lw=2)
-axes[0, 1].set_title('平滑振幅门 - 振幅波形')
+axes[0, 1].set_title('Smooth-Amplitude Gate: Amplitude')
 axes[0, 1].grid(alpha=0.3, ls=':')
 
 axes[1, 1].plot(t_sa, phi_sa / (2*np.pi), color='#d62728', lw=2)
-axes[1, 1].set_xlabel('时间 $t$ (ns)')
-axes[1, 1].set_title('平滑振幅门 - 相位波形')
+axes[1, 1].set_xlabel('Time $t$ (ns)')
+axes[1, 1].set_title('Smooth-Amplitude Gate: Phase')
 axes[1, 1].grid(alpha=0.3, ls=':')
 
 plt.tight_layout()
@@ -468,11 +468,11 @@ $$
 
 | 符号 | 物理含义 | 理论公式 / 数值 |
 |---|---|---|
-| $|0\rangle, |1\rangle$ | 铷-87 超精细钟跃迁量子比特能级 | $|F=1, m_F=0\rangle$, $|F=2, m_F=0\rangle$ |
+| $\vert 0\rangle, \vert 1\rangle$ | 铷-87 超精细钟跃迁量子比特能级 | $\vert F=1, m_F=0\rangle$, $\vert F=2, m_F=0\rangle$ |
 | $\Omega_{\mathrm{eff}}$ | 双光子跃迁有效拉比频率 | $\Omega_{\mathrm{eff}} \approx \frac{\Omega_b \Omega_r}{2\Delta}$ |
-| $|D\rangle$ | 三能级系统中的不自发辐射**暗态** | $\frac{1}{\sqrt{1+\alpha^2}}|1\rangle - \frac{\alpha}{\sqrt{1+\alpha^2}}|r\rangle$ |
+| $\vert D\rangle$ | 三能级系统中的不自发辐射**暗态** | $\frac{1}{\sqrt{1+\alpha^2}}\vert 1\rangle - \frac{\alpha}{\sqrt{1+\alpha^2}}\vert r\rangle$ |
 | $R_b$ | 里德伯阻塞半径 | $R_b = (C_6 / \hbar\Omega)^{1/6} \approx 4.3\,\mu\mathrm{m}$ |
-| $H_{2Q}$ | 阻塞下双原子对称演化哈密顿量 | $\frac{\hbar}{2}\begin{pmatrix} 0 & \sqrt{2}\Omega \\ \sqrt{2}\Omega & 0 \end{pmatrix}$ （拉比频率增强 $\sqrt{2}$ 倍） |
+| $H_{2Q}$ | 阻塞下双原子对称演化哈密顿量 | $\frac{\hbar}{2}\begin{pmatrix} 0 & \sqrt{2}\Omega \\\\ \sqrt{2}\Omega & 0 \end{pmatrix}$ （拉比频率增强 $\sqrt{2}$ 倍） |
 | $\Delta\Phi$ | $\mathrm{CZ}$ 纠缠门的物理相位要求 | $\phi_{2Q} - 2\phi_{1Q} = (2k+1)\pi$ |
 | $F_{\mathrm{CZ}}$ | 本论文实现的纠缠门最高保真度 | $99.52(4)\%$ |
 

@@ -56,31 +56,36 @@ Key skill behaviors:
 
 所有曲线图/分布图/统计图统一用 **Python + matplotlib** 绘制，配合 Obsidian Execute Code 插件实时渲染。
 
+为了避免 Obsidian 内置 Python 沙盒环境因为系统字体缺失而产生中文乱码或 `DejaVu Sans` 缺字警告（Glyph missing warnings），且符合国际学术规范，**代码中的所有图表元素（标题、坐标轴标签、图例、数据标注等）必须统一使用标准英文书写**。
+
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
-
-plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei']
-plt.rcParams['axes.unicode_minus'] = False
 
 x = np.linspace(0, 10, 200)
 y = np.sin(x)
 
 plt.figure(figsize=(8, 4))
-plt.plot(x, y)
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.title('示例')
-plt.grid(alpha=0.3)
+plt.plot(x, y, label=r'Sine Wave $y = \sin(x)$')
+plt.xlabel(r'Time $x$ (s)')
+plt.ylabel(r'Amplitude $y$')
+plt.title('Sine Wave Coherent Dynamics')
+plt.grid(alpha=0.3, ls=':')
+plt.legend(frameon=False)
 plt.tight_layout()
 plt.show()
 ```
 
-**注意事项：**
-- 含数学公式的标签用 raw string + `$...$` 包裹（如 `r'能量 $\varepsilon$'`）
-- 中文字体优先 `Microsoft YaHei`（Win11 自带）
-- 用 `plt.tight_layout()` 避免裁切
-- 图尽量独立说明问题（标题、轴标签、图例完整）
+**注意事项（必须严格遵守）：**
+- **全英文绘图标签**：图表内部所有文本（`title`, `xlabel`, `ylabel`, `label`, `annotate`）必须使用英文，彻底杜绝 CJK 字符警告。不要在代码中设置 `font.sans-serif` 或 `unicode_minus`。
+- **LaTeX 大括号与 f-string 冲突防范**：在 Python 的 f-string（即 `f"..."` 或 `fr"..."`）中，LaTeX 能级或单位里的 `{}` 会被 Python 误识别为插值变量，从而抛出 `NameError` 或 `KeyError`。
+  - **错误示范**：`fr"Radius $R_b \approx {Rb:.2f}\,\mathrm{m}$"` 会因为 `\mathrm{m}` 中的 `{m}` 报错，Python 会尝试寻找名为 `m` 的变量。
+  - **正确防范方法**：
+    1. **避免大括号**：用简单的物理符号/单位（如 `\mu m` 代替 `\mathrm{m}`）。
+    2. **大括号转义**：如果必须用大括号，必须使用双重括号 `{{}}`（如 `\mathrm{{m}}`）。
+- **数学公式支持**：含数学公式的标签用 raw string + `$...$` 包裹（如 `r'Energy $\varepsilon$'`）。
+- **布局美化**：统一使用 `plt.tight_layout()` 避免标签裁切，使用 `plt.grid(alpha=0.3, ls=':')` 使网格轻量美观。
+- **自包含与高颜值**：图表应具备极高美感（精心挑选颜色如 `#1f77b4`, `#ff7f0e`, `#2ca02c`, `#d62728`，无边框图例 `frameon=False`），并且能够独立说明问题。
 
 > 本 vault 不再使用 Mermaid 图表，所有数据图均由 Python 生成。
 
