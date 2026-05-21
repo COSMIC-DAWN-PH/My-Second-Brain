@@ -1,0 +1,50 @@
+{
+  "user_metadata": {
+    "name": "User",
+    "academic_stage": "Sophomore (Second Semester) / 大二下学期",
+    "field_of_study": "Physics / 物理系",
+    "research_focus": "Neutral-Atom Quantum Computing (Rydberg Platforms) / 中性原子量子计算与里德伯原子体系"
+  },
+  "math_background": {
+    "status": "Foundational courses / 基础数学已覆盖",
+    "completed_topics": [
+      "Gaussian Integral / 高斯积分 (多元高斯积分、归一化因子)",
+      "Method of Separation of Variables / 分离变量法 (偏微分方程求解)"
+    ]
+  },
+  "physics_background": {
+    "atomic_physics": {
+      "status": "Completed / 已学完",
+      "completed_topics": [
+        "Spin / 自旋",
+        "Spin-Orbit Coupling / 自旋-轨道耦合",
+        "Hyperfine Structure / 超精细结构 (e.g., Rubidium-87 Clock Transition)",
+        "Zeeman Effect / 塞曼效应"
+      ]
+    },
+    "quantum_mechanics": {
+      "status": "In Progress / 学习中",
+      "completed_topics": [
+        "Representation Theory / 表象理论",
+        "Hilbert Space & Operator Formalism / 希尔伯特空间与算符理论",
+        "Dirac Bra-Ket Notation / 狄拉克狄拉克符号"
+      ],
+      "current_topics": [
+        "Perturbation Theory / 变分法与微扰论 (Time-Independent & Time-Dependent Perturbation Theory)",
+        "Coherent Quantum Dynamics / 相干量子动力学"
+      ]
+    },
+    "statistical_physics": {
+      "status": "Core concepts covered / 核心概念已覆盖",
+      "completed_topics": [
+        "Bose-Einstein Distribution / 玻色-爱因斯坦分布 (量子统计分布、化学势、玻色子体系)"
+      ]
+    }
+  },
+  "vault_preferences": {
+    "preferred_narrative_language": "Chinese (Encouraging, pedagogical, rigorous / 循循善诱、注重物理图像、严格的中文叙述)",
+    "preferred_terminology_language": "English (Standard academic terms, no translations for specific gate names / 标准英文学术词汇)",
+    "plot_style": "Scientific English, HSL/Matplotlib premium themes, CJK-Warning-Free, LaTeX double-braces escaped in f-strings"
+  },
+  "last_updated": "2026-05-20T16:36:20+08:00"
+}

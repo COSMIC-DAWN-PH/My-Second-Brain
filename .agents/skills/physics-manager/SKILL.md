@@ -104,21 +104,21 @@ status: Draft  # 可选值: Draft / In-Progress / Evergreen
 
 ### 5.2 知识笔记写作规范
 
-在 `Rydberg atom/` 文件夹下为每个概念新建独立 `.md` 文件，文件名格式：
+在 `Rydberg atom/` 文件夹下为每个概念新建独立 `.md` 文件，**文件名全英文**（`English-Name.md`），中文别名放入 YAML `aliases` 字段。
 
 ```
-中文名 (English Name).md
+English-Name.md
 ```
 
 每篇笔记必须包含：
 
 1. **YAML frontmatter**（遵循 § 2.1）：
    ```yaml
-   aliases: [英文名, 缩写, 别名]
+   aliases: [中文名, 英文名, 缩写]
    tags: [Physics, Quantum, ...]
    date: YYYY-MM-DD
    status: Draft
-   source: "[[来源文献笔记名]]"
+   source: "[[Literature-File-Name]]"
    ```
 2. **来源批注引用**：注明原始标注文字和页码
 3. **内容结构**（必须按此顺序）：
@@ -126,16 +126,16 @@ status: Draft  # 可选值: Draft / In-Progress / Evergreen
    - 数学公式推导（使用 §2.3 LaTeX 规范）
    - 与 Rydberg/中性原子体系的关联
 4. **核心公式摘要表**（若含公式，参见 § 4）
-5. **`[[双链]]`**：主动关联同文件夹内相关笔记
+5. **`[[English-Name]]` 双链**：主动关联同文件夹内相关笔记
 
 ### 5.3 回链更新（文献 → 知识笔记）
 
-在原文献笔记的对应批注行，将批注概念替换或补充为 `[[双链]]`，例如：
+在原文献笔记的对应批注行，将批注概念替换或补充为 `[[English-Name]]` 双链，例如：
 
 ```markdown
 > QEC works in practice [p.39](...)
 
-**我的评价**：[[量子纠错 (QEC)]] — 见知识笔记
+**我的评价**：[[QEC|量子纠错]] — 见知识笔记
 ```
 
 ### 5.4 知识关联检查
@@ -157,20 +157,20 @@ status: Draft  # 可选值: Draft / In-Progress / Evergreen
 
 ```yaml
 ---
-aliases: [英文名, 缩写]
+aliases: [中文名, 缩写]
 tags: [Physics, Quantum, ...]
 date: YYYY-MM-DD
 status: Draft
-source: "[[文献笔记文件名（不含扩展名）]]"
+source: "[[Literature-File-Name]]"
 ---
 ```
 
 同时，在笔记正文顶部（H1 标题下方）添加来源引用行：
 
 ```markdown
-# 概念名称 (English Name)
+# English-Name
 
-> 📄 来源文献：[[文献笔记文件名]] · 原始批注见 [p.XX](...)
+> 📄 来源文献：[[Literature-File-Name]] · 原始批注见 [p.XX](...)
 ```
 
 **规则**：
@@ -178,8 +178,8 @@ source: "[[文献笔记文件名（不含扩展名）]]"
 - 若同一概念来源于多篇文献，`source` 改为列表：
   ```yaml
   source:
-    - "[[文献笔记A]]"
-    - "[[文献笔记B]]"
+    - "[[Literature-A]]"
+    - "[[Literature-B]]"
   ```
 
 ---
@@ -191,7 +191,7 @@ source: "[[文献笔记文件名（不含扩展名）]]"
 ```markdown
 > [批注原文] [p.XX](zotero://...)
 
-**我的评价**：[[概念中文名 (English Name)]] — 知识笔记已建立 ✅
+**我的评价**：[[English-Name|概念中文名]] — 知识笔记已建立 ✅
 ```
 
 此外，在文献笔记末尾（`## 💡 AI 助理建议` 区块之后）新增或更新一个汇总区块：
@@ -204,9 +204,9 @@ source: "[[文献笔记文件名（不含扩展名）]]"
 
 | 概念 | 知识笔记 | 状态 |
 |---|---|---|
-| 量子纠错 | [[量子纠错 (QEC)]] | ✅ 双链已建立 |
-| 张量积 | [[张量积 (Tensor Product)]] | ✅ 双链已建立 |
-| CZ 门 | [[CZ门 (CZ Gate)]] | ✅ 双链已建立 |
+| 量子纠错 | [[QEC]] | ✅ 双链已建立 |
+| 张量积 | [[Tensor-Product]] | ✅ 双链已建立 |
+| CZ 门 | [[CZ-Gate]] | ✅ 双链已建立 |
 ```
 
 > **注意**：每次新增知识笔记后，必须同步更新此索引表。
@@ -233,9 +233,9 @@ source: "[[文献笔记文件名（不含扩展名）]]"
 
 | 场景 | 正确写法 | 错误写法 |
 |---|---|---|
-| 标准双链 | `[[量子纠错 (QEC)]]` | `[[QEC]]`（缺中文名） |
-| 带显示文字 | `[[量子纠错 (QEC)\|QEC]]` | `[QEC](量子纠错...)` |
-| 跨文件夹链接 | `[[Rydberg atom/量子纠错 (QEC)]]` | 仅在 Obsidian 无法自动解析时使用 |
-| 链接到特定标题 | `[[量子纠错 (QEC)#物理直觉]]` | — |
+| 标准双链 | `[[Rydberg-Blockade\|里德堡阻塞]]` | `[[中文名 (English)]]`（已弃用） |
+| 带显示文字 | `[[Rydberg-Blockade\|里德堡阻塞]]` | `[里德堡阻塞](Rydberg-Blockade)` |
+| 跨文件夹链接 | `[[Rydberg atom/Rydberg-Blockade]]` | 仅在 Obsidian 无法自动解析时使用 |
+| 链接到特定标题 | `[[Rydberg-Blockade#物理直觉]]` | — |
 
-> **原则**：文件名必须与 §5.2 规定的命名格式（`中文名 (English Name).md`）完全一致，双链才能被 Obsidian 正确解析。
+> **原则**：文件名必须与 §5.2 规定的命名格式（`English-Name.md`）完全一致，双链才能被 Obsidian 正确解析。中文别名统一放在 YAML frontmatter `aliases` 字段中，Obsidian 搜索中文时可通过别名找到文件。

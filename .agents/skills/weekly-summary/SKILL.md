@@ -88,7 +88,7 @@ description: 周度科研总结技能 —— 自动扫描 Literature/ 与 Rydber
 
 | 笔记名 | 来源文献 | 状态 | 含公式 |
 |---|---|---|---|
-| [[概念名 (English)]] | [[文献笔记]] | Draft / In-Progress | ✅ / — |
+| [[Rydberg-Blockade\|里德堡阻塞]] | [[generall-quantum-2026]] | Draft / In-Progress | ✅ / — |
 
 ### 🔗 双向链接建立情况
 
@@ -186,8 +186,8 @@ Daily Notes 文件命名格式：`YYYY-MM-DD.md`，例如 `2026-03-29.md`
 |---|---|
 | `## 🔗 衍生知识笔记索引` 表格格式 | § 6.2 |
 | 知识笔记 frontmatter 字段（`source`, `date`, `status`） | § 5.2, § 6.1 |
-| 批注中的 `[[双链]] — 知识笔记已建立 ✅` 格式 | § 6.2 |
-| 文件命名约定 `中文名 (English Name).md` | § 5.2 |
+| 批注中的 `[[English-Name]] — 知识笔记已建立 ✅` 格式 | § 6.2 |
+| 文件命名约定 `English-Name.md`（中文别名放 YAML aliases） | § 5.2 |
 
 如发现格式不符合 physics-manager 规范的笔记，在输出报告中标注 `⚠️ 格式异常`，但不中断写入流程。
 
@@ -205,25 +205,24 @@ Daily Notes 文件命名格式：`YYYY-MM-DD.md`，例如 `2026-03-29.md`
 ### 📚 文献阅读进展
 
 - **正在阅读**：《A fault-tolerant neutral-atom architecture for universal quantum computation》（Bluvstein et al., 2026）
-  - 重点概念：[[量子纠错 (QEC)]]、[[深度电路执行 (Deep-Circuit Execution)]]、[[表面码 (Surface Code)]]、[[张量积 (Tensor Product)]]、[[光镊阵列 (Optical Tweezer Arrays)]]、[[拉比振荡 (Rabi Flopping)]]、[[横向纠缠门 (Transversal Gate)]]、[[反对易关系 (Anti-Commutation)]]、[[门算符本征态 (Gate Eigenstates)]]、[[量子芝诺效应 (Quantum Zeno Effect)]]、[[CZ门 (CZ Gate)]]、[[泡利矩阵(Pauli Matrices)]]
-  - LLM 深度解析：deep-circuit execution（深层电路执行机制与逻辑隐形传态的关联）
+  - 重点概念：[[QEC\|量子纠错]]、[[Deep-Circuit-Execution\|深度电路执行]]、[[Surface-Code\|表面码]]、[[Tensor-Product\|张量积]]、[[Optical-Tweezer-Arrays\|光镊阵列]]、[[Rabi-Flopping\|拉比振荡]]、[[Transversal-Gate\|横向纠缠门]]、[[Anti-Commutation\|反对易关系]]、[[Gate-Eigenstates\|门算符本征态]]、[[Quantum-Zeno-Effect\|量子芝诺效应]]、[[CZ-Gate\|CZ门]]、[[Pauli-Matrices\|泡利矩阵]]\n  - LLM 深度解析：deep-circuit execution（深层电路执行机制与逻辑隐形传态的关联）
 
 ### 🧠 本周新建知识笔记（共 12 篇）
 
 | 笔记名 | 来源文献 | 状态 | 含公式 |
 |---|---|---|---|
-| [[量子纠错 (QEC)]] | [[generall quantum 2026]] | Draft | — |
-| [[深度电路执行 (Deep-Circuit Execution)]] | [[generall quantum 2026]] | Draft | — |
-| [[表面码 (Surface Code)]] | [[generall quantum 2026]] | Draft | — |
-| [[量子芝诺效应 (Quantum Zeno Effect)]] | [[generall quantum 2026]] | Draft | — |
-| [[CZ门 (CZ Gate)]] | [[generall quantum 2026]] | Draft | — |
-| [[张量积 (Tensor Product)]] | [[generall quantum 2026]] | Draft | — |
-| [[门算符本征态 (Gate Eigenstates)]] | [[generall quantum 2026]] | Draft | — |
-| [[光镊阵列 (Optical Tweezer Arrays)]] | [[generall quantum 2026]] | Draft | — |
-| [[拉比振荡 (Rabi Flopping)]] | [[generall quantum 2026]] | Draft | — |
-| [[横向纠缠门 (Transversal Gate)]] | [[generall quantum 2026]] | Draft | — |
-| [[反对易关系 (Anti-Commutation)]] | [[generall quantum 2026]] | Draft | — |
-| [[泡利矩阵(Pauli Matrices)]] | [[generall quantum 2026]] | Draft | ✅ |
+| [[QEC\|量子纠错]] | [[generall-quantum-2026]] | Draft | — |
+| [[Deep-Circuit-Execution\|深度电路执行]] | [[generall-quantum-2026]] | Draft | — |
+| [[Surface-Code\|表面码]] | [[generall-quantum-2026]] | Draft | — |
+| [[Quantum-Zeno-Effect\|量子芝诺效应]] | [[generall-quantum-2026]] | Draft | — |
+| [[CZ-Gate\|CZ门]] | [[generall-quantum-2026]] | Draft | — |
+| [[Tensor-Product\|张量积]] | [[generall-quantum-2026]] | Draft | — |
+| [[Gate-Eigenstates\|门算符本征态]] | [[generall-quantum-2026]] | Draft | — |
+| [[Optical-Tweezer-Arrays\|光镊阵列]] | [[generall-quantum-2026]] | Draft | — |
+| [[Rabi-Flopping\|拉比振荡]] | [[generall-quantum-2026]] | Draft | — |
+| [[Transversal-Gate\|横向纠缠门]] | [[generall-quantum-2026]] | Draft | — |
+| [[Anti-Commutation\|反对易关系]] | [[generall-quantum-2026]] | Draft | — |
+| [[Pauli-Matrices\|泡利矩阵]] | [[generall-quantum-2026]] | Draft | ✅ |
 
 ### 🔗 双向链接建立情况
 

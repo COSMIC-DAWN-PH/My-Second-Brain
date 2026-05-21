@@ -89,6 +89,14 @@ plt.show()
 
 > 本 vault 不再使用 Mermaid 图表，所有数据图均由 Python 生成。
 
+## 🧠 智能体长期记忆与用户画像 (Agent Memory & User Profile)
+
+任何进入本笔记库的 AI 助理，**在生成任何物理推导、编写讲义或解释概念前，必须率先读取并在内存中加载** [user_profile.json](file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/memory/user_profile.json)。
+
+AI 助理必须根据该画像中所记录的用户学业阶段与物理背景，动态调整所有技术内容的解释深度：
+- **严格适配知识边界**：绝不引入超出用户当前学习进度的数学或物理大山。对于已学过的概念（如自旋、表象理论），可以直接调用并作为推导基础；对于正在学习的概念（如微扰论），在公式推导前必须做充足的物理图像铺垫。
+- **语言与绘图风格偏好**：严格遵循用户在 `vault_preferences` 中设置的双语分工与 CJK-Warning-Free 绘图审美风格。
+
 ## Commands
 
 - **Skills**: Type `/` in chat and select the skill name, or describe the task naturally
