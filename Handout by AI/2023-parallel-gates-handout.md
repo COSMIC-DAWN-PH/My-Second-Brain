@@ -48,6 +48,32 @@
 
 **核心挑战**：如何在保持高保真度的同时实现并行化？答案是：精心设计激光脉冲的时序和波形，让每个原子对"各自独立地"经历相同的受控演化。
 
+你可以用以下代码**直观感受误差随电路深度的累积效应**——这解释了为什么单门保真度必须达到 >99.5% 才能运行有实用价值的深度电路：
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+D = np.arange(1, 201, 1)  # Circuit depth (gate layers)
+p_vals = [0.01, 0.005, 0.001, 0.0005]  # Per-gate error rates
+labels = ['99.0%', '99.5%', '99.9%', '99.95%']
+
+plt.figure(figsize=(7, 4.0))
+for p, lab in zip(p_vals, labels):
+    p_cum = 1 - (1 - p)**D
+    plt.plot(D, p_cum * 100, lw=2, label=f'Gate Fidelity = {lab}')
+
+plt.axhline(y=50, color='gray', ls=':', alpha=0.5, label='50% Error (Failure)')
+plt.xlabel('Circuit Depth $D$ (gate layers)')
+plt.ylabel('Cumulative Error Rate (%)')
+plt.title('Error Accumulation vs Circuit Depth')
+plt.yscale('log')
+plt.grid(alpha=0.3, ls=':')
+plt.legend(frameon=False, loc='upper left')
+plt.tight_layout()
+plt.show()
+```
+
 ---
 
 ## 2. 中性原子量子计算平台介绍 {#anchor-2}
@@ -157,6 +183,40 @@ $$H_{\text{int}} = \frac{C_6}{r^6} |r\rangle\langle r| \otimes |r\rangle\langle 
 
 **类比理解**：想象两个人在相邻的蹦床上。如果左边的人跳得很高（原子 A 在里德堡态），他引起的振动会传到右边，使得右边的人很难跳到相同的高度（原子 B 无法被激发到里德堡态）。
 
+你可以用以下代码**可视化里德堡阻塞的物理机制**——范德华势随距离的变化和阻塞半径的定义：
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Van der Waals interaction parameters (n=53, Rb-87)
+r = np.linspace(1.5, 6.0, 500)       # atomic separation (um)
+C6 = 28800.0                          # MHz * um^6
+V = C6 / (r ** 6)                     # interaction potential (MHz)
+Omega = 2 * np.pi * 4.6               # Rabi frequency (MHz)
+Rb = (C6 / Omega) ** (1/6)            # blockade radius (um)
+
+plt.figure(figsize=(7, 4.0))
+plt.plot(r, V, '-', color='#d62728', lw=2, label=r'$V(r) = C_6 / r^6$')
+plt.axhline(y=Omega, color='#2ca02c', ls='-.', lw=1.5, 
+            label=r'Rabi Freq $\Omega = 2\pi\times4.6$ MHz')
+plt.axvline(x=Rb, color='#9467bd', ls=':', lw=1.5,
+            label=fr'Blockade Radius $R_b \approx {Rb:.2f}\,\mu$m')
+plt.fill_between(r[r <= Rb], 0, V[r <= Rb], color='#d62728', alpha=0.1,
+                 label='Blockade Region')
+plt.yscale('log')
+plt.ylim(1e-1, 2e4)
+plt.xlabel(r'Atomic Separation $r$ ($\mu$m)')
+plt.ylabel(r'Interaction $V(r)/2\pi$ (MHz)')
+plt.title('Rydberg Blockade: Van der Waals Potential')
+plt.grid(alpha=0.3, ls=':')
+plt.legend(frameon=False)
+plt.tight_layout()
+plt.show()
+```
+
+该图清晰地展示了：当原子间距 $d = 2.0$ μm 时，相互作用势高达 $\sim 450$ MHz，远大于 $\Omega$，因此阻塞是绝对完美的。
+
 ---
 
 ## 5. 两比特 CZ 门的基本原理 {#anchor-5}
@@ -220,6 +280,40 @@ $$H_{\text{int}} = \frac{C_6}{r^6} |r\rangle\langle r| \otimes |r\rangle\langle 
 ### 具体怎么实现？
 
 **DRAG（Derivative Removal by Adiabatic Gate）技术**是实现时间最优单脉冲门的核心方法。
+
+你可以用以下代码**对比传统矩形脉冲与 DRAG 优化脉冲的形状**，直观理解 DRAG 如何抑制高频分量：
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+t = np.linspace(0, 300, 500)  # Time (ns)
+T_pi = 150                     # pi-pulse duration (ns)
+
+# Rectangular pulse
+rect = np.where((t >= 40) & (t <= T_pi + 40), 1.0, 0.0)
+
+# DRAG pulse (Gaussian + derivative correction)
+sigma = T_pi / 4
+gauss = np.exp(-0.5 * ((t - T_pi/2 - 40) / sigma)**2)
+drag_corr = -0.3 * (t - T_pi/2 - 40) / sigma**2 * gauss
+drag_amp = gauss + drag_corr
+
+# Plot
+plt.figure(figsize=(7, 4.0))
+plt.plot(t, rect, '--', color='#1f77b4', lw=2, alpha=0.6, label='Rectangular Pulse')
+plt.plot(t, drag_amp, '-', color='#d62728', lw=2, label='DRAG Pulse')
+plt.fill_between(t, 0, drag_amp, color='#d62728', alpha=0.1)
+plt.xlabel('Time $t$ (ns)')
+plt.ylabel('Normalized Amplitude')
+plt.title('DRAG Pulse Shape vs Rectangular Pulse')
+plt.grid(alpha=0.3, ls=':')
+plt.legend(frameon=False)
+plt.tight_layout()
+plt.show()
+```
+
+注意到 DRAG 脉冲的平滑包络和附加的过零点——正是这种精心设计的形状，将高频分量推离中间态共振频率，实现了散射抑制。
 
 传统的矩形脉冲（恒定振幅）存在问题：它包含许多高频傅里叶分量，会无意中激发不需要的能级（尤其是中间态 $|e\rangle$），导致散射损失。
 
@@ -353,6 +447,34 @@ RB 的核心思想：用**随机化的门序列**来探测门的平均错误率�
 
 **物理直觉**：如果把每次随机门操作比作"骰子掷硬币"，那么每次门操作的错误就像骰子稍微偏向某一面的轻微偏差。掷的次数越多（序列越长），偏差累积越明显。通过测量保真度随序列长度的衰减率，我们就能量化每次门的平均错误率。
 
+你可以用以下代码**模拟 RB 指数衰减曲线**，直观理解保真度如何从序列长度中提取：
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+m = np.array([1, 5, 9, 13, 21, 31, 51, 71, 101])
+p_vals = [0.9990, 0.9952, 0.9995]  # per-gate fidelity
+labels = ['99.90%', '99.52% (This work)', '99.95%']
+
+plt.figure(figsize=(7, 4.0))
+for p, lab in zip(p_vals, labels):
+    F = 0.5 + 0.5 * p**m  # RB decay: F(m) = A + B * p^m
+    lw = 2.5 if 'This work' in lab else 1.5
+    ls = '-' if 'This work' in lab else '--'
+    plt.plot(m, F * 100, ls=ls, lw=lw, label=f'$F = {lab}$')
+
+plt.xlabel('Clifford Sequence Length $m$')
+plt.ylabel('Survival Probability (%)')
+plt.title('Randomized Benchmarking: Fidelity Decay')
+plt.grid(alpha=0.3, ls=':')
+plt.legend(frameon=False)
+plt.tight_layout()
+plt.show()
+```
+
+这条衰减曲线的指数斜率直接给出了每门错误率——这就是 RB 方法剥离 SPAM 误差的核心原理。
+
 **结果**：
 - 单比特门错误率：$1.2 \times 10^{-4}$（$99.88\%$ 保真度）
 - 两比特 CZ 门错误率：$4.3 \times 10^{-3}$（$99.57\%$ 保真度）
@@ -397,6 +519,46 @@ RB 的核心思想：用**随机化的门序列**来探测门的平均错误率�
 - 成功演示了 **32 对原子同时执行 CZ 门**
 - 60 个量子比特上进行了多轮纠缠操作
 - 所有原子对的平均 Bell 态保真度达到 $98.5\% \pm 0.5\%$
+
+你可以用以下代码**绘制并行门操作的空间布局示意**，理解"区块化"的分区策略如何避免串扰：
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 8x8 grid with 2x4 blocks
+fig, ax = plt.subplots(figsize=(6, 6))
+N = 8
+for i in range(N):
+    for j in range(N):
+        block_id = (i // 2) * (N // 4) + (j // 4)
+        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728',
+                  '#9467bd', '#8c564b', '#e377c2', '#7f7f7f']
+        color = colors[block_id % len(colors)]
+        circle = plt.Circle((j, i), 0.3, color=color, ec='black', lw=0.5)
+        ax.add_patch(circle)
+
+# Highlight one 2x4 block
+rect = plt.Rectangle((0, 0), 4, 2, fill=False, ec='black', lw=2, ls='--')
+ax.add_patch(rect)
+ax.annotate('2x4 Block\n(8 atoms, 4 pairs)', xy=(2, 1), xycoords='data',
+            xytext=(5, 1.5), fontsize=9, ha='center',
+            arrowprops=dict(arrowstyle='->', lw=1))
+
+ax.set_xlim(-0.5, N - 0.5)
+ax.set_ylim(-0.5, N - 0.5)
+ax.set_aspect('equal')
+ax.set_xticks(range(N))
+ax.set_yticks(range(N))
+ax.set_xlabel('Column')
+ax.set_ylabel('Row')
+ax.set_title('Parallel Gate Operation: 8x8 Atom Array\n(Colors = Independent Blocks)')
+ax.grid(alpha=0.2)
+plt.tight_layout()
+plt.show()
+```
+
+不同色块代表可同时执行门操作的独立区块。关键在于：同一区块内的原子间距足够小（产生阻塞），而不同区块间的距离足够大（避免串扰）。
 
 ---
 
@@ -547,14 +709,14 @@ $$CCZ = (\text{CNOT}_{12})(\text{CNOT}_{13})(\text{CZ}_{23})$$
 ### 延伸学习路径
 
 **入门路径**：
-1. 先掌握 [[拉比振荡 (Rabi Flopping)]] 的物理（已具备）
-2. 学习 [[里德堡阻塞 (Rydberg Blockade)]] 的详细机制
-3. 阅读 [[光镊阵列 (Optical Tweezer Arrays)]] 的实验实现
+1. 先掌握 [[Rabi-Flopping|拉比振荡 (Rabi Flopping)]] 的物理（已具备）
+2. 学习 [[Rydberg-Blockade|里德堡阻塞 (Rydberg Blockade)]] 的详细机制
+3. 阅读 [[Optical-Tweezer-Arrays|光镊阵列 (Optical Tweezer Arrays)]] 的实验实现
 4. 再回到本文深度阅读
 
 **进阶路径**：
-1. 学习 [[量子纠错 (QEC)]] 的基本框架（[[表面码 (Surface Code)]]）
-2. 阅读 [[深度电路执行 (Deep-Circuit Execution)]] 的最新进展
+1. 学习 [[QEC|量子纠错 (QEC)]] 的基本框架（[[Surface-Code|表面码 (Surface Code)]]）
+2. 阅读 [[Deep-Circuit-Execution|深度电路执行 (Deep-Circuit Execution)]] 的最新进展
 3. 探索 Bluvstein 2026 论文中的横向纠缠门和逻辑量子比特
 
 ---
