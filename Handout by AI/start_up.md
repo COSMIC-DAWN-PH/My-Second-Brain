@@ -21,7 +21,7 @@ status: In-Progress
 
 ### 1. 从原子物理的自旋耦合谈起
 
-让我们复习一下原子物理中经典的**自旋-轨道耦合**与**超精细结构**。
+让我们复习一下原子物理中经典的**自旋-轨道耦合（Spin-Orbit Coupling）**与**超精细结构（Hyperfine Structure）**。
 铷-87 ($^{87}\mathrm{Rb}$) 是碱金属原子，其最外层只有一个价电子。
 - 它的核自旋为 $I = 3/2$。
 - 电子的总角动量在基态 $5S_{1/2}$ 时，轨道角动量 $L = 0$，电子自旋 $S = 1/2$，因此电子总角动量为 $J = 1/2$。
@@ -31,7 +31,7 @@ $$
 \mathbf{F} = \mathbf{I} + \mathbf{J}
 $$
 由于 $I=3/2, J=1/2$，耦合后的总角动量量子数 $F$ 只能取两个值：
-- $F = I + J = 2$ （共 $2F+1 = 5$ 个磁子能级，即 $m_F = -2, -1, 0, 1, 2$）
+- $F = I + J = 2$ （共 $2F+1 = 5$ 个磁子能级（magnetic sublevel / Zeeman sublevel），即 $m_F = -2, -1, 0, 1, 2$）
 - $F = I - J = 1$ （共 $2F+1 = 3$ 个磁子能级，即 $m_F = -1, 0, 1$）
 
 这两个超精细能级之间的能量差在零外场下非常精确地等于 $6.8347\,\mathrm{GHz}$，这属于微波波段。
@@ -48,7 +48,7 @@ $$
 
 > 💡 **建立物理直觉：为什么非要选择 $m_F=0$ 的状态？**
 > 想象一下，如果实验室里有微弱的杂散磁场波动。根据 Zeeman 效应，磁子能级会发生分裂，移动大小为 $\Delta E = g_F \mu_B B m_F$。
-> 如果我们选 $m_F \neq 0$ 的态，磁场的微小波动就会剧烈改变 $|0\rangle$ 和 $|1\rangle$ 的能量差，导致相位漂移，也就是去相干！
+> 如果我们选 $m_F \neq 0$ 的态，磁场的微小波动就会剧烈改变 $|0\rangle$ 和 $|1\rangle$ 的能量差，导致相位漂移，也就是去相干（decoherence）！
 > 而由于我们选了 $m_F = 0$，**一阶 Zeeman 位移恰好为零**！这使得编码在其中的量子比特对磁场涨落有极强的免疫力，相干时间（$T_2^*$）极大延长。这就是用单原子做量子比特的天然优势——高度一致且极其稳定。
 
 在实验中，研究人员利用 [[Optical-Tweezer-Arrays|光镊阵列]] 将一个个铷原子囚禁在高度聚焦的激光束中，排列成一维或二维的阵列，每个光镊里刚好装一个原子，从而构建出极其整齐的量子比特阵列。
@@ -70,7 +70,7 @@ $$
 $$
 P_{|1\rangle}(t) = \sin^2\left(\frac{\Omega t}{2}\right)
 $$
-这就是最基础的共振拉比振荡。如果施加一个时间满足 $\Omega t = \pi$ 的脉冲（即 $\pi$ 脉冲），就能实现量子比特的完全翻转（等效于 Pauli $X$ 门）。
+这就是最基础的共振拉比振荡（resonant Rabi oscillation）。如果施加一个时间满足 $\Omega t = \pi$ 的脉冲（即 $\pi$ 脉冲），就能实现量子比特的完全翻转（等效于 Pauli $X$ 门）。
 
 你可以通过以下 Python 代码在 Obsidian 中实时绘制并感受共振与非共振下拉比振荡的物理图像区别：
 
@@ -105,7 +105,7 @@ plt.show()
 > ❓ **这里有一个技术痛点**：
 > 从基态 $|1\rangle$ 直接跃迁到里德伯态 $|r\rangle$ 需要波长非常短的深紫外激光（例如 $297\,\mathrm{nm}$）。这种紫外激光光子能量极高，不仅产生困难，而且极易导致原子电离或散射，带来不可容忍的噪声。
 >
-> **物理学家的绝妙解决方案**：**双光子共振过渡**！
+> **物理学家的绝妙解决方案**：**双光子共振过渡（two-photon resonance transition）**！
 > 我们用两束激光：一束蓝色激光 ($420\,\mathrm{nm}$) 和一束红色激光 ($1013\,\mathrm{nm}$)，它们通过一个处于中间的短寿命激发态 $|e\rangle \equiv |6P_{3/2}\rangle$ 间接地将原子送上去！
 
 现在，我们的系统从二能级变成了三能级，基底为 $\{|1\rangle, |e\rangle, |r\rangle\}$。
@@ -117,13 +117,13 @@ H = \hbar \begin{pmatrix} 0 & \Omega_b/2 & 0 \\ \Omega_b/2 & -\Delta & \Omega_r/
 $$
 
 当单光子失谐 $\Delta$ 远大于激光的拉比频率时（即 $\Delta \gg \Omega_b, \Omega_r$），原子的电子几乎“没有时间”真正停留在中间态 $|e\rangle$。在物理上，我们可以将中间态 $|e\rangle$ **绝热消去（Adiabatic Elimination）**。
-消去后，系统重新退化为一个有效二能级系统 $\{|1\rangle, |r\rangle\}$，其有效拉比频率为：
+消去后，系统重新退化为一个有效二能级系统（effective two-level system） $\{|1\rangle, |r\rangle\}$，其有效拉比频率为：
 $$
 \Omega_{\mathrm{eff}} \approx \frac{\Omega_b \Omega_r}{2\Delta}
 $$
 
 > ⚠️ **关键的物理缺陷：自发辐射**
-> 中间态 $|e\rangle$ 毕竟是有寿命的（寿命 $\tau_e \approx 110\,\mathrm{ns}$），即使我们使用了很大的失谐 $\Delta$，电子依然有极其微小的概率被激发到 $|e\rangle$ 并发生随机的自发辐射。这种自发辐射是这篇 Nature 论文之前限制门保真度的最主要物理噪声源！
+> 中间态 $|e\rangle$ 毕竟是有寿命的（寿命 $\tau_e \approx 110\,\mathrm{ns}$），即使我们使用了很大的失谐 $\Delta$，电子依然有极其微小的概率被激发到 $|e\rangle$ 并发生随机的自发辐射。这种自发辐射是这篇 Nature 论文之前限制门保真度（gate fidelity）的最主要物理噪声源！
 
 ### 3. 暗态物理学——化阻碍为武器
 
@@ -134,7 +134,7 @@ $$
 $$
 |D\rangle = \frac{1}{\sqrt{1+\alpha^2}} |1\rangle - \frac{\alpha}{\sqrt{1+\alpha^2}} |r\rangle
 $$
-因为这个状态不包含任何短寿命中间态 $|e\rangle$ 的成分，所以即使它处于强激光照耀下，也绝对不会发生自发辐射散射！这在物理上被称为**相干完美相消**，该本征态即为**暗态**。
+因为这个状态不包含任何短寿命中间态 $|e\rangle$ 的成分，所以即使它处于强激光照耀下，也绝对不会发生自发辐射散射！这在物理上被称为**相干完美相消（coherent perfect cancellation）**，该本征态即为**暗态**。
 相反，另外两个本征态会包含 $|e\rangle$ 的成分，称为**明态（Bright State）**：
 $$
 |B\rangle \approx \frac{\alpha}{\sqrt{1+\alpha^2}} |1\rangle + \frac{\alpha\Omega_r}{2\Delta} |e\rangle + \frac{1}{\sqrt{1+\alpha^2}} |r\rangle
@@ -229,7 +229,7 @@ plt.show()
 里德伯阻塞的物理过程非常直白：
 如果两个原子挨得很近（距离为 $r$），当一个原子已经被激发到里德伯态 $|r\rangle$ 时，它会给旁边的第二个原子施加一个巨大的能量移动 $V_{\mathrm{Ryd}}(r)$。如果激光只和单原子共振，那么因为能量不匹配，**第二个原子就绝对无法被激发到里德伯态**！这种一个原子的激发“霸占”了周围空间，使得其余原子被“阻塞”在基态的现象，就是**里德伯阻塞**。
 
-我们定义**阻塞半径** $R_b$ 为相互作用能量刚好等于激光驱动强度 $\Omega$ 的位置：
+我们定义**阻塞半径（blockade radius）** $R_b$ 为相互作用能量刚好等于激光驱动强度 $\Omega$ 的位置：
 $$
 \frac{C_6}{R_b^6} = \hbar\Omega \implies R_b = \left(\frac{C_6}{\hbar\Omega}\right)^{1/6}
 $$
@@ -307,15 +307,15 @@ $$
 $$
 H_{\text{drive}} = \frac{\hbar\Omega}{2} (|1r\rangle\langle 11| + |r1\rangle\langle 11|) + \mathrm{h.c.}
 $$
-为了看清物理本质，我们进行**基矢变换**（表象理论的基底变换）。我们注意到，系统具有左右原子的交换对称性，因此我们定义对称和反对称基矢：
+为了看清物理本质，我们进行**基矢变换（basis transformation）**（表象理论的基底变换）。我们注意到，系统具有左右原子的交换对称性，因此我们定义对称和反对称基矢：
 - 对称基（又称 W 态）：$|W\rangle \equiv \frac{|1r\rangle + |r1\rangle}{\sqrt{2}}$
 - 反对称基：$|A\rangle \equiv \frac{|1r\rangle - |r1\rangle}{\sqrt{2}}$
 
 现在，我们将 $H_{\text{drive}}$ 作用于这组新基上：
-- $H_{\text{drive}}|A\rangle = 0$ （反对称态由于对称性，无法被单模全球激光耦合，被完全隔离）。
+- $H_{\text{drive}}|A\rangle = 0$ （反对称态由于对称性，无法被单模全球激光（global laser beam）耦合，被完全隔离）。
 - $H_{\text{drive}}|11\rangle = \frac{\hbar\Omega}{2} (|1r\rangle + |r1\rangle) = \frac{\hbar\sqrt{2}\Omega}{2} |W\rangle$。
 
-这简直是魔术！在计算基 $|11\rangle$ 与对称激发态 $|W\rangle$ 构成的有效二能级子空间中，系统哈密顿量写为：
+这简直是魔术！在计算基 $|11\rangle$ 与对称激发态 $|W\rangle$ 构成的有效二能级子空间中，系统哈密顿量（Hamiltonian）写为：
 $$
 H_{2Q} = \frac{\hbar}{2} \begin{pmatrix} 0 & \sqrt{2}\Omega \\ \sqrt{2}\Omega & 0 \end{pmatrix}
 $$
@@ -326,7 +326,7 @@ $$
 
 ---
 
-## 🎨 第四部分：最佳控制门方案——时间最优与平滑振幅门
+## 🎨 第四部分：最佳控制门方案——时间最优门（Time-Optimal Gate）与平滑振幅门（Smooth-Amplitude Gate）
 
 现在我们有了实现纠缠的筹码：单原子状态以速度 $\Omega$ 摆动，双原子状态以速度 $\sqrt{2}\Omega$ 摆动。那么我们如何设计一束精确的激光脉冲，让它们演化完毕后，刚好实现一个 [[CZ-Gate|CZ 纠缠门]] 呢？
 
@@ -342,7 +342,7 @@ $$
 $$
 \Delta \Phi \equiv \phi_{2Q} - 2\phi_{1Q} = (2k+1)\pi \pmod{2\pi}
 $$
-通常我们选择 $\Delta \Phi = \pi$。单比特积累的额外相位 $\phi_{1Q}$ 可以通过非常简单且无误差的“虚拟 Z 门”（在激光控制软件中直接给后续脉冲改变一个相位参考）来完美补偿。
+通常我们选择 $\Delta \Phi = \pi$。单比特积累的额外相位 $\phi_{1Q}$ 可以通过非常简单且无误差的“虚拟 Z 门（virtual Z gate）”（在激光控制软件中直接给后续脉冲改变一个相位参考）来完美补偿。
 
 ### 2. 脉冲设计方案：时间最优门 vs 平滑振幅门
 
@@ -434,7 +434,7 @@ plt.show()
 
 ## 📊 第五部分：基准测试——如何证明门保真度达到了 99.5%？
 
-在物理实验中，声称自己做出了 $99.5\%$ 的超高保真度门，需要极其严苛的实验证明。单纯制备一个贝尔态并去测量它是远远不够的。
+在物理实验中，声称自己做出了 $99.5\%$ 的超高保真度门，需要极其严苛的实验证明。单纯制备一个贝尔态（Bell state）并去测量它是远远不够的。
 
 ### 1. 为什么 Bell 态直接测量保真度会有上限？
 
@@ -443,12 +443,12 @@ $$
 |\Phi^+\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}}
 $$
 然后去测它的保真度，你可能会得到一个 $98.0\%$ 的数值。
-但这并不代表门保真度只有 $98\%$！因为在实验中，**状态的初始化准备**（State Preparation）和**最后的成像测量**（Measurement）本身就分别有约 $0.5\%$ 的固有误差。这种误差在学术上被称为 **SPAM 误差**。
+但这并不代表门保真度只有 $98\%$！因为在实验中，**状态的初始化准备**（State Preparation）和**最后的成像测量**（Measurement）本身就分别有约 $0.5\%$ 的固有误差。这种误差在学术上被称为 **SPAM 误差（State Preparation and Measurement error）**。
 直接测量会把 SPAM 误差算在门操作的头上，从而低估了门的纯保真度。
 
-### 2. 论文的物理妙招：门累积与指数衰减拟合
+### 2. 论文的物理妙招：门累积与指数衰减拟合（exponential decay fitting）
 
-为了彻底剥离 SPAM 误差，论文采用了一种非常经典的量子信息表征方法：**相干门列车**（门累积法）。
+为了彻底剥离 SPAM 误差，论文采用了一种非常经典的量子信息表征方法：**相干门列车（coherent gate train）**（门累积法）。
 - 如图 2c 所示，作者在两个原子上连续施加奇数个 $\mathrm{CZ}$ 门（如 $1, 5, 9, 13$ 个）。
 - 每施加两个 $\mathrm{CZ}$ 门，系统理论上会经历“纠缠 $\to$ 解纠缠”的完整循环，重新回到初始状态。
 - 如果门本身有误差，那么随着门施加次数 $N_{\mathrm{CZ}}$ 的增加，最终测得的态保真度会发生相干衰减。
@@ -458,7 +458,7 @@ $$
   $$
 - 关键的数学直觉：**SPAM 误差只影响常数系数 $A$，而每一次门发生的纯粹物理误差则决定了衰减的快慢（底数 $F_{\mathrm{CZ}}$）**！
 
-通过这种方式，作者成功剥离了测量仪器和准备过程的噪声，提取出纯粹的 $\mathrm{CZ}$ 两比特纠缠门物理保真度高达 **$99.52(4)\%$**，这一数值成功跨越了量子纠错著名的“表面码阈值”（$99\%$），成为中性原子量子计算历史上的重大里程碑！
+通过这种方式，作者成功剥离了测量仪器和准备过程的噪声，提取出纯粹的 $\mathrm{CZ}$ 两比特纠缠门物理保真度高达 **$99.52(4)\%$**，这一数值成功跨越了量子纠错著名的“表面码阈值（surface code threshold）”（$99\%$），成为中性原子量子计算历史上的重大里程碑！
 
 ---
 
@@ -477,3 +477,39 @@ $$
 | $F_{\mathrm{CZ}}$ | 本论文实现的纠缠门最高保真度 | $99.52(4)\%$ |
 
 祝贺你！你现在已经彻底建立起了这篇 Nature 论文的全部核心物理图像，并用大二的量子力学工具推导了其最本质的动力学。现在，充满信心地去打开 `2023-parallel gates.pdf` 原文吧，你一定会势如破竹！
+
+---
+
+## 💡 新知识点补全提醒
+
+以下概念在本次讲义中首次出现，目前尚未被收录到你的两个知识库中，建议补充笔记：
+
+### 1. Adiabatic Elimination — 绝热消去
+> 当中间态失谐 $\Delta$ 远大于驱动强度时，可以"消去"中间态自由度，将三能级系统约化为有效二能级。核心结果：$\Omega_{\text{eff}} \approx \Omega_b\Omega_r/(2\Delta)$。
+> 📍 **建议位置**：`Rydberg atom/Adiabatic-Elimination.md`
+> 🔗 **建议链接**：[[Rabi-Flopping]]、[[Rydberg-Blockade]]
+
+### 2. Dark State / Bright State — 暗态与亮态（完整笔记）
+> 你的 Rydberg-Blockade.md 目前还是空文件。建议补全暗态的完整推导：暗态 $|D\rangle$ 与中间态耦合为零，完全避免散射；明态 $|B\rangle$ 包含中间态成分，容易产生自发辐射。
+> 📍 **建议位置**：`Rydberg atom/Rydberg-Blockade.md`（已有文件，补充内容）
+> 🔗 **建议链接**：[[Gate-Eigenstates]]、[[Rabi-Flopping]]
+
+### 3. Symmetric / Antisymmetric Basis (W State) — 对称/反对称基矢
+> 里德堡阻塞下双原子系统的对称基 $|W\rangle = (|1r\rangle + |r1\rangle)/\sqrt{2}$ 和反对称基 $|A\rangle = (|1r\rangle - |r1\rangle)/\sqrt{2}$。$|W\rangle$ 态是纠缠态，其三体版本是 GHZ 态之外的另一类多体纠缠态。
+> 📍 **建议位置**：`Rydberg atom/W-State.md`
+> 🔗 **建议链接**：[[Tensor-Product]]、[[CZ-Gate]]
+
+### 4. Coherent Gate Train — 相干门列车方法
+> 通过连续施加奇数个 CZ 门（1, 5, 9, 13…），测量保真度随门次数的指数衰减，从而**剥离 SPAM 误差**提取纯粹门保真度。
+> 📍 **建议位置**：`Rydberg atom/Coherent-Gate-Train.md`
+> 🔗 **建议链接**：[[CZ-Gate]]、[[QEC]]
+
+### 5. SPAM Error — 初始化和测量误差
+> State Preparation and Measurement Error：实验中初始化（光泵浦需 $\sim 99.5\%$）和测量（荧光读取）固有的误差。必须通过门累积或 RB 等方法剥离，不能通过单次 Bell 态测量来标定门保真度。
+> 📍 **建议位置**：`Rydberg atom/SPAM-Error.md`
+> 🔗 **建议链接**：[[QEC]]、[[Randomized-Benchmarking]]
+
+### 6. Virtual Z Gate — 虚拟 Z 门
+> 单比特相位 $\phi_{1Q}$ 可以通过在后续激光脉冲中改变相位参考来**零成本补偿**，无需物理执行任何门操作。这是量子编译中的标准技巧。
+> 📍 **建议位置**：`Rydberg atom/Virtual-Z-Gate.md`
+> 🔗 **建议链接**：[[CZ-Gate]]、[[Pauli-Matrices]]
