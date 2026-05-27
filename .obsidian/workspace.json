@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Handout by AI/2023-parallel-gates-handout.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -190,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 316.5
+    "width": 295.5
   },
   "left-ribbon": {
     "hiddenItems": {
