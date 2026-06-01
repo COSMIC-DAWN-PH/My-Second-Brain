@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780301614255-nichkjk60",
+  "providerId": "claude",
+  "title": "你好",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780301614255,
+  "updatedAt": 1780301642284,
+  "lastResponseAt": 1780301642284,
+  "sessionId": "218fe457-78df-494e-bb98-875e3b9cdf32",
+  "providerState": {
+    "providerSessionId": "218fe457-78df-494e-bb98-875e3b9cdf32"
+  },
+  "usage": {
+    "model": "mimo-v2.5",
+    "inputTokens": 96,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 22464,
+    "contextWindow": 200000,
+    "contextTokens": 22560,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}
