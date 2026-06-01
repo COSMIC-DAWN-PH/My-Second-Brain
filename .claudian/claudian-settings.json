@@ -1,7 +1,7 @@
 {
   "userName": "",
   "permissionMode": "yolo",
-  "model": "mimo-v2.5",
+  "model": "sonnet[1m]",
   "thinkingBudget": "off",
   "effortLevel": "max",
   "serviceTier": "default",
@@ -78,7 +78,7 @@
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "mimo-v2.5",
+    "claude": "sonnet[1m]",
     "codex": "gpt-5.5"
   },
   "savedProviderEffort": {
@@ -93,7 +93,7 @@
     "claude": "yolo",
     "codex": "yolo"
   },
-  "lastCustomModel": "mimo-v2.5",
+  "lastCustomModel": "deepseek-v4-flash",
   "maxTabs": 3,
   "tabBarPosition": "input",
   "enableAutoScroll": true,

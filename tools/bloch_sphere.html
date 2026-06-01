@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloch Sphere — Single-Qubit Gates</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; color: #e0e0e0;
+  }
+  .container {
+    display: flex; gap: 24px; padding: 20px;
+    max-width: 1100px; width: 100%; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sphere-panel {
+    background: #16213e; border-radius: 16px; padding: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  canvas { display: block; border-radius: 8px; cursor: grab; }
+  canvas:active { cursor: grabbing; }
+
+  .controls {
+    background: #16213e; border-radius: 16px; padding: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    min-width: 320px; display: flex; flex-direction: column; gap: 16px;
+  }
+  .controls h2 {
+    font-size: 18px; color: #7ec8e3; font-weight: 700;
+    border-bottom: 2px solid #0f3460; padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn {
+    padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer;
+    font-size: 14px; font-weight: 600; color: #fff;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  .btn:active { transform: translateY(0); }
+  .btn-x { background: #1f77b4; }
+  .btn-z { background: #d62728; }
+  .btn-h { background: #2ca02c; }
+  .btn-s { background: #ff7f0e; }
+  .btn-t { background: #9467bd; }
+  .btn-reset { background: #555; }
+  .btn-rot { background: #17becf; }
+
+  .state-label {
+    background: #0f3460; border-radius: 8px; padding: 12px 16px;
+    font-size: 15px; text-align: center; font-family: 'Consolas', monospace;
+  }
+  .bloch-coords {
+    font-size: 13px; color: #a0a0a0; text-align: center;
+  }
+  .legend { font-size: 12px; color: #888; line-height: 1.6; }
+  .legend span { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="sphere-panel">
+    <canvas id="bloch" width="480" height="480"></canvas>
+    <div class="bloch-coords" id="coords">Drag to rotate view</div>
+  </div>
+  <div class="controls">
+    <h2>Single-Qubit Gates</h2>
+    <div class="btn-row">
+      <button class="btn btn-x" onclick="applyGate('X')">X (NOT)</button>
+      <button class="btn btn-z" onclick="applyGate('Z')">Z (Phase)</button>
+      <button class="btn btn-h" onclick="applyGate('H')">H (Hadamard)</button>
+      <button class="btn btn-s" onclick="applyGate('S')">S (&#960;/2)</button>
+      <button class="btn btn-t" onclick="applyGate('T')">T (&#960;/4)</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-rot" onclick="applyGate('Rx')">Rx(&#960;/2)</button>
+      <button class="btn btn-rot" onclick="applyGate('Ry')">Ry(&#960;/2)</button>
+      <button class="btn btn-rot" onclick="applyGate('Rz')">Rz(&#960;/2)</button>
+      <button class="btn btn-reset" onclick="resetState()">Reset |0&#10217;</button>
+    </div>
+    <div class="state-label" id="stateDisplay">|0&#10217;</div>
+    <div class="legend">
+      <span style="background:#1f77b4;"></span> = |0&#10217; &nbsp;
+      <span style="background:#d62728;"></span> = |1&#10217; &nbsp;
+      <span style="background:#2ca02c;"></span> = |+&#10217; &nbsp;
+      <span style="background:#ff7f0e;"></span> = |+i&#10217;<br>
+      Gates = unitary rotations on the Bloch sphere
+    </div>
+  </div>
+</div>
+
+<script>
+  const canvas = document.getElementById('bloch');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const CX = W / 2, CY = H / 2;
+  const R = 170;
+
+  // State vector (Bloch sphere coords: theta=colatitude, phi=azimuth)
+  let theta = 0;        // 0 = north pole |0>, pi = south pole |1>
+  let phi = 0;
+
+  // Camera rotation for interactive drag
+  let camAzimuth = -0.4;
+  let camElevation = 0.3;
+  let dragging = false;
+  let lastX = 0, lastY = 0;
+
+  function stateToVec() {
+    return {
+      x: Math.sin(theta) * Math.cos(phi),
+      y: Math.sin(theta) * Math.sin(phi),
+      z: Math.cos(theta)
+    };
+  }
+
+  function vecToState(v) {
+    theta = Math.acos(Math.max(-1, Math.min(1, v.z)));
+    phi = Math.atan2(v.y, v.x);
+    if (phi < 0) phi += 2 * Math.PI;
+  }
+
+  function rotate3D(v, axis, angle) {
+    const c = Math.cos(angle), s = Math.sin(angle);
+    const t = 1 - c;
+    const ax = axis.x, ay = axis.y, az = axis.z;
+    return {
+      x: (t*ax*ax + c)*v.x     + (t*ax*ay - s*az)*v.y + (t*ax*az + s*ay)*v.z,
+      y: (t*ax*ay + s*az)*v.x  + (t*ay*ay + c)*v.y     + (t*ay*az - s*ax)*v.z,
+      z: (t*ax*az - s*ay)*v.x  + (t*ay*az + s*ax)*v.y + (t*az*az + c)*v.z
+    };
+  }
+
+  function applyGate(gate) {
+    let v = stateToVec();
+    const ang = Math.PI / 2;
+    switch (gate) {
+      case 'X': v = rotate3D(v, {x:1,y:0,z:0}, Math.PI); break;
+      case 'Z': v = rotate3D(v, {x:0,y:0,z:1}, Math.PI); break;
+      case 'H': {
+        const axis = { x: 1/Math.SQRT2, y: 0, z: 1/Math.SQRT2 };
+        v = rotate3D(v, axis, Math.PI);
+        break;
+      }
+      case 'S': v = rotate3D(v, {x:0,y:0,z:1}, Math.PI/2); break;
+      case 'T': v = rotate3D(v, {x:0,y:0,z:1}, Math.PI/4); break;
+      case 'Rx': v = rotate3D(v, {x:1,y:0,z:0}, ang); break;
+      case 'Ry': v = rotate3D(v, {x:0,y:1,z:0}, ang); break;
+      case 'Rz': v = rotate3D(v, {x:0,y:0,z:1}, ang); break;
+    }
+    vecToState(v);
+    draw();
+  }
+
+  function resetState() { theta = 0; phi = 0; draw(); }
+
+  function proj3D(x, y, z) {
+    // Apply camera rotation
+    let x1 = x * Math.cos(camAzimuth) - z * Math.sin(camAzimuth);
+    let z1 = x * Math.sin(camAzimuth) + z * Math.cos(camAzimuth);
+    let y1 = y * Math.cos(camElevation) - z1 * Math.sin(camElevation);
+    let z2 = y * Math.sin(camElevation) + z1 * Math.cos(camElevation);
+    return { x: CX + x1 * R, y: CY - y1 * R, depth: z2 };
+  }
+
+  function drawSpherePoints(nLat, nLon) {
+    const pts = [];
+    for (let i = 0; i <= nLat; i++) {
+      const lat = Math.PI * i / nLat;
+      const ring = [];
+      for (let j = 0; j <= nLon; j++) {
+        const lon = 2 * Math.PI * j / nLon;
+        const x = Math.sin(lat) * Math.cos(lon);
+        const y = Math.sin(lat) * Math.sin(lon);
+        const z = Math.cos(lat);
+        ring.push(proj3D(x, y, z));
+      }
+      pts.push(ring);
+    }
+    return pts;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(0, 0, W, H);
+
+    const grid = drawSpherePoints(24, 48);
+
+    // Draw latitude lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.lineWidth = 1;
+    for (const ring of grid) {
+      ctx.beginPath();
+      for (let j = 0; j < ring.length; j++) {
+        const p = ring[j];
+        j === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+    }
+
+    // Draw longitude lines
+    for (let j = 0; j <= 48; j++) {
+      ctx.beginPath();
+      for (let i = 0; i < grid.length; i++) {
+        const p = grid[i][j];
+        i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+    }
+
+    // Outer outline (silhouette)
+    ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.arc(CX, CY, R, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    // Axes
+    const origin = proj3D(0, 0, 0);
+    const axes = [
+      { v: {x:1,y:0,z:0}, color: '#aaa', label: 'x' },
+      { v: {x:0,y:1,z:0}, color: '#aaa', label: 'y' },
+      { v: {x:0,y:0,z:1}, color: '#1f77b4', label: '|0>' },
+    ];
+    for (const ax of axes) {
+      const end = proj3D(ax.v.x, ax.v.y, ax.v.z);
+      ctx.strokeStyle = ax.color;
+      ctx.lineWidth = 1.2;
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(origin.x - (end.x - origin.x) * 0.9, origin.y - (end.y - origin.y) * 0.9);
+      ctx.lineTo(end.x, end.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // Key state markers
+    const keyPts = [
+      { v: {x:0,y:0,z:1}, label: '|0>', col: '#1f77b4' },
+      { v: {x:0,y:0,z:-1}, label: '|1>', col: '#d62728' },
+      { v: {x:1,y:0,z:0}, label: '|+>', col: '#2ca02c' },
+      { v: {x:-1,y:0,z:0}, label: '|->', col: '#2ca02c' },
+      { v: {x:0,y:1,z:0}, label: '|+i>', col: '#ff7f0e' },
+      { v: {x:0,y:-1,z:0}, label: '|-i>', col: '#ff7f0e' },
+    ];
+    for (const kp of keyPts) {
+      const p = proj3D(kp.v.x, kp.v.y, kp.v.z);
+      ctx.fillStyle = kp.col;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4.5, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 11px "Segoe UI", system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText(kp.label, p.x, p.y - 12);
+    }
+
+    // Current state vector
+    const sv = stateToVec();
+    const sp = proj3D(sv.x, sv.y, sv.z);
+
+    // Draw state vector line
+    ctx.strokeStyle = '#ffcc00';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(CX, CY);
+    ctx.lineTo(sp.x, sp.y);
+    ctx.stroke();
+
+    // State point
+    const grad = ctx.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, 14);
+    grad.addColorStop(0, '#fff');
+    grad.addColorStop(0.3, '#ffcc00');
+    grad.addColorStop(1, 'rgba(255,204,0,0)');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(sp.x, sp.y, 14, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.fillStyle = '#ffcc00';
+    ctx.beginPath();
+    ctx.arc(sp.x, sp.y, 6, 0, 2 * Math.PI);
+    ctx.fill();
+
+    // Update state display
+    const tDeg = (theta * 180 / Math.PI).toFixed(1);
+    const pDeg = (phi * 180 / Math.PI).toFixed(1);
+    const a = Math.cos(theta / 2);
+    const bRe = Math.sin(theta / 2) * Math.cos(phi);
+    const bIm = Math.sin(theta / 2) * Math.sin(phi);
+    let stateStr;
+    if (Math.abs(theta) < 0.02) stateStr = '|0>';
+    else if (Math.abs(theta - Math.PI) < 0.02) stateStr = '|1>';
+    else if (Math.abs(theta - Math.PI/2) < 0.02 && Math.abs(phi) < 0.02) stateStr = '|+>';
+    else if (Math.abs(theta - Math.PI/2) < 0.02 && Math.abs(phi - Math.PI) < 0.02) stateStr = '|->';
+    else if (Math.abs(theta - Math.PI/2) < 0.02 && Math.abs(phi - Math.PI/2) < 0.02) stateStr = '|+i>';
+    else if (Math.abs(theta - Math.PI/2) < 0.02 && Math.abs(phi - 3*Math.PI/2) < 0.02) stateStr = '|-i>';
+    else stateStr = a.toFixed(3) + '|0> + (' + bRe.toFixed(3) + (bIm>=0?'+':'') + bIm.toFixed(3)+'i)|1>';
+    document.getElementById('stateDisplay').innerHTML = stateStr;
+    document.getElementById('coords').textContent =
+      `theta = ${tDeg}deg  |  phi = ${pDeg}deg`;
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    dragging = true; lastX = e.clientX; lastY = e.clientY;
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const dx = (e.clientX - lastX) * 0.005;
+    const dy = (e.clientY - lastY) * 0.005;
+    camAzimuth += dx;
+    camElevation = Math.max(-Math.PI/2, Math.min(Math.PI/2, camElevation + dy));
+    lastX = e.clientX; lastY = e.clientY;
+    draw();
+  });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  canvas.addEventListener('touchstart', (e) => {
+    dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; e.preventDefault();
+  }, {passive: false});
+  canvas.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
+    const dx = (e.touches[0].clientX - lastX) * 0.005;
+    const dy = (e.touches[0].clientY - lastY) * 0.005;
+    camAzimuth += dx;
+    camElevation = Math.max(-Math.PI/2, Math.min(Math.PI/2, camElevation + dy));
+    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+    draw(); e.preventDefault();
+  }, {passive: false});
+  canvas.addEventListener('touchend', () => { dragging = false; });
+
+  draw();
+</script>
+</body>
+</html>
