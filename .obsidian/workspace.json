@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/Transversal-Teleportation.md",
+                "file": "Rydberg atom/Single-Qubit-Gates.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Transversal-Teleportation"
+              "title": "Single-Qubit-Gates"
             }
           }
         ]
@@ -190,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 618.5
+    "width": 283.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,21 +206,23 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "db7a4d12af225bbd",
+  "active": "e7450bd268df1ad7",
   "lastOpenFiles": [
+    "Rydberg atom/Single-Qubit-Gates.md.tmp.492.2a1b386ebede",
+    "Rydberg atom/Rydberg-Blockade.md",
+    "Rydberg atom/Single-Qubit-Gates.md",
+    "Rydberg atom/Single-Qubit-Gates.md.tmp.492.3afe7b88967d",
+    "Rydberg atom/Transversal-Teleportation.md",
     "AGENTS.md",
     "Rydberg atom/Surface-Code.md",
-    "Rydberg atom/Rydberg-Blockade.md",
     "CZ门 (CZ Gate).md",
     "Rydberg atom/Tensor-Product.md",
     "反对易关系 (Anti-Commutation).md",
     "光镊阵列 (Optical Tweezer Arrays).md",
     "Rydberg atom/Quantum-Zeno-Effect.md",
     "CLAUDE.md",
-    "Rydberg atom/Single-Qubit-Gates.md",
     "Rydberg atom/Transversal-Gate.md",
     "Handout by AI/2023-parallel-gates-handout.md",
-    "Rydberg atom/Transversal-Teleportation.md",
     "Rydberg atom/Pauli-Matrices.md",
     "Rydberg atom/Transversal-Teleportation.md.tmp.19032.de0c61cb41fb",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
@@ -239,11 +241,9 @@
     "Rydberg atom/Tensor-Product.md.tmp.17300.c956053a7231",
     "Rydberg atom/Deep-Circuit-Execution.md.tmp.17300.834467a8a2f2",
     "Rydberg atom/Tensor-Product.md.tmp.17300.847322efb473",
-    "Rydberg atom/Tensor-Product.md.tmp.17300.78f766e1c720",
     "横向隐形传态 (Transversal Teleportation).md",
     "readme.md",
     "横向隐形传态（Transversal Teleportation）.md",
-    "Literature/generall quantum 2026.md",
     "Handout by AI/dark_state_physics.png",
     "Handout by AI/gate_waveforms.png",
     "Handout by AI/rabi_oscillations.png",

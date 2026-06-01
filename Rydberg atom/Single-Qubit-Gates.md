@@ -276,91 +276,93 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
-fig = plt.figure(figsize=(14, 5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
 
-# --- Left panel: Bloch sphere with gate actions ---
-ax1 = fig.add_subplot(121, projection='3d')
+# --- Left panel: 2D Bloch sphere diagram ---
+ax1.set_xlim(-2.2, 2.2)
+ax1.set_ylim(-2.2, 2.2)
+ax1.set_aspect('equal')
+ax1.axis('off')
+ax1.set_title('Bloch Sphere (2D Projection)', fontsize=12, fontweight='bold', pad=10)
 
-# Draw sphere wireframe
-u = np.linspace(0, 2 * np.pi, 40)
-v = np.linspace(0, np.pi, 20)
-x = np.outer(np.cos(u), np.sin(v))
-y = np.outer(np.sin(u), np.sin(v))
-z = np.outer(np.ones_like(u), np.cos(v))
-ax1.plot_surface(x, y, z, alpha=0.05, color='#1f77b4', edgecolor='gray', linewidth=0.3)
+# Outer circle
+theta = np.linspace(0, 2 * np.pi, 100)
+ax1.plot(np.cos(theta), np.sin(theta), color='gray', linewidth=1, alpha=0.4)
+# Equator ellipse
+ax1.plot(np.cos(theta), 0.3 * np.sin(theta), color='gray', linewidth=0.8,
+         linestyle='--', alpha=0.3)
 
 # Axes
-ax1.quiver(0, 0, 0, 1.5, 0, 0, color='gray', arrow_length_ratio=0.08, lw=1)
-ax1.quiver(0, 0, 0, 0, 1.5, 0, color='gray', arrow_length_ratio=0.08, lw=1)
-ax1.quiver(0, 0, 0, 0, 0, 1.5, color='gray', arrow_length_ratio=0.08, lw=1)
-ax1.text(1.6, 0, 0, r'$x$', fontsize=11, color='gray')
-ax1.text(0, 1.6, 0, r'$y$', fontsize=11, color='gray')
-ax1.text(0, 0, 1.6, r'$|0\rangle$', fontsize=11, color='#1f77b4', fontweight='bold')
-ax1.text(0, 0, -1.6, r'$|1\rangle$', fontsize=11, color='#d62728', fontweight='bold')
+ax1.annotate('', xy=(0, 1.85), xytext=(0, -1.85),
+            arrowprops=dict(arrowstyle='<->', color='gray', lw=1.2))
+ax1.annotate('', xy=(1.85, 0), xytext=(-1.85, 0),
+            arrowprops=dict(arrowstyle='<->', color='gray', lw=1.2))
 
-# Mark key states
-key_states = {
-    r'$|+\rangle$': (1, 0, 0),
-    r'$|-\rangle$': (-1, 0, 0),
-    r'$|+i\rangle$': (0, 1, 0),
-    r'$|-i\rangle$': (0, -1, 0),
-}
-for label, (sx, sy, sz) in key_states.items():
-    ax1.scatter(sx, sy, sz, color='#ff7f0e', s=40, zorder=5)
+# Axis labels (plain text + single LaTeX symbol, no mixed mode)
+ax1.text(0, 2.05, r'$|0\rangle$', fontsize=11, ha='center',
+         color='#1f77b4', fontweight='bold')
+ax1.text(0, -2.15, r'$|1\rangle$', fontsize=11, ha='center',
+         color='#d62728', fontweight='bold')
+ax1.text(2.05, 0, r'$|+\rangle$', fontsize=11, ha='center',
+         color='#2ca02c', fontweight='bold')
+ax1.text(-2.05, 0, r'$|-\rangle$', fontsize=11, ha='center',
+         color='#2ca02c', fontweight='bold')
+ax1.text(0.55, 1.65, r'$|{+i}\rangle$', fontsize=9, ha='center',
+         color='#ff7f0e', fontweight='bold')
+ax1.text(-0.55, -1.65, r'$|{-i}\rangle$', fontsize=9, ha='center',
+         color='#ff7f0e', fontweight='bold')
 
-ax1.text(1.1, 0.2, 0.2, r'$|+\rangle$', fontsize=9, color='#ff7f0e')
-ax1.text(-1.4, 0.2, 0.2, r'$|-\rangle$', fontsize=9, color='#ff7f0e')
-ax1.text(0.2, 1.1, 0.2, r'$|{+i}\rangle$', fontsize=9, color='#ff7f0e')
+# Rotation arrows
+ax1.annotate('', xy=(0.6, 1.55), xytext=(-0.6, 1.55),
+            arrowprops=dict(arrowstyle='->', color='#1f77b4', lw=2,
+                           connectionstyle='arc3,rad=-0.5'))
+ax1.text(0, 1.35, r'$R_x$', fontsize=9, ha='center', color='#1f77b4',
+         fontweight='bold')
 
-# Z rotation arrow (blue arc)
-theta_z = np.linspace(0, np.pi, 30)
-x_arc = 0.3 * np.cos(theta_z)
-y_arc = 0.3 * np.sin(theta_z)
-z_arc = np.full_like(theta_z, 0.8)
-ax1.plot(x_arc, y_arc, z_arc, color='#1f77b4', lw=2)
-ax1.text(0.1, 0.35, 0.85, r'$R_z$', fontsize=9, color='#1f77b4', fontweight='bold')
+arc_z = np.linspace(0, np.pi, 30)
+ax1.plot(0.5 * np.cos(arc_z), 0.5 * np.sin(arc_z), color='#d62728', lw=2)
+ax1.annotate('', xy=(-0.5, 0), xytext=(0.35, 0.35),
+            arrowprops=dict(arrowstyle='->', color='#d62728', lw=2))
+ax1.text(0.7, 0.4, r'$R_z$', fontsize=9, ha='center', color='#d62728',
+         fontweight='bold')
 
-ax1.set_xlim(-1.8, 1.8)
-ax1.set_ylim(-1.8, 1.8)
-ax1.set_zlim(-1.8, 1.8)
-ax1.set_title('Bloch Sphere & Gate Actions', fontsize=12, fontweight='bold', pad=0)
-ax1.view_init(elev=15, azim=30)
-ax1.set_axis_off()
+ax1.annotate('', xy=(1.5, 0.5), xytext=(0, 1.5),
+            arrowprops=dict(arrowstyle='->', color='#2ca02c', lw=2,
+                           connectionstyle='arc3,rad=-0.3'))
+ax1.text(1.0, 1.2, r'$H$', fontsize=10, ha='center', color='#2ca02c',
+         fontweight='bold')
 
-# --- Right panel: Gate summary table as visual ---
-ax2 = fig.add_subplot(122)
+# --- Right panel: Gate cheat sheet (plain text only, no LaTeX) ---
 ax2.set_xlim(0, 10)
 ax2.set_ylim(0, 8)
 ax2.axis('off')
 ax2.set_title('Single-Qubit Gate Cheat Sheet', fontsize=12, fontweight='bold', pad=10)
 
 gates = [
-    (r'$X$', r'$\begin{pmatrix}0&1\\1&0\end{pmatrix}$', r'NOT / flip', '#1f77b4'),
-    (r'$Z$', r'$\begin{pmatrix}1&0\\0&{-1}\end{pmatrix}$', r'Phase flip', '#d62728'),
-    (r'$H$', r'$\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&{-1}\end{pmatrix}$', r'Make superposition', '#2ca02c'),
-    (r'$S$', r'$\begin{pmatrix}1&0\\0&i\end{pmatrix}$', r'$\pi/2$ phase', '#ff7f0e'),
-    (r'$T$', r'$\begin{pmatrix}1&0\\0&e^{i\pi/4}\end{pmatrix}$', r'$\pi/4$ phase', '#9467bd'),
-    (r'$R_x(\theta)$', r'$\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}X$', r'Rotate x-axis', '#17becf'),
+    ('X', '[[0,1],[1,0]]', 'NOT / flip', '#1f77b4'),
+    ('Z', 'diag(1,-1)', 'Phase flip', '#d62728'),
+    ('H', '(1/sqrt2)*[[1,1],[1,-1]]', 'Superposition', '#2ca02c'),
+    ('S', 'diag(1, i)', 'pi/2 phase', '#ff7f0e'),
+    ('T', 'diag(1, e^{i pi/4})', 'pi/4 phase', '#9467bd'),
+    ('Rx(t)', 'cos(t/2)*I - i*sin(t/2)*X', 'Rotate x-axis', '#17becf'),
 ]
 
 y_start = 7.2
 for i, (name, mat, desc, col) in enumerate(gates):
     y = y_start - i * 1.2
-    # Gate name
     ax2.add_patch(mpatches.FancyBboxPatch((0.2, y - 0.35), 1.5, 0.7,
                  boxstyle='round,pad=0.1', facecolor=col, edgecolor='black',
                  linewidth=1.5, alpha=0.8))
     ax2.text(0.95, y, name, ha='center', va='center', fontsize=11,
             color='white', fontweight='bold')
-    # Matrix
     ax2.text(3.5, y, mat, ha='center', va='center', fontsize=9, color='#333')
-    # Description
-    ax2.text(7.5, y, desc, ha='center', va='center', fontsize=10, color=col, fontweight='bold')
+    ax2.text(7.5, y, desc, ha='center', va='center', fontsize=10, color=col,
+            fontweight='bold')
 
-ax2.text(5, -0.3, r'$\bullet$ All gates are unitary: $U^\dagger U = I$', fontsize=9,
+ax2.text(5, -0.3, 'All gates are unitary: U^dag U = I', fontsize=9,
         ha='center', color='gray', style='italic')
 
-plt.subplots_adjust(left=0.02, right=0.98, top=0.92, bottom=0.08, wspace=0.3)
+plt.tight_layout()
 plt.show()
 ```
 

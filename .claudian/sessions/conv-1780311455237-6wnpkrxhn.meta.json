@@ -4,20 +4,20 @@
   "title": "Transversal-Teleportation 这个物理内容介绍不清楚啊，按照新的md文件撰写",
   "titleGenerationStatus": "failed",
   "createdAt": 1780311455238,
-  "updatedAt": 1780314617059,
-  "lastResponseAt": 1780314617059,
+  "updatedAt": 1780321491899,
+  "lastResponseAt": 1780321491899,
   "sessionId": "330c945b-0490-4ffe-8295-4137a8354f71",
   "providerState": {
     "providerSessionId": "330c945b-0490-4ffe-8295-4137a8354f71"
   },
   "usage": {
     "model": "mimo-v2.5",
-    "inputTokens": 154,
+    "inputTokens": 3736,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 105216,
+    "cacheReadInputTokens": 115648,
     "contextWindow": 200000,
-    "contextTokens": 105370,
-    "percentage": 53,
+    "contextTokens": 119384,
+    "percentage": 60,
     "contextWindowIsAuthoritative": true
   }
 }
