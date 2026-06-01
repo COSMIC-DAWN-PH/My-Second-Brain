@@ -360,7 +360,7 @@ for i, (name, mat, desc, col) in enumerate(gates):
 ax2.text(5, -0.3, r'$\bullet$ All gates are unitary: $U^\dagger U = I$', fontsize=9,
         ha='center', color='gray', style='italic')
 
-plt.tight_layout()
+plt.subplots_adjust(left=0.02, right=0.98, top=0.92, bottom=0.08, wspace=0.3)
 plt.show()
 ```
 
