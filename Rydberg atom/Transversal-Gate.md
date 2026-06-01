@@ -78,6 +78,13 @@ $$
 | $\bar{U}$ | 横向逻辑门 | $\bar{U} = U^{\otimes n}$ |
 | $\overline{\text{CZ}}$ | 横向 CZ 门 | $\bigotimes_i \text{CZ}^{(i)}$（对应物理 qubit 对） |
 
+## 🔗 相关笔记
+
+- [[单量子比特门 (Single-Qubit Gates)]] — 横向门的单比特组成部分
+- [[横向隐形传态 (Transversal Teleportation)]] — 横向门的核心应用场景
+- [[量子纠错 (QEC)]] — 横向门在纠错码中的容错性来源
+- [[里德堡阻塞 (Rydberg Blockade)]] — 横向 CZ 门的物理实现机制
+
 ## 📝 更新记录
 
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

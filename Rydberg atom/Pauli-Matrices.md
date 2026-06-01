@@ -155,6 +155,14 @@ $$
 | $\{\sigma_j,\sigma_k\}$ | 反对易关系 | $2\delta_{jk}I$ |
 | $R_{\hat{n}}(\theta)$ | 旋转门 | $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$ |
 
+## 🔗 相关笔记
+
+- [[单量子比特门 (Single-Qubit Gates)]] — 所有单比特门的系统总览：Pauli 门、H 门、S/T 门、旋转门
+- [[门算符本征态 (Gate Eigenstates)]] — Pauli 门的本征态与本征值
+- [[CZ门 (CZ Gate)]] — 里德堡阻塞实现的门操作的逻辑定义
+- [[拉比振荡 (Rabi Flopping)]] — $\pi$ 脉冲的物理基础
+- [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门的容错方案
+
 ## 📝 更新记录
 
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

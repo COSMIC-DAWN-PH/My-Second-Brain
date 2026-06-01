@@ -81,6 +81,13 @@ $$
 | $d$ | 码距（code distance） | 最少需要翻转多少个物理比特才能将一个逻辑错误变成另一个 |
 | $S_i$ | 稳定子生成元 | $S_i|\psi\rangle_L = +|\psi\rangle_L$ |
 
+## 🔗 相关笔记
+
+- [[单量子比特门 (Single-Qubit Gates)]] — 稳定子测量中使用的单比特门
+- [[横向纠缠门 (Transversal Gate)]] — 容错逻辑门的核心机制
+- [[横向隐形传态 (Transversal Teleportation)]] — 深度电路中的错误清除协议
+- [[表面码 (Surface Code)]] — 最有前景的具体纠错码
+
 ## 📝 更新记录
 
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

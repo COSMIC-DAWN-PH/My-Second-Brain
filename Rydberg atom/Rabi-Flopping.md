@@ -116,6 +116,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[单量子比特门 (Single-Qubit Gates)]] — 拉比振荡在门操作语言中的对应：$R_x(\theta)$ 旋转门
 - [[里德堡阻塞 (Rydberg Blockade)]] — 拉比振荡驱动的里德堡跃迁产生阻塞效应
 - [[CZ门 (CZ Gate)]] — 利用 π 脉冲和阻塞实现两比特门
 - [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门

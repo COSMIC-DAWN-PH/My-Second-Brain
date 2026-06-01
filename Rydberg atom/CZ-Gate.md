@@ -88,6 +88,7 @@ $$
 
 - [[里德堡阻塞 (Rydberg Blockade)]] — CZ 门的物理实现机制
 - [[拉比振荡 (Rabi Flopping)]] — $\pi$ 脉冲的物理基础
+- [[单量子比特门 (Single-Qubit Gates)]] — 与 CZ 门组合构成通用门集的单比特门
 - [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门的容错方案
 
 ## 📝 更新记录
