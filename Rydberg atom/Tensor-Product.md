@@ -4,6 +4,7 @@ tags: [Physics, Quantum, Mathematics, LinearAlgebra]
 date: 2026-03-29
 status: Draft
 source: "[[generall quantum 2026]]"
+comprehension: "vague"
 ---
 
 # 张量积（Tensor Product）
@@ -21,6 +22,9 @@ $$
 $$
 
 这解释了为什么 2 个 qubit 有 4 个基矢 $\{|00\rangle, |01\rangle, |10\rangle, |11\rangle\}$，$n$ 个 qubit 有 $2^n$ 个基矢（量子计算指数级加速的来源）。
+
+> [!tip] 为什么需要张量积？
+> 张量积的物理意义是组合独立系统。两个独立量子比特的状态空间不能简单相加（直和），而必须用张量积来描述，因为联合系统的状态可能包含纠缠态——无法分解为各自独立状态的乘积。
 
 ## 2. 向量的张量积
 
@@ -50,6 +54,9 @@ $$
 X \otimes Z = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} \otimes \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix} = \begin{pmatrix}0\cdot Z & 1\cdot Z \\ 1\cdot Z & 0\cdot Z\end{pmatrix} = \begin{pmatrix}0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0\end{pmatrix}
 $$
 
+> [!warning] 常见误区：张量积 ≠ 矩阵乘法
+> $A \otimes B$ 不等于 $A \times B$（矩阵乘法）。张量积会扩大矩阵维度（$2\times2 \otimes 2\times2 = 4\times4$），而矩阵乘法要求维度匹配且结果维度不变。初学者常把 Kronecker 积与普通矩阵乘法混淆。
+
 ## 4. 重要性质
 
 | 性质 | 说明 |
@@ -68,6 +75,9 @@ $$
 
 在 [[反对易关系 (Anti-Commutation)]] 的计算中，张量积结构决定了哪些算符对易、哪些反对易。
 
+> [!info] 稳定子算符作为 Pauli 张量积
+> 稳定子码（如表面码）中的稳定子算符本质上是 Pauli 矩阵的张量积，例如 $X^{\otimes 4} = X \otimes X \otimes X \otimes X$。每个稳定子只在局部 qubit 上作用一个 Pauli 矩阵，整体通过张量积构建。这种结构使得 syndrome 提取可以并行执行。
+
 ---
 
 ## 📐 核心公式摘要
@@ -77,3 +87,7 @@ $$
 | $\otimes$ | 张量积 | $\begin{pmatrix}a\\b\end{pmatrix}\otimes\begin{pmatrix}c\\d\end{pmatrix} = \begin{pmatrix}ac\\ad\\bc\\bd\end{pmatrix}$ |
 | $\mathcal{H}_n$ | $n$ qubit 态空间维数 | $\dim = 2^n$ |
 | $(A\otimes B)(C\otimes D)$ | 张量积复合 | $= AC \otimes BD$ |
+
+## 📝 更新记录
+
+- 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

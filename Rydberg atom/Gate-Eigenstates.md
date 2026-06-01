@@ -4,6 +4,7 @@ tags: [Physics, Quantum, Mathematics, Gates, LinearAlgebra]
 date: 2026-03-29
 status: Draft
 source: "[[generall quantum 2026]]"
+comprehension: "vague"
 ---
 
 # 门算符本征态（Gate Operator Eigenstates）
@@ -21,6 +22,9 @@ $$
 其中 $\lambda$ 是对应的**本征值**。
 
 物理含义：若系统处于本征态，对 $\hat{A}$ 的测量结果**确定**为 $\lambda$（无态坍缩的随机性）。
+
+> [!tip] 本征态的直观理解
+> 本征态就是"被算符作用后除了一个相位因子外保持不变"的状态。比如 $Z|0\rangle = +1 \cdot |0\rangle$，系统完全没有变化；$Z|1\rangle = -1 \cdot |1\rangle$，只多了一个全局相位（物理上不可观测）。
 
 ## 2. Pauli 门的本征态
 
@@ -56,6 +60,9 @@ $$
 | $+1$ | $|i\rangle = \frac{|0\rangle+i|1\rangle}{\sqrt{2}}$ |
 | $-1$ | $|-i\rangle = \frac{|0\rangle-i|1\rangle}{\sqrt{2}}$ |
 
+> [!warning] X 本征态 vs Z 本征态
+> 注意区分：Z 的本征态是计算基 $\{|0\rangle, |1\rangle\}$，而 X 的本征态是叠加态 $\{|\pm\rangle\}$。这两组基完全不同——它们是对易关系 $[X,Z] \neq 0$ 的直接体现。在 QEC 中，X 型和 Z 型稳定子测量对应不同的本征基。
+
 ## 3. 为什么本征态在 QEC 中重要？
 
 在 [[量子纠错 (QEC)]] 中，**稳定子**就是门算符，**逻辑码字**就是这些稳定子的**本征值 $+1$ 的本征态**：
@@ -65,6 +72,9 @@ S_i|\psi\rangle_L = +1 \cdot |\psi\rangle_L \quad \forall i
 $$
 
 当错误发生时，某些稳定子的本征值从 $+1$ 变为 $-1$，这就是 syndrome 信号。这本质上就是测量"某些门算符作用后状态变没变"。
+
+> [!info] 为什么稳定子本征态定义了码空间
+> 稳定子码的码空间是所有稳定子本征值为 $+1$ 的本征态的交集。这相当于同时对所有稳定子测量结果为"无错误"的子空间。任何错误都会将系统推出这个子空间，使某些稳定子的本征值变为 $-1$，从而暴露错误位置。
 
 ## 4. 旋转门的本征态
 
@@ -81,3 +91,7 @@ $$
 | $Z$ | $|0\rangle$ | $|1\rangle$ |
 | $X$ | $|+\rangle = (|0\rangle+|1\rangle)/\sqrt{2}$ | $|-\rangle = (|0\rangle-|1\rangle)/\sqrt{2}$ |
 | $Y$ | $(|0\rangle+i|1\rangle)/\sqrt{2}$ | $(|0\rangle-i|1\rangle)/\sqrt{2}$ |
+
+## 📝 更新记录
+
+- 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

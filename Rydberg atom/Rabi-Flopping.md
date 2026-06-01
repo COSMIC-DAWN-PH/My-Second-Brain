@@ -4,6 +4,7 @@ tags: [Physics, Quantum, NeutralAtom, RydbergAtom, Dynamics]
 date: 2026-03-29
 status: In-Progress
 source: "[[generall quantum 2026]]"
+comprehension: "vague"
 ---
 
 # 拉比振荡（Rabi Flopping / Rabi Oscillation）
@@ -17,6 +18,9 @@ source: "[[generall quantum 2026]]"
 想象一个二能级原子，在共振激光的驱动下，原子会在基态 $|g\rangle$ 和激发态 $|e\rangle$ 之间**周期性地来回振荡**，就像一个钟摆在两个态之间摆动。这种现象就是**拉比振荡**（Rabi Flopping）。
 
 这是量子光学中最基础的相干驱动现象，也是所有量子比特操控的物理基础。
+
+> [!tip] 钟摆类比
+> 拉比振荡就像一个量子钟摆：原子在 $|g\rangle$ 和 $|e\rangle$ 之间来回摆动。摆动的速度由拉比频率 $\Omega$ 决定——激光越强，摆动越快。完成一次完整的摆动（$|g\rangle \to |e\rangle \to |g\rangle$）需要时间 $2\pi/\Omega$。
 
 ## 2. 哈密顿量与方程推导
 
@@ -90,6 +94,12 @@ $$
 2. **里德堡激发**：将原子从 $|1\rangle$ 激发到里德堡态 $|r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ门 (CZ Gate)]]（经由 [[里德堡阻塞 (Rydberg Blockade)]]）的核心步骤
 3. **稳定子测量**：在 [[量子纠错 (QEC)]] 的 syndrome 提取中，辅助比特经过一系列拉比脉冲与数据比特相互作用后被测量
 
+> [!warning] 易混淆：$\Omega$ vs $\tilde{\Omega}$
+> 共振时（$\Delta=0$）跃迁概率是 $\sin^2(\Omega t/2)$，但失谐时必须用广义拉比频率 $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$。很多初学者忘记失谐修正，导致门保真度计算出错。
+
+> [!info] 为什么 π 脉冲这么重要？
+> π 脉冲（$t = \pi/\Omega$）恰好把原子从 $|g\rangle$ 完全翻转到 $|e\rangle$——这是实现 X 门（量子 NOT 门）的物理基础。π/2 脉冲则产生等权叠加态 $|+\rangle$，是量子并行性的起点。
+
 ---
 
 ## 📐 核心公式摘要
@@ -101,3 +111,17 @@ $$
 | $\tilde{\Omega}$ | 广义拉比频率 | $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$ |
 | $P_{|1\rangle}(t)$ | 跃迁概率（共振） | $\sin^2(\Omega t/2)$ |
 | $P_{|1\rangle}(t)$ | 跃迁概率（失谐） | $(\Omega/\tilde{\Omega})^2 \sin^2(\tilde{\Omega}t/2)$ |
+
+---
+
+## 🔗 相关笔记
+
+- [[里德堡阻塞 (Rydberg Blockade)]] — 拉比振荡驱动的里德堡跃迁产生阻塞效应
+- [[CZ门 (CZ Gate)]] — 利用 π 脉冲和阻塞实现两比特门
+- [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门
+- [[光镊阵列 (Optical Tweezer Arrays)]] — 原子囚禁平台
+
+## 📝 更新记录
+
+- 2026-03-29: 初始创建
+- 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

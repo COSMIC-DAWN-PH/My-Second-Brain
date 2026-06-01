@@ -18,6 +18,7 @@ tags:
 date: 2026-03-29
 status: In-Progress
 source: "[[generall quantum 2026]]"
+comprehension: "vague"
 ---
 
 # 泡利矩阵（Pauli Matrices）
@@ -37,6 +38,9 @@ Z = \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
 $$
 
 加上单位矩阵 $I = \begin{pmatrix}1&0\\0&1\end{pmatrix}$，这四个矩阵构成 $2\times2$ 复厄米矩阵空间的一组**完备基**。
+
+> [!tip] Bloch 球可视化
+> 任何单 qubit 态可以表示为 Bloch 球面上的一个点：$|\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle$。泡利矩阵恰好是 Bloch 球三个坐标轴方向的旋转生成元——X 绕 x 轴、Y 绕 y 轴、Z 绕 z 轴。
 
 ## 2. 每个门的物理意义
 
@@ -81,6 +85,9 @@ $$
 [X, Y] = 2iZ, \quad [Y, Z] = 2iX, \quad [Z, X] = 2iY
 $$
 
+> [!warning] 符号约定：顺序很重要
+> 对易关系中的符号容易出错。记住：$\sigma_x \sigma_z = -\sigma_z \sigma_x$（即 $XZ = -ZX$），而不是 $XZ = ZX$。错误的符号会导致 QEC 稳定子对易性的判断出错。可用右手定则辅助记忆：$[\sigma_x, \sigma_y] = +2i\sigma_z$。
+
 ### 3.3 反对易关系（Anti-Commutation Relation）
 
 $$
@@ -124,6 +131,9 @@ $$
 
 （差一个全局相位 $-i$，不影响物理）
 
+> [!info] 旋转门与 Rabi 振荡的联系
+> 在 Rydberg 原子实验中，旋转门 $R_x(\theta)$ 通过微波或激光脉冲驱动实现，脉冲持续时间决定旋转角度 $\theta$。$\pi$ 脉冲对应 $R_x(\pi)$（完全翻转），$\pi/2$ 脉冲对应 $R_x(\pi/2)$（制备叠加态）。这正是[[拉比振荡 (Rabi Flopping)]]的门操作语言。
+
 ## 5. 与 Rydberg/中性原子体系的关联
 
 在 [[光镊阵列 (Optical Tweezer Arrays)]] 平台中：
@@ -144,3 +154,7 @@ $$
 | $[\sigma_j,\sigma_k]$ | 对易关系 | $2i\epsilon_{jkl}\sigma_l$ |
 | $\{\sigma_j,\sigma_k\}$ | 反对易关系 | $2\delta_{jk}I$ |
 | $R_{\hat{n}}(\theta)$ | 旋转门 | $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$ |
+
+## 📝 更新记录
+
+- 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

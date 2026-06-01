@@ -44,7 +44,12 @@
   "vault_preferences": {
     "preferred_narrative_language": "Chinese (Encouraging, pedagogical, rigorous / 循循善诱、注重物理图像、严格的中文叙述)",
     "preferred_terminology_language": "English (Standard academic terms, no translations for specific gate names / 标准英文学术词汇)",
-    "plot_style": "Scientific English, HSL/Matplotlib premium themes, CJK-Warning-Free, LaTeX double-braces escaped in f-strings"
+    "plot_style": "Scientific English, HSL/Matplotlib premium themes, CJK-Warning-Free, LaTeX double-braces escaped in f-strings",
+    "comprehension_field": {
+      "description": "Rydberg atom/ 知识笔记的 YAML frontmatter 中需要包含 comprehension 字段，用于标记用户对该知识点的理解程度",
+      "valid_values": ["don't understand", "vague", "getting there", "understood"],
+      "example": "comprehension: \"don't understand\""
+    }
   },
-  "last_updated": "2026-05-20T16:36:20+08:00"
+  "last_updated": "2026-06-01T00:00:00+08:00"
 }

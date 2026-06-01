@@ -4,6 +4,7 @@ tags: [Physics, Quantum, ErrorCorrection, SurfaceCode]
 date: 2026-03-29
 status: Draft
 source: "[[generall quantum 2026]]"
+comprehension: "vague"
 ---
 
 # 表面码 (Surface Code)
@@ -33,6 +34,9 @@ source: "[[generall quantum 2026]]"
 
 - **数据 qubit（●）**：存储逻辑信息
 - **辅助 qubit（○）**：用于测量稳定子（syndrome 提取）
+
+> [!tip] 交错棋盘格布局
+> 注意 ● 和 ○ 呈**棋盘格交错排列**——每个辅助 qubit 被数据 qubit 包围，可同时检测周围 4 个 qubit 的错误。这种布局是表面码只需近邻连接的几何基础。
 
 ## 3. 稳定子结构
 
@@ -64,9 +68,15 @@ $$
 p_L \approx \left(\frac{p}{p_{th}}\right)^3 \quad (d=5)
 $$
 
+> [!warning] 常见混淆：码距 ≠ 物理 qubit 数
+> 码距 $d$ 和物理 qubit 数 $n$ 是不同的概念。$d=5$ 的表面码需要 $d^2 + (d-1)^2 = 41$ 个物理 qubit，但**纠错能力仅由 $d$ 决定**。码距才是衡量保护强度的核心指标。
+
 ## 5. 为什么在中性原子平台上特别适合？
 
 [[光镊阵列 (Optical Tweezer Arrays)]] 可以将原子自由排列为二维网格，天然匹配表面码的拓扑结构。通过 [[CZ门 (CZ Gate)]] 实现近邻纠缠操作，配合 [[里德堡阻塞 (Rydberg Blockade)]] 实现高保真度两比特门。
+
+> [!info] 二维布局的天然优势
+> 光镊阵列可以在二维平面上自由排布原子，无需额外布线层。表面码的拓扑结构恰好是二维的——这意味着**不需要三维集成或长程连接**，用当前技术就能直接实现 surface code 的物理 layout。
 
 ---
 
@@ -79,3 +89,7 @@ $$
 | $p_{th}$ | 错误阈值 | $p_{th} \approx 1\%$（表面码） |
 | $A_v$ | X 稳定子 | $A_v = \prod X_e$ |
 | $B_p$ | Z 稳定子 | $B_p = \prod Z_e$ |
+
+## 📝 更新记录
+
+- 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性
