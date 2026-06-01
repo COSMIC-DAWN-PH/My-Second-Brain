@@ -32,7 +32,7 @@
       "enableBangBash": false,
       "enableOpus1M": true,
       "enableSonnet1M": true,
-      "customModels": "mimo-v2.5\nmimo-v2.5-pro",
+      "customModels": "mimo-v2.5\nmimo-v2.5-pro\ndeepseek-v4-pro\ndeepseek-v4-flash",
       "lastModel": "sonnet[1m]",
       "environmentVariables": "",
       "environmentHash": ""
