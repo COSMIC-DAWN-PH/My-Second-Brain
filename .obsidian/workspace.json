@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Handout by AI/2023-parallel-gates-handout.md",
+                "file": "Rydberg atom/CZ-Gate.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2023-parallel-gates-handout"
+              "title": "CZ-Gate"
             }
           }
         ]
@@ -166,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Handout by AI/2023-parallel-gates-handout.md",
+                "file": "Rydberg atom/CZ-Gate.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2023-parallel-gates-handout 的大纲"
+              "title": "CZ-Gate 的大纲"
             }
           },
           {
@@ -207,15 +207,15 @@
   },
   "active": "c33994eac0f544f0",
   "lastOpenFiles": [
-    "Handout by AI/start_up.md",
-    "Handout by AI/2023-parallel-gates-handout.md",
     "Rydberg atom/Anti-Commutation.md",
+    "Literature/generall quantum 2026.md",
+    "Daily Notes/2026-03-29.md",
+    "Handout by AI/2023-parallel-gates-handout.md",
+    "Handout by AI/start_up.md",
     "量子纠错 (QEC).md",
     "Rydberg atom/Rabi-Flopping.md",
     "tools/Zotero_Template.md",
-    "Daily Notes/2026-03-29.md",
     "Literature/Paper-Reading-Order.md",
-    "Literature/generall quantum 2026.md",
     "Rydberg atom/Surface-Code.md",
     "Rydberg atom/Transversal-Gate.md",
     "Rydberg atom/QEC.md",
