@@ -70,7 +70,7 @@ $$
 Y|i\rangle = +1 \cdot |i\rangle, \quad Y|-i\rangle = -1 \cdot |-i\rangle, \quad |{\pm i}\rangle = \frac{|0\rangle \pm i|1\rangle}{\sqrt{2}}
 $$
 
-> **为什么重要？** 在 [[量子纠错 (QEC)]] 中，稳定子就是 Pauli 算符的乘积——逻辑码字被定义为所有稳定子**本征值为 $+1$** 的本征态。详见 [[门算符本征态 (Gate Eigenstates)]]。
+> **为什么重要？** 在 [[QEC]] 中，稳定子就是 Pauli 算符的乘积——逻辑码字被定义为所有稳定子**本征值为 $+1$** 的本征态。详见 [[Gate-Eigenstates]]。
 
 ### 3.2 对易关系（Commutation Relation）
 
@@ -106,7 +106,7 @@ $$
 > $$XZ = \begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix} = \begin{pmatrix}0&-1\\1&0\end{pmatrix}$$
 > $$ZX = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix} = \begin{pmatrix}0&1\\-1&0\end{pmatrix} = -XZ \quad \checkmark$$
 
-详细讨论见 [[反对易关系 (Anti-Commutation)]]。
+详细讨论见 [[Anti-Commutation]]。
 
 ### 3.4 酉性与厄米性
 
@@ -132,15 +132,15 @@ $$
 （差一个全局相位 $-i$，不影响物理）
 
 > [!info] 旋转门与 Rabi 振荡的联系
-> 在 Rydberg 原子实验中，旋转门 $R_x(\theta)$ 通过微波或激光脉冲驱动实现，脉冲持续时间决定旋转角度 $\theta$。$\pi$ 脉冲对应 $R_x(\pi)$（完全翻转），$\pi/2$ 脉冲对应 $R_x(\pi/2)$（制备叠加态）。这正是[[拉比振荡 (Rabi Flopping)]]的门操作语言。
+> 在 Rydberg 原子实验中，旋转门 $R_x(\theta)$ 通过微波或激光脉冲驱动实现，脉冲持续时间决定旋转角度 $\theta$。$\pi$ 脉冲对应 $R_x(\pi)$（完全翻转），$\pi/2$ 脉冲对应 $R_x(\pi/2)$（制备叠加态）。这正是[[Rabi-Flopping]]的门操作语言。
 
 ## 5. 与 Rydberg/中性原子体系的关联
 
-在 [[光镊阵列 (Optical Tweezer Arrays)]] 平台中：
+在 [[Optical-Tweezer-Arrays]] 平台中：
 - $Z$ 的本征基 $\{|0\rangle, |1\rangle\}$ 对应原子的两个**超精细基态**，是 Rydberg 量子比特的自然量子化基底
-- **X 旋转**（$R_x(\pi)$ 即 π 脉冲）通过 [[拉比振荡 (Rabi Flopping)]] 的微波驱动实现
+- **X 旋转**（$R_x(\pi)$ 即 π 脉冲）通过 [[Rabi-Flopping]] 的微波驱动实现
 - **Z 旋转**通过激光相位偏置或 AC Stark Shift 实现
-- 在 [[表面码 (Surface Code)]] 的 syndrome 提取中，稳定子 $A_v = X^{\otimes 4}$ 和 $B_p = Z^{\otimes 4}$ 均为泡利矩阵的[[张量积 (Tensor Product)]]
+- 在 [[Surface-Code]] 的 syndrome 提取中，稳定子 $A_v = X^{\otimes 4}$ 和 $B_p = Z^{\otimes 4}$ 均为泡利矩阵的[[Tensor-Product]]
 
 ---
 
@@ -157,11 +157,11 @@ $$
 
 ## 🔗 相关笔记
 
-- [[单量子比特门 (Single-Qubit Gates)]] — 所有单比特门的系统总览：Pauli 门、H 门、S/T 门、旋转门
-- [[门算符本征态 (Gate Eigenstates)]] — Pauli 门的本征态与本征值
-- [[CZ门 (CZ Gate)]] — 里德堡阻塞实现的门操作的逻辑定义
-- [[拉比振荡 (Rabi Flopping)]] — $\pi$ 脉冲的物理基础
-- [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门的容错方案
+- [[Single-Qubit-Gates]] — 所有单比特门的系统总览：Pauli 门、H 门、S/T 门、旋转门
+- [[Gate-Eigenstates]] — Pauli 门的本征态与本征值
+- [[CZ-Gate]] — 里德堡阻塞实现的门操作的逻辑定义
+- [[Rabi-Flopping]] — $\pi$ 脉冲的物理基础
+- [[Transversal-Gate]] — 并行施加 CZ 门的容错方案
 
 ## 📝 更新记录
 

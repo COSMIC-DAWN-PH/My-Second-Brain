@@ -39,11 +39,11 @@ $$
 \bar{U}|E_i\rangle = U_1 \otimes \cdots \otimes (U\cdot E)_i \otimes \cdots \otimes U_n |\psi_L\rangle
 $$
 
-即错误仍然局限在第 $i$ 个物理 qubit 上，[[量子纠错 (QEC)]] 可以处理。
+即错误仍然局限在第 $i$ 个物理 qubit 上，[[QEC]] 可以处理。
 
 ## 3. 横向 CZ 门
 
-**论文中的横向纠缠门**是横向 [[CZ门 (CZ Gate)]] 的推广：对两个逻辑 qubit $A, B$ 的所有对应物理 qubit 对 $(a_i, b_i)$ 同时施加 CZ 门：
+**论文中的横向纠缠门**是横向 [[CZ-Gate]] 的推广：对两个逻辑 qubit $A, B$ 的所有对应物理 qubit 对 $(a_i, b_i)$ 同时施加 CZ 门：
 
 $$
 \overline{\text{CZ}} = \text{CZ}^{(1)} \otimes \text{CZ}^{(2)} \otimes \cdots \otimes \text{CZ}^{(n)}
@@ -60,14 +60,14 @@ $$
 
 即横向门只能实现部分逻辑门，不能覆盖通用计算所需的全部门集（如 $T$ 门）。
 
-这就是为什么论文使用**隐形传态（teleportation）**来补充实现非横向门（参见 [[深度电路执行 (Deep-Circuit Execution)]]）。
+这就是为什么论文使用**隐形传态（teleportation）**来补充实现非横向门（参见 [[Deep-Circuit-Execution]]）。
 
 > [!info] Eastin-Knill 定理的深远影响
 > 该定理表明：**没有单一量子纠错码能用横向门实现所有通用逻辑门**。这迫使我们必须在码的选择和门的实现之间做权衡——要么接受某些门需要辅助操作（如魔态蒸馏），要么设计混合方案（如隐形传态辅助横向门）。
 
 ## 5. 在中性原子中的实现
 
-[[光镊阵列 (Optical Tweezer Arrays)]] 的优势：可以在物理上将两个码块的对应原子**并排放置**，同时对所有原子对施加 [[里德堡阻塞 (Rydberg Blockade)]] 介导的 CZ 门，从而以并行方式实现横向纠缠门，大幅减少操作时间和退相干。
+[[Optical-Tweezer-Arrays]] 的优势：可以在物理上将两个码块的对应原子**并排放置**，同时对所有原子对施加 [[Rydberg-Blockade]] 介导的 CZ 门，从而以并行方式实现横向纠缠门，大幅减少操作时间和退相干。
 
 ---
 
@@ -80,10 +80,10 @@ $$
 
 ## 🔗 相关笔记
 
-- [[单量子比特门 (Single-Qubit Gates)]] — 横向门的单比特组成部分
-- [[横向隐形传态 (Transversal Teleportation)]] — 横向门的核心应用场景
-- [[量子纠错 (QEC)]] — 横向门在纠错码中的容错性来源
-- [[里德堡阻塞 (Rydberg Blockade)]] — 横向 CZ 门的物理实现机制
+- [[Single-Qubit-Gates]] — 横向门的单比特组成部分
+- [[Transversal-Teleportation]] — 横向门的核心应用场景
+- [[QEC]] — 横向门在纠错码中的容错性来源
+- [[Rydberg-Blockade]] — 横向 CZ 门的物理实现机制
 
 ## 📝 更新记录
 

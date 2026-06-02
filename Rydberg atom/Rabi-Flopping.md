@@ -87,12 +87,12 @@ $$
 
 ## 5. 与 Rydberg/中性原子体系的关联
 
-在 [[光镊阵列 (Optical Tweezer Arrays)]] 中，每个被捕获的中性原子（如 Rb-87 或 Cs）可以用两个超精细基态作为量子比特 $|0\rangle, |1\rangle$。
+在 [[Optical-Tweezer-Arrays]] 中，每个被捕获的中性原子（如 Rb-87 或 Cs）可以用两个超精细基态作为量子比特 $|0\rangle, |1\rangle$。
 
 拉比振荡在 Rydberg 体系中的核心应用：
 1. **单比特门实现**：π 脉冲和 π/2 脉冲通过微波或光场精确控制，实现 X, Y, H 等单比特门
-2. **里德堡激发**：将原子从 $|1\rangle$ 激发到里德堡态 $|r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ门 (CZ Gate)]]（经由 [[里德堡阻塞 (Rydberg Blockade)]]）的核心步骤
-3. **稳定子测量**：在 [[量子纠错 (QEC)]] 的 syndrome 提取中，辅助比特经过一系列拉比脉冲与数据比特相互作用后被测量
+2. **里德堡激发**：将原子从 $|1\rangle$ 激发到里德堡态 $|r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ-Gate]]（经由 [[Rydberg-Blockade]]）的核心步骤
+3. **稳定子测量**：在 [[QEC]] 的 syndrome 提取中，辅助比特经过一系列拉比脉冲与数据比特相互作用后被测量
 
 > [!warning] 易混淆：$\Omega$ vs $\tilde{\Omega}$
 > 共振时（$\Delta=0$）跃迁概率是 $\sin^2(\Omega t/2)$，但失谐时必须用广义拉比频率 $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$。很多初学者忘记失谐修正，导致门保真度计算出错。
@@ -116,11 +116,11 @@ $$
 
 ## 🔗 相关笔记
 
-- [[单量子比特门 (Single-Qubit Gates)]] — 拉比振荡在门操作语言中的对应：$R_x(\theta)$ 旋转门
-- [[里德堡阻塞 (Rydberg Blockade)]] — 拉比振荡驱动的里德堡跃迁产生阻塞效应
-- [[CZ门 (CZ Gate)]] — 利用 π 脉冲和阻塞实现两比特门
-- [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门
-- [[光镊阵列 (Optical Tweezer Arrays)]] — 原子囚禁平台
+- [[Single-Qubit-Gates]] — 拉比振荡在门操作语言中的对应：$R_x(\theta)$ 旋转门
+- [[Rydberg-Blockade]] — 拉比振荡驱动的里德堡跃迁产生阻塞效应
+- [[CZ-Gate]] — 利用 π 脉冲和阻塞实现两比特门
+- [[Transversal-Gate]] — 并行施加 CZ 门
+- [[Optical-Tweezer-Arrays]] — 原子囚禁平台
 
 ## 📝 更新记录
 

@@ -44,11 +44,11 @@ $$
 
 ### 1.2 困难二：Eastin-Knill 定理
 
-回忆 [[横向纠缠门 (Transversal Gate)]] 中的结论：
+回忆 [[Transversal-Gate]] 中的结论：
 
 > **Eastin-Knill 定理**：对任何非平凡的量子纠错码，不存在通用的横向门集合。
 
-也就是说，[[量子纠错 (QEC)|纠错码]] 能横向实现的门是有限的（如横向 CZ），但像 $T$ 门这样的非 Clifford 门**无法横向实现**。
+也就是说，[[QEC|纠错码]] 能横向实现的门是有限的（如横向 CZ），但像 $T$ 门这样的非 Clifford 门**无法横向实现**。
 
 **出路**：我们需要一种方法，在横向门的基础上额外"追加"非横向的逻辑操作。这就是 **Gate Teleportation**（门隐形传态），它是横向隐形传态的推广。
 
@@ -192,7 +192,7 @@ plt.show()
 
 ### 3.1 系统设置
 
-想象处理器中有两组逻辑 qubit 码块 $A$ 和 $B$，每个码块由 $n$ 个物理 qubit 组成（使用 [[表面码 (Surface Code)]] 等纠错码编码）。
+想象处理器中有两组逻辑 qubit 码块 $A$ 和 $B$，每个码块由 $n$ 个物理 qubit 组成（使用 [[Surface-Code]] 等纠错码编码）。
 
 - **$A$ 码块**：承载着待传送的逻辑态 $|\psi\rangle_L$，以及随电路深度积累的物理错误
 - **$B$ 码块**：处于已知的参考态（如逻辑 $|+\rangle_L$ 或纠错码基态），是"干净的"
@@ -207,13 +207,13 @@ $$
 
 **Step 1：横向 CZ 门——建立纠缠**
 
-对 $A$ 和 $B$ 的每一对对应物理 qubit $(a_i, b_i)$ 施加 [[CZ门 (CZ Gate)|CZ 门]]：
+对 $A$ 和 $B$ 的每一对对应物理 qubit $(a_i, b_i)$ 施加 [[CZ-Gate|CZ 门]]：
 
 $$
 \overline{\text{CZ}} = \bigotimes_{i=1}^{n} \text{CZ}^{(a_i, b_i)}
 $$
 
-这是一个 [[横向纠缠门 (Transversal Gate)|横向门]]——对 $n$ 对物理 qubit **同时、各自独立**地施加 CZ 门。由于逐比特独立性，$A$ 上的物理错误**不会通过这个操作传播到 $B$**。
+这是一个 [[Transversal-Gate|横向门]]——对 $n$ 对物理 qubit **同时、各自独立**地施加 CZ 门。由于逐比特独立性，$A$ 上的物理错误**不会通过这个操作传播到 $B$**。
 
 **Step 2：横向 Bell 测量——传送逻辑信息**
 
@@ -623,7 +623,7 @@ plt.show()
 
 ## 7. Gate Teleportation：传送逻辑门
 
-横向隐形传态不仅可以传送逻辑态，还可以用来**传送逻辑门操作**——这是绕过 [[横向纠缠门 (Transversal Gate)|Eastin-Knill 定理]] 的关键。
+横向隐形传态不仅可以传送逻辑态，还可以用来**传送逻辑门操作**——这是绕过 [[Transversal-Gate|Eastin-Knill 定理]] 的关键。
 
 ### 7.1 基本思想
 
@@ -644,7 +644,7 @@ $$
 
 ### 7.2 为什么这很重要？
 
-回忆 [[横向纠缠门 (Transversal Gate)|Eastin-Knill 定理]]：
+回忆 [[Transversal-Gate|Eastin-Knill 定理]]：
 
 > 不存在通用的横向门集合。某些逻辑门（如 $T$ 门）无法横向实现。
 
@@ -724,13 +724,13 @@ Gate Teleportation 需要高纯度的 magic state，这通过 **magic state dist
 
 ## 8. 在中性原子体系中的实现
 
-[[光镊阵列 (Optical Tweezer Arrays)]] 的**可重构性**（reconfigurable）是实现横向隐形传态的关键优势。
+[[Optical-Tweezer-Arrays]] 的**可重构性**（reconfigurable）是实现横向隐形传态的关键优势。
 
 ### 8.1 物理实现四步走
 
 **Step 1 — 码块布局**：将 $A$、$B$ 两组逻辑码块的原子**并排放置**在光镊阵列中，使得每对 $(a_i, b_i)$ 物理上相邻。
 
-**Step 2 — 横向 CZ 门**：利用 [[里德堡阻塞 (Rydberg Blockade)|Rydberg blockade]] 介导的 CZ 门。**全局激光束**同时对所有对应原子对施加 CZ 操作——这是高度并行的。
+**Step 2 — 横向 CZ 门**：利用 [[Rydberg-Blockade|Rydberg blockade]] 介导的 CZ 门。**全局激光束**同时对所有对应原子对施加 CZ 操作——这是高度并行的。
 
 **Step 3 — 并行 Bell 测量**：对 $A$ 码块的所有原子同时进行荧光探测（state-dependent fluorescence），一次性获得全部测量结果。
 
@@ -828,7 +828,7 @@ plt.show()
 
 Bluvstein et al. (2026) 在 **27 层**深度电路中演示了横向隐形传态：
 
-- 使用 distance-5 [[表面码 (Surface Code)]] 编码
+- 使用 distance-5 [[Surface-Code]] 编码
 - 每层包含横向 CZ + 测量 + 重置
 - **逻辑关联**在 27 层后仍保持（证明逻辑信息无损传送）
 - **物理 stabilizer 错误关联**随距离指数衰减（证明错误被有效清除）
@@ -853,12 +853,12 @@ Bluvstein et al. (2026) 在 **27 层**深度电路中演示了横向隐形传态
 
 ## 🔗 相关笔记
 
-- [[深度电路执行 (Deep-Circuit Execution)]] — 横向隐形传态的应用场景：恒定熵深度电路
-- [[横向纠缠门 (Transversal Gate)]] — 横向隐形传态的核心构件：横向 CZ 门
-- [[量子纠错 (QEC)]] — 纠错码框架：错误检测与纠正
-- [[表面码 (Surface Code)]] — 论文使用的具体纠错码
-- [[光镊阵列 (Optical Tweezer Arrays)]] — 中性原子平台的硬件基础
-- [[里德堡阻塞 (Rydberg Blockade)]] — 介导高保真度 CZ 门的物理机制
+- [[Deep-Circuit-Execution]] — 横向隐形传态的应用场景：恒定熵深度电路
+- [[Transversal-Gate]] — 横向隐形传态的核心构件：横向 CZ 门
+- [[QEC]] — 纠错码框架：错误检测与纠正
+- [[Surface-Code]] — 论文使用的具体纠错码
+- [[Optical-Tweezer-Arrays]] — 中性原子平台的硬件基础
+- [[Rydberg-Blockade]] — 介导高保真度 CZ 门的物理机制
 
 ## 📝 更新记录
 

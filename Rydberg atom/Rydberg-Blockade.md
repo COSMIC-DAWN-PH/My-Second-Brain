@@ -240,7 +240,7 @@ plt.show()
 
 ### 3.1 CZ 门回顾
 
-[[CZ门 (CZ Gate)]] 的作用是：当且仅当两个 qubit 都处于 $|1\rangle$ 时，引入 $\pi$ 相位：
+[[CZ-Gate]] 的作用是：当且仅当两个 qubit 都处于 $|1\rangle$ 时，引入 $\pi$ 相位：
 
 $$
 \text{CZ} = \text{diag}(1, 1, 1, -1)
@@ -423,13 +423,13 @@ $$
 
 - **CZ 门**：直接利用阻塞（如上所述）
 - **CNOT 门**：CZ + 单比特门组合
-- **横向 CZ 门**：[[横向纠缠门 (Transversal Gate)]] 中对多个原子对并行施加 CZ
-- **[[横向隐形传态 (Transversal Teleportation)]]**：利用横向 CZ 作为纠缠资源
+- **横向 CZ 门**：[[Transversal-Gate]] 中对多个原子对并行施加 CZ
+- **[[Transversal-Teleportation]]**：利用横向 CZ 作为纠缠资源
 
 ### 5.2 在量子纠错中的应用
 
-- **[[表面码 (Surface Code)]]** 的 stabilizer 测量需要两比特门 → 由里德堡阻塞介导的 CZ 门实现
-- **[[深度电路执行 (Deep-Circuit Execution)]]** 中的横向隐形传态依赖高保真度的并行 CZ 门
+- **[[Surface-Code]]** 的 stabilizer 测量需要两比特门 → 由里德堡阻塞介导的 CZ 门实现
+- **[[Deep-Circuit-Execution]]** 中的横向隐形传态依赖高保真度的并行 CZ 门
 - **Magic state distillation** 需要大量 CZ 门 → 里德堡阻塞的并行性是关键优势
 
 ### 5.3 实验参数（Bluvstein et al., 2026）
@@ -458,13 +458,13 @@ $$
 
 ## 🔗 相关笔记
 
-- [[CZ门 (CZ Gate)]] — 里德堡阻塞实现的门操作的逻辑定义
-- [[拉比振荡 (Rabi Flopping)]] — 驱动 $|g\rangle \leftrightarrow |r\rangle$ 跃迁的物理机制
-- [[横向纠缠门 (Transversal Gate)]] — 并行施加多个 CZ 门的容错方案
-- [[横向隐形传态 (Transversal Teleportation)]] — 利用横向 CZ 实现逻辑态传送
-- [[深度电路执行 (Deep-Circuit Execution)]] — 里德堡阻塞在深度电路中的应用
-- [[光镊阵列 (Optical Tweezer Arrays)]] — 囚禁和排列原子的硬件平台
-- [[量子纠错 (QEC)]] — stabilizer 测量依赖 CZ 门
+- [[CZ-Gate]] — 里德堡阻塞实现的门操作的逻辑定义
+- [[Rabi-Flopping]] — 驱动 $|g\rangle \leftrightarrow |r\rangle$ 跃迁的物理机制
+- [[Transversal-Gate]] — 并行施加多个 CZ 门的容错方案
+- [[Transversal-Teleportation]] — 利用横向 CZ 实现逻辑态传送
+- [[Deep-Circuit-Execution]] — 里德堡阻塞在深度电路中的应用
+- [[Optical-Tweezer-Arrays]] — 囚禁和排列原子的硬件平台
+- [[QEC]] — stabilizer 测量依赖 CZ 门
 
 ## 📝 更新记录
 

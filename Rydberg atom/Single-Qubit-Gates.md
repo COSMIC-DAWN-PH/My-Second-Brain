@@ -50,7 +50,7 @@ $$
 | 作用对象 | 经典 bit（0 或 1） | qubit（叠加态） |
 | 可逆性 | 不可逆（如 AND 丢失信息） | **必须可逆**（酉性） |
 | 效果 | 确定性映射 | 旋转叠加态的幅度和相位 |
-| 组合 | 构建经典电路 | 与 [[CZ门 (CZ Gate)|两比特门]] 组合构建量子电路 |
+| 组合 | 构建经典电路 | 与 [[CZ-Gate|两比特门]] 组合构建量子电路 |
 
 > [!info] 量子计算的门集模型
 > 任意量子计算可以分解为：**单比特门 + 两比特门**的序列。单比特门负责"精细调节"每个 qubit 的状态（旋转角度和相位），两比特门（如 CZ）负责建立 qubit 之间的**纠缠**。两者缺一不可。
@@ -59,7 +59,7 @@ $$
 
 ## 2. 标准单比特门：Pauli 门
 
-详细性质见 [[泡利矩阵 (Pauli Matrices)]]，这里聚焦于它们**作为量子门**的直觉。
+详细性质见 [[Pauli-Matrices]]，这里聚焦于它们**作为量子门**的直觉。
 
 ### 2.1 X 门（量子 NOT 门）
 
@@ -160,7 +160,7 @@ $$
 作用：给 $|1\rangle$ 分量加 $e^{i\pi/4}$ 相位
 
 > [!warning] T 门的特殊地位
-> T 门是容错量子计算中最"昂贵"的门——它**无法横向实现**（受 [[横向纠缠门 (Transversal Gate)|Eastin-Knill 定理]] 限制），必须通过 [[横向隐形传态 (Transversal Teleportation)|Gate Teleportation]] + magic state distillation 来实现。蒸馏一个高保真度的 T 门 magic state 是整个容错量子计算中最耗资源的环节。
+> T 门是容错量子计算中最"昂贵"的门——它**无法横向实现**（受 [[Transversal-Gate|Eastin-Knill 定理]] 限制），必须通过 [[Transversal-Teleportation|Gate Teleportation]] + magic state distillation 来实现。蒸馏一个高保真度的 T 门 magic state 是整个容错量子计算中最耗资源的环节。
 
 ### 4.3 相位门家族总览
 
@@ -218,7 +218,7 @@ $$
 > - $\theta = \pi$ → **$\pi$ 脉冲**（完全翻转 $|g\rangle \leftrightarrow |r\rangle$）
 > - $\theta = \pi/2$ → **$\pi/2$ 脉冲**（制备叠加态）
 >
-> 详见 [[拉比振荡 (Rabi Flopping)]]。
+> 详见 [[Rabi-Flopping]]。
 
 ### 5.3 Euler 分解：任意单比特门 = 三次旋转
 
@@ -278,7 +278,7 @@ $$
 
 ## 7. 在中性原子体系中的实现
 
-在 [[光镊阵列 (Optical Tweezer Arrays)]] 平台中，单比特门通过**激光脉冲**驱动原子的内态跃迁来实现。
+在 [[Optical-Tweezer-Arrays]] 平台中，单比特门通过**激光脉冲**驱动原子的内态跃迁来实现。
 
 ### 7.1 物理机制
 
@@ -313,7 +313,7 @@ $$
 | Hadamard | $\pi/2$ 脉冲 + $z$ 旋转 | 组合实现 |
 
 > [!tip] 为什么中性原子偏好 CZ 而非 CNOT？
-> 两比特门 [[CZ门 (CZ Gate)|CZ]] 可以直接通过 [[里德堡阻塞 (Rydberg Blockade)|Rydberg blockade]] 一步实现，而 CNOT 需要额外的 H 门来转换。但在**线路编译**时，单比特门（H、S、T 等）仍然不可或缺——它们负责将通用量子算法的逻辑线路转化为硬件可执行的脉冲序列。
+> 两比特门 [[CZ-Gate|CZ]] 可以直接通过 [[Rydberg-Blockade|Rydberg blockade]] 一步实现，而 CNOT 需要额外的 H 门来转换。但在**线路编译**时，单比特门（H、S、T 等）仍然不可或缺——它们负责将通用量子算法的逻辑线路转化为硬件可执行的脉冲序列。
 
 ---
 
@@ -348,7 +348,7 @@ $$
 | 状态初始化 | $R_x(\pi/2)$ | 将 $\|0\rangle$ 转为叠加态 |
 | 算法逻辑 | $H, S, T, R_z(\theta)$ | 量子线路的"指令集" |
 | 纠缠前准备 | 单比特门 | 将各 qubit 调到合适角度 |
-| 纠缠建立 | [[CZ门 (CZ Gate)]] | 建立 qubit 间的量子关联 |
+| 纠缠建立 | [[CZ-Gate]] | 建立 qubit 间的量子关联 |
 | 测量前旋转 | $R_x(\theta), R_y(\theta)$ | 将目标态旋转到测量基 |
 
 ---
@@ -370,14 +370,14 @@ $$
 
 ## 🔗 相关笔记
 
-- [[泡利矩阵 (Pauli Matrices)]] — X, Y, Z 矩阵的代数性质、对易关系、反对易关系
-- [[门算符本征态 (Gate Eigenstates)]] — Pauli 门的本征态与本征值，QEC 稳定子的基础
-- [[拉比振荡 (Rabi Flopping)]] — 单比特门的物理实现机制：激光脉冲驱动的相干振荡
-- [[CZ门 (CZ Gate)]] — 两比特门：与单比特门组合构成通用门集
-- [[里德堡阻塞 (Rydberg Blockade)]] — 两比特门（CZ）的物理实现机制
-- [[光镊阵列 (Optical Tweezer Arrays)]] — 单比特门的硬件平台
-- [[张量积 (Tensor Product)]] — 多 qubit 系统中单比特门的扩展方式
-- [[横向隐形传态 (Transversal Teleportation)]] — T 门等非横向门的容错实现方案
+- [[Pauli-Matrices]] — X, Y, Z 矩阵的代数性质、对易关系、反对易关系
+- [[Gate-Eigenstates]] — Pauli 门的本征态与本征值，QEC 稳定子的基础
+- [[Rabi-Flopping]] — 单比特门的物理实现机制：激光脉冲驱动的相干振荡
+- [[CZ-Gate]] — 两比特门：与单比特门组合构成通用门集
+- [[Rydberg-Blockade]] — 两比特门（CZ）的物理实现机制
+- [[Optical-Tweezer-Arrays]] — 单比特门的硬件平台
+- [[Tensor-Product]] — 多 qubit 系统中单比特门的扩展方式
+- [[Transversal-Teleportation]] — T 门等非横向门的容错实现方案
 
 ## 📝 更新记录
 

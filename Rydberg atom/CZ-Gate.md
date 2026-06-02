@@ -57,7 +57,7 @@ $$
 
 ## 5. 在 Rydberg 体系中的实现
 
-中性原子平台利用 **[[里德堡阻塞 (Rydberg Blockade)]]** 实现 CZ 门：
+中性原子平台利用 **[[Rydberg-Blockade]]** 实现 CZ 门：
 
 1. 将控制 qubit 激发到里德堡态 $|r\rangle$
 2. 由于里德堡阻塞，若控制 qubit 在 $|r\rangle$，目标 qubit 的 $|1\rangle \to |r\rangle$ 跃迁被**阻塞**，积累一个 $\pi$ 相位
@@ -86,10 +86,10 @@ $$
 
 ## 🔗 相关笔记
 
-- [[里德堡阻塞 (Rydberg Blockade)]] — CZ 门的物理实现机制
-- [[拉比振荡 (Rabi Flopping)]] — $\pi$ 脉冲的物理基础
-- [[单量子比特门 (Single-Qubit Gates)]] — 与 CZ 门组合构成通用门集的单比特门
-- [[横向纠缠门 (Transversal Gate)]] — 并行施加 CZ 门的容错方案
+- [[Rydberg-Blockade]] — CZ 门的物理实现机制
+- [[Rabi-Flopping]] — $\pi$ 脉冲的物理基础
+- [[Single-Qubit-Gates]] — 与 CZ 门组合构成通用门集的单比特门
+- [[Transversal-Gate]] — 并行施加 CZ 门的容错方案
 
 ## 📝 更新记录
 

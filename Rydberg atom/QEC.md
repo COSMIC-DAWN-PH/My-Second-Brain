@@ -48,7 +48,7 @@ $$
 
 ## 4. 错误阈值（Error Threshold）
 
-[[表面码 (Surface Code)]] 等码具有一个关键参数：**错误阈值 $p_{th}$**。
+[[Surface-Code]] 等码具有一个关键参数：**错误阈值 $p_{th}$**。
 
 > 当物理错误率 $p < p_{th}$ 时，增加码距 $d$ 可以**指数级压低**逻辑错误率：
 
@@ -63,10 +63,10 @@ $$
 
 ## 5. 与中性原子体系的关联
 
-在 [[光镊阵列 (Optical Tweezer Arrays)]] 平台中：
+在 [[Optical-Tweezer-Arrays]] 平台中：
 - 多个中性原子组成一个**逻辑 qubit**
-- [[拉比振荡 (Rabi Flopping)]] 和 [[CZ门 (CZ Gate)]] 用于实现稳定子测量
-- 原子损失和退相干是主要错误源，QEC 通过**横向隐形传态**（见 [[横向隐形传态 (Transversal Teleportation)]]、[[深度电路执行 (Deep-Circuit Execution)]]）实时清除
+- [[Rabi-Flopping]] 和 [[CZ-Gate]] 用于实现稳定子测量
+- 原子损失和退相干是主要错误源，QEC 通过**横向隐形传态**（见 [[Transversal-Teleportation]]、[[Deep-Circuit-Execution]]）实时清除
 
 > [!info] 为什么表面码成为中性原子的首选码？
 > 表面码只需要**近邻 qubit 的二维网格连接**，而光镊阵列天然提供二维原子排列。两者的拓扑结构完美匹配，使得稳定子测量只需最近邻 CZ 门，无需长程连接——这是其他纠错码（如 CSS 码、Bacon-Shor 码）难以做到的。
@@ -83,10 +83,10 @@ $$
 
 ## 🔗 相关笔记
 
-- [[单量子比特门 (Single-Qubit Gates)]] — 稳定子测量中使用的单比特门
-- [[横向纠缠门 (Transversal Gate)]] — 容错逻辑门的核心机制
-- [[横向隐形传态 (Transversal Teleportation)]] — 深度电路中的错误清除协议
-- [[表面码 (Surface Code)]] — 最有前景的具体纠错码
+- [[Single-Qubit-Gates]] — 稳定子测量中使用的单比特门
+- [[Transversal-Gate]] — 容错逻辑门的核心机制
+- [[Transversal-Teleportation]] — 深度电路中的错误清除协议
+- [[Surface-Code]] — 最有前景的具体纠错码
 
 ## 📝 更新记录
 

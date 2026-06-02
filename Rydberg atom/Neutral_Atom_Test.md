@@ -18,7 +18,7 @@ comprehension: "vague"
 # 中性原子阵列实验（Neutral Atom Array Experiment）
 
 > 来源批注：基于 Bluvstein et al., 2026 的中性原子量子计算实验方案。
-> 本笔记介绍中性原子量子计算的核心哈密顿量、物理假设和实验参数，是理解所有后续概念（[[里德堡阻塞 (Rydberg Blockade)]]、[[CZ门 (CZ Gate)]] 等）的出发点。
+> 本笔记介绍中性原子量子计算的核心哈密顿量、物理假设和实验参数，是理解所有后续概念（[[Rydberg-Blockade]]、[[CZ-Gate]] 等）的出发点。
 
 ---
 
@@ -77,7 +77,7 @@ $$
 
 - $\Omega$ 是**拉比频率**（Rabi frequency），描述激光驱动原子在 $|g\rangle$ 和 $|r\rangle$ 之间振荡的速率
 - $\sigma_x = |g\rangle\langle r| + |r\rangle\langle g|$ 是 Pauli X 算符，负责"翻转"原子的状态
-- **物理含义**：激光试图让每个原子在基态和里德堡态之间来回振荡（[[拉比振荡 (Rabi Flopping)]]）
+- **物理含义**：激光试图让每个原子在基态和里德堡态之间来回振荡（[[Rabi-Flopping]]）
 
 **第二项：激光失谐（Detuning）**
 
@@ -100,7 +100,7 @@ $$
 - $V_{ij} = C_6 / R_{ij}^6$ 是两个里德堡原子之间的 **van der Waals 相互作用**
 - $R_{ij}$ 是原子 $i$ 和 $j$ 之间的距离
 - $n_i n_j$ 意味着**只有当两个原子同时处于里德堡态时，相互作用才生效**
-- **物理含义**：这就是 [[里德堡阻塞 (Rydberg Blockade)]] 的来源——如果 $V_{ij} \gg \Omega$，两个相邻原子不能同时被激发
+- **物理含义**：这就是 [[Rydberg-Blockade]] 的来源——如果 $V_{ij} \gg \Omega$，两个相邻原子不能同时被激发
 
 ### 2.3 哈密顿量的物理图像
 
@@ -131,13 +131,13 @@ $$
 因此，在单次门操作期间，自发辐射的概率极低，可以忽略。
 
 > [!warning] 近似的适用边界
-> 这个近似在单次门操作中很好，但在深度电路（多层门操作）中，自发辐射的累积效应变得重要。这正是 [[深度电路执行 (Deep-Circuit Execution)]] 需要解决的核心问题之一。
+> 这个近似在单次门操作中很好，但在深度电路（多层门操作）中，自发辐射的累积效应变得重要。这正是 [[Deep-Circuit-Execution]] 需要解决的核心问题之一。
 
-> **注意**：在深度电路（多层门操作）中，自发辐射的累积效应变得重要，这是 [[深度电路执行 (Deep-Circuit Execution)]] 需要解决的问题之一。
+> **注意**：在深度电路（多层门操作）中，自发辐射的累积效应变得重要，这是 [[Deep-Circuit-Execution]] 需要解决的问题之一。
 
 ### 3.2 假设 2：原子处于光镊基态
 
-原子被囚禁在 [[光镊阵列 (Optical Tweezer Arrays)]] 中，处于光镊势阱的振动基态。
+原子被囚禁在 [[Optical-Tweezer-Arrays]] 中，处于光镊势阱的振动基态。
 
 **为什么这是好的近似？**
 - 光镊的振动频率 $\omega_{\text{trap}} \sim 2\pi \times (1-10)\,\text{kHz}$
@@ -187,12 +187,12 @@ R (原子间距)   ←→  阵列密度（越密越好）
 
 | 概念 | 与哈密顿量的关系 |
 |------|----------------|
-| [[拉比振荡 (Rabi Flopping)]] | 哈密顿量第一项的物理效果：原子在 $|g\rangle \leftrightarrow \|r\rangle$ 之间振荡 |
-| [[里德堡阻塞 (Rydberg Blockade)]] | 哈密顿量第三项的物理效果：$V_{12} \gg \Omega$ 时阻止双激发 |
-| [[CZ门 (CZ Gate)]] | 利用阻塞效应实现的两比特门操作 |
-| [[横向纠缠门 (Transversal Gate)]] | 并行对多个原子对施加 CZ 门 |
-| [[光镊阵列 (Optical Tweezer Arrays)]] | 提供原子囚禁和排列的硬件平台 |
-| [[量子纠错 (QEC)]] | 用多个原子编码一个逻辑 qubit，利用 CZ 门进行 stabilizer 测量 |
+| [[Rabi-Flopping]] | 哈密顿量第一项的物理效果：原子在 $|g\rangle \leftrightarrow \|r\rangle$ 之间振荡 |
+| [[Rydberg-Blockade]] | 哈密顿量第三项的物理效果：$V_{12} \gg \Omega$ 时阻止双激发 |
+| [[CZ-Gate]] | 利用阻塞效应实现的两比特门操作 |
+| [[Transversal-Gate]] | 并行对多个原子对施加 CZ 门 |
+| [[Optical-Tweezer-Arrays]] | 提供原子囚禁和排列的硬件平台 |
+| [[QEC]] | 用多个原子编码一个逻辑 qubit，利用 CZ 门进行 stabilizer 测量 |
 
 ---
 
@@ -210,11 +210,11 @@ R (原子间距)   ←→  阵列密度（越密越好）
 
 ## 🔗 相关笔记
 
-- [[里德堡阻塞 (Rydberg Blockade)]] — 哈密顿量第三项的物理效果：阻塞机制详解
-- [[拉比振荡 (Rabi Flopping)]] — 哈密顿量第一项的物理效果：拉比振荡
-- [[CZ门 (CZ Gate)]] — 利用阻塞实现的两比特门
-- [[光镊阵列 (Optical Tweezer Arrays)]] — 原子囚禁的硬件平台
-- [[深度电路执行 (Deep-Circuit Execution)]] — 深度电路中的退相干与错误累积
+- [[Rydberg-Blockade]] — 哈密顿量第三项的物理效果：阻塞机制详解
+- [[Rabi-Flopping]] — 哈密顿量第一项的物理效果：拉比振荡
+- [[CZ-Gate]] — 利用阻塞实现的两比特门
+- [[Optical-Tweezer-Arrays]] — 原子囚禁的硬件平台
+- [[Deep-Circuit-Execution]] — 深度电路中的退相干与错误累积
 
 ## 📝 更新记录
 

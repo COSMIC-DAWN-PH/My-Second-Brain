@@ -67,13 +67,13 @@ $$
 
 ## 5. 与量子纠错的关系
 
-在 [[表面码 (Surface Code)]] 中，稳定子算符如 $X_1 X_2 X_3 X_4$ 就是四个 Pauli $X$ 算符的张量积：
+在 [[Surface-Code]] 中，稳定子算符如 $X_1 X_2 X_3 X_4$ 就是四个 Pauli $X$ 算符的张量积：
 
 $$
 X^{\otimes 4} = X \otimes X \otimes X \otimes X
 $$
 
-在 [[反对易关系 (Anti-Commutation)]] 的计算中，张量积结构决定了哪些算符对易、哪些反对易。
+在 [[Anti-Commutation]] 的计算中，张量积结构决定了哪些算符对易、哪些反对易。
 
 > [!info] 稳定子算符作为 Pauli 张量积
 > 稳定子码（如表面码）中的稳定子算符本质上是 Pauli 矩阵的张量积，例如 $X^{\otimes 4} = X \otimes X \otimes X \otimes X$。每个稳定子只在局部 qubit 上作用一个 Pauli 矩阵，整体通过张量积构建。这种结构使得 syndrome 提取可以并行执行。

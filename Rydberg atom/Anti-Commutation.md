@@ -78,7 +78,7 @@ $$
 
 ## 4. 张量积下的反对易
 
-对于多 qubit 算符，反对易性由[[张量积 (Tensor Product)]]结构决定：
+对于多 qubit 算符，反对易性由[[Tensor-Product]]结构决定：
 
 设 $A = A_1 \otimes A_2$ 和 $B = B_1 \otimes B_2$，则：
 

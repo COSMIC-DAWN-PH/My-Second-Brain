@@ -65,7 +65,7 @@ $$
 
 ## 3. 为什么本征态在 QEC 中重要？
 
-在 [[量子纠错 (QEC)]] 中，**稳定子**就是门算符，**逻辑码字**就是这些稳定子的**本征值 $+1$ 的本征态**：
+在 [[QEC]] 中，**稳定子**就是门算符，**逻辑码字**就是这些稳定子的**本征值 $+1$ 的本征态**：
 
 $$
 S_i|\psi\rangle_L = +1 \cdot |\psi\rangle_L \quad \forall i
@@ -80,7 +80,7 @@ $$
 
 旋转门 $R_z(\theta) = e^{-i\theta Z/2}$ 的本征态与 $Z$ 相同（因为 $e^{-i\theta Z/2}|0\rangle = e^{-i\theta/2}|0\rangle$），只是本征值从 $\pm 1$ 变为 $e^{\mp i\theta/2}$。
 
-这也是为什么计算基 $\{|0\rangle, |1\rangle\}$ 在 Rydberg 体系中如此重要——它既是 $Z$ 门的本征基，也是 [[拉比振荡 (Rabi Flopping)]] 的自然量子化轴。
+这也是为什么计算基 $\{|0\rangle, |1\rangle\}$ 在 Rydberg 体系中如此重要——它既是 $Z$ 门的本征基，也是 [[Rabi-Flopping]] 的自然量子化轴。
 
 ---
 
