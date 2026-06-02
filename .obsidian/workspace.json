@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/Qubit-State-and-Superposition.md",
+                "file": "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Qubit-State-and-Superposition"
+              "title": "Two-Qubit-State-and-Entanglement"
             }
           }
         ],
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rydberg atom/Qubit-State-and-Superposition.md",
+                "file": "Rydberg atom/Deep-Circuit-Execution.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Qubit-State-and-Superposition 的大纲"
+              "title": "Deep-Circuit-Execution 的大纲"
             }
           },
           {
@@ -224,10 +224,13 @@
   },
   "active": "484f393ce050badb",
   "lastOpenFiles": [
+    "Rydberg atom/Deep-Circuit-Execution.md",
+    "Handout by AI/2023-parallel-gates-handout.md",
+    "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
+    "Rydberg atom/Tensor-Product.md",
+    "Rydberg atom/Qubit-State-and-Superposition.md",
     "Rydberg atom/Quantum-Zeno-Effect.md",
     "Rydberg atom/QEC.md",
-    "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
-    "Rydberg atom/Qubit-State-and-Superposition.md",
     "Rydberg atom/Single-Qubit-Gates.md",
     "Rydberg atom/Surface-Code.md",
     "Rydberg atom/Two-Qubit-Gates.md",
@@ -244,17 +247,14 @@
     "Rydberg atom/Transversal-Teleportation.md",
     "AGENTS.md",
     "CZ门 (CZ Gate).md",
-    "Rydberg atom/Tensor-Product.md",
     "反对易关系 (Anti-Commutation).md",
     "光镊阵列 (Optical Tweezer Arrays).md",
     "CLAUDE.md",
     "Rydberg atom/Transversal-Gate.md",
-    "Handout by AI/2023-parallel-gates-handout.md",
     "Rydberg atom/Transversal-Teleportation.md.tmp.19032.de0c61cb41fb",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
     "Rydberg atom/Neutral_Atom_Test.md",
     "Rydberg atom/Gate-Eigenstates.md",
-    "Rydberg atom/Deep-Circuit-Execution.md",
     "Rydberg atom/Anti-Commutation.md",
     "Rydberg atom/CZ-Gate.md",
     "Rydberg atom/Rabi-Flopping.md",
