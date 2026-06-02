@@ -74,6 +74,8 @@ $$
 
 ### 3.2 对易关系（Commutation Relation）
 
+详细的数学物理推导*MathPhyCore库里有*
+
 $$
 [\sigma_j, \sigma_k] = \sigma_j\sigma_k - \sigma_k\sigma_j = 2i\epsilon_{jkl}\sigma_l
 $$
