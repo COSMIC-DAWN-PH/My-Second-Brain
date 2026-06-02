@@ -15,7 +15,7 @@ tags:
 date: 2026-06-02
 status: In-Progress
 source: "[[generall quantum 2026]]"
-comprehension: "getting there"
+comprehension: understood
 ---
 
 # 量子比特态与叠加态（Qubit State and Superposition）
@@ -258,7 +258,7 @@ $$
 
 ---
 
-## 4. 四个最重要的叠加态
+## 4. 四个最重要的测量基
 
 用 Bloch 球的参数化 $(\theta, \phi)$ 来看：
 
@@ -359,9 +359,110 @@ $$
 
 ---
 
-## 7. 在 Rydberg 原子中的具体体现
 
-### 7.1 量子比特的编码
+
+## 7. Computational Basis States in Real Hardware
+
+The symbols $|0\rangle$ and $|1\rangle$ are not just abstract math symbols. In an actual quantum computer, they must be encoded into two distinguishable physical states of some hardware system: an atom, ion, superconducting circuit, photon, or electron spin.
+
+> [!tip] Core physical picture
+> $|0\rangle$ and $|1\rangle$ play the role of the two classical readout outcomes, similar to low/high voltage in a classical bit. But a qubit is richer: before measurement, it may be in a coherent state $\alpha|0\rangle+\beta|1\rangle$, with complex probability amplitudes and a relative phase that can interfere in later operations.
+
+### 7.1 Neutral atoms / Rydberg platform: two hyperfine ground states
+
+In [[Optical-Tweezer-Arrays|optical tweezer arrays]], one neutral atom is trapped by an optical tweezer. A common qubit encoding uses two hyperfine ground states. For example, in $^{87}\mathrm{Rb}$ one may write
+
+$$
+|0\rangle \equiv |F=1,m_F=0\rangle, \qquad |1\rangle \equiv |F=2,m_F=0\rangle .
+$$
+
+These two states are split by the hyperfine interaction, so a microwave or Raman laser field can resonantly drive $|0\rangle \leftrightarrow |1\rangle$.
+
+- $|0\rangle$: the atom is definitely in one selected hyperfine clock state.
+- $|1\rangle$: the atom is definitely in the other selected hyperfine clock state.
+- A $\pi$ pulse flips $|0\rangle$ into $|1\rangle$.
+- A $\pi/2$ pulse prepares an equatorial superposition such as $\frac{1}{\sqrt{2}}(|0\rangle-i|1\rangle)$.
+
+This is exactly the single-qubit control picture behind [[Rabi-Flopping|Rabi flopping]].
+
+### 7.2 Superconducting qubits: two lowest levels of an artificial atom
+
+In a superconducting transmon qubit, the physical system is a nonlinear LC oscillator made from a Josephson junction and capacitance. Its energy levels are discrete, so it behaves like an artificial atom.
+
+- $|0\rangle$: circuit ground state.
+- $|1\rangle$: first excited state.
+
+A resonant microwave pulse drives $|0\rangle \leftrightarrow |1\rangle$. The pulse duration, amplitude, and phase determine whether the operation acts like an $X$ rotation, $Y$ rotation, or another single-qubit gate.
+
+> [!warning] Do not read superposition as classical coexistence
+> Saying that a superconducting qubit is in $\alpha|0\rangle+\beta|1\rangle$ does not mean the circuit is classically ?half ground state and half excited state.? It means the quantum state has complex amplitudes along both energy eigenstates, and their relative phase affects later interference.
+
+### 7.3 Trapped ion qubits: two internal states of one ion
+
+In trapped ion quantum computing, a single ion is suspended in vacuum by electric fields. Common platforms include $^{171}\mathrm{Yb}^+$ and $^{40}\mathrm{Ca}^+$. The qubit is encoded in two stable internal states.
+
+For example, a $^{171}\mathrm{Yb}^+$ hyperfine qubit may use
+
+$$
+|0\rangle \equiv |F=0,m_F=0\rangle, \qquad |1\rangle \equiv |F=1,m_F=0\rangle .
+$$
+
+The two states can be controlled by microwave fields or laser Raman transitions. Because trapped ions are well isolated from the environment, their coherence time can be very long.
+
+### 7.4 Photonic qubits: two orthogonal optical modes
+
+Photonic qubits do not have to use energy levels. In polarization encoding,
+
+$$
+|0\rangle \equiv |H\rangle, \qquad |1\rangle \equiv |V\rangle .
+$$
+
+- $|H\rangle$: horizontal polarization.
+- $|V\rangle$: vertical polarization.
+
+Here $|0\rangle$ and $|1\rangle$ are electric-field vibration directions, not lower/higher energy levels. A waveplate rotates the polarization and therefore implements a single-qubit rotation. For example,
+
+$$
+|D\rangle = \frac{1}{\sqrt{2}}(|H\rangle+|V\rangle)
+$$
+
+is the photonic version of $|+\rangle$.
+
+### 7.5 Semiconductor quantum dots / spin qubits: one electron spin
+
+In semiconductor quantum dots, one electron is confined in a nanoscale potential well. Its spin degree of freedom can encode a qubit. An external magnetic field produces a Zeeman splitting between spin-up and spin-down.
+
+One common convention is
+
+$$
+|0\rangle \equiv |\downarrow\rangle, \qquad |1\rangle \equiv |\uparrow\rangle .
+$$
+
+Some papers use the opposite convention; the important point is to fix which readout result is called 0 and which is called 1.
+
+- $|0\rangle$: electron spin-down.
+- $|1\rangle$: electron spin-up.
+- ESR / EDSR pulses drive spin rotations on the Bloch sphere.
+
+> [!info] Link to Zeeman effect
+> The magnetic field separates $|\uparrow\rangle$ and $|\downarrow\rangle$ in energy. The corresponding energy splitting sets the resonant drive frequency for spin flips.
+
+### 7.6 Summary: one mathematical qubit, many physical carriers
+
+| Hardware platform | Physical meaning of $|0\rangle$ | Physical meaning of $|1\rangle$ | Typical control |
+|---|---|---|---|
+| Neutral atoms / Rydberg | one hyperfine ground state | another hyperfine ground state | microwave / Raman pulses |
+| Superconducting qubits | circuit ground state | first excited state | microwave pulses |
+| Trapped ions | one ion internal state | another ion internal state | microwave / Raman pulses |
+| Photonic qubits | horizontal polarization $|H\rangle$ | vertical polarization $|V\rangle$ | waveplates / interferometers |
+| Semiconductor spin qubits | spin-down $|\downarrow\rangle$ | spin-up $|\uparrow\rangle$ | ESR / EDSR pulses |
+
+> [!tip] Unified view
+> $|0\rangle$ and $|1\rangle$ are called computational basis states because they are the two states most directly mapped to classical readout 0 and 1. Mathematically, they are usually the eigenstates of $Z$ measurement; physically, they are two initializable, controllable, and distinguishable states in the hardware.
+
+## 8. 在 Rydberg 原子中的具体体现
+
+### 8.1 量子比特的编码
 
 在 [[Optical-Tweezer-Arrays]] 中，一个中性原子（如 $^{87}\text{Rb}$）的两个超精细基态编码 qubit：
 
@@ -371,7 +472,7 @@ $$
 
 这两个态之间的超精细分裂约为 6.8 GHz，对应微波频率。
 
-### 7.2 叠加态的制备
+### 8.2 叠加态的制备
 
 从 $|0\rangle$ 出发，施加一个 $\pi/2$ 微波脉冲（即 [[Rabi-Flopping|拉比振荡]] 的 $\pi/2$ 脉冲），就制备出叠加态：
 
@@ -381,7 +482,7 @@ $$
 
 这个叠加态的**相对相位是 $-i = e^{-i\pi/2}$**——不是 $+1$（$|+\rangle$）也不是 $-1$（$|-\rangle$），而是 $-i$。这是由微波脉冲的**偏振和相位**决定的。
 
-### 7.3 相位操控的实际意义
+### 8.3 相位操控的实际意义
 
 在 [[Single-Qubit-Gates|单比特门]] 中：
 
@@ -390,23 +491,23 @@ $$
 - **H 门**：把 $\theta$ 和 $\phi$ 都改变——将 $z$ 轴信息"旋转"到 $x$ 轴
 
 > [!info] 为什么 $R_z$ 门这么重要？
-> $R_z$ 门（相位旋转）在实验中通过 **AC Stark 效应**实现——用失谐激光给 $|1\rangle$ 态一个额外的相移。虽然它不改变 $z$ 基测量的概率分布，但它改变了态的**干涉能力**。在 Grover 搜索、量子相位估计等算法中，$R_z$ 门的精确控制是成功的关键。
+> $R_z$ 门（相位旋转）在实验中通过 [[AC-Stark-Effect|AC Stark 效应]] 实现——用失谐激光给 $|1\rangle$ 态一个额外的相移。虽然它不改变 $z$ 基测量的概率分布，但它改变了态的**干涉能力**。在 [[Grover-Search|Grover 搜索]]、[[Quantum-Phase-Estimation|量子相位估计]] 等算法中，$R_z$ 门的精确控制是成功的关键。
 
 ---
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|------|------|------|
-| $|\psi\rangle$ | 一般 qubit 态 | $\alpha\|0\rangle + \beta\|1\rangle$，$\|\alpha\|^2 + \|\beta\|^2 = 1$ |
-| Bloch 参数化 | 几何表示 | $\cos\frac{\theta}{2}\|0\rangle + e^{i\phi}\sin\frac{\theta}{2}\|1\rangle$ |
-| $\theta$ | 极角（混合比例） | $\theta = 0 \to \|0\rangle$，$\theta = \pi \to \|1\rangle$ |
-| $\phi$ | 方位角（相对相位） | $\phi = 0 \to \|+\rangle$，$\phi = \pi/2 \to \|{+i}\rangle$ |
-| 全局相位 | 物理不可观测 | $e^{i\varphi}\|\psi\rangle \equiv \|\psi\rangle$ |
-| 相对相位 | 物理可观测（通过干涉） | 不同 $\phi$ 在不同测量基下给出不同结果 |
-| 测量概率 | Born 规则 | $P(0) = \|\alpha\|^2$，$P(1) = \|\beta\|^2$ |
+- **一般 qubit 态**：$|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$，$|\alpha|^2 + |\beta|^2 = 1$
+- **Bloch 参数化**（几何表示）：$|\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle$
+- **$\theta$（极角）**：混合比例。$\theta = 0 \to |0\rangle$，$\theta = \pi \to |1\rangle$
+- **$\phi$（方位角）**：相对相位。$\phi = 0 \to |+\rangle$，$\phi = \pi/2 \to |{+i}\rangle$
+- **全局相位**：物理不可观测。$e^{i\varphi}|\psi\rangle \equiv |\psi\rangle$
+- **相对相位**：物理可观测（通过干涉）。不同 $\phi$ 在不同测量基下给出不同结果
+- **测量概率**（Born 规则）：$P(0) = |\alpha|^2$，$P(1) = |\beta|^2$
 
 ---
+
+- **Computational basis states**: $|0\rangle, |1\rangle$ are the $Z$-measurement eigenstates and the hardware states most directly mapped to classical readout 0/1.
 
 ## 🔗 相关笔记
 
@@ -422,3 +523,4 @@ $$
 
 - 2026-06-02: 初始创建，系统讲解叠加态、相位因子、Bloch 球、测量坍缩、Rydberg 原子实现
 - 2026-06-02: 修正六个 Pauli 本征态的测量概率表述：$|0\rangle, |1\rangle$ 沿 $z$ 轴不是 50-50，只有赤道态沿 $z$ 轴为 50-50。
+- 2026-06-02: Added a hardware-level comparison of computational basis states across neutral atoms, superconducting qubits, trapped ions, photonic qubits, and semiconductor spin qubits.

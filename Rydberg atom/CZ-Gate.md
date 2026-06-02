@@ -77,10 +77,9 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $\text{CZ}$ | CZ 门矩阵 | $\text{diag}(1,1,1,-1)$ |
-| CNOT $\leftrightarrow$ CZ | 门转换 | $\text{CNOT} = (I\otimes H)\cdot\text{CZ}\cdot(I\otimes H)$ |
+- **\text{CZ}**：CZ 门矩阵 — $\text{diag}(1,1,1,-1)$
+- **CNOT $\leftrightarrow$ CZ**：门转换 — $\text{CNOT} = (I\otimes H)\cdot\text{CZ}\cdot(I\otimes H)$
+
 
 ---
 

@@ -15,7 +15,7 @@
 | `Daily Notes/` | 每日科研日记 |
 | `Handout by AI/` | AI 生成的论文讲义（含 Python 图表） |
 | `tools/` | 模板文件（`Zotero_Template.md`） |
-| `.agents/skills/` | 自定义技能（physics-manager、weekly-summary、literature-handout） |
+| `.agents/skills/` | 自定义技能（zotero-notes、weekly-summary、literature-handout） |
 
 ## Obsidian 双链（Wiki-links）
 
@@ -194,18 +194,18 @@ Notes from Zotero import include these sections:
 - `## 📝 Zotero 笔记 (Better Notes)` — LLM chat history / deep dives
 - `## 🖋️ PDF 批注` — Annotations with `**我的评价**` fields
 
-When creating derivative knowledge notes, use the `physics-manager` skill (see below).
+When creating derivative knowledge notes, use the `zotero-notes` skill (see below).
 
 ## Custom Skills (on-demand, invoke via `/`)
 
 | Skill | File | Trigger |
 |---|---|---|
-| **physics-manager** | `.agents/skills/physics-manager/SKILL.md` | Knowledge note creation, Zotero processing, ontology linking |
+| **zotero-notes** | `.agents/skills/zotero-notes/SKILL.md` | Zotero 文献笔记处理：提取批注、生成知识笔记、建立双向链接 |
 | **weekly-summary** | `.agents/skills/weekly-summary/SKILL.md` | "总结我这周干了啥", "weekly summary" |
 | **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
 
 Key skill behaviors:
-- **physics-manager**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
+- **zotero-notes**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
 - **weekly-summary**: Scans `Literature/` and `Rydberg atom/` for new/changed files in past 7 days, writes structured summary to today's `Daily Notes/`
 
 ## Python 图表（替代 Mermaid）

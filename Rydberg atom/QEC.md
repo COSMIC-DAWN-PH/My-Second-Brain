@@ -75,11 +75,10 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $p_L$ | 逻辑错误率 | $p_L \propto (p/p_{th})^{\lfloor d/2\rfloor+1}$ |
-| $d$ | 码距（code distance） | 最少需要翻转多少个物理比特才能将一个逻辑错误变成另一个 |
-| $S_i$ | 稳定子生成元 | $S_i|\psi\rangle_L = +|\psi\rangle_L$ |
+- **$p_L$**：逻辑错误率 — $p_L \propto (p/p_{th})^{\lfloor d/2\rfloor+1}$
+- **$d$**：码距（code distance） — 最少需要翻转多少个物理比特才能将一个逻辑错误变成另一个
+- **$S_i$**：稳定子生成元 — $S_i|\psi\rangle_L = +|\psi\rangle_L$
+
 
 ## 🔗 相关笔记
 

@@ -82,11 +82,10 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $\otimes$ | 张量积 | $\begin{pmatrix}a\\b\end{pmatrix}\otimes\begin{pmatrix}c\\d\end{pmatrix} = \begin{pmatrix}ac\\ad\\bc\\bd\end{pmatrix}$ |
-| $\mathcal{H}_n$ | $n$ qubit 态空间维数 | $\dim = 2^n$ |
-| $(A\otimes B)(C\otimes D)$ | 张量积复合 | $= AC \otimes BD$ |
+- **\otimes**：张量积 — $\begin{pmatrix}a\\b\end{pmatrix}\otimes\begin{pmatrix}c\\d\end{pmatrix} = \begin{pmatrix}ac\\ad\\bc\\bd\end{pmatrix}$
+- **\mathcal{H}_n**：$n$ qubit 态空间维数 — $\dim = 2^n$
+- **(A\otimes B)(C\otimes D)**：张量积复合 — $= AC \otimes BD$
+
 
 ## 📝 更新记录
 

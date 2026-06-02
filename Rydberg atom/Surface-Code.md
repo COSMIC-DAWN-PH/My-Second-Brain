@@ -82,13 +82,12 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $d$ | 码距 | $d=5$ → 41 物理 qubit 编 1 逻辑 qubit |
-| $p_L$ | 逻辑错误率 | $p_L \propto (p/p_{th})^{\lfloor d/2\rfloor+1}$ |
-| $p_{th}$ | 错误阈值 | $p_{th} \approx 1\%$（表面码） |
-| $A_v$ | X 稳定子 | $A_v = \prod X_e$ |
-| $B_p$ | Z 稳定子 | $B_p = \prod Z_e$ |
+- **d**：码距 — $d=5$ → 41 物理 qubit 编 1 逻辑 qubit
+- **p_L**：逻辑错误率 — $p_L \propto (p/p_{th})^{\lfloor d/2\rfloor+1}$
+- **p_{th}**：错误阈值 — $p_{th} \approx 1\%$（表面码）
+- **A_v**：X 稳定子 — $A_v = \prod X_e$
+- **B_p**：Z 稳定子 — $B_p = \prod Z_e$
+
 
 ## 📝 更新记录
 

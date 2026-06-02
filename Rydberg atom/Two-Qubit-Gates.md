@@ -328,14 +328,13 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|------|------|------|
-| $\text{CNOT}$ | Controlled-NOT 门 | $\|c\rangle\|t\rangle \to \|c\rangle\|t \oplus c\rangle$，$4\times4$ 矩阵 |
-| $\text{CZ}$ | Controlled-Z 门 | $\text{diag}(1,1,1,-1)$，$\|11\rangle \to -\|11\rangle$ |
-| $\text{SWAP}$ | 交换门 | $\|a\rangle\|b\rangle \to \|b\rangle\|a\rangle$ |
-| CNOT $\leftrightarrow$ CZ | 门转换 | $\text{CNOT} = (I \otimes H) \cdot \text{CZ} \cdot (I \otimes H)$ |
-| $\|\Phi^+\rangle$ | Bell 态 | $\frac{1}{\sqrt{2}}(\|00\rangle + \|11\rangle)$ |
-| $\text{SWAP} = 3 \times \text{CNOT}$ | SWAP 分解 | $\text{CNOT}_{12} \cdot \text{CNOT}_{21} \cdot \text{CNOT}_{12}$ |
+- **$\text{CNOT}$**：Controlled-NOT 门 — $|c\rangle|t\rangle \to |c\rangle|t \oplus c\rangle$
+- **$\text{CZ}$**：Controlled-Z 门 — $\text{diag}(1,1,1,-1)$，$|11\rangle \to -|11\rangle$
+- **$\text{SWAP}$**：交换门 — $|a\rangle|b\rangle \to |b\rangle|a\rangle$
+- **CNOT $\leftrightarrow$ CZ**：门转换 — $\text{CNOT} = (I \otimes H) \cdot \text{CZ} \cdot (I \otimes H)$
+- **$|\Phi^+\rangle$**：Bell 态 — $\frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$
+- **SWAP 分解** — $\text{SWAP} = \text{CNOT}_{12} \cdot \text{CNOT}_{21} \cdot \text{CNOT}_{12}$
+
 
 ---
 

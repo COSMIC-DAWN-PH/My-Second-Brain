@@ -73,10 +73,9 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $\bar{U}$ | 横向逻辑门 | $\bar{U} = U^{\otimes n}$ |
-| $\overline{\text{CZ}}$ | 横向 CZ 门 | $\bigotimes_i \text{CZ}^{(i)}$（对应物理 qubit 对） |
+- **\bar{U}**：横向逻辑门 — $\bar{U} = U^{\otimes n}$
+- **\overline{\text{CZ}}**：横向 CZ 门 — $\bigotimes_i \text{CZ}^{(i)}$（对应物理 qubit 对）
+
 
 ## 🔗 相关笔记
 

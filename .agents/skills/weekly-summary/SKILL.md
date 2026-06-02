@@ -106,7 +106,7 @@ description: 周度科研总结技能 —— 自动扫描 Literature/ 与 Rydber
 - [ ] 完成文献初读（批注全部概念）
 - [ ] 所有 ❓ 概念已建立知识笔记
 - [ ] 日度笔记已更新
-- [ ] 知识双链完整性已验证（参见 physics-manager § 6.3）
+- [ ] 知识双链完整性已验证（参见 zotero-notes § 6.3）
 
 ---
 ```
@@ -178,18 +178,18 @@ Daily Notes 文件命名格式：`YYYY-MM-DD.md`，例如 `2026-03-29.md`
 
 ---
 
-## 6. 与 physics-manager 技能的协作关系
+## 6. 与 zotero-notes 技能的协作关系
 
-本技能是 `physics-manager` 的**下游汇总技能**，依赖以下 physics-manager 规范：
+本技能是 `zotero-notes` 的**下游汇总技能**，依赖以下 zotero-notes 规范：
 
-| 依赖项 | 来自 physics-manager 章节 |
+| 依赖项 | 来自 zotero-notes 章节 |
 |---|---|
 | `## 🔗 衍生知识笔记索引` 表格格式 | § 6.2 |
 | 知识笔记 frontmatter 字段（`source`, `date`, `status`） | § 5.2, § 6.1 |
 | 批注中的 `[[English-Name]] — 知识笔记已建立 ✅` 格式 | § 6.2 |
 | 文件命名约定 `English-Name.md`（中文别名放 YAML aliases） | § 5.2 |
 
-如发现格式不符合 physics-manager 规范的笔记，在输出报告中标注 `⚠️ 格式异常`，但不中断写入流程。
+如发现格式不符合 zotero-notes 规范的笔记，在输出报告中标注 `⚠️ 格式异常`，但不中断写入流程。
 
 ---
 
@@ -239,5 +239,5 @@ Daily Notes 文件命名格式：`YYYY-MM-DD.md`，例如 `2026-03-29.md`
 - [x] 完成文献初读（批注全部概念）
 - [x] 所有 ❓ 概念已建立知识笔记
 - [x] 日度笔记已更新
-- [ ] 知识双链完整性已验证（参见 physics-manager § 6.3）
+- [ ] 知识双链完整性已验证（参见 zotero-notes § 6.3）
 ```

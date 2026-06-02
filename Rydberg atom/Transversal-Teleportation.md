@@ -840,14 +840,13 @@ Bluvstein et al. (2026) 在 **27 层**深度电路中演示了横向隐形传态
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|------|------|------|
-| $\overline{\text{CZ}}$ | 横向 CZ 门 | $\bigotimes_{i=1}^{n} \text{CZ}^{(a_i, b_i)}$ |
-| 逻辑传送 | 核心效果 | $\|\psi\rangle_L^{(A)} \xrightarrow{\text{CZ+Bell}} \|\psi\rangle_L^{(B)}$ |
-| 错误隔离 | 容错性保证 | $E_A$ 只作用于 $A$，不传播到 $B$ |
-| 恒定熵 | 运行目标 | $S_{\text{逻辑}}(t) = \text{const}$ |
-| Gate Teleportation | 门操作传送 | $B$ 初态 $= U_L\|\phi\rangle_L$ → 传送后 $= U_L\|\psi\rangle_L$ |
-| 经典通信量 | 协议开销 | $2n$ bit（$n$ = 物理 qubit 数） |
+- **$\overline{\text{CZ}}$**：横向 CZ 门 — $\bigotimes_{i=1}^{n} \text{CZ}^{(a_i, b_i)}$
+- **逻辑传送**：核心效果 — $|\psi\rangle_L^{(A)} \xrightarrow{\text{CZ+Bell}} |\psi\rangle_L^{(B)}$
+- **错误隔离**：容错性保证 — $E_A$ 只作用于 $A$，不传播到 $B$
+- **恒定熵**：运行目标 — $S_{\text{逻辑}}(t) = \text{const}$
+- **Gate Teleportation**：门操作传送 — $B$ 初态 $= U_L|\phi\rangle_L$ → 传送后 $= U_L|\psi\rangle_L$
+- **经典通信量**：协议开销 — $2n$ bit（$n$ = 物理 qubit 数）
+
 
 ---
 

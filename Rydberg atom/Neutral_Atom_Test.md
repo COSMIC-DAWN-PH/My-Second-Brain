@@ -198,13 +198,12 @@ R (原子间距)   ←→  阵列密度（越密越好）
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|------|------|------|
-| $H$ | 多体哈密顿量 | $\sum_i \frac{\hbar\Omega}{2}\sigma_x^{(i)} - \sum_i \hbar\Delta \, n_i + \sum_{i<j} V_{ij} n_i n_j$ |
-| $\Omega$ | 拉比频率 | 激光驱动 $|g\rangle \leftrightarrow \|r\rangle$ 的速率 |
-| $\Delta$ | 失谐量 | 激光频率与原子跃迁频率之差 |
-| $V_{ij}$ | van der Waals 相互作用 | $C_6 / R_{ij}^6$ |
-| $n_i$ | 里德堡态占据数 | $n_i = \|r\rangle_i \langle r\|_i$ |
+- **H**：多体哈密顿量 — $\sum_i \frac{\hbar\Omega}{2}\sigma_x^{(i)} - \sum_i \hbar\Delta \, n_i + \sum_{i<j} V_{ij} n_i n_j$
+- **\Omega**：拉比频率 — 激光驱动 $
+- **\Delta**：失谐量 — 激光频率与原子跃迁频率之差
+- **V_{ij}**：van der Waals 相互作用 — $C_6 / R_{ij}^6$
+- **n_i**：里德堡态占据数 — $n_i = \
+
 
 ---
 

@@ -76,11 +76,10 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $\tau_Z$ | 芝诺时间 | $\tau_Z = \hbar / \Delta E$ |
-| $P(\Delta t)$ | 短时存活概率 | $P \approx 1 - (\Delta t/\tau_Z)^2$ |
-| $H_{\text{eff}}$ | 芝诺子空间有效哈密顿量 | $H_{\text{eff}} = \mathcal{P}H\mathcal{P}$ |
+- **\tau_Z**：芝诺时间 — $\tau_Z = \hbar / \Delta E$
+- **P(\Delta t)**：短时存活概率 — $P \approx 1 - (\Delta t/\tau_Z)^2$
+- **H_{\text{eff}}**：芝诺子空间有效哈密顿量 — $H_{\text{eff}} = \mathcal{P}H\mathcal{P}$
+
 
 ## 📝 更新记录
 

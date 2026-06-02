@@ -146,14 +146,13 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $X$ | 泡利 X（比特翻转） | $\begin{pmatrix}0&1\\1&0\end{pmatrix}$，本征态 $\|\pm\rangle$ |
-| $Y$ | 泡利 Y（混合翻转） | $\begin{pmatrix}0&-i\\i&0\end{pmatrix}$，本征态 $\|\pm i\rangle$ |
-| $Z$ | 泡利 Z（相位翻转） | $\begin{pmatrix}1&0\\0&-1\end{pmatrix}$，本征态 $\|0\rangle, \|1\rangle$ |
-| $[\sigma_j,\sigma_k]$ | 对易关系 | $2i\epsilon_{jkl}\sigma_l$ |
-| $\{\sigma_j,\sigma_k\}$ | 反对易关系 | $2\delta_{jk}I$ |
-| $R_{\hat{n}}(\theta)$ | 旋转门 | $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$ |
+- **X**：泡利 X（比特翻转） — $\begin{pmatrix}0&1\\1&0\end{pmatrix}$，本征态 $|\pm\rangle$
+- **Y**：泡利 Y（混合翻转） — $\begin{pmatrix}0&-i\\i&0\end{pmatrix}$，本征态 $|\pm i\rangle$
+- **Z**：泡利 Z（相位翻转） — $\begin{pmatrix}1&0\\0&-1\end{pmatrix}$，本征态 $|0\rangle, |1\rangle$
+- **对易关系** — $[\sigma_j,\sigma_k] = 2i\epsilon_{jkl}\sigma_l$
+- **反对易关系** — $\{\sigma_j,\sigma_k\} = 2\delta_{jk}I$
+- **旋转门** — $R_{\hat{n}}(\theta) = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$
+
 
 ## 🔗 相关笔记
 

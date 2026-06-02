@@ -133,13 +133,12 @@ $A$、$B$ 两组码块交替充当"发送方"和"接收方"，形成循环：
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $D$ | 电路深度 | 串行门操作层数 |
-| $S_{\text{逻辑}}$ | 逻辑系统熵 | $S = \text{const}$（恒定熵运行目标） |
-| $\overline{\text{CZ}}$ | 横向 CZ 门 | $\bigotimes_{i=1}^{n} \text{CZ}^{(a_i, b_i)}$ |
-| 逻辑传送 | 核心效果 | $\|\psi\rangle_L^{(A)} \xrightarrow{\text{CZ+Bell}} \|\psi\rangle_L^{(B)}$ |
-| 错误隔离 | 容错性保证 | $E_A$ 只作用于 $A$，不传播到 $B$ |
+- **$D$**：电路深度 — 串行门操作层数
+- **$S_{\text{逻辑}}$**：逻辑系统熵 — $S = \text{const}$（恒定熵运行目标）
+- **$\overline{\text{CZ}}$**：横向 CZ 门 — $\bigotimes_{i=1}^{n} \text{CZ}^{(a_i, b_i)}$
+- **逻辑传送**：核心效果 — $|\psi\rangle_L^{(A)} \xrightarrow{\text{CZ+Bell}} |\psi\rangle_L^{(B)}$
+- **错误隔离**：容错性保证 — $E_A$ 只作用于 $A$，不传播到 $B$
+
 
 ---
 

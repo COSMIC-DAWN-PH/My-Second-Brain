@@ -15,7 +15,7 @@
 | **`Daily Notes/`** | 日度科研进展与随笔日记 | 记录你每天的实验想法、文献学习进度，同时是 AI **周总结技能（weekly-summary）** 自动追加写入的目的地。 |
 | **`Handout by AI/`** | AI 辅助研读学术讲义区 | 存放 AI 为你量身定制的顶级论文导读讲义（如 [start_up.md](file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/Handout%20by%20AI/start_up.md)）及与其配套的 200 DPI 科学仿真插图。 |
 | **`tools/`** | 模板与本地脚本工具区 | 包含 `Zotero_Template.md`（Zotero 导入排版标准模板）和用于提取 PDF 批注的底层可执行程序。 |
-| **`.agents/skills/`** | 针对本笔记库的**私有 AI 技能库** | 包含 [physics-manager](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/physics-manager/SKILL.md) 与 [weekly-summary](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/weekly-summary/SKILL.md) 技能。 |
+| **`.agents/skills/`** | 针对本笔记库的**私有 AI 技能库** | 包含 [zotero-notes](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/zotero-notes/SKILL.md) 与 [weekly-summary](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/weekly-summary/SKILL.md) 技能。 |
 | **`AGENTS.md`** | **AI 助理的行为法则与笔记规范宪章** | 任何进入本仓库的 AI 编码助手必须阅读的第一文件，规定了文件命名、LaTeX 语法、双链书写以及 Python 绘图的防报错规则。 |
 | **`readme.md`** | 仓库主页与使用指南（当前文件） | 仓库的整体导航与协作指引。 |
 
@@ -25,9 +25,9 @@
 
 本笔记库的灵魂在于其与 AI 助理（如 Antigravity）的无缝协作。通过根目录的 `AGENTS.md` 和 `.agents/skills/`，AI 助理拥有两个专门针对本笔记库定制的专属技能：
 
-1. **物理知识架构师 (`/physics-manager`)**：
+1. **Zotero 文献笔记处理 (`/zotero-notes`)**：
    - 当你从 Zotero 导入新论文时，激活此技能。
-   - 它能自动扫描你的批注，根据你的原子物理背景，自动提炼物理概念并在 `Rydberg atom/` 文件夹下生成高品质的、含 LaTeX 推导与核心公式表的独立知识笔记，并在原文献笔记中回填 `[[双向链接]]`。
+   - 它能自动扫描你的批注，提炼物理概念并在 `Rydberg atom/` 文件夹下生成知识笔记，并在原文献笔记中回填 `[[双向链接]]`。
    
 2. **周度科研进度追踪者 (`/weekly-summary`)**：
    - 只要你对 AI 说：*“总结我这周干了啥”*，AI 就会自动扫描过去 7 天内 `Literature/` 和 `Rydberg atom/` 文件夹中的新建/修改记录。

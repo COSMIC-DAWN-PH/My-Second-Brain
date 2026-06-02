@@ -1,6 +1,6 @@
 ---
-name: physics-manager
-description: 量子物理科研助理技能 —— 负责笔记格式规范、知识本体关联、文献整合与 Zotero 工作流管理。
+name: zotero-notes
+description: Zotero 文献笔记处理技能 —— 从 Zotero 导入的论文笔记中提取批注、生成知识笔记、建立双向链接。
 ---
 
 # Agent Identity: Quantum Physics & Knowledge Architect

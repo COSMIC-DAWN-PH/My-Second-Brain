@@ -104,13 +104,12 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $\Omega$ | 拉比频率 | $\Omega = d \cdot E_0 / \hbar$ |
-| $\Delta$ | 失谐量 | $\Delta = \omega_L - \omega_0$ |
-| $\tilde{\Omega}$ | 广义拉比频率 | $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$ |
-| $P_{|1\rangle}(t)$ | 跃迁概率（共振） | $\sin^2(\Omega t/2)$ |
-| $P_{|1\rangle}(t)$ | 跃迁概率（失谐） | $(\Omega/\tilde{\Omega})^2 \sin^2(\tilde{\Omega}t/2)$ |
+- **$\Omega$**：拉比频率 — $\Omega = d \cdot E_0 / \hbar$
+- **$\Delta$**：失谐量 — $\Delta = \omega_L - \omega_0$
+- **$\tilde{\Omega}$**：广义拉比频率 — $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$
+- **$P_{|1\rangle}(t)$**：跃迁概率（共振） — $\sin^2(\Omega t/2)$
+- **$P_{|1\rangle}(t)$**：跃迁概率（失谐） — $(\Omega/\tilde{\Omega})^2 \sin^2(\tilde{\Omega}t/2)$
+
 
 ---
 

@@ -4,8 +4,8 @@
   "title": "这个有问题吧，0和1咋会五五开，不对吧改一下",
   "titleGenerationStatus": "failed",
   "createdAt": 1780397164048,
-  "updatedAt": 1780397704217,
-  "lastResponseAt": 1780397704217,
+  "updatedAt": 1780399732991,
+  "lastResponseAt": 1780399480091,
   "sessionId": "019e87f0-c9ff-7970-86cc-400df9f1aef4",
   "providerState": {
     "threadId": "019e87f0-c9ff-7970-86cc-400df9f1aef4",
@@ -14,13 +14,13 @@
   },
   "currentNote": "Rydberg atom/Qubit-State-and-Superposition.md",
   "usage": {
-    "inputTokens": 58161,
+    "inputTokens": 95498,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 56704,
+    "cacheReadInputTokens": 94080,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 58161,
-    "percentage": 23,
+    "contextTokens": 95498,
+    "percentage": 37,
     "model": "gpt-5.5"
   }
 }

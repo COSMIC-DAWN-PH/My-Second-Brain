@@ -445,14 +445,13 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|------|------|------|
-| $V_{12}$ | 两原子 van der Waals 相互作用 | $V_{12} = C_6 / R^6$ |
-| $C_6$ | van der Waals 系数 | $C_6 \propto n^{11}$ |
-| $R_b$ | 阻塞半径 | $R_b = (C_6 / \Omega)^{1/6}$ |
-| 阻塞条件 | 阻塞有效的判据 | $V_{12} \gg \Omega$ |
-| $P_{\text{error}}$ | 错误激发概率 | $P \sim (\Omega / V_{12})^2$ |
-| $H$ | 两原子哈密顿量 | $H = H_1 + H_2 + V_{12}\|r\rangle\langle r\| \otimes \|r\rangle\langle r\|$ |
+- **V_{12}**：两原子 van der Waals 相互作用 — $V_{12} = C_6 / R^6$
+- **C_6**：van der Waals 系数 — $C_6 \propto n^{11}$
+- **R_b**：阻塞半径 — $R_b = (C_6 / \Omega)^{1/6}$
+- **阻塞条件**：阻塞有效的判据 — $V_{12} \gg \Omega$
+- **P_{\text{error}}**：错误激发概率 — $P \sim (\Omega / V_{12})^2$
+- **H**：两原子哈密顿量 — $H = H_1 + H_2 + V_{12}\
+
 
 ---
 

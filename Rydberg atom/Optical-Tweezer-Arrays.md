@@ -81,11 +81,10 @@ $$
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|---|---|---|
-| $U_{\text{dipole}}$ | 偶极势阱深度 | $U = -\frac{1}{2}\alpha(\omega)|\mathbf{E}|^2$ |
-| $\mathbf{F}_{\text{dipole}}$ | 光学梯度力 | $\mathbf{F} = -\nabla U_{\text{dipole}}$ |
-| $V_{ij}$ | 里德堡相互作用 | $V_{ij} = C_6 / r_{ij}^6$ |
+- **U_{\text{dipole}}**：偶极势阱深度 — $U = -\frac{1}{2}\alpha(\omega)
+- **\mathbf{F}_{\text{dipole}}**：光学梯度力 — $\mathbf{F} = -\nabla U_{\text{dipole}}$
+- **V_{ij}**：里德堡相互作用 — $V_{ij} = C_6 / r_{ij}^6$
+
 
 ## 📝 更新记录
 

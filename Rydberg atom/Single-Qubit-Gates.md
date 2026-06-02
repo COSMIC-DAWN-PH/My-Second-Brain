@@ -357,7 +357,7 @@ $$
 | 旋转角 $\theta$ | 脉冲持续时间 $t$，$\theta = \Omega t$ | 精确控制激光开关时间 |
 | 旋转轴方向 | 激光偏振和相对相位 | 调节波片或 AOM |
 | $R_x(\theta)$ | 线偏振光沿特定方向 | 确定偏振方向 |
-| $R_z(\theta)$ | 失谐脉冲（$\Delta \neq 0$） | AC Stark 效应产生纯相位偏移 |
+| $R_z(\theta)$ | 失谐脉冲（$\Delta \neq 0$） | [[AC-Stark-Effect\|AC Stark]] 效应产生纯相位偏移 |
 | Hadamard | $\pi/2$ 脉冲 + $R_z$ 组合 | 拆解为硬件可执行序列 |
 
 ### 6.4 关键性能参数
@@ -406,17 +406,16 @@ $\{H, T, \text{CZ}\}$ 构成**通用门集**——任何量子线路都可以用
 
 ## 📐 核心公式摘要
 
-| 符号 | 含义 | 公式 |
-|------|------|------|
-| $U$ | 一般单比特门 | $2\times2$ 酉矩阵，$U^\dagger U = I$ |
-| $X$ | Pauli X（比特翻转） | $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ |
-| $Z$ | Pauli Z（相位翻转） | $\begin{pmatrix}1&0\\0&{-1}\end{pmatrix}$ |
-| $Y$ | Pauli Y（混合翻转） | $\begin{pmatrix}0&{-i}\\i&0\end{pmatrix}$ |
-| $H$ | Hadamard 门 | $\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&{-1}\end{pmatrix}$ |
-| $S$ | $\pi/2$ 相位门 | $\text{diag}(1,\;i) = \sqrt{Z}$ |
-| $T$ | $\pi/4$ 相位门 | $\text{diag}(1,\;e^{i\pi/4}) = \sqrt{S}$ |
-| $R_{\hat{n}}(\theta)$ | 旋转门 | $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$ |
-| Euler 分解 | 任意单比特门 | $U = e^{i\alpha}R_z(\beta)R_y(\gamma)R_z(\delta)$ |
+- **U**：一般单比特门 — $2\times2$ 酉矩阵，$U^\dagger U = I$
+- **X**：Pauli X（比特翻转） — $\begin{pmatrix}0&1\\1&0\end{pmatrix}$
+- **Z**：Pauli Z（相位翻转） — $\begin{pmatrix}1&0\\0&{-1}\end{pmatrix}$
+- **Y**：Pauli Y（混合翻转） — $\begin{pmatrix}0&{-i}\\i&0\end{pmatrix}$
+- **H**：Hadamard 门 — $\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&{-1}\end{pmatrix}$
+- **S**：$\pi/2$ 相位门 — $\text{diag}(1,\;i) = \sqrt{Z}$
+- **T**：$\pi/4$ 相位门 — $\text{diag}(1,\;e^{i\pi/4}) = \sqrt{S}$
+- **R_{\hat{n}}(\theta)**：旋转门 — $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$
+- **Euler 分解**：任意单比特门 — $U = e^{i\alpha}R_z(\beta)R_y(\gamma)R_z(\delta)$
+
 
 ---
 

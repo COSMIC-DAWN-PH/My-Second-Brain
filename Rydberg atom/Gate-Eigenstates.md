@@ -86,11 +86,11 @@ $$
 
 ## 📐 核心公式摘要
 
-| 算符 | 本征值 $+1$ 态 | 本征值 $-1$ 态 |
-|---|---|---|
-| $Z$ | $|0\rangle$ | $|1\rangle$ |
-| $X$ | $|+\rangle = (|0\rangle+|1\rangle)/\sqrt{2}$ | $|-\rangle = (|0\rangle-|1\rangle)/\sqrt{2}$ |
-| $Y$ | $(|0\rangle+i|1\rangle)/\sqrt{2}$ | $(|0\rangle-i|1\rangle)/\sqrt{2}$ |
+- **算符**：本征值 $+1$ 态 — 本征值 $-1$ 态
+- **Z**：$ — 0\rangle$
+- **X**：$ — +\rangle = (
+- **Y**：$( — 0\rangle+i
+
 
 ## 📝 更新记录
 

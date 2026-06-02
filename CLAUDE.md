@@ -14,7 +14,7 @@
 | `Daily Notes/` | Research diary entries |
 | `Handout by AI/` | AI-generated paper reading handouts with Python figures |
 | `tools/` | Templates (`Zotero_Template.md`) and utilities |
-| `.agents/skills/` | Custom skills (physics-manager, weekly-summary, literature-handout) |
+| `.agents/skills/` | Custom skills (zotero-notes, weekly-summary, literature-handout) |
 
 ### User Profile
 
@@ -27,7 +27,7 @@ Before generating any physics content, **read** `.agents/memory/user_profile.jso
 - **Embeds**: `![[English-Name]]` for transclusion, `![[English-Name#Section]]` for partial embed
 - **Block references**: `^block-id` at paragraph end, then `[[English-Name^block-id]]` to reference
 - **LaTeX**: Inline `$...$`, block `$$...$$`. Never use `\begin{equation}`
-- **⚠️ Markdown 表格中的 LaTeX**：表格单元格内的 LaTeX 表达式如果包含 `|` 符号（如 `$|0\rangle$`），必须转义为 `\|`（即 `$\|0\rangle$`），否则 markdown 解析器会把 `|` 当成表格列分隔符，导致表格崩溃。如果表达式太复杂无法避免多个 `|`，改用**列表格式**代替表格。
+- **⚠️ Markdown 表格中的 LaTeX（铁律）**：`|0\rangle` 中的 `|` 会被 markdown 解析器优先当作表格列分隔符，即使用 `\|` 转义也经常失败（因为 `\|` 本身也被当作管道符处理）。**规则：公式摘要一律用列表格式，绝不用表格。** 其他表格中如果 LaTeX 含 `|`，也必须改用列表或纯文字描述，不要试图转义。
 - **Line breaks**: Soft-wrapped markdown (no hard line breaks)
 - **Tags**: `[Physics, Quantum, ...]` — see existing notes for tag conventions
 
@@ -182,7 +182,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 
 | Skill | Trigger | Description |
 |-------|---------|-------------|
-| **physics-manager** | Knowledge note creation, Zotero processing | Enforces frontmatter, builds `[[wiki-links]]`, generates formula tables, classifies annotations |
+| **zotero-notes** | Zotero 批注处理、知识笔记生成 | 从 Zotero 论文笔记中提取批注，生成知识笔记，建立双向链接 |
 | **weekly-summary** | "summarize my week", "weekly summary" | Scans Literature/ and Rydberg atom/ for changes in past 7 days, writes structured summary to Daily Notes/ |
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 
