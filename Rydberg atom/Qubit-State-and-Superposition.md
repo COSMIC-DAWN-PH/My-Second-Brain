@@ -309,6 +309,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[Two-Qubit-State-and-Entanglement]] — 两个 qubit 的叠加态如何产生纠缠、并发度、纠缠熵
 - [[Single-Qubit-Gates]] — 对叠加态施加的旋转操作（H、X、Z、T 等）
 - [[Pauli-Matrices]] — Bloch 球三个轴的旋转生成元
 - [[Rabi-Flopping]] — 实验中制备叠加态的物理机制

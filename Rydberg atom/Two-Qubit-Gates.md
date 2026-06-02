@@ -341,6 +341,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[Two-Qubit-State-and-Entanglement]] — 两 qubit 态的结构、纠缠判据、并发度、纠缠熵
 - [[Single-Qubit-Gates]] — 与两比特门组合构成通用门集的单比特门
 - [[CZ-Gate]] — CZ 门的详细性质、里德堡阻塞实现
 - [[Rydberg-Blockade]] — CZ 门的物理实现机制
