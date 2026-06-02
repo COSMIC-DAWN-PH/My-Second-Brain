@@ -95,22 +95,23 @@ status: Evergreen
 
 ## 🎯 Recommended Next Steps
 
-> 以下知识点的所有前置 comprehension 均 ≥ "getting there"，可以立即开始学习：
+> 以下知识点的所有前置 comprehension 均 ≥ "getting there"，可以立即开始学习。
+> **在 Obsidian 中勾选 `[x]` 表示已掌握！**
 
-1. **[[Rabi-Flopping|拉比振荡]]** (当前: 🟡 vague) — 前置 [[Single-Qubit-Gates]] 🔵 已满足
-   - 为什么现在学：单量子比特门的**物理实现**（pi pulse = $R_x(\pi)$），是理解 [[Rydberg-Blockade|里德堡阻塞]] 的关键前置。掌握后可解锁 Tier 4 的 CZ 门和里德堡阻塞
+- [ ] **[[Rabi-Flopping|拉比振荡]]** 🟡 vague — 前置 [[Single-Qubit-Gates]] 🔵 已满足
+  - 单量子比特门的**物理实现**（pi pulse = $R_x(\pi)$），是理解 [[Rydberg-Blockade|里德堡阻塞]] 的关键前置。掌握后可解锁 Tier 4 的 CZ 门和里德堡阻塞
 
-2. **[[CZ-Gate|CZ门]]** (当前: 🟡 vague) — 前置 [[Two-Qubit-Gates]] 🔵 已满足
-   - 为什么现在学：中性原子量子计算的**核心纠缠门**，是里德堡阻塞的"目标产物"。掌握后可解锁 [[Rydberg-Blockade|里德堡阻塞]] 和 [[QEC|量子纠错]]
+- [ ] **[[CZ-Gate|CZ门]]** 🟡 vague — 前置 [[Two-Qubit-Gates]] 🔵 已满足
+  - 中性原子量子计算的**核心纠缠门**，是里德堡阻塞的"目标产物"。掌握后可解锁 [[Rydberg-Blockade|里德堡阻塞]] 和 [[QEC|量子纠错]]
 
-3. **[[Tensor-Product|张量积]]** (当前: 🟡 vague) — 前置 [[Qubit-State-and-Superposition]] ✅ 已满足
-   - 为什么现在学：多比特系统的**数学基础**，掌握后可疏通 [[Two-Qubit-State-and-Entanglement|纠缠态]]、[[Anti-Commutation|反对易]] 和 [[Two-Qubit-Gates|两比特门]] 的理解
+- [ ] **[[Tensor-Product|张量积]]** 🟡 vague — 前置 [[Qubit-State-and-Superposition]] ✅ 已满足
+  - 多比特系统的**数学基础**，掌握后可疏通 [[Two-Qubit-State-and-Entanglement|纠缠态]]、[[Anti-Commutation|反对易]] 和 [[Two-Qubit-Gates|两比特门]] 的理解
 
-4. **[[Gate-Eigenstates|门算符本征态]]** (当前: 🟡 vague) — 前置 [[Pauli-Matrices]] 🔵 已满足
-   - 为什么现在学：巩固对量子门**数学结构**的直觉，叶子节点不阻塞其他内容，适合穿插巩固
+- [ ] **[[Gate-Eigenstates|门算符本征态]]** 🟡 vague — 前置 [[Pauli-Matrices]] 🔵 已满足
+  - 巩固对量子门**数学结构**的直觉，叶子节点不阻塞其他内容，适合穿插巩固
 
-5. **[[Optical-Tweezer-Arrays|光镊阵列]]** (当前: 🟡 vague) — 前置 [[Qubit-State-and-Superposition]] ✅ 已满足
-   - 为什么现在学：中性原子的**硬件平台**，连接几乎所有实验物理概念。掌握后可解锁 [[AC-Stark-Effect|AC Stark效应]] 并帮助理解 [[Neutral_Atom_Test|中性原子实验]]
+- [ ] **[[Optical-Tweezer-Arrays|光镊阵列]]** 🟡 vague — 前置 [[Qubit-State-and-Superposition]] ✅ 已满足
+  - 中性原子的**硬件平台**，连接几乎所有实验物理概念。掌握后可解锁 [[AC-Stark-Effect|AC Stark效应]] 并帮助理解 [[Neutral_Atom_Test|中性原子实验]]
 
 > [!tip] 学习策略建议
 > **优先攻克 Tier 1 的 [[Tensor-Product|张量积]]**，它是多比特物理的数学地基。
@@ -137,31 +138,47 @@ status: Evergreen
 
 ## 🔑 Knowledge Clusters
 
-> 按主题分组，标注每组的整体掌握程度
+> 按主题分组，勾选 `[x]` 标记已掌握的知识点！
 
-### Cluster 1: Mathematical Foundations
-- [[Pauli-Matrices|泡利矩阵]] 🔵 / [[Tensor-Product|张量积]] 🟡 / [[Anti-Commutation|反对易]] 🟡 / [[Gate-Eigenstates|本征态]] 🟡
-- **Cluster health**: 50%
+### Cluster 1: Mathematical Foundations — 50%
 
-### Cluster 2: Single-Qubit Physics
-- [[Qubit-State-and-Superposition|量子比特态]] ✅ / [[Single-Qubit-Gates|单比特门]] 🔵 / [[Rabi-Flopping|拉比振荡]] 🟡 / [[Quantum-Zeno-Effect|量子芝诺]] 🟡
-- **Cluster health**: 63%
+- [ ] [[Pauli-Matrices|泡利矩阵]] 🔵 getting there
+- [ ] [[Tensor-Product|张量积]] 🟡 vague
+- [ ] [[Anti-Commutation|反对易]] 🟡 vague
+- [ ] [[Gate-Eigenstates|本征态]] 🟡 vague
 
-### Cluster 3: Two-Qubit Physics
-- [[Two-Qubit-State-and-Entanglement|纠缠态]] 🔵 / [[Two-Qubit-Gates|两比特门]] 🔵 / [[CZ-Gate|CZ门]] 🟡 / [[Rydberg-Blockade|里德堡阻塞]] 🔴
-- **Cluster health**: 56%
+### Cluster 2: Single-Qubit Physics — 63%
 
-### Cluster 4: Hardware Platform
-- [[Optical-Tweezer-Arrays|光镊阵列]] 🟡 / [[AC-Stark-Effect|AC Stark效应]] 🔴 / [[Neutral_Atom_Test|中性原子实验]] 🟡
-- **Cluster health**: 33%
+- [x] [[Qubit-State-and-Superposition|量子比特态]] ✅ understood
+- [ ] [[Single-Qubit-Gates|单比特门]] 🔵 getting there
+- [ ] [[Rabi-Flopping|拉比振荡]] 🟡 vague
+- [ ] [[Quantum-Zeno-Effect|量子芝诺]] 🟡 vague
 
-### Cluster 5: Fault Tolerance
-- [[QEC|量子纠错]] 🟡 / [[Surface-Code|表面码]] 🟡 / [[Transversal-Gate|横向门]] 🟡 / [[Transversal-Teleportation|横向隐形传态]] 🔴 / [[Deep-Circuit-Execution|深度电路执行]] 🔴
-- **Cluster health**: 40%
+### Cluster 3: Two-Qubit Physics — 56%
 
-### Cluster 6: Algorithms
-- [[Grover-Search|Grover搜索]] 🔴 / [[Quantum-Phase-Estimation|QPE]] 🔴
-- **Cluster health**: 25%
+- [ ] [[Two-Qubit-State-and-Entanglement|纠缠态]] 🔵 getting there
+- [ ] [[Two-Qubit-Gates|两比特门]] 🔵 getting there
+- [ ] [[CZ-Gate|CZ门]] 🟡 vague
+- [ ] [[Rydberg-Blockade|里德堡阻塞]] 🔴 don't understand
+
+### Cluster 4: Hardware Platform — 33%
+
+- [ ] [[Optical-Tweezer-Arrays|光镊阵列]] 🟡 vague
+- [ ] [[AC-Stark-Effect|AC Stark效应]] 🔴 don't understand
+- [ ] [[Neutral_Atom_Test|中性原子实验]] 🟡 vague
+
+### Cluster 5: Fault Tolerance — 40%
+
+- [ ] [[QEC|量子纠错]] 🟡 vague
+- [ ] [[Surface-Code|表面码]] 🟡 vague
+- [ ] [[Transversal-Gate|横向门]] 🟡 vague
+- [ ] [[Transversal-Teleportation|横向隐形传态]] 🔴 don't understand
+- [ ] [[Deep-Circuit-Execution|深度电路执行]] 🔴 don't understand
+
+### Cluster 6: Algorithms — 25%
+
+- [ ] [[Grover-Search|Grover搜索]] 🔴 don't understand
+- [ ] [[Quantum-Phase-Estimation|QPE]] 🔴 don't understand
 
 ## 📈 Progress Visualization
 

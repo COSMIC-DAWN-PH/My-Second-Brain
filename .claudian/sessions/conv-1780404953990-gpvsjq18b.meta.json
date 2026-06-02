@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780404953990-gpvsjq18b",
+  "providerId": "claude",
+  "title": "/learning-path 这个skill修改learning-roadmap文件的每个知识点的状...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780404953991,
+  "updatedAt": 1780405573195,
+  "lastResponseAt": 1780405573195,
+  "sessionId": "cfad9091-e12b-4b59-acd1-7c52846cd13c",
+  "providerState": {
+    "providerSessionId": "cfad9091-e12b-4b59-acd1-7c52846cd13c"
+  },
+  "currentNote": "Learning-Roadmap.md",
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 652,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 54656,
+    "contextWindow": 1000000,
+    "contextTokens": 55308,
+    "percentage": 6
+  }
+}
