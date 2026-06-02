@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780401390032-v4k2dfsbh",
+  "providerId": "claude",
+  "title": "渲染还是有问题",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780401390032,
+  "updatedAt": 1780401769674,
+  "lastResponseAt": 1780401583411,
+  "sessionId": "4af0e1d2-3b6e-4bc9-8b5f-c8e4670647c4",
+  "providerState": {
+    "providerSessionId": "4af0e1d2-3b6e-4bc9-8b5f-c8e4670647c4"
+  },
+  "currentNote": "Rydberg atom/Qubit-State-and-Superposition.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 747,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 39040,
+    "contextWindow": 1000000,
+    "contextTokens": 39787,
+    "percentage": 4
+  }
+}

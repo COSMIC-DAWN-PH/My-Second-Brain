@@ -15,7 +15,7 @@
 | `Daily Notes/` | 每日科研日记 |
 | `Handout by AI/` | AI 生成的论文讲义（含 Python 图表） |
 | `tools/` | 模板文件（`Zotero_Template.md`） |
-| `.agents/skills/` | 自定义技能（zotero-notes、weekly-summary、literature-handout） |
+| `.agents/skills/` | 自定义技能（zotero-notes、weekly-summary、literature-handout、learning-path） |
 
 ## Obsidian 双链（Wiki-links）
 
@@ -203,10 +203,12 @@ When creating derivative knowledge notes, use the `zotero-notes` skill (see belo
 | **zotero-notes** | `.agents/skills/zotero-notes/SKILL.md` | Zotero 文献笔记处理：提取批注、生成知识笔记、建立双向链接 |
 | **weekly-summary** | `.agents/skills/weekly-summary/SKILL.md` | "总结我这周干了啥", "weekly summary" |
 | **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
+| **learning-path** | `.agents/skills/learning-path/SKILL.md` | "学习路径", "下一步学什么", "learning path", "学习规划" |
 
 Key skill behaviors:
 - **zotero-notes**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
 - **weekly-summary**: Scans `Literature/` and `Rydberg atom/` for new/changed files in past 7 days, writes structured summary to today's `Daily Notes/`
+- **learning-path**: Scans comprehension fields & dependency graph in `Rydberg atom/`, generates personalized learning roadmap with tier-based path, bottleneck analysis, and progress visualization
 
 ## Python 图表（替代 Mermaid）
 

@@ -27,7 +27,7 @@ Before generating any physics content, **read** `.agents/memory/user_profile.jso
 - **Embeds**: `![[English-Name]]` for transclusion, `![[English-Name#Section]]` for partial embed
 - **Block references**: `^block-id` at paragraph end, then `[[English-Name^block-id]]` to reference
 - **LaTeX**: Inline `$...$`, block `$$...$$`. Never use `\begin{equation}`
-- **⚠️ Markdown 表格中的 LaTeX（铁律）**：`|0\rangle` 中的 `|` 会被 markdown 解析器优先当作表格列分隔符，即使用 `\|` 转义也经常失败（因为 `\|` 本身也被当作管道符处理）。**规则：公式摘要一律用列表格式，绝不用表格。** 其他表格中如果 LaTeX 含 `|`，也必须改用列表或纯文字描述，不要试图转义。
+- **⚠️ Markdown 表格中的 LaTeX（铁律）**：`|0\rangle` 中的 `|` 会被 markdown 解析器优先当作表格列分隔符，即使用 `\|` 转义也经常失败（因为 `\|` 本身也被当作管道符处理）。**✅ 推荐解法：用 `\vert` 替代 `|`**，例如 `$\vert 0 \rangle$` 而不是 `$|0\rangle$`，`\vert` 是 LaTeX 命令，不会被 Markdown 解析器误识别为列分隔符。**退选方案：公式摘要一律用列表格式，绝不用表格。**
 - **Line breaks**: Soft-wrapped markdown (no hard line breaks)
 - **Tags**: `[Physics, Quantum, ...]` — see existing notes for tag conventions
 

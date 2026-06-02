@@ -18,7 +18,7 @@ tags:
 date: 2026-03-29
 status: In-Progress
 source: "[[generall quantum 2026]]"
-comprehension: "vague"
+comprehension: getting there
 ---
 
 # 泡利矩阵（Pauli Matrices）
@@ -44,10 +44,10 @@ $$
 
 ## 2. 每个门的物理意义
 
-| 门 | 矩阵作用 | 布洛赫球操作 | 直觉比喻 |
-|---|---|---|---|
-| $X$ | $X\|0\rangle = \|1\rangle$，$X\|1\rangle = \|0\rangle$ | 绕 $x$ 轴旋转 $\pi$ | 量子 NOT 门（比特翻转） |
-| $Z$ | $Z\|0\rangle = \|0\rangle$，$Z\|1\rangle = -\|1\rangle$ | 绕 $z$ 轴旋转 $\pi$ | 相位翻转（不改变测量概率） |
+| 门   | 矩阵作用                                                     | 布洛赫球操作          | 直觉比喻                |
+| --- | -------------------------------------------------------- | --------------- | ------------------- |
+| $X$ | $X\|0\rangle = \|1\rangle$，$X\|1\rangle = \|0\rangle$    | 绕 $x$ 轴旋转 $\pi$ | 量子 NOT 门（比特翻转）      |
+| $Z$ | $Z\|0\rangle = \|0\rangle$，$Z\|1\rangle = -\|1\rangle$   | 绕 $z$ 轴旋转 $\pi$ | 相位翻转（不改变测量概率）       |
 | $Y$ | $Y\|0\rangle = i\|1\rangle$，$Y\|1\rangle = -i\|0\rangle$ | 绕 $y$ 轴旋转 $\pi$ | 比特与相位同时翻转，$Y = iXZ$ |
 
 ## 3. 核心物理性质（重点拆解）

@@ -449,13 +449,13 @@ Some papers use the opposite convention; the important point is to fix which rea
 
 ### 7.6 Summary: one mathematical qubit, many physical carriers
 
-| Hardware platform | Physical meaning of $|0\rangle$ | Physical meaning of $|1\rangle$ | Typical control |
-|---|---|---|---|
-| Neutral atoms / Rydberg | one hyperfine ground state | another hyperfine ground state | microwave / Raman pulses |
-| Superconducting qubits | circuit ground state | first excited state | microwave pulses |
-| Trapped ions | one ion internal state | another ion internal state | microwave / Raman pulses |
-| Photonic qubits | horizontal polarization $|H\rangle$ | vertical polarization $|V\rangle$ | waveplates / interferometers |
-| Semiconductor spin qubits | spin-down $|\downarrow\rangle$ | spin-up $|\uparrow\rangle$ | ESR / EDSR pulses |
+| Hardware platform         | Physical meaning of $\vert 0 \rangle$     | Physical meaning of $\vert 1 \rangle$   | Typical control              |
+| ------------------------- | ----------------------------------------- | --------------------------------------- | ---------------------------- |
+| Neutral atoms / Rydberg   | one hyperfine ground state                | another hyperfine ground state          | microwave / Raman pulses     |
+| Superconducting qubits    | circuit ground state                      | first excited state                     | microwave pulses             |
+| Trapped ions              | one ion internal state                    | another ion internal state              | microwave / Raman pulses     |
+| Photonic qubits           | horizontal polarization $\vert H \rangle$ | vertical polarization $\vert V \rangle$ | waveplates / interferometers |
+| Semiconductor spin qubits | spin-down $\vert {\downarrow} \rangle$    | spin-up $\vert {\uparrow} \rangle$      | ESR / EDSR pulses            |
 
 > [!tip] Unified view
 > $|0\rangle$ and $|1\rangle$ are called computational basis states because they are the two states most directly mapped to classical readout 0 and 1. Mathematically, they are usually the eigenstates of $Z$ measurement; physically, they are two initializable, controllable, and distinguishable states in the hardware.

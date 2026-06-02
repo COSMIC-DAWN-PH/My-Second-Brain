@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780401663615-t4c3jrglb",
+  "providerId": "claude",
+  "title": "帮我搞一个skill就是记录我学习路径上的知识学的怎么样 了的skill然后帮我按照现状重新规划，现...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780401663615,
+  "updatedAt": 1780401681542,
+  "lastResponseAt": 1780401674235,
+  "sessionId": "e1dd63af-35f0-4312-a994-fc4f8c9a05d9",
+  "providerState": {
+    "providerSessionId": "e1dd63af-35f0-4312-a994-fc4f8c9a05d9"
+  },
+  "currentNote": "Rydberg atom/Pauli-Matrices.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 23766,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 1000000,
+    "contextTokens": 23766,
+    "percentage": 2
+  }
+}
