@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
+                "file": "Rydberg atom/Qubit-State-and-Superposition.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Two-Qubit-State-and-Entanglement"
+              "title": "Qubit-State-and-Superposition"
             }
           }
         ],
@@ -76,7 +76,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "搜索"
             }
           },
           {
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rydberg atom/Deep-Circuit-Execution.md",
+                "file": "Rydberg atom/Qubit-State-and-Superposition.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Deep-Circuit-Execution 的大纲"
+              "title": "Qubit-State-and-Superposition 的大纲"
             }
           },
           {
@@ -201,12 +201,11 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 490.5,
-    "collapsed": true
+    "width": 383.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -222,16 +221,17 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "484f393ce050badb",
+  "active": "4a6b4fa5da937d58",
   "lastOpenFiles": [
-    "Rydberg atom/Deep-Circuit-Execution.md",
     "Handout by AI/2023-parallel-gates-handout.md",
-    "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
-    "Rydberg atom/Tensor-Product.md",
     "Rydberg atom/Qubit-State-and-Superposition.md",
+    "Rydberg atom/Qubit-State-and-Superposition.md.tmp.3676.a9e894f49fb6",
+    "Rydberg atom/Single-Qubit-Gates.md",
+    "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
+    "Rydberg atom/Deep-Circuit-Execution.md",
+    "Rydberg atom/Tensor-Product.md",
     "Rydberg atom/Quantum-Zeno-Effect.md",
     "Rydberg atom/QEC.md",
-    "Rydberg atom/Single-Qubit-Gates.md",
     "Rydberg atom/Surface-Code.md",
     "Rydberg atom/Two-Qubit-Gates.md",
     "Rydberg atom/Pauli-Matrices.md",
@@ -258,8 +258,6 @@
     "Rydberg atom/Anti-Commutation.md",
     "Rydberg atom/CZ-Gate.md",
     "Rydberg atom/Rabi-Flopping.md",
-    "Rydberg atom/Rydberg-Blockade.md.tmp.17300.8284224b32bb",
-    "横向隐形传态 (Transversal Teleportation).md",
     "Handout by AI/dark_state_physics.png",
     "Handout by AI/gate_waveforms.png",
     "Handout by AI/rabi_oscillations.png",

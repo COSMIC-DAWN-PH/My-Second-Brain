@@ -4,8 +4,8 @@
   "title": "Transversal-Teleportation 这个物理内容介绍不清楚啊，按照新的md文件撰写",
   "titleGenerationStatus": "failed",
   "createdAt": 1780311455238,
-  "updatedAt": 1780382783879,
-  "lastResponseAt": 1780382783879,
+  "updatedAt": 1780397619837,
+  "lastResponseAt": 1780397619837,
   "sessionId": "330c945b-0490-4ffe-8295-4137a8354f71",
   "providerState": {
     "providerSessionId": "330c945b-0490-4ffe-8295-4137a8354f71",
@@ -342,12 +342,12 @@
   },
   "usage": {
     "model": "sonnet[1m]",
-    "inputTokens": 1094,
+    "inputTokens": 1540,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 226944,
+    "cacheReadInputTokens": 239808,
     "contextWindow": 1000000,
-    "contextTokens": 228038,
-    "percentage": 23,
+    "contextTokens": 241348,
+    "percentage": 24,
     "contextWindowIsAuthoritative": true
   }
 }
