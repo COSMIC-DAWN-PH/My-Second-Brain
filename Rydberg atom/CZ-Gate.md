@@ -86,6 +86,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[Two-Qubit-Gates]] — 两比特门总览：CNOT、CZ、SWAP、Bell 态
 - [[Rydberg-Blockade]] — CZ 门的物理实现机制
 - [[Rabi-Flopping]] — $\pi$ 脉冲的物理基础
 - [[Single-Qubit-Gates]] — 与 CZ 门组合构成通用门集的单比特门

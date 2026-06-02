@@ -458,6 +458,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[Two-Qubit-Gates]] — 两比特门总览：里德堡阻塞是实现 CZ 门的核心物理机制
 - [[CZ-Gate]] — 里德堡阻塞实现的门操作的逻辑定义
 - [[Rabi-Flopping]] — 驱动 $|g\rangle \leftrightarrow |r\rangle$ 跃迁的物理机制
 - [[Transversal-Gate]] — 并行施加多个 CZ 门的容错方案

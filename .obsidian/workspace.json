@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "db7a4d12af225bbd",
+            "id": "6d2dfc5b4596a73e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Single-Qubit-Gates"
             }
+          },
+          {
+            "id": "484f393ce050badb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Rydberg atom/Two-Qubit-Gates.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Two-Qubit-Gates"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rydberg atom/Deep-Circuit-Execution.md",
+                "file": "Rydberg atom/Two-Qubit-Gates.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Deep-Circuit-Execution 的大纲"
+              "title": "Two-Qubit-Gates 的大纲"
             }
           },
           {
@@ -190,7 +205,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 283.5
+    "width": 490.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,15 +221,20 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e7450bd268df1ad7",
+  "active": "484f393ce050badb",
   "lastOpenFiles": [
+    "Rydberg atom/Single-Qubit-Gates.md",
+    "Rydberg atom/Pauli-Matrices.md",
+    "Rydberg atom/Qubit-State-and-Superposition.md",
+    "Rydberg atom/Two-Qubit-Gates.md",
+    "Rydberg atom/CZ-Gate.md.tmp.13348.5676cddd6766",
+    "Rydberg atom/Single-Qubit-Gates.md.tmp.13348.a7d317c80eef",
     "Rydberg atom/Single-Qubit-Gates.md.tmp.492.121280404bf1",
     "Rydberg atom/Single-Qubit-Gates.md.tmp.492.e3253127ef0e",
     "tools/bloch_sphere.html",
     "tools/bloch_sphere.html.tmp.492.7d1f03a9767a",
     "Rydberg atom/Single-Qubit-Gates.md.tmp.492.2a1b386ebede",
     "Rydberg atom/Rydberg-Blockade.md",
-    "Rydberg atom/Single-Qubit-Gates.md",
     "Rydberg atom/Single-Qubit-Gates.md.tmp.492.3afe7b88967d",
     "Rydberg atom/Transversal-Teleportation.md",
     "AGENTS.md",
@@ -227,7 +247,6 @@
     "CLAUDE.md",
     "Rydberg atom/Transversal-Gate.md",
     "Handout by AI/2023-parallel-gates-handout.md",
-    "Rydberg atom/Pauli-Matrices.md",
     "Rydberg atom/Transversal-Teleportation.md.tmp.19032.de0c61cb41fb",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
     "Rydberg atom/Neutral_Atom_Test.md",
@@ -238,12 +257,8 @@
     "Rydberg atom/Rabi-Flopping.md",
     "Rydberg atom/QEC.md",
     "Rydberg atom/Rydberg-Blockade.md.tmp.17300.8284224b32bb",
-    "Rydberg atom/CZ-Gate.md.tmp.17300.66a760e225a9",
-    "Rydberg atom/CZ-Gate.md.tmp.17300.a2ddef71a7e7",
-    "Rydberg atom/Transversal-Teleportation.md.tmp.17300.28eacc03fad7",
     "横向隐形传态 (Transversal Teleportation).md",
     "readme.md",
-    "横向隐形传态（Transversal Teleportation）.md",
     "Handout by AI/dark_state_physics.png",
     "Handout by AI/gate_waveforms.png",
     "Handout by AI/rabi_oscillations.png",
