@@ -24,12 +24,20 @@ Before generating any physics content, **read** `.agents/memory/user_profile.jso
 
 - **File names**: Always `English-Name.md` (Chinese aliases go in YAML `aliases` field)
 - **Wiki-links**: `[[English-Name]]` or `[[English-Name|中文显示名]]` — NEVER wrap in backticks (breaks Obsidian indexing)
+- **Wiki-links inside Markdown tables**: Escape display pipes as `[[English-Name\|中文显示名]]`; otherwise the `|` breaks table columns. Normal paragraphs can use `[[English-Name|中文显示名]]`.
 - **Embeds**: `![[English-Name]]` for transclusion, `![[English-Name#Section]]` for partial embed
 - **Block references**: `^block-id` at paragraph end, then `[[English-Name^block-id]]` to reference
 - **LaTeX**: Inline `$...$`, block `$$...$$`. Never use `\begin{equation}`
 - **⚠️ Markdown 表格中的 LaTeX（铁律）**：`|0\rangle` 中的 `|` 会被 markdown 解析器优先当作表格列分隔符，即使用 `\|` 转义也经常失败（因为 `\|` 本身也被当作管道符处理）。**✅ 推荐解法：用 `\vert` 替代 `|`**，例如 `$\vert 0 \rangle$` 而不是 `$|0\rangle$`，`\vert` 是 LaTeX 命令，不会被 Markdown 解析器误识别为列分隔符。**退选方案：公式摘要一律用列表格式，绝不用表格。**
 - **Line breaks**: Soft-wrapped markdown (no hard line breaks)
 - **Tags**: `[Physics, Quantum, ...]` — see existing notes for tag conventions
+
+### 语言与编码规则
+
+- **保留 vault 原有英文**：文件名、已有英文标题、frontmatter 字段值、命令名、代码标识符、标准缩写与既有术语（如 Learning Roadmap、Rydberg blockade、Surface code、CZ gate、QEC、AC Stark effect）可以保留英文，不要硬翻。
+- **新增解释性内容用中文**：新写给用户阅读的笔记正文、讲义、学习路线图、科研总结、表格说明、任务建议、更新记录等，默认用中文；若引入英文术语，应尽量附中文解释或中文翻译。
+- **Python 代码和图表内部文字用英文**：代码注释、matplotlib 标题、坐标轴、legend、annotation 等使用英文，避免 CJK 乱码或 glyph warning。
+- **不要为规避编码问题把中文解释改成英文**：应通过 UTF-8 写入、转义或脚本处理解决。
 
 ### YAML Frontmatter (Required)
 

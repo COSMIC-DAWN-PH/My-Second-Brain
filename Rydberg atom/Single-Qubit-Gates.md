@@ -235,6 +235,7 @@ Pauli 门只做 $\pi$ 旋转（180°），但实际电路经常需要**任意角
 
 > [!tip] 怎么记忆？
 > $\pi$ 脉冲把 Bloch 球上的点从北极翻到南极（半圈 = $\pi$），对应的旋转角是 $\pi/2$（四分之一圈）。别搞反就行。
+
 > [!example] 交互式理解：为什么会有 half-angle
 > 下面这个 HTML 把 Bloch 球上的物理角度 $\theta$ 和 Hilbert space 中 ket 振幅的角度 $\theta/2$ 放在同一张交互图里。拖动滑块时注意：概率是 $\cos^2(\theta/2)$ 与 $\sin^2(\theta/2)$，所以从北极 $|0\rangle$ 到南极 $|1\rangle$ 的 Bloch 角度是 $\pi$，但振幅角只走到 $\pi/2$。
 
@@ -417,7 +418,7 @@ $\{H, T, \text{CZ}\}$ 构成**通用门集**——任何量子线路都可以用
 - **H**：Hadamard 门 — $\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&{-1}\end{pmatrix}$
 - **S**：$\pi/2$ 相位门 — $\text{diag}(1,\;i) = \sqrt{Z}$
 - **T**：$\pi/4$ 相位门 — $\text{diag}(1,\;e^{i\pi/4}) = \sqrt{S}$
-- **R_{\hat{n}}(\theta)**：旋转门 — $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$
+- **$R_{\hat{n}}(\theta)$**：旋转门 — $\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}(\hat{n}\cdot\vec{\sigma})$
 - **Euler 分解**：任意单比特门 — $U = e^{i\alpha}R_z(\beta)R_y(\gamma)R_z(\delta)$
 
 

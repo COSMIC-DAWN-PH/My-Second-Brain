@@ -1,55 +1,61 @@
 {
   "user_metadata": {
-    "name": "User",
-    "academic_stage": "Sophomore (Second Semester) / 大二下学期",
-    "field_of_study": "Physics / 物理系",
-    "research_focus": "Neutral-Atom Quantum Computing (Rydberg Platforms) / 中性原子量子计算与里德伯原子体系"
+    "name": "Sihao",
+    "academic_stage": "大二下学期 / Sophomore, second semester",
+    "field_of_study": "物理系 / Physics",
+    "research_focus": "中性原子量子计算与里德堡原子平台 / Neutral-Atom Quantum Computing with Rydberg platforms"
   },
   "math_background": {
-    "status": "Foundational courses / 基础数学已覆盖",
+    "status": "基础数学课程已覆盖一部分",
     "completed_topics": [
-      "Gaussian Integral / 高斯积分 (多元高斯积分、归一化因子)",
-      "Method of Separation of Variables / 分离变量法 (偏微分方程求解)"
+      "高斯积分 / Gaussian integral",
+      "分离变量法 / Method of separation of variables"
     ]
   },
   "physics_background": {
     "atomic_physics": {
-      "status": "Completed / 已学完",
+      "status": "已学习",
       "completed_topics": [
-        "Spin / 自旋",
-        "Spin-Orbit Coupling / 自旋-轨道耦合",
-        "Hyperfine Structure / 超精细结构 (e.g., Rubidium-87 Clock Transition)",
-        "Zeeman Effect / 塞曼效应"
+        "自旋 / Spin",
+        "自旋-轨道耦合 / Spin-orbit coupling",
+        "超精细结构 / Hyperfine structure",
+        "Zeeman effect"
       ]
     },
     "quantum_mechanics": {
-      "status": "In Progress / 学习中",
+      "status": "学习中",
       "completed_topics": [
-        "Representation Theory / 表象理论",
-        "Hilbert Space & Operator Formalism / 希尔伯特空间与算符理论",
-        "Dirac Bra-Ket Notation / 狄拉克狄拉克符号"
+        "表象理论 / Representation theory",
+        "Hilbert space 与算符形式体系",
+        "Dirac bra-ket notation"
       ],
       "current_topics": [
-        "Perturbation Theory / 变分法与微扰论 (Time-Independent & Time-Dependent Perturbation Theory)",
-        "Coherent Quantum Dynamics / 相干量子动力学"
+        "微扰理论 / Perturbation theory",
+        "相干量子动力学 / Coherent quantum dynamics"
       ]
     },
     "statistical_physics": {
-      "status": "Core concepts covered / 核心概念已覆盖",
+      "status": "核心概念已覆盖一部分",
       "completed_topics": [
-        "Bose-Einstein Distribution / 玻色-爱因斯坦分布 (量子统计分布、化学势、玻色子体系)"
+        "Bose-Einstein distribution"
       ]
     }
   },
   "vault_preferences": {
-    "preferred_narrative_language": "Chinese (Encouraging, pedagogical, rigorous / 循循善诱、注重物理图像、严格的中文叙述)",
-    "preferred_terminology_language": "English (Standard academic terms, no translations for specific gate names / 标准英文学术词汇)",
-    "plot_style": "Scientific English, HSL/Matplotlib premium themes, CJK-Warning-Free, LaTeX double-braces escaped in f-strings",
+    "preferred_narrative_language": "保留 vault 原有英文（文件名、已有英文标题、字段值、命令名、标准缩写和既有术语）；新增给用户阅读的解释性内容默认用中文。若新引入英文术语，应尽量附中文解释或翻译。",
+    "preferred_terminology_language": "标准物理术语可中英并列或保留英文缩写，例如 Rydberg blockade, Surface code, CZ gate, QEC, AC Stark effect。",
+    "python_and_plot_language_rule": "Python 代码、代码注释、matplotlib 图表内部文字（title/xlabel/ylabel/legend/annotation）必须使用英文，避免 CJK 乱码或 glyph warning。不要因此把正文解释改成英文。",
+    "plot_style": "Scientific English labels inside plots, matplotlib premium style, CJK-Warning-Free, LaTeX braces escaped in f-strings.",
     "comprehension_field": {
-      "description": "Rydberg atom/ 知识笔记的 YAML frontmatter 中需要包含 comprehension 字段，用于标记用户对该知识点的理解程度",
-      "valid_values": ["don't understand", "vague", "getting there", "understood"],
+      "description": "Rydberg atom/ 知识笔记的 YAML frontmatter 需要包含 comprehension 字段，用于标记用户对该知识点的理解程度。",
+      "valid_values": [
+        "don't understand",
+        "vague",
+        "getting there",
+        "understood"
+      ],
       "example": "comprehension: \"don't understand\""
     }
   },
-  "last_updated": "2026-06-01T00:00:00+08:00"
+  "last_updated": "2026-06-03T11:28:00+08:00"
 }

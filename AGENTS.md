@@ -38,6 +38,15 @@ Obsidian 的核心功能是用 `[[文件名]]` 在笔记之间建立双向链接
 
 示例：`[[Rydberg-Blockade|里德堡阻塞]]` → 在正文中只显示"里德堡阻塞"
 
+### Markdown 表格中的双链转义（必须遵守）
+
+如果双链写在 Markdown 表格单元格里，带显示文本的 `|` 必须转义成 `\|`，否则 Markdown 会把它当成表格列分隔符，导致表格渲染错乱。
+
+- 正文普通段落：`[[Rydberg-Blockade|里德堡阻塞]]`
+- Markdown 表格单元格：`[[Rydberg-Blockade\|里德堡阻塞]]`
+
+尤其是 `Learning-Roadmap.md` 这类大量表格文件，所有表格内 wikilink 必须使用 `\|`。
+
 ### 嵌入笔记（Transclusion）`![[ ]]`
 
 ```
@@ -158,6 +167,13 @@ comprehension: "vague"  # don't understand → vague → getting there → under
 5. **核心公式表** — 结尾用 `## 📐 核心公式摘要` 总结关键公式
 6. **层级结构** — `#` → `##` → `###`，不要跳级
 7. **更新记录** — 文件末尾追加 `## 📝 更新记录`
+
+### 语言与编码铁律（必须遵守）
+
+- **保留 vault 原有英文**：文件名、已有英文标题、frontmatter 字段值、命令名、代码标识符、标准缩写与常用术语（如 Learning Roadmap、Rydberg blockade、Surface code、CZ gate、QEC、AC Stark effect）可以保留英文，不要硬翻。
+- **新增解释性内容用中文**：知识笔记正文、AI 讲义、学习路线图、科研总结、表格说明、任务建议、更新记录等，凡是新写给用户阅读的解释性内容，默认使用中文；若引入英文术语，应尽量附中文解释或中文翻译。
+- **Python 代码和图表内部文字必须用英文**：Python 代码注释、matplotlib 的 `title` / `xlabel` / `ylabel` / `legend` / annotation 等全部使用英文，避免 Obsidian / matplotlib 环境出现 CJK 字符乱码或 glyph warning。
+- **不要为了规避编码问题把笔记正文改成英文**：编码问题应通过 UTF-8 写入、转义或脚本处理解决，而不是牺牲中文解释。
 
 ### 可读性标准（Readability Standard）
 
