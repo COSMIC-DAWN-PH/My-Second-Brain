@@ -2,7 +2,7 @@
 aliases: [Rabi Flopping, Rabi Oscillation, 拉比振荡, 拉比频率, Ω]
 tags: [Physics, Quantum, NeutralAtom, RydbergAtom, Dynamics]
 date: 2026-03-29
-status: In-Progress
+status: WIP
 source: "[[generall quantum 2026]]"
 comprehension: "vague"
 ---

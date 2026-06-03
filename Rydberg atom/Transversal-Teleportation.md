@@ -11,7 +11,7 @@ tags:
   - Teleportation
   - DeepCircuit
 date: 2026-06-01
-status: In-Progress
+status: WIP
 source: "[[generall quantum 2026]]"
 comprehension: "don't understand"
 ---

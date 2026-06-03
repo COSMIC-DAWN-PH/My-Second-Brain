@@ -31,7 +31,7 @@ description: Zotero 文献笔记处理技能 —— 从 Zotero 导入的论文�
 aliases: []
 tags: [Physics, Quantum, Reference]
 date: YYYY-MM-DD
-status: Draft  # 可选值: Draft / In-Progress / Evergreen
+status: Draft  # 可选值: Draft / WIP / Evergreen / Archive
 ---
 ```
 

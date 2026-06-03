@@ -43,7 +43,7 @@ tags:
   - Physics
   - Quantum
 date: 2026-06-01
-status: Draft  # Draft -> In-Progress -> Evergreen
+status: Draft  # Draft -> WIP -> Evergreen -> Archive
 source: "[[literature-note]]"
 comprehension: "vague"  # don't understand -> vague -> getting there -> understood
 ---
@@ -54,7 +54,7 @@ comprehension: "vague"  # don't understand -> vague -> getting there -> understo
 | `aliases` | ✅ | Aliases for Obsidian search (Chinese + English) |
 | `tags` | ✅ | Tags for categorization in tag pane |
 | `date` | ✅ | Creation date `YYYY-MM-DD` |
-| `status` | ✅ | Maturity: `Draft` → `In-Progress` → `Evergreen` |
+| `status` | ✅ | Maturity: `Draft` → `WIP` → `Evergreen` → `Archive` |
 | `source` | ✅ | Link to source literature note |
 | `comprehension` | ✅ | User's understanding level |
 
@@ -135,9 +135,10 @@ Example template in: `tools/Zotero_Template.md`
 
 | 状态 | 含义 |
 |------|------|
-| `Draft` | 刚创建，内容不完整，可能只有标题和少量笔记 |
-| `In-Progress` | 内容基本完整，还在补充细节、图表和双链 |
-| `Evergreen` | 内容完整、准确，可长期参考 |
+| `Draft` | 刚创建，内容不完整 |
+| `WIP` | Work In Progress，基本完整但在补充 |
+| `Evergreen` | 成熟笔记，可长期参考 |
+| `Archive` | 归档，不再维护，保留参考 |
 
 ### 理解程度（Comprehension）
 
@@ -185,6 +186,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | **zotero-notes** | Zotero 批注处理、知识笔记生成 | 从 Zotero 论文笔记中提取批注，生成知识笔记，建立双向链接 |
 | **weekly-summary** | "summarize my week", "weekly summary" | Scans Literature/ and Rydberg atom/ for changes in past 7 days, writes structured summary to Daily Notes/ |
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
+| **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
 
 ### Literature Note Sections
 

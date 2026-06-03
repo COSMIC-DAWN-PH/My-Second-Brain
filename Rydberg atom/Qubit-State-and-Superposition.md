@@ -13,7 +13,7 @@ tags:
   - Superposition
   - Fundamental
 date: 2026-06-02
-status: In-Progress
+status: WIP
 source: "[[generall quantum 2026]]"
 comprehension: understood
 ---

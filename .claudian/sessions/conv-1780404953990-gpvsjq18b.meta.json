@@ -4,13 +4,12 @@
   "title": "/learning-path 这个skill修改learning-roadmap文件的每个知识点的状...",
   "titleGenerationStatus": "failed",
   "createdAt": 1780404953991,
-  "updatedAt": 1780405573195,
+  "updatedAt": 1780405758017,
   "lastResponseAt": 1780405573195,
   "sessionId": "cfad9091-e12b-4b59-acd1-7c52846cd13c",
   "providerState": {
     "providerSessionId": "cfad9091-e12b-4b59-acd1-7c52846cd13c"
   },
-  "currentNote": "Learning-Roadmap.md",
   "usage": {
     "model": "opus[1m]",
     "inputTokens": 652,

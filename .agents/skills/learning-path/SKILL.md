@@ -168,7 +168,7 @@ DEPENDENCY_GRAPH:
 
 ### Step 4: 生成路线图
 
-将以下结构化内容写入 `Rydberg atom/Learning-Roadmap.md`（**每次完全覆盖重写**）：
+将以下结构化内容写入 `Learning-Roadmap.md`（**每次完全覆盖重写**）：
 
 ```markdown
 ---
@@ -214,15 +214,6 @@ status: Evergreen
 
 (repeat for each tier)
 
-## 🎯 Recommended Next Steps
-
-> 以下知识点的所有前置 comprehension 均 ≥ "getting there"，可以立即开始学习：
-
-1. **[[Note-Name\|中文名]]** (当前: level) — 前置已满足：[[A]] ✅, [[B]] ✅
-   - 为什么现在学：[一句话说明学习价值和对下游的解锁作用]
-
-(按推荐优先级排序，最多列出 5 个)
-
 ## ⚠️ Bottleneck Analysis
 
 > 以下知识点的低理解程度严重阻塞了下游知识的推进：
@@ -230,20 +221,6 @@ status: Evergreen
 | Note | Comprehension | Directly Blocks | Total Downstream Chain | Unblocked by |
 |------|--------------|-----------------|----------------------|--------------|
 | [[Note]] | level | N | N | [what prerequisite is missing] |
-
-## 🔑 Knowledge Clusters
-
-> 按主题分组，标注每组的整体掌握程度：
-
-### Cluster 1: Mathematical Foundations
-- [[Pauli-Matrices]] 🔵 / [[Tensor-Product]] 🟡 / [[Anti-Commutation]] 🟡 / [[Gate-Eigenstates]] 🟡
-- **Cluster health**: XX%
-
-### Cluster 2: Single-Qubit Physics
-- [[Qubit-State-and-Superposition]] ✅ / [[Single-Qubit-Gates]] 🔵 / [[Rabi-Flopping]] 🟡
-- **Cluster health**: XX%
-
-(repeat for each cluster)
 
 ## 📈 Progress Visualization
 
@@ -269,19 +246,6 @@ status: Evergreen
 3. **Directly Blocks 计算**：统计依赖图中直接引用该笔记作为 prerequisite 的下游笔记数量
 
 4. **Total Downstream Chain**：递归计算所有直接和间接下游笔记总数
-
-5. **推荐优先级排序逻辑**：
-   - 首选：comprehension 为 "vague" 或 "don't understand" 且所有前置 ≥ "getting there"
-   - 在同一 comprehension 级别内，阻塞下游数量多的优先
-   - 同等条件下，Tier 更低的优先（越基础越先学）
-
-6. **知识簇分组**：
-   - Cluster 1: Mathematical Foundations — Pauli-Matrices, Tensor-Product, Anti-Commutation, Gate-Eigenstates
-   - Cluster 2: Single-Qubit Physics — Qubit-State-and-Superposition, Single-Qubit-Gates, Rabi-Flopping, Quantum-Zeno-Effect
-   - Cluster 3: Two-Qubit Physics — Two-Qubit-State-and-Entanglement, Two-Qubit-Gates, CZ-Gate, Rydberg-Blockade
-   - Cluster 4: Hardware Platform — Optical-Tweezer-Arrays, AC-Stark-Effect, Neutral_Atom_Test
-   - Cluster 5: Fault Tolerance — QEC, Surface-Code, Transversal-Gate, Transversal-Teleportation, Deep-Circuit-Execution
-   - Cluster 6: Algorithms — Grover-Search, Quantum-Phase-Estimation
 
 ### Step 5: 生成 Python 可视化图表
 
@@ -327,7 +291,7 @@ COLORS = {
 向用户输出以下摘要：
 
 ```
-🗺️ 学习路线图已生成：Rydberg atom/Learning-Roadmap.md
+🗺️ 学习路线图已生成：Learning-Roadmap.md
 
 📊 知识掌握全景：
   · 总知识点：22 个
@@ -336,11 +300,6 @@ COLORS = {
   · 🟡 vague: N 个 (XX%)
   · 🔴 don't understand: N 个 (XX%)
   · 加权总进度：XX%
-
-🎯 推荐下一步学习（前置均已满足）：
-  1. [[Note-A]] (当前: vague) — 解锁 N 个下游知识点
-  2. [[Note-B]] (当前: don't understand) — 理解 XX 的核心机制
-  3. [[Note-C]] (当前: vague) — 连接 YY 和 ZZ
 
 ⚠️  关键瓶颈：
   · [[Note-X]] (don't understand) 阻塞了 N 个下游知识点
@@ -368,7 +327,6 @@ COLORS = {
 
 - [ ] 所有 22 个知识笔记均已出现在路线图中
 - [ ] 每个 Tier 内的知识点前置关系正确
-- [ ] "推荐下一步"中列出的知识点，其所有前置确实在当前 comprehension ≥ "getting there"
 - [ ] "瓶颈分析"中 Total Downstream Chain 计算正确
 - [ ] Python 图表生成成功，无 CJK 字符警告
 - [ ] 文件 frontmatter 包含完整的 aliases / tags / date / status 字段
@@ -411,13 +369,4 @@ COLORS = {
 | 🔴 don't understand | 6 | 27% | Rydberg-Blockade, Transversal-Teleportation, Deep-Circuit-Execution, AC-Stark-Effect, Grover-Search, Quantum-Phase-Estimation |
 
 **Overall progress**: 47% weighted
-
-## 🎯 Recommended Next Steps
-
-1. **[[Rabi-Flopping|拉比振荡]]** (当前: vague) — 前置已满足：[[Single-Qubit-Gates]] 🔵
-   - 单量子比特门的物理实现，是理解 [[Rydberg-Blockade|里德堡阻塞]] 的关键前置
-2. **[[Tensor-Product|张量积]]** (当前: vague) — 前置已满足：[[Qubit-State-and-Superposition]] ✅
-   - 多比特系统的数学基础，解锁纠缠态和两比特门
-3. **[[Gate-Eigenstates|门算符本征态]]** (当前: vague) — 前置已满足：[[Pauli-Matrices]] 🔵
-   - 理解门的数学结构，巩固对量子门操作的直觉
 ```

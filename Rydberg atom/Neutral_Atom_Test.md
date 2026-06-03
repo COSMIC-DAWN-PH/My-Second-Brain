@@ -10,7 +10,7 @@ tags:
   - RydbergAtom
   - Experiment
 date: 2026-03-17
-status: In-Progress
+status: WIP
 source: "[[generall quantum 2026]]"
 comprehension: "vague"
 ---

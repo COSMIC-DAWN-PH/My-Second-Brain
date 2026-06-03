@@ -13,44 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/Pauli-Matrices.md",
+                "file": "Rydberg atom/Single-Qubit-Gates.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pauli-Matrices"
+              "title": "Single-Qubit-Gates"
             }
           },
           {
-            "id": "d05c62b7d5a64134",
+            "id": "c8480f74532fd41a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning-Roadmap.md",
+                "file": "Rydberg atom/Single-Qubit-Gates.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "Learning-Roadmap"
-            }
-          },
-          {
-            "id": "f21f3ed4d5e8abc8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Learning-Roadmap.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Learning-Roadmap"
+              "title": "Single-Qubit-Gates"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -235,44 +221,44 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "f21f3ed4d5e8abc8",
+  "active": "c8480f74532fd41a",
   "lastOpenFiles": [
-    "Rydberg atom/Pauli-Matrices.md",
-    "Rydberg atom/Learning-Roadmap.md.tmp.16148.50142701ed74",
     "Learning-Roadmap.md",
+    "Rydberg atom/Gate-Eigenstates.md",
+    "Rydberg atom/Single-Qubit-Gates.md",
+    "Rydberg atom/Learning-Roadmap.md",
+    "Rydberg atom/attachments/learning-progress-2026-06-02.png",
+    "Rydberg atom/attachments/learning-progress-2026-06-02.py",
+    "Rydberg atom/attachments/learning-progress-2026-06-02.py.tmp.28020.6077d2117996",
+    "Handout by AI/start_up.md",
+    "Rydberg atom/Pauli-Matrices.md",
+    "Learning-Roadmap.md.tmp.28020.4d7f2f6a3c79",
+    "CLAUDE.md.tmp.28020.15152ea0cc7e",
+    "CLAUDE.md.tmp.28020.39728eb54dbe",
+    "CLAUDE.md.tmp.28020.3f01243d7fba",
+    "AGENTS.md",
+    "AGENTS.md.tmp.28020.5732a6e6e994",
+    "AGENTS.md.tmp.28020.43c42f846999",
+    "AGENTS.md.tmp.28020.6a99241be72d",
+    "Rydberg atom/Quantum-Phase-Estimation.md",
+    "Rydberg atom/Learning-Roadmap.md.tmp.16148.50142701ed74",
     "Rydberg atom/Anti-Commutation.md",
     "Rydberg atom/QEC.md",
     "Rydberg atom/Rabi-Flopping.md",
     "Rydberg atom/CZ-Gate.md",
-    "Rydberg atom/attachments/learning-progress-2026-06-02.png",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
-    "tools/plot_learning_progress.py",
-    "Rydberg atom/Learning-Roadmap.md",
-    "Rydberg atom/Learning-Roadmap.md.tmp.24204.491c767623b6",
-    "Rydberg atom/attachments",
-    "AGENTS.md.tmp.24204.c2957079b941",
-    "AGENTS.md.tmp.24204.e2ef33f24cdb",
     "Rydberg atom/Qubit-State-and-Superposition.md",
-    "CLAUDE.md.tmp.26836.6da7dbdde11c",
     "Rydberg atom/Transversal-Gate.md",
     "Rydberg atom/Surface-Code.md",
-    "Rydberg atom/Single-Qubit-Gates.md",
     "Rydberg atom/Rydberg-Blockade.md",
-    "AGENTS.md",
-    "Handout by AI/start_up.md",
     "Handout by AI/2023-parallel-gates-handout.md",
     "未命名.md",
-    "未命名.base",
     "Rydberg atom/Learning-Order.md",
-    "Rydberg atom/Quantum-Phase-Estimation.md",
     "Rydberg atom/Grover-Search.md",
     "Rydberg atom/AC-Stark-Effect.md",
-    "Rydberg atom/Single-Qubit-Gates.md.tmp.3676.13aeb5ca0168",
     "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
     "Rydberg atom/Quantum-Zeno-Effect.md",
     "CLAUDE.md",
-    "Rydberg atom/Deep-Circuit-Execution.md.tmp.3676.6d3ad66c631f",
-    "Rydberg atom/Deep-Circuit-Execution.md",
     "Handout by AI/dark_state_physics.png",
     "Handout by AI/gate_waveforms.png",
     "Handout by AI/rabi_oscillations.png",

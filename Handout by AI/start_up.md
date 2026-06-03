@@ -2,7 +2,7 @@
 aliases: [Lukin 2023 Parallel Gates Handout, 并行门讲义, start_up]
 tags: [Physics, Quantum, Handout, NeutralAtom, Rydberg]
 date: 2026-05-20
-status: In-Progress
+status: WIP
 ---
 
 # 🚀 极速起步：中性原子并行纠缠门文献研读讲义 (start_up)

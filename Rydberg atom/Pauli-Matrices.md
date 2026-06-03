@@ -16,7 +16,7 @@ tags:
   - LinearAlgebra
   - Gates
 date: 2026-03-29
-status: In-Progress
+status: WIP
 source: "[[generall quantum 2026]]"
 comprehension: getting there
 ---

@@ -118,7 +118,7 @@ tags:
   - Physics
   - Quantum
 date: 2026-06-01
-status: Draft     # Draft → In-Progress → Evergreen
+status: Draft     # Draft → WIP → Evergreen → Archive
 source: "[[literature-note]]"
 comprehension: "vague"  # don't understand → vague → getting there → understood
 ---
@@ -131,7 +131,7 @@ comprehension: "vague"  # don't understand → vague → getting there → under
 | `aliases` | ✅ | 别名（Obsidian 搜索时能匹配到这些词） |
 | `tags` | ✅ | 详细标签，Obsidian 的 tag pane 会用 |
 | `date` | ✅ | 创建日期 `YYYY-MM-DD` |
-| `status` | ✅ | `Draft` → `In-Progress` → `Evergreen` |
+| `status` | ✅ | `Draft` → `WIP` → `Evergreen` → `Archive` |
 | `source` | ✅ | 链接到来源文献笔记 |
 | `comprehension` | ✅ | 理解程度：`don't understand` → `vague` → `getting there` → `understood` |
 
@@ -174,9 +174,10 @@ comprehension: "vague"  # don't understand → vague → getting there → under
 
 | 状态 | 含义 |
 |------|------|
-| `Draft` | 刚创建，内容不完整，可能只有标题和少量笔记 |
-| `In-Progress` | 内容基本完整，还在补充细节、图表和双链 |
-| `Evergreen` | 内容完整、准确，可长期参考 |
+| `Draft` | 刚创建，内容不完整 |
+| `WIP` | Work In Progress，基本完整但在补充 |
+| `Evergreen` | 成熟笔记，可长期参考 |
+| `Archive` | 归档，不再维护，保留参考 |
 
 ## 理解程度（Comprehension）
 

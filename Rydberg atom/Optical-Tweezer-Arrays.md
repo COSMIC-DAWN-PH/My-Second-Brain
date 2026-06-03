@@ -2,7 +2,7 @@
 aliases: [Optical Tweezer Arrays, 光镊阵列, 光学偶极阱, Optical Dipole Trap, 光镊, Tweezer]
 tags: [Physics, Quantum, NeutralAtom, ExperimentalPlatform, RydbergAtom]
 date: 2026-03-29
-status: In-Progress
+status: WIP
 source: "[[generall quantum 2026]]"
 comprehension: "vague"
 ---
