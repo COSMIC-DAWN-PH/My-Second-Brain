@@ -3,6 +3,8 @@
 > This is an **Obsidian markdown vault** for neutral-atom quantum computing research (Rydberg platforms).
 > **ALWAYS read `AGENTS.md` before performing any work in this vault** — it contains the complete specification for all formatting, naming, linking, and workflow rules.
 
+> **⚡ 双文件同步规则**：`CLAUDE.md` 和 `AGENTS.md` 是 vault 规则的两个副本。**每次修改任何规则（skill 描述、格式规范、AI 禁令等）时，必须同时更新两个文件，保持内容一致。** 只改一个 = 另一个会过时，后续 session 会读到矛盾的指令。
+
 ## Quick Reference
 
 ### Vault Structure
@@ -64,7 +66,7 @@ comprehension: "vague"  # don't understand -> vague -> getting there -> understo
 | `date` | ✅ | Creation date `YYYY-MM-DD` |
 | `status` | ✅ | Maturity: `Draft` → `WIP` → `Evergreen` → `Archive` |
 | `source` | ✅ | Link to source literature note |
-| `comprehension` | ✅ | User's understanding level |
+| `comprehension` | ✅ | User's understanding level — **⚠️ AI 禁止修改此字段**，仅由用户本人手动更新 |
 
 ### Knowledge Note Structure (Rydberg atom/)
 
@@ -149,6 +151,8 @@ Example template in: `tools/Zotero_Template.md`
 | `Archive` | 归档，不再维护，保留参考 |
 
 ### 理解程度（Comprehension）
+
+> **⛔ AI 禁令**：`comprehension` 字段仅由用户本人更新。AI 助理在任何情况下都不得读取、推测或修改此字段的值。AI 只能读取它以了解上下文，绝不能代为填写或升级。
 
 | 级别 | 含义 |
 |------|------|

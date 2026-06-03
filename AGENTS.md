@@ -6,6 +6,8 @@
 
 这是一个 **Obsidian markdown vault**，以下所有语法都是 Obsidian 原生支持的。
 
+> **⚡ 双文件同步规则**：`AGENTS.md` 和 `CLAUDE.md` 是 vault 规则的两个副本。**每次修改任何规则（skill 描述、格式规范、AI 禁令等）时，必须同时更新两个文件，保持内容一致。** 只改一个 = 另一个会过时，后续 session 会读到矛盾的指令。
+
 ## Vault 结构
 
 | 目录 | 用途 |
@@ -142,7 +144,7 @@ comprehension: "vague"  # don't understand → vague → getting there → under
 | `date` | ✅ | 创建日期 `YYYY-MM-DD` |
 | `status` | ✅ | `Draft` → `WIP` → `Evergreen` → `Archive` |
 | `source` | ✅ | 链接到来源文献笔记 |
-| `comprehension` | ✅ | 理解程度：`don't understand` → `vague` → `getting there` → `understood` |
+| `comprehension` | ✅ | 理解程度：`don't understand` → `vague` → `getting there` → `understood` — **⚠️ AI 禁止修改此字段**，仅由用户本人手动更新 |
 
 ## 文件命名规则（必须遵守）
 
@@ -196,6 +198,8 @@ comprehension: "vague"  # don't understand → vague → getting there → under
 | `Archive` | 归档，不再维护，保留参考 |
 
 ## 理解程度（Comprehension）
+
+> **⛔ AI 禁令**：`comprehension` 字段仅由用户本人更新。AI 助理在任何情况下都不得读取、推测或修改此字段的值。AI 只能读取它以了解上下文，绝不能代为填写或升级。
 
 | 级别 | 含义 |
 |------|------|

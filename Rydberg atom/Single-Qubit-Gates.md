@@ -204,7 +204,141 @@ $$
 > - $XZ = -ZX$（它们不对易——先做 X 再做 Z ≠ 先做 Z 再做 X）
 > - X、Y、Z 加上恒等矩阵 $I$，构成 $2\times2$ 矩阵的完备基
 
-### 3.4 相位门家族：S 门与 T 门
+### 3.4 基变换恒等式：$HXH = Z$ 的完整推导
+
+H 门和 Pauli X、Z 门之间有一个极其重要的关系——用 H 门"夹住"X 门，等效于 Z 门：
+
+$$
+HXH = Z
+$$
+
+这个恒等式看似简单，但它**深刻地揭示了 H 门的基变换本质**，并且在 [[CZ-Gate|CZ 门与 CNOT 门的互相转换]] 中扮演核心角色。下面给出三种不同角度的完整推导。
+
+#### 3.4.1 推导一：矩阵乘法直接计算
+
+从左到右逐步相乘，每一步都写出中间结果。
+
+**第一步：计算 $HX$**
+
+$$
+HX = \frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+$$
+
+逐元素展开：
+
+$$
+= \frac{1}{\sqrt{2}}\begin{pmatrix}1\cdot0+1\cdot1 & 1\cdot1+1\cdot0\\[4pt] 1\cdot0+(-1)\cdot1 & 1\cdot1+(-1)\cdot0\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\-1&1\end{pmatrix}
+$$
+
+> [!tip] 检验直觉
+> $HX$ 把 X（比特翻转）"翻译"成了 $X$-基下的操作。看下一步就能体会到这一点。
+
+**第二步：计算 $(HX) \cdot H$**
+
+$$
+HXH = \frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\-1&1\end{pmatrix}\cdot\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+$$
+
+$$
+= \frac{1}{2}\begin{pmatrix}1\cdot1+1\cdot1 & 1\cdot1+1\cdot(-1)\\[4pt] (-1)\cdot1+1\cdot1 & (-1)\cdot1+1\cdot(-1)\end{pmatrix}
+$$
+
+$$
+= \frac{1}{2}\begin{pmatrix}2&0\\0&-2\end{pmatrix} = \begin{pmatrix}1&0\\0&-1\end{pmatrix} = Z \quad \checkmark
+$$
+
+#### 3.4.2 推导二：逐态作用验证
+
+矩阵恒等式等价于：**对任意量子态 $\vert\psi\rangle$，$HXH\vert\psi\rangle = Z\vert\psi\rangle$**。我们只需验证对计算基的两个基矢 $\vert 0\rangle$ 和 $\vert 1\rangle$ 都成立，就能证明它对所有叠加态成立（因为量子门是线性的）。
+
+**对 $\vert 0\rangle$**：
+
+$$
+HXH\vert 0\rangle = HX\left(\frac{\vert 0\rangle+\vert 1\rangle}{\sqrt{2}}\right) = HX\vert +\rangle
+$$
+
+X 门交换 $\vert 0\rangle$ 和 $\vert 1\rangle$，所以：
+
+$$
+HX\vert +\rangle = H\left(\frac{\vert 1\rangle+\vert 0\rangle}{\sqrt{2}}\right) = H\vert +\rangle = \vert 0\rangle
+$$
+
+而 $Z\vert 0\rangle = \vert 0\rangle$。两边相等。$\checkmark$
+
+**对 $\vert 1\rangle$**：
+
+$$
+HXH\vert 1\rangle = HX\left(\frac{\vert 0\rangle-\vert 1\rangle}{\sqrt{2}}\right) = HX\vert -\rangle
+$$
+
+X 门交换 $\vert 0\rangle$ 和 $\vert 1\rangle$：
+
+$$
+HX\vert -\rangle = H\left(\frac{\vert 1\rangle-\vert 0\rangle}{\sqrt{2}}\right) = H\left(-\frac{\vert 0\rangle-\vert 1\rangle}{\sqrt{2}}\right) = -H\vert -\rangle = -\vert 1\rangle
+$$
+
+而 $Z\vert 1\rangle = -\vert 1\rangle$。两边相等。$\checkmark$
+
+#### 3.4.3 推导三：利用 $H^2 = I$ 的共轭关系
+
+H 门有一个关键性质——**自反性**（在 §2.4 已证明）：
+
+$$
+H^2 = HH = I
+$$
+
+利用这个性质，$HXH$ 可以改写为：
+
+$$
+HXH = HXH \cdot \underbrace{HH}_{=I} = HX(HH)H
+$$
+
+但这不是最有趣的角度。更深刻的理解是：$HXH$ 是 **X 门在 H 门定义的新基下的"翻译"**。
+
+> [!tip] 物理直觉："共轭 = 换语言"
+> 想象 H 门是一本"字典"，它把计算基 $\{\vert 0\rangle, \vert 1\rangle\}$ 翻译成 X 基 $\{\vert +\rangle, \vert -\rangle\}$。那么 $HXH$ 的含义是：
+>
+> 1. **右边的 $H$**（字典）：先把态翻译到 X 基
+> 2. **中间的 $X$**：在 X 基中做"比特翻转"
+> 3. **左边的 $H$**（字典回来）：再翻译回计算基
+>
+> 但 X 在 X 基中做什么？X 交换 $\vert 0\rangle \leftrightarrow \vert 1\rangle$，等价于在 X 基中交换 $\vert +\rangle \leftrightarrow \vert -\rangle$。而 $\vert +\rangle \leftrightarrow \vert -\rangle$ 正好就是**相位翻转**——这就是 Z 门！
+
+具体地，写出 H 门对基矢的作用：
+
+$$
+H\vert 0\rangle = \vert +\rangle = \frac{\vert 0\rangle+\vert 1\rangle}{\sqrt{2}}, \quad H\vert 1\rangle = \vert -\rangle = \frac{\vert 0\rangle-\vert 1\rangle}{\sqrt{2}}
+$$
+
+所以 H 门做的是**基变换**（basis change）：
+
+$$
+X_{\text{in Z-basis}} \;\xrightarrow{\;H\;\text{conjugation}\;}\; X_{\text{in X-basis}}
+$$
+
+而在 X 基中，"翻转两个基矢"的操作恰好表现为相位翻转：
+
+$$
+X\vert +\rangle = \vert -\rangle, \quad X\vert -\rangle = \vert +\rangle
+$$
+
+翻译回计算基，这正是 Z 门的效果。因此 $HXH = Z$。
+
+> [!info] 对偶恒等式：$HXH = Z$ 也有 $HZH = X$
+> 用完全相同的逻辑（或者直接矩阵计算），可以验证 $HZH = X$。这说明 **H 门在 X 和 Z 之间建立了完美的对称关系**——它不仅把 X 变成 Z，也把 Z 变成 X。H 门是"比特翻转"和"相位翻转"之间的翻译官。
+
+#### 3.4.4 为什么 $HXH = Z$ 对量子计算很重要？
+
+| 应用场景 | 具体作用 |
+|---------|---------|
+| **CNOT ↔ CZ 转换** | 在 CNOT 的目标比特两侧加 H 门，利用 $HXH = Z$ 把 CNOT 中的条件 X 变成条件 Z，实现 CZ → CNOT（详见 [[CZ-Gate]] §4.2） |
+| **编译优化** | 量子编译器可以用 $HXH$ 替换 $Z$，或反过来用 $H \cdot Z \cdot H$ 替换 $X$，从而消除门或减少门数 |
+| **Pauli 传播（Pauli Propagation）** | 在量子纠错和噪声分析中，经常需要追踪 Pauli 算符穿过 H 门后的变化：$HX = ZH$，$HZ = XH$ |
+
+> [!warning] 容易搞混的地方
+> $HXH = Z$ 不是说 "$H$ 乘 $X$ 乘 $H$ 等于 $Z$"——注意**顺序**！$HXH$ 是先做右边的 $H$，再做 $X$，最后做左边的 $H$（量子线路从右到左读）。如果顺序搞反，比如 $XHH = XI = X$，那结果完全不同。
+
+### 3.5 相位门家族：S 门与 T 门
 
 相位门都是 $Z$ 的"分数次幂"，只改变 $\vert 1\rangle$ 分量的相位：
 
@@ -511,3 +645,4 @@ $\{H, T, \text{CZ}\}$ 构成**通用门集**——任何量子线路都可以用
 - 2026-06-03: 修复 ket 记号在 Markdown 表格/摘要中的渲染问题，将易误解析的 `|...\rangle` 与 `\|...\rangle` 改为 `\vert ...\rangle`。
 - 2026-06-01: 初始创建，包含 Pauli 门、H 门、S/T 门、旋转门、Bloch 球、中性原子实现
 - 2026-06-03: 添加 SU(2) 到 SO(3) half-angle 交互式 HTML 解释，辅助理解 Bloch 球角度 $\theta$ 与 Hilbert space 振幅角 $\theta/2$ 的关系。
+- 2026-06-03: 新增 §3.4 $HXH = Z$ 基变换恒等式完整推导（矩阵计算、逐态验证、共轭物理直觉），从 [[CZ-Gate]] 独立出来。

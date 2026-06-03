@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780473209966-3tpzej9iy",
+  "providerId": "claude",
+  "title": "这没懂啊",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780473209966,
+  "updatedAt": 1780474177634,
+  "lastResponseAt": 1780474177634,
+  "sessionId": "9112c410-31bb-4ac8-a9e5-c766179ba5ab",
+  "providerState": {
+    "providerSessionId": "9112c410-31bb-4ac8-a9e5-c766179ba5ab"
+  },
+  "currentNote": "Rydberg atom/CZ-Gate.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 311,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 45952,
+    "contextWindow": 1000000,
+    "contextTokens": 46263,
+    "percentage": 5
+  }
+}
