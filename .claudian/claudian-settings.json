@@ -83,7 +83,7 @@
   },
   "savedProviderEffort": {
     "claude": "high",
-    "codex": "medium"
+    "codex": "high"
   },
   "savedProviderServiceTier": {
     "codex": "default"
@@ -93,7 +93,7 @@
     "claude": "yolo",
     "codex": "yolo"
   },
-  "lastCustomModel": "mimo-v2.5-pro",
+  "lastCustomModel": "mimo-v2.5",
   "maxTabs": 3,
   "tabBarPosition": "input",
   "enableAutoScroll": true,

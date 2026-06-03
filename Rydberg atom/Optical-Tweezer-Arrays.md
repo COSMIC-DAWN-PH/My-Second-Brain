@@ -1,10 +1,21 @@
 ---
-aliases: [Optical Tweezer Arrays, 光镊阵列, 光学偶极阱, Optical Dipole Trap, 光镊, Tweezer]
-tags: [Physics, Quantum, NeutralAtom, ExperimentalPlatform, RydbergAtom]
+aliases:
+  - Optical Tweezer Arrays
+  - 光镊阵列
+  - 光学偶极阱
+  - Optical Dipole Trap
+  - 光镊
+  - Tweezer
+tags:
+  - Physics
+  - Quantum
+  - NeutralAtom
+  - ExperimentalPlatform
+  - RydbergAtom
 date: 2026-03-29
-status: WIP
+status: Draft
 source: "[[generall quantum 2026]]"
-comprehension: "vague"
+comprehension: don't understand
 ---
 
 # 光镊阵列（Optical Tweezer Arrays）
@@ -81,9 +92,9 @@ $$
 
 ## 📐 核心公式摘要
 
-- **U_{\text{dipole}}**：偶极势阱深度 — $U = -\frac{1}{2}\alpha(\omega)
-- **\mathbf{F}_{\text{dipole}}**：光学梯度力 — $\mathbf{F} = -\nabla U_{\text{dipole}}$
-- **V_{ij}**：里德堡相互作用 — $V_{ij} = C_6 / r_{ij}^6$
+- **$U_{\text{dipole}}$**：偶极势阱深度 — $U = -\frac{1}{2}\alpha(\omega)$
+- **$\mathbf{F}_{\text{dipole}}$**：光学梯度力 — $\mathbf{F} = -\nabla U_{\text{dipole}}$
+- **$V_{ij}$**：里德堡相互作用 — $V_{ij} = C_6 / r_{ij}^6$
 
 
 ## 📝 更新记录
