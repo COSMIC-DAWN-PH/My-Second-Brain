@@ -4,20 +4,19 @@
   "title": "怎么从数学上理解这件事情从线性 代数的角度理解，补充成一个文档链接过来还有cz门CZ 门与 CNOT...",
   "titleGenerationStatus": "failed",
   "createdAt": 1780476144598,
-  "updatedAt": 1780476296887,
-  "lastResponseAt": 1780476296887,
+  "updatedAt": 1780477230605,
+  "lastResponseAt": 1780477230605,
   "sessionId": "3789bbd6-0b9a-4281-bab6-e421a51b560e",
   "providerState": {
     "providerSessionId": "3789bbd6-0b9a-4281-bab6-e421a51b560e"
   },
-  "currentNote": "Rydberg atom/CZ-Gate.md",
   "usage": {
     "model": "sonnet[1m]",
-    "inputTokens": 921,
+    "inputTokens": 92,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 65280,
+    "cacheReadInputTokens": 91136,
     "contextWindow": 1000000,
-    "contextTokens": 66201,
-    "percentage": 7
+    "contextTokens": 91228,
+    "percentage": 9
   }
 }

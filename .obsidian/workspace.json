@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rydberg atom/CZ-Gate.md",
+                "file": "Rydberg atom/Basis-Transformation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CZ-Gate"
+              "title": "Basis-Transformation"
             }
           }
         ]
@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -157,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rydberg atom/CZ-Gate.md",
+                "file": "Rydberg atom/Basis-Transformation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "CZ-Gate 的大纲"
+              "title": "Basis-Transformation 的大纲"
             }
           },
           {
@@ -209,10 +208,11 @@
   },
   "active": "5025e098a5a489b2",
   "lastOpenFiles": [
+    "Rydberg atom/CZ-Gate.md",
+    "Rydberg atom/Basis-Transformation.md",
     "Rydberg atom/Pauli-Matrices.md",
     "Rydberg atom/Single-Qubit-Gates.md",
     "Rydberg atom/Two-Qubit-Gates.md",
-    "Rydberg atom/CZ-Gate.md",
     "Rydberg atom/CZ-Linear-Algebra.md",
     "Rydberg atom/CZ-Linear-Algebra.md.tmp.19988.ca18ce3e8f48",
     "Rydberg atom/Transversal-Gate.md",
@@ -243,7 +243,6 @@
     "Rydberg atom/Quantum-Zeno-Effect.md",
     "Rydberg atom/QEC.md",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
-    "Rydberg atom/Neutral_Atom_Test.md",
     "Rydberg atom/Physics",
     "Rydberg atom/attachments/learning-progress-2026-06-02.png",
     "Rydberg atom/attachments/learning-progress-2026-06-03.png",
