@@ -1,0 +1,26 @@
+{
+  "id": "conv-1780458665557-4syczi5qc",
+  "providerId": "codex",
+  "title": "修复一下这个里的各种latex问题",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780458665558,
+  "updatedAt": 1780459026181,
+  "lastResponseAt": 1780458941556,
+  "sessionId": "019e8b9b-3774-7ce1-b3a2-aa0066896a6f",
+  "providerState": {
+    "threadId": "019e8b9b-3774-7ce1-b3a2-aa0066896a6f",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\03\\rollout-2026-06-03T11-51-10-019e8b9b-3774-7ce1-b3a2-aa0066896a6f.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "currentNote": "Handout by AI/2023-parallel-gates-handout.md",
+  "usage": {
+    "inputTokens": 69022,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 67968,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 69022,
+    "percentage": 27,
+    "model": "gpt-5.5"
+  }
+}

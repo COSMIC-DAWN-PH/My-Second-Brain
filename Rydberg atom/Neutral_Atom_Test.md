@@ -42,14 +42,14 @@ comprehension: "vague"
 每个原子有两个能级参与量子计算：
 
 $$
-|0\rangle \equiv |g\rangle \quad \text{（基态，ground state）}
+\vert 0\rangle \equiv \vert g\rangle \quad \text{（基态，ground state）}
 $$
 $$
-|1\rangle \equiv |r\rangle \quad \text{（里德堡态，Rydberg state）}
+\vert 1\rangle \equiv \vert r\rangle \quad \text{（里德堡态，Rydberg state）}
 $$
 
-- **基态 $|g\rangle$**：原子处于最低能量状态，稳定、寿命长
-- **里德堡态 $|r\rangle$**：原子处于高激发态（$n \sim 50-100$），具有巨大的电偶极矩，原子间相互作用极强
+- **基态 $\vert g\rangle$**：原子处于最低能量状态，稳定、寿命长
+- **里德堡态 $\vert r\rangle$**：原子处于高激发态（$n \sim 50-100$），具有巨大的电偶极矩，原子间相互作用极强
 
 ---
 
@@ -63,7 +63,7 @@ $$
 \boxed{H = \sum_{i=1}^{N} \frac{\hbar \Omega}{2} \sigma_x^{(i)} - \sum_{i=1}^{N} \hbar \Delta \, n_i + \sum_{i<j} V_{ij} \, n_i \, n_j}
 $$
 
-其中 $n_i = |r\rangle_i \langle r|_i$ 是第 $i$ 个原子的里德堡态占据数算符。
+其中 $n_i = \vert r\rangle_i \langle r|_i$ 是第 $i$ 个原子的里德堡态占据数算符。
 
 ### 2.2 逐项解读
 
@@ -75,8 +75,8 @@ $$
 H_{\text{drive}} = \sum_{i=1}^{N} \frac{\hbar \Omega}{2} \sigma_x^{(i)}
 $$
 
-- $\Omega$ 是**拉比频率**（Rabi frequency），描述激光驱动原子在 $|g\rangle$ 和 $|r\rangle$ 之间振荡的速率
-- $\sigma_x = |g\rangle\langle r| + |r\rangle\langle g|$ 是 Pauli X 算符，负责"翻转"原子的状态
+- $\Omega$ 是**拉比频率**（Rabi frequency），描述激光驱动原子在 $\vert g\rangle$ 和 $\vert r\rangle$ 之间振荡的速率
+- $\sigma_x = \vert g\rangle\langle r| + \vert r\rangle\langle g|$ 是 Pauli X 算符，负责"翻转"原子的状态
 - **物理含义**：激光试图让每个原子在基态和里德堡态之间来回振荡（[[Rabi-Flopping]]）
 
 **第二项：激光失谐（Detuning）**
@@ -121,7 +121,7 @@ $$
 
 ### 3.1 假设 1：忽略自发辐射
 
-在实际实验中，里德堡态 $|r\rangle$ 有有限的寿命（$\tau \sim 100\,\mu\text{s}$），会发生自发辐射衰变。
+在实际实验中，里德堡态 $\vert r\rangle$ 有有限的寿命（$\tau \sim 100\,\mu\text{s}$），会发生自发辐射衰变。
 
 **为什么可以忽略？**
 - 典型的门操作时间 $\sim 0.1-1\,\mu\text{s}$
@@ -187,7 +187,7 @@ R (原子间距)   ←→  阵列密度（越密越好）
 
 | 概念 | 与哈密顿量的关系 |
 |------|----------------|
-| [[Rabi-Flopping]] | 哈密顿量第一项的物理效果：原子在 $|g\rangle \leftrightarrow \|r\rangle$ 之间振荡 |
+| [[Rabi-Flopping]] | 哈密顿量第一项的物理效果：原子在 $\vert g\rangle \leftrightarrow \vert r\rangle$ 之间振荡 |
 | [[Rydberg-Blockade]] | 哈密顿量第三项的物理效果：$V_{12} \gg \Omega$ 时阻止双激发 |
 | [[CZ-Gate]] | 利用阻塞效应实现的两比特门操作 |
 | [[Transversal-Gate]] | 并行对多个原子对施加 CZ 门 |
@@ -217,6 +217,7 @@ R (原子间距)   ←→  阵列密度（越密越好）
 
 ## 📝 更新记录
 
+- 2026-06-03: 修复 ket 记号在 Markdown 表格/摘要中的渲染问题，将易误解析的 `|...\rangle` 与 `\|...\rangle` 改为 `\vert ...\rangle`。
 - 2026-03-17: 初始创建
 - 2026-06-01: 大幅扩充内容，添加 Python 图表、参数表、概念联系网络
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

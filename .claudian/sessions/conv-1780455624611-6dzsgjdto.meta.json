@@ -4,7 +4,7 @@
   "title": "做一个html解释一下",
   "titleGenerationStatus": "failed",
   "createdAt": 1780455624612,
-  "updatedAt": 1780456119896,
+  "updatedAt": 1780457612388,
   "lastResponseAt": 1780456119896,
   "sessionId": "019e8b6c-d0df-7ee0-87f6-c79f07c5e9a4",
   "providerState": {
@@ -12,7 +12,6 @@
     "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\03\\rollout-2026-06-03T11-00-29-019e8b6c-d0df-7ee0-87f6-c79f07c5e9a4.jsonl",
     "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
   },
-  "currentNote": "Rydberg atom/Single-Qubit-Gates.md",
   "usage": {
     "inputTokens": 69891,
     "cacheCreationInputTokens": 0,

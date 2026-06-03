@@ -14,7 +14,7 @@ status: Evergreen
 # 🧭 学习路线图 - 中性原子量子计算
 
 > 由 `/learning-path` 技能自动生成 · 基于各知识笔记的 `comprehension` 字段与 canonical dependency graph（主线依赖图）  
-> 最后更新：2026-06-03
+> 最后更新：2026-06-03 12:11（增补）
 
 > [!info] 说明
 > 这份路线图会扫描 vault 中的概念笔记，并结合主线依赖图来判断当前学习层级、薄弱环节和下一步学习目标。它不是“成绩单”，而是一个导航图：先补地基，再往上推进。
@@ -172,6 +172,16 @@ status: Evergreen
 
 ![[learning-progress-2026-06-03.png]]
 
+## 🧩 本次增补观察
+
+> [!info] 2026-06-03 12:11 增补
+> 本次按“保留原路线图结构，只做局部增补”的方式维护：不重写整篇 [[Learning-Roadmap]]，只记录新增观察与下一步维护建议。
+
+- 新增/尚未纳入 canonical graph 的补充笔记：[[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]]。它适合挂在 [[Single-Qubit-Gates|单量子比特门]] 与 [[Pauli-Matrices|泡利矩阵]] 附近，作为 Bloch sphere 旋转、Euler decomposition 和 half-angle 公式的数学补充。
+- 当前扫描显示 [[Gate-Eigenstates|门算符本征态]] 的 `comprehension` 已从 `vague` 提升到 `getting there`。主表保留旧版结构，后续若要同步统计，只应局部改对应行和总览数字，而不是整篇重写。
+- 短期学习重点仍建议放在 [[Optical-Tweezer-Arrays|光镊阵列]]、[[CZ-Gate|CZ门]] 与 [[Rabi-Flopping|拉比振荡]]：它们分别连接硬件平台、纠缠门和相干动力学，是后续 [[Rydberg-Blockade|里德堡阻塞]] 与 QEC 路线的关键入口。
+
 ## 📝 更新记录
 
+- 2026-06-03 12:11: 从 git 恢复旧版路线图；改为增补式维护，记录 [[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]] 与 [[Gate-Eigenstates|门算符本征态]] 的理解状态变化。
 - 2026-06-03: 修复乱码与表格渲染问题，并将路线图正文改为中文；保留图表英文标签以避免 CJK warning。

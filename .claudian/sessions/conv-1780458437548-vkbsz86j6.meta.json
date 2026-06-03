@@ -1,0 +1,25 @@
+{
+  "id": "conv-1780458437548-vkbsz86j6",
+  "providerId": "codex",
+  "title": "展开详细介绍一下，数学铺垫可以单开一个介绍",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780458437548,
+  "updatedAt": 1780459206583,
+  "lastResponseAt": 1780459170970,
+  "sessionId": "019e8b97-bccd-7402-9f3f-367ad0a7905d",
+  "providerState": {
+    "threadId": "019e8b97-bccd-7402-9f3f-367ad0a7905d",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\03\\rollout-2026-06-03T11-47-22-019e8b97-bccd-7402-9f3f-367ad0a7905d.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "usage": {
+    "inputTokens": 68444,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 66944,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 68444,
+    "percentage": 26,
+    "model": "gpt-5.5"
+  }
+}

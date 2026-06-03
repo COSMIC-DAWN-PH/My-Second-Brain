@@ -61,24 +61,24 @@ comprehension: "don't understand"
 ### 2.1 两原子系统
 
 考虑两个相邻的原子 1 和 2，每个原子有两个能级参与工作：
-- $|g\rangle$：基态（ground state，量子比特的 $|0\rangle$）
-- $|r\rangle$：里德堡态（Rydberg state，量子比特的 $|1\rangle$）
+- $\vert g\rangle$：基态（ground state，量子比特的 $\vert 0\rangle$）
+- $\vert r\rangle$：里德堡态（Rydberg state，量子比特的 $\vert 1\rangle$）
 
-激光驱动 $|g\rangle \leftrightarrow |r\rangle$ 跃迁，拉比频率为 $\Omega$，失谐为 $\Delta$。
+激光驱动 $\vert g\rangle \leftrightarrow \vert r\rangle$ 跃迁，拉比频率为 $\Omega$，失谐为 $\Delta$。
 
 **无相互作用时**的哈密顿量（单原子）：
 
 $$
-H_i = -\Delta |r\rangle\langle r| + \frac{\Omega}{2}(|g\rangle\langle r| + |r\rangle\langle g|)
+H_i = -\Delta \vert r\rangle\langle r| + \frac{\Omega}{2}(\vert g\rangle\langle r| + \vert r\rangle\langle g|)
 $$
 
 **有相互作用时**，两原子系统的完整哈密顿量：
 
 $$
-H = H_1 + H_2 + V_{12} |r\rangle\langle r| \otimes |r\rangle\langle r|
+H = H_1 + H_2 + V_{12} \vert r\rangle\langle r| \otimes \vert r\rangle\langle r|
 $$
 
-最后一项 $V_{12} |r\rangle\langle r| \otimes |r\rangle\langle r|$ 是关键——**只有当两个原子同时处于里德堡态时，相互作用才生效**。
+最后一项 $V_{12} \vert r\rangle\langle r| \otimes \vert r\rangle\langle r|$ 是关键——**只有当两个原子同时处于里德堡态时，相互作用才生效**。
 
 ### 2.2 相互作用的来源：van der Waals 力
 
@@ -116,7 +116,7 @@ $$
                                     (能级偏移太大，激光无法共振)
 ```
 
-当两个原子同时处于 $|r\rangle$ 时，$|r,r\rangle$ 的能量被抬高了 $V_{12}$。如果 $V_{12} \gg \Omega$，激光的频率远远无法共振到 $|r,r\rangle$ 态——**第二个原子的激发被"阻塞"了**。
+当两个原子同时处于 $\vert r\rangle$ 时，$\vert r,r\rangle$ 的能量被抬高了 $V_{12}$。如果 $V_{12} \gg \Omega$，激光的频率远远无法共振到 $\vert r,r\rangle$ 态——**第二个原子的激发被"阻塞"了**。
 
 ### 2.4 阻塞半径
 
@@ -190,19 +190,19 @@ c_blocked = '#ff7f0e'
 
 # |g,g> level
 ax2.plot([0.5, 2.5], [0, 0], color=c_g, linewidth=3)
-ax2.text(1.5, -0.4, r'$|g,g\rangle$', fontsize=11, ha='center', color=c_g, fontweight='bold')
+ax2.text(1.5, -0.4, r'$\vert g,g\rangle$', fontsize=11, ha='center', color=c_g, fontweight='bold')
 
 # |g,r> level
 ax2.plot([0.5, 2.5], [2, 2], color='#1f77b4', linewidth=3)
-ax2.text(1.5, 1.6, r'$|g,r\rangle$', fontsize=11, ha='center', color='#1f77b4', fontweight='bold')
+ax2.text(1.5, 1.6, r'$\vert g,r\rangle$', fontsize=11, ha='center', color='#1f77b4', fontweight='bold')
 
 # |r,g> level
 ax2.plot([0.5, 2.5], [4, 4], color='#1f77b4', linewidth=3)
-ax2.text(1.5, 3.6, r'$|r,g\rangle$', fontsize=11, ha='center', color='#1f77b4', fontweight='bold')
+ax2.text(1.5, 3.6, r'$\vert r,g\rangle$', fontsize=11, ha='center', color='#1f77b4', fontweight='bold')
 
 # |r,r> level (shifted up by V12)
 ax2.plot([0.5, 2.5], [6.5, 6.5], color=c_blocked, linewidth=3, linestyle='--')
-ax2.text(1.5, 6.9, r'$|r,r\rangle + V_{12}$', fontsize=11, ha='center',
+ax2.text(1.5, 6.9, r'$\vert r,r\rangle + V_{12}$', fontsize=11, ha='center',
          color=c_blocked, fontweight='bold')
 
 # Allowed transitions (green arrows)
@@ -225,9 +225,9 @@ ax2.text(4.2, 5.25, r'$V_{12} \gg \Omega$', fontsize=11, color='gray', fontweigh
 
 # Labels
 ax2.text(7, 6.5, 'Without blockade:', fontsize=10, fontweight='bold', va='center')
-ax2.text(7, 6.0, r'$|r,r\rangle$ accessible', fontsize=10, va='center', color='gray')
+ax2.text(7, 6.0, r'$\vert r,r\rangle$ accessible', fontsize=10, va='center', color='gray')
 ax2.text(7, 3.0, 'With blockade:', fontsize=10, fontweight='bold', va='center')
-ax2.text(7, 2.5, r'$|r,r\rangle$ shifted far away', fontsize=10, va='center', color=c_blocked)
+ax2.text(7, 2.5, r'$\vert r,r\rangle$ shifted far away', fontsize=10, va='center', color=c_blocked)
 ax2.text(7, 2.0, r'$\Rightarrow$ second atom cannot be excited', fontsize=10, va='center', color=c_blocked)
 
 plt.tight_layout()
@@ -240,35 +240,35 @@ plt.show()
 
 ### 3.1 CZ 门回顾
 
-[[CZ-Gate]] 的作用是：当且仅当两个 qubit 都处于 $|1\rangle$ 时，引入 $\pi$ 相位：
+[[CZ-Gate]] 的作用是：当且仅当两个 qubit 都处于 $\vert 1\rangle$ 时，引入 $\pi$ 相位：
 
 $$
 \text{CZ} = \text{diag}(1, 1, 1, -1)
 $$
 
 在中性原子系统中，我们将逻辑态映射为：
-- $|0\rangle \equiv |g\rangle$（基态）
-- $|1\rangle \equiv |r\rangle$（里德堡态）
+- $\vert 0\rangle \equiv \vert g\rangle$（基态）
+- $\vert 1\rangle \equiv \vert r\rangle$（里德堡态）
 
 ### 3.2 阻塞实现 CZ 的步骤
 
-**目标**：对两个原子施加 CZ 门，使得 $|r,r\rangle$ 获得 $-1$ 相位，其他态不变。
+**目标**：对两个原子施加 CZ 门，使得 $\vert r,r\rangle$ 获得 $-1$ 相位，其他态不变。
 
-**方法**：利用里德堡阻塞，让 $|g,r\rangle$、$|r,g\rangle$、$|g,g\rangle$ 正常演化，但 $|r,r\rangle$ 因为阻塞而**不参与演化**。
+**方法**：利用里德堡阻塞，让 $\vert g,r\rangle$、$\vert r,g\rangle$、$\vert g,g\rangle$ 正常演化，但 $\vert r,r\rangle$ 因为阻塞而**不参与演化**。
 
 具体步骤：
 
 **Step 1：初始化**
-- 原子 1（控制比特）处于任意态 $\alpha|g\rangle + \beta|r\rangle$
-- 原子 2（目标比特）处于 $|g\rangle$
+- 原子 1（控制比特）处于任意态 $\alpha\vert g\rangle + \beta\vert r\rangle$
+- 原子 2（目标比特）处于 $\vert g\rangle$
 
 **Step 2：对原子 2 施加 $\pi$ 脉冲**
-- 如果原子 1 在 $|g\rangle$：原子 2 从 $|g\rangle \to |r\rangle$（正常激发）
-- 如果原子 1 在 $|r\rangle$：原子 2 的激发被阻塞，**保持在 $|g\rangle$**
+- 如果原子 1 在 $\vert g\rangle$：原子 2 从 $\vert g\rangle \to \vert r\rangle$（正常激发）
+- 如果原子 1 在 $\vert r\rangle$：原子 2 的激发被阻塞，**保持在 $\vert g\rangle$**
 
 **Step 3：对两个原子同时施加 $2\pi$ 脉冲**
-- 这个脉冲让 $|g\rangle \to |r\rangle \to |g\rangle$，积累 $-1$ 相位
-- 但由于阻塞，$|r,r\rangle$ 不参与这个过程
+- 这个脉冲让 $\vert g\rangle \to \vert r\rangle \to \vert g\rangle$，积累 $-1$ 相位
+- 但由于阻塞，$\vert r,r\rangle$ 不参与这个过程
 
 **Step 4：对原子 2 施加 $\pi$ 脉冲（反向）**
 - 将原子 2 的状态恢复
@@ -277,10 +277,10 @@ $$
 
 | 初始态 | 演化过程 | 最终态 | 相位 |
 |--------|---------|--------|------|
-| $\|g,g\rangle$ | 正常 | $\|g,g\rangle$ | $+1$ |
-| $\|g,r\rangle$ | 正常 | $\|g,r\rangle$ | $+1$ |
-| $\|r,g\rangle$ | 被阻塞 | $\|r,g\rangle$ | $+1$ |
-| $\|r,r\rangle$ | 被阻塞 | $-\|r,r\rangle$ | $-1$ |
+| $\vert g,g\rangle$ | 正常 | $\vert g,g\rangle$ | $+1$ |
+| $\vert g,r\rangle$ | 正常 | $\vert g,r\rangle$ | $+1$ |
+| $\vert r,g\rangle$ | 被阻塞 | $\vert r,g\rangle$ | $+1$ |
+| $\vert r,r\rangle$ | 被阻塞 | $-\vert r,r\rangle$ | $-1$ |
 
 这正是 CZ 门的效果！
 
@@ -306,10 +306,10 @@ c_block = '#ff7f0e'
 ax.plot([1, 9], [3, 3], 'k-', linewidth=1, alpha=0.3)
 
 steps = [
-    (1.5, 'Init', r'$\alpha|g\rangle+\beta|r\rangle$', r'$|g\rangle$', c_ctrl, c_tgt),
-    (3.5, r'$\pi$ pulse', r'No change', r'$|g\rangle \to |r\rangle$', c_ctrl, c_tgt),
-    (5.5, r'$2\pi$ pulse', r'Phase $-1$ if $|r\rangle$', r'BLOCKED!', c_ctrl, c_block),
-    (7.5, r'$\pi$ pulse', r'No change', r'$|r\rangle \to |g\rangle$', c_ctrl, c_tgt),
+    (1.5, 'Init', r'$\alpha\vert g\rangle+\beta\vert r\rangle$', r'$\vert g\rangle$', c_ctrl, c_tgt),
+    (3.5, r'$\pi$ pulse', r'No change', r'$\vert g\rangle \to \vert r\rangle$', c_ctrl, c_tgt),
+    (5.5, r'$2\pi$ pulse', r'Phase $-1$ if $\vert r\rangle$', r'BLOCKED!', c_ctrl, c_block),
+    (7.5, r'$\pi$ pulse', r'No change', r'$\vert r\rangle \to \vert g\rangle$', c_ctrl, c_tgt),
 ]
 
 for x, label, ctrl_txt, tgt_txt, ctrl_col, tgt_col in steps:
@@ -328,7 +328,7 @@ ax.text(1.5, 5.5, 'Control qubit', fontsize=9, fontweight='bold', ha='center', c
 ax.text(1.5, 0.8, 'Target qubit', fontsize=9, fontweight='bold', ha='center', color=c_tgt)
 
 # Result
-ax.text(5, 0.2, r'Result: $|r,r\rangle$ gets $\pi$ phase = CZ gate!', fontsize=10,
+ax.text(5, 0.2, r'Result: $\vert r,r\rangle$ gets $\pi$ phase = CZ gate!', fontsize=10,
         ha='center', color=c_block, fontweight='bold')
 
 # --- Right panel: Bloch sphere visualization ---
@@ -347,17 +347,17 @@ ax2.annotate('', xy=(0, 1.8), xytext=(0, -1.8),
              arrowprops=dict(arrowstyle='->', color='gray', lw=1))
 ax2.annotate('', xy=(1.8, 0), xytext=(-1.8, 0),
              arrowprops=dict(arrowstyle='->', color='gray', lw=1))
-ax2.text(0, 1.95, r'$|0\rangle = |g\rangle$', fontsize=10, ha='center', color=c_ctrl)
-ax2.text(0, -2.15, r'$|1\rangle = |r\rangle$', fontsize=10, ha='center', color=c_tgt)
-ax2.text(1.95, 0, r'$|+\rangle$', fontsize=10, ha='center', color='gray')
+ax2.text(0, 1.95, r'$\vert 0\rangle = \vert g\rangle$', fontsize=10, ha='center', color=c_ctrl)
+ax2.text(0, -2.15, r'$\vert 1\rangle = \vert r\rangle$', fontsize=10, ha='center', color=c_tgt)
+ax2.text(1.95, 0, r'$\vert +\rangle$', fontsize=10, ha='center', color='gray')
 
 # Case 1: Control in |g> - target rotates fully
 angle1 = np.linspace(-np.pi/2, np.pi/2, 50)
 ax2.plot(np.cos(angle1)*0.7, np.sin(angle1)*0.7, color=c_ctrl, linewidth=2.5,
-         label='Ctrl in $|g\\rangle$: target rotates $|g\\rangle \\to |r\\rangle$')
+         label='Ctrl in $\vert g\\rangle$: target rotates $\vert g\\rangle \\to \vert r\\rangle$')
 
 # Case 2: Control in |r> - target is blocked (stays at |g>)
-ax2.plot(0, -0.9, 'o', color=c_block, markersize=12, label='Ctrl in $|r\\rangle$: target BLOCKED at $|g\\rangle$')
+ax2.plot(0, -0.9, 'o', color=c_block, markersize=12, label='Ctrl in $\vert r\\rangle$: target BLOCKED at $\vert g\\rangle$')
 ax2.text(0.3, -1.1, 'stays here', fontsize=9, color=c_block)
 
 ax2.legend(frameon=False, fontsize=8, loc='lower left', bbox_to_anchor=(-0.1, -0.15))
@@ -379,12 +379,12 @@ $$
 \frac{V_{12}}{\Omega} \gg 1
 $$
 
-这个比值决定了 CZ 门的保真度。比值越大，$|r,r\rangle$ 被激发的概率越小，门保真度越高。
+这个比值决定了 CZ 门的保真度。比值越大，$\vert r,r\rangle$ 被激发的概率越小，门保真度越高。
 
 > [!warning] 常见误解
 > 里德堡阻塞不是说"激光不够强所以激发不了第二个原子"。即使激光很强，只要 $V_{12} \gg \Omega$，第二个原子的能级被移走了，激光频率完全无法共振——这是能级失配的问题，不是强度问题。
 
-具体来说，$|r,r\rangle$ 被错误激发的概率为：
+具体来说，$\vert r,r\rangle$ 被错误激发的概率为：
 
 $$
 P_{\text{error}} \sim \left(\frac{\Omega}{V_{12}}\right)^2
@@ -398,7 +398,7 @@ $$
 这意味着 CZ 门的保真度可以达到 $\sim 99.99\%$！
 
 > [!info] 典型实验数值参考
-> Bluvstein et al. (2026) 报道的实验参数：$^{87}\text{Rb}$ 原子，$|70S_{1/2}\rangle$ 里德堡态，阻塞半径 $R_b \approx 10\,\mu\text{m}$，CZ 门保真度 $\sim 99.5\%$，门操作时间 $\sim 0.3\,\mu\text{s}$。实际保真度受限于退相干、自发辐射和脉冲不完美等因素，理论上限 $\sim 99.99\%$ 在实验中尚未完全达到。
+> Bluvstein et al. (2026) 报道的实验参数：$^{87}\text{Rb}$ 原子，$\vert 70S_{1/2}\rangle$ 里德堡态，阻塞半径 $R_b \approx 10\,\mu\text{m}$，CZ 门保真度 $\sim 99.5\%$，门操作时间 $\sim 0.3\,\mu\text{s}$。实际保真度受限于退相干、自发辐射和脉冲不完美等因素，理论上限 $\sim 99.99\%$ 在实验中尚未完全达到。
 
 ### 4.2 影响阻塞半径的因素
 
@@ -436,7 +436,7 @@ $$
 
 论文中使用的典型参数：
 - 原子种类：$^{87}\text{Rb}$（铷-87）
-- 里德堡态：$|r\rangle = |70S_{1/2}\rangle$（$n = 70$）
+- 里德堡态：$\vert r\rangle = \vert 70S_{1/2}\rangle$（$n = 70$）
 - 阻塞半径：$R_b \approx 10\,\mu\text{m}$
 - CZ 门保真度：$\sim 99.5\%$
 - 门操作时间：$\sim 0.3\,\mu\text{s}$
@@ -459,7 +459,7 @@ $$
 
 - [[Two-Qubit-Gates]] — 两比特门总览：里德堡阻塞是实现 CZ 门的核心物理机制
 - [[CZ-Gate]] — 里德堡阻塞实现的门操作的逻辑定义
-- [[Rabi-Flopping]] — 驱动 $|g\rangle \leftrightarrow |r\rangle$ 跃迁的物理机制
+- [[Rabi-Flopping]] — 驱动 $\vert g\rangle \leftrightarrow \vert r\rangle$ 跃迁的物理机制
 - [[Transversal-Gate]] — 并行施加多个 CZ 门的容错方案
 - [[Transversal-Teleportation]] — 利用横向 CZ 实现逻辑态传送
 - [[Deep-Circuit-Execution]] — 里德堡阻塞在深度电路中的应用
@@ -468,5 +468,6 @@ $$
 
 ## 📝 更新记录
 
+- 2026-06-03: 修复 Markdown 表格中的 ket 写法，将 `\|...\rangle` 改为 `\vert ...\rangle`，避免表格渲染错乱。
 - 2026-06-01: 初始创建，包含阻塞条件、CZ 门实现、Python 图表 ×2
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性

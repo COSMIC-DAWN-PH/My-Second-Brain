@@ -76,7 +76,7 @@ $$
 | 概念 | 数学形式 | 可以直接测量？ |
 |------|---------|------------|
 | 概率振幅 | $\alpha$（复数） | **不能** |
-| 概率 | $\|\alpha\|^2$（实数，≥ 0） | **能**（频率） |
+| 概率 | $\lvert\alpha\rvert^2$（实数，≥ 0） | **能**（频率） |
 
 ### 2.2 为什么用复数而不是实数？
 
@@ -521,6 +521,7 @@ $$
 
 ## 📝 更新记录
 
+- 2026-06-03: 修复 Markdown 表格中的绝对值写法，将 `\|\alpha\|^2` 改为 `\lvert\alpha\rvert^2`，避免管道符破坏表格。
 - 2026-06-02: 初始创建，系统讲解叠加态、相位因子、Bloch 球、测量坍缩、Rydberg 原子实现
 - 2026-06-02: 修正六个 Pauli 本征态的测量概率表述：$|0\rangle, |1\rangle$ 沿 $z$ 轴不是 50-50，只有赤道态沿 $z$ 轴为 50-50。
 - 2026-06-02: Added a hardware-level comparison of computational basis states across neutral atoms, superconducting qubits, trapped ions, photonic qubits, and semiconductor spin qubits.

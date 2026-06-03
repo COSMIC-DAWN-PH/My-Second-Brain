@@ -15,16 +15,16 @@ comprehension: "vague"
 
 ## 1. 物理直觉：什么是拉比振荡？
 
-想象一个二能级原子，在共振激光的驱动下，原子会在基态 $|g\rangle$ 和激发态 $|e\rangle$ 之间**周期性地来回振荡**，就像一个钟摆在两个态之间摆动。这种现象就是**拉比振荡**（Rabi Flopping）。
+想象一个二能级原子，在共振激光的驱动下，原子会在基态 $\vert g\rangle$ 和激发态 $\vert e\rangle$ 之间**周期性地来回振荡**，就像一个钟摆在两个态之间摆动。这种现象就是**拉比振荡**（Rabi Flopping）。
 
 这是量子光学中最基础的相干驱动现象，也是所有量子比特操控的物理基础。
 
 > [!tip] 钟摆类比
-> 拉比振荡就像一个量子钟摆：原子在 $|g\rangle$ 和 $|e\rangle$ 之间来回摆动。摆动的速度由拉比频率 $\Omega$ 决定——激光越强，摆动越快。完成一次完整的摆动（$|g\rangle \to |e\rangle \to |g\rangle$）需要时间 $2\pi/\Omega$。
+> 拉比振荡就像一个量子钟摆：原子在 $\vert g\rangle$ 和 $\vert e\rangle$ 之间来回摆动。摆动的速度由拉比频率 $\Omega$ 决定——激光越强，摆动越快。完成一次完整的摆动（$\vert g\rangle \to \vert e\rangle \to \vert g\rangle$）需要时间 $2\pi/\Omega$。
 
 ## 2. 哈密顿量与方程推导
 
-考虑一个二能级系统（$|0\rangle, |1\rangle$）受到频率为 $\omega_L$ 的驱动场，系统哈密顿量为（旋转波近似, RWA）：
+考虑一个二能级系统（$\vert 0\rangle, \vert 1\rangle$）受到频率为 $\omega_L$ 的驱动场，系统哈密顿量为（旋转波近似, RWA）：
 
 $$
 \hat{H} = \frac{\hbar}{2}\begin{pmatrix} -\Delta & \Omega \\ \Omega^* & \Delta \end{pmatrix}
@@ -42,16 +42,16 @@ $$
 \hat{H}_{\text{res}} = \frac{\hbar\Omega}{2}\hat{\sigma}_x
 $$
 
-初始处于 $|0\rangle$ 的系统在时间 $t$ 后的态为：
+初始处于 $\vert 0\rangle$ 的系统在时间 $t$ 后的态为：
 
 $$
-|\psi(t)\rangle = \cos\left(\frac{\Omega t}{2}\right)|0\rangle - i\sin\left(\frac{\Omega t}{2}\right)|1\rangle
+\vert \psi(t)\rangle = \cos\left(\frac{\Omega t}{2}\right)\vert 0\rangle - i\sin\left(\frac{\Omega t}{2}\right)\vert 1\rangle
 $$
 
-处于 $|1\rangle$ 的概率（跃迁概率）随时间振荡：
+处于 $\vert 1\rangle$ 的概率（跃迁概率）随时间振荡：
 
 $$
-P_{|1\rangle}(t) = \sin^2\left(\frac{\Omega t}{2}\right)
+P_{\vert 1\rangle}(t) = \sin^2\left(\frac{\Omega t}{2}\right)
 $$
 
 ### 非共振情形（$\Delta \neq 0$）
@@ -65,7 +65,7 @@ $$
 跃迁概率：
 
 $$
-P_{|1\rangle}(t) = \frac{\Omega^2}{\tilde{\Omega}^2}\sin^2\left(\frac{\tilde{\Omega} t}{2}\right)
+P_{\vert 1\rangle}(t) = \frac{\Omega^2}{\tilde{\Omega}^2}\sin^2\left(\frac{\tilde{\Omega} t}{2}\right)
 $$
 
 失谐越大，振荡越快但振幅越小（永远达不到 $P = 1$）。
@@ -74,8 +74,8 @@ $$
 
 | 脉冲类型 | 脉冲面积 | 效果 |
 |---|---|---|
-| **π 脉冲** | $\Omega t = \pi$ | $|0\rangle \to |1\rangle$（完全反转，等效 NOT 门） |
-| **π/2 脉冲** | $\Omega t = \pi/2$ | $|0\rangle \to \frac{1}{\sqrt{2}}(|0\rangle - i|1\rangle)$（创造叠加态，类似 Hadamard） |
+| **π 脉冲** | $\Omega t = \pi$ | $\vert 0\rangle \to \vert 1\rangle$（完全反转，等效 NOT 门） |
+| **π/2 脉冲** | $\Omega t = \pi/2$ | $\vert 0\rangle \to \frac{1}{\sqrt{2}}(\vert 0\rangle - i\vert 1\rangle)$（创造叠加态，类似 Hadamard） |
 
 π 脉冲和 π/2 脉冲是量子门操控的基本构件。
 
@@ -87,18 +87,18 @@ $$
 
 ## 5. 与 Rydberg/中性原子体系的关联
 
-在 [[Optical-Tweezer-Arrays]] 中，每个被捕获的中性原子（如 Rb-87 或 Cs）可以用两个超精细基态作为量子比特 $|0\rangle, |1\rangle$。
+在 [[Optical-Tweezer-Arrays]] 中，每个被捕获的中性原子（如 Rb-87 或 Cs）可以用两个超精细基态作为量子比特 $\vert 0\rangle, \vert 1\rangle$。
 
 拉比振荡在 Rydberg 体系中的核心应用：
 1. **单比特门实现**：π 脉冲和 π/2 脉冲通过微波或光场精确控制，实现 X, Y, H 等单比特门
-2. **里德堡激发**：将原子从 $|1\rangle$ 激发到里德堡态 $|r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ-Gate]]（经由 [[Rydberg-Blockade]]）的核心步骤
+2. **里德堡激发**：将原子从 $\vert 1\rangle$ 激发到里德堡态 $\vert r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ-Gate]]（经由 [[Rydberg-Blockade]]）的核心步骤
 3. **稳定子测量**：在 [[QEC]] 的 syndrome 提取中，辅助比特经过一系列拉比脉冲与数据比特相互作用后被测量
 
 > [!warning] 易混淆：$\Omega$ vs $\tilde{\Omega}$
 > 共振时（$\Delta=0$）跃迁概率是 $\sin^2(\Omega t/2)$，但失谐时必须用广义拉比频率 $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$。很多初学者忘记失谐修正，导致门保真度计算出错。
 
 > [!info] 为什么 π 脉冲这么重要？
-> π 脉冲（$t = \pi/\Omega$）恰好把原子从 $|g\rangle$ 完全翻转到 $|e\rangle$——这是实现 X 门（量子 NOT 门）的物理基础。π/2 脉冲则产生等权叠加态 $|+\rangle$，是量子并行性的起点。
+> π 脉冲（$t = \pi/\Omega$）恰好把原子从 $\vert g\rangle$ 完全翻转到 $\vert e\rangle$——这是实现 X 门（量子 NOT 门）的物理基础。π/2 脉冲则产生等权叠加态 $\vert +\rangle$，是量子并行性的起点。
 
 ---
 
@@ -107,8 +107,8 @@ $$
 - **$\Omega$**：拉比频率 — $\Omega = d \cdot E_0 / \hbar$
 - **$\Delta$**：失谐量 — $\Delta = \omega_L - \omega_0$
 - **$\tilde{\Omega}$**：广义拉比频率 — $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$
-- **$P_{|1\rangle}(t)$**：跃迁概率（共振） — $\sin^2(\Omega t/2)$
-- **$P_{|1\rangle}(t)$**：跃迁概率（失谐） — $(\Omega/\tilde{\Omega})^2 \sin^2(\tilde{\Omega}t/2)$
+- **$P_{\vert 1\rangle}(t)$**：跃迁概率（共振） — $\sin^2(\Omega t/2)$
+- **$P_{\vert 1\rangle}(t)$**：跃迁概率（失谐） — $(\Omega/\tilde{\Omega})^2 \sin^2(\tilde{\Omega}t/2)$
 
 
 ---
@@ -123,5 +123,6 @@ $$
 
 ## 📝 更新记录
 
+- 2026-06-03: 修复 ket 记号在 Markdown 表格/摘要中的渲染问题，将易误解析的 `|...\rangle` 与 `\|...\rangle` 改为 `\vert ...\rangle`。
 - 2026-03-29: 初始创建
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性
