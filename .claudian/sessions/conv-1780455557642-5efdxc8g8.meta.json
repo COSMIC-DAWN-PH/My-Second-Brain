@@ -1,0 +1,25 @@
+{
+  "id": "conv-1780455557642-5efdxc8g8",
+  "providerId": "codex",
+  "title": "$weekly-summary 可以把这个skill变成daily的也能执行吗？名字也改一下，cla...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780455557642,
+  "updatedAt": 1780456012592,
+  "lastResponseAt": 1780456012592,
+  "sessionId": "019e8b6b-cb15-7cb3-b834-7db13a27db57",
+  "providerState": {
+    "threadId": "019e8b6b-cb15-7cb3-b834-7db13a27db57",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\03\\rollout-2026-06-03T10-59-22-019e8b6b-cb15-7cb3-b834-7db13a27db57.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "usage": {
+    "inputTokens": 84126,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 83328,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 84126,
+    "percentage": 33,
+    "model": "gpt-5.5"
+  }
+}

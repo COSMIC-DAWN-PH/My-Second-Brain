@@ -1,0 +1,25 @@
+{
+  "id": "conv-1780455207968-b0kiuc43j",
+  "providerId": "codex",
+  "title": "$learning-path 更新",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780455207968,
+  "updatedAt": 1780455555086,
+  "lastResponseAt": 1780455425889,
+  "sessionId": "019e8b66-754a-7062-88f0-d627aab16cf6",
+  "providerState": {
+    "threadId": "019e8b66-754a-7062-88f0-d627aab16cf6",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\03\\rollout-2026-06-03T10-53-33-019e8b66-754a-7062-88f0-d627aab16cf6.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "usage": {
+    "inputTokens": 57537,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 6016,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 57537,
+    "percentage": 22,
+    "model": "gpt-5.5"
+  }
+}

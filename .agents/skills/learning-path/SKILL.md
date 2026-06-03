@@ -339,7 +339,7 @@ COLORS = {
 | 关联技能 | 协作方式 |
 |----------|---------|
 | **zotero-notes** | 依赖 zotero-notes 建立的知识笔记结构（frontmatter 字段、文件命名） |
-| **weekly-summary** | learning-path 的输出可作为 weekly-summary 的补充：周报聚焦"本周做了什么"，路线图聚焦"全局该做什么" |
+| **research-summary** | learning-path 的输出可作为 research-summary 的补充：科研总结聚焦"这段时间做了什么"，路线图聚焦"全局该做什么" |
 | **literature-handout** | 当生成新讲义引入新概念时，路线图可提示哪些新概念需要补充为知识笔记 |
 
 ---

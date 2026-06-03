@@ -235,6 +235,10 @@ Pauli 门只做 $\pi$ 旋转（180°），但实际电路经常需要**任意角
 
 > [!tip] 怎么记忆？
 > $\pi$ 脉冲把 Bloch 球上的点从北极翻到南极（半圈 = $\pi$），对应的旋转角是 $\pi/2$（四分之一圈）。别搞反就行。
+> [!example] 交互式理解：为什么会有 half-angle
+> 下面这个 HTML 把 Bloch 球上的物理角度 $\theta$ 和 Hilbert space 中 ket 振幅的角度 $\theta/2$ 放在同一张交互图里。拖动滑块时注意：概率是 $\cos^2(\theta/2)$ 与 $\sin^2(\theta/2)$，所以从北极 $|0\rangle$ 到南极 $|1\rangle$ 的 Bloch 角度是 $\pi$，但振幅角只走到 $\pi/2$。
+
+<iframe src="file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/tools/su2_so3_half_angle.html" width="100%" height="760" style="border:1px solid #3a3a5c; border-radius:8px;"></iframe>
 
 ### 4.2 三个基本旋转门
 
@@ -435,3 +439,4 @@ $\{H, T, \text{CZ}\}$ 构成**通用门集**——任何量子线路都可以用
 ## 📝 更新记录
 
 - 2026-06-01: 初始创建，包含 Pauli 门、H 门、S/T 门、旋转门、Bloch 球、中性原子实现
+- 2026-06-03: 添加 SU(2) 到 SO(3) half-angle 交互式 HTML 解释，辅助理解 Bloch 球角度 $\theta$ 与 Hilbert space 振幅角 $\theta/2$ 的关系。

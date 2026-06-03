@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SU(2) Half-Angle Explanation</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.08);
+      --panel2: rgba(255,255,255,0.12);
+      --line: rgba(255,255,255,0.18);
+      --text: #eef5ff;
+      --muted: #aebbd5;
+      --blue: #62b4ff;
+      --cyan: #5fe4d4;
+      --gold: #ffd166;
+      --rose: #ff7aa2;
+      --green: #8be28b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(98,180,255,0.22), transparent 28%),
+        radial-gradient(circle at 88% 4%, rgba(95,228,212,0.16), transparent 30%),
+        linear-gradient(135deg, #070b16, var(--bg));
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    .hero, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.32);
+      backdrop-filter: blur(14px);
+    }
+    .hero { padding: 26px 28px; margin-bottom: 18px; }
+    .badge {
+      display: inline-block;
+      color: #d8eeff;
+      background: rgba(98,180,255,0.14);
+      border: 1px solid rgba(98,180,255,0.35);
+      border-radius: 999px;
+      padding: 7px 12px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.04em; }
+    .subtitle { color: var(--muted); line-height: 1.8; max-width: 920px; }
+    .grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 18px; }
+    .viz { padding: 18px; }
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      background: rgba(3,8,20,0.48);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .controls {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--panel2);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .row { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
+    label { font-weight: 800; }
+    .value { color: var(--gold); font-weight: 900; font-variant-numeric: tabular-nums; }
+    input[type="range"] { width: 100%; accent-color: var(--blue); }
+    .buttons { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 12px; }
+    button {
+      cursor: pointer;
+      color: var(--text);
+      background: rgba(98,180,255,0.13);
+      border: 1px solid rgba(98,180,255,0.33);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 750;
+    }
+    button:hover { background: rgba(98,180,255,0.23); }
+    .notes { padding: 18px; display: grid; gap: 13px; }
+    .box {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--panel2);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .box h2, .box h3 { margin: 0 0 8px; letter-spacing: -0.02em; }
+    .box p, .box li { margin: 0; color: var(--muted); line-height: 1.78; }
+    .box ul { margin: 0; padding-left: 20px; }
+    .callout { border-left: 4px solid var(--gold); background: rgba(255,209,102,0.10); }
+    .math { color: #ffffff; font-family: "Cambria Math", Georgia, serif; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .stat {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.20);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .stat .k { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .stat .v { font-size: 18px; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .barWrap { margin-top: 8px; height: 11px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; }
+    .bar { height: 100%; width: 0%; border-radius: 999px; background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 18px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .wrap { padding: 14px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Single-Qubit Geometry · SU(2) → SO(3)</div>
+      <h1>为什么 Bloch 球转 θ，ket 里却是 θ/2？</h1>
+      <div class="subtitle">
+        这不是“少转了一半”，而是两种描述对象不同：Bloch 球上的箭头描述可观测的物理方向；
+        Hilbert space 中的 ket 描述两个复振幅。振幅取平方才变成概率，所以 ket 的角度自然写成 half-angle。
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card viz">
+        <canvas id="scene" width="900" height="620"></canvas>
+        <div class="controls">
+          <div class="row">
+            <label for="theta">Bloch angle θ</label>
+            <span class="value" id="thetaValue">90° = π/2</span>
+          </div>
+          <input id="theta" type="range" min="0" max="180" step="1" value="90" />
+          <div class="buttons">
+            <button data-theta="0">|0⟩ North pole</button>
+            <button data-theta="90">Equal superposition</button>
+            <button data-theta="180">|1⟩ South pole</button>
+            <button id="play">Animate 0 → π</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card notes">
+        <div class="box callout">
+          <h2>核心结论</h2>
+          <p class="math">|ψ⟩ = cos(θ/2)|0⟩ + e<sup>iφ</sup> sin(θ/2)|1⟩</p>
+          <p>Bloch 球的极角是 θ；ket 中两个振幅的“分配角”是 θ/2。</p>
+        </div>
+
+        <div class="box">
+          <h3>拖动滑块观察</h3>
+          <p>当 θ 从 0 变到 π，Bloch 箭头从北极走到南极；同时 ket 只从 |0⟩ 方向走到 |1⟩ 方向，也就是振幅角从 0 走到 π/2。</p>
+          <div class="stats">
+            <div class="stat"><div class="k">Hilbert coefficient angle</div><div class="v" id="halfAngle">45°</div></div>
+            <div class="stat"><div class="k">Bloch polar angle</div><div class="v" id="blochAngle">90°</div></div>
+            <div class="stat">
+              <div class="k">P(0)=cos²(θ/2)</div><div class="v" id="p0">50.0%</div>
+              <div class="barWrap"><div class="bar" id="bar0"></div></div>
+            </div>
+            <div class="stat">
+              <div class="k">P(1)=sin²(θ/2)</div><div class="v" id="p1">50.0%</div>
+              <div class="barWrap"><div class="bar" id="bar1"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>为什么不能写 cosθ 与 sinθ？</h3>
+          <ul>
+            <li>Bloch 球转 θ = π 时，状态应从 |0⟩ 到 |1⟩。</li>
+            <li>用 half-angle：cos(π/2)=0，sin(π/2)=1，正好得到 |1⟩。</li>
+            <li>如果误写 cosπ 与 sinπ，会得到 −|0⟩，物理上仍在北极，方向完全错了。</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>和旋转门的联系</h3>
+          <p class="math">R<sub>n</sub>(θ)=exp[-i θ(n·σ)/2]</p>
+          <p>Pauli matrix 的本征值是 ±1，所以两个本征分量获得相反相位 e<sup>∓iθ/2</sup>；它们的相对相位差才是 Bloch 球上看到的 θ。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>Obsidian interactive HTML asset · Created 2026-06-03</footer>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("scene");
+    const ctx = canvas.getContext("2d");
+    const slider = document.getElementById("theta");
+    const thetaValue = document.getElementById("thetaValue");
+    const halfAngle = document.getElementById("halfAngle");
+    const blochAngle = document.getElementById("blochAngle");
+    const p0El = document.getElementById("p0");
+    const p1El = document.getElementById("p1");
+    const bar0 = document.getElementById("bar0");
+    const bar1 = document.getElementById("bar1");
+    const playBtn = document.getElementById("play");
+    let animationId = null;
+
+    function piLabel(deg) {
+      const labels = {0:"0", 30:"π/6", 45:"π/4", 60:"π/3", 90:"π/2", 120:"2π/3", 135:"3π/4", 150:"5π/6", 180:"π"};
+      return labels[deg] || `${(deg / 180).toFixed(2)}π`;
+    }
+
+    function arrow(x1, y1, x2, y2, color, width=4) {
+      const a = Math.atan2(y2-y1, x2-x1);
+      ctx.save();
+      ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x2,y2);
+      ctx.lineTo(x2 - 16*Math.cos(a-Math.PI/7), y2 - 16*Math.sin(a-Math.PI/7));
+      ctx.lineTo(x2 - 16*Math.cos(a+Math.PI/7), y2 - 16*Math.sin(a+Math.PI/7));
+      ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+
+    function text(t, x, y, color="#eef5ff", size=15, weight=700, align="center") {
+      ctx.save();
+      ctx.fillStyle = color;
+      ctx.font = `${weight} ${size}px Inter, Segoe UI, sans-serif`;
+      ctx.textAlign = align;
+      ctx.fillText(t, x, y);
+      ctx.restore();
+    }
+
+    function roundRect(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x+r, y);
+      ctx.lineTo(x+w-r, y);
+      ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+      ctx.lineTo(x+w, y+h-r);
+      ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+      ctx.lineTo(x+r, y+h);
+      ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+      ctx.lineTo(x, y+r);
+      ctx.quadraticCurveTo(x, y, x+r, y);
+      ctx.closePath();
+    }
+
+    function draw() {
+      const cssW = canvas.clientWidth;
+      const cssH = cssW * 0.6889;
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      if (canvas.width !== Math.round(cssW*dpr)) {
+        canvas.width = Math.round(cssW*dpr);
+        canvas.height = Math.round(cssH*dpr);
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+
+      const deg = Number(slider.value);
+      const theta = deg * Math.PI / 180;
+      const half = theta / 2;
+      const p0 = Math.cos(half) ** 2;
+      const p1 = Math.sin(half) ** 2;
+
+      thetaValue.textContent = `${deg}° = ${piLabel(deg)}`;
+      halfAngle.textContent = `${(deg/2).toFixed(0)}°`;
+      blochAngle.textContent = `${deg}°`;
+      p0El.textContent = `${(100*p0).toFixed(1)}%`;
+      p1El.textContent = `${(100*p1).toFixed(1)}%`;
+      bar0.style.width = `${100*p0}%`;
+      bar1.style.width = `${100*p1}%`;
+
+      ctx.clearRect(0,0,cssW,cssH);
+      const grad = ctx.createLinearGradient(0,0,cssW,cssH);
+      grad.addColorStop(0, "rgba(98,180,255,0.15)");
+      grad.addColorStop(1, "rgba(95,228,212,0.06)");
+      ctx.fillStyle = grad; ctx.fillRect(0,0,cssW,cssH);
+
+      const cx = cssW * 0.30, cy = cssH * 0.52, r = Math.min(cssW, cssH) * 0.30;
+      ctx.save();
+      ctx.strokeStyle = "rgba(255,255,255,0.22)"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,2*Math.PI); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(cx,cy,r,r*0.28,0,0,2*Math.PI); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(cx,cy,r*0.34,r,0,0,2*Math.PI); ctx.stroke();
+      ctx.setLineDash([6,8]); ctx.strokeStyle = "rgba(255,255,255,0.14)";
+      ctx.beginPath(); ctx.moveTo(cx-r,cy); ctx.lineTo(cx+r,cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx,cy-r); ctx.lineTo(cx,cy+r); ctx.stroke();
+      ctx.restore();
+      text("|0>", cx, cy-r-14, "#8be28b", 16);
+      text("|1>", cx, cy+r+28, "#ff7aa2", 16);
+      text("Bloch sphere", cx, cy+r+56, "#aebbd5", 14, 650);
+      arrow(cx, cy+r*0.9, cx, cy-r*0.9, "rgba(255,255,255,0.28)", 2);
+      text("z", cx+18, cy-r*0.86, "#aebbd5", 15);
+
+      const px = cx + r*Math.sin(theta);
+      const py = cy - r*Math.cos(theta);
+      ctx.save();
+      ctx.strokeStyle = "#ffd166"; ctx.lineWidth = 3; ctx.setLineDash([5,8]);
+      ctx.beginPath(); ctx.arc(cx, cy, r*0.28, -Math.PI/2, -Math.PI/2 + theta); ctx.stroke();
+      ctx.restore();
+      text("θ", cx + r*0.22*Math.sin(theta/2)+4, cy - r*0.22*Math.cos(theta/2), "#ffd166", 20, 900);
+      arrow(cx, cy, px, py, "#62b4ff", 5);
+      ctx.fillStyle = "#62b4ff"; ctx.beginPath(); ctx.arc(px,py,7,0,2*Math.PI); ctx.fill();
+      text("physical direction", px+18, py-8, "#dce9ff", 13, 650, "left");
+
+      const hx = cssW * 0.70, hy = cssH * 0.53, hr = Math.min(cssW, cssH) * 0.23;
+      ctx.save();
+      ctx.strokeStyle = "rgba(255,255,255,0.22)"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(hx,hy,hr,0,2*Math.PI); ctx.stroke();
+      ctx.strokeStyle = "rgba(255,255,255,0.16)";
+      ctx.beginPath(); ctx.moveTo(hx-hr,hy); ctx.lineTo(hx+hr,hy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(hx,hy-hr); ctx.lineTo(hx,hy+hr); ctx.stroke();
+      ctx.restore();
+      text("Hilbert coefficient plane", hx, hy+hr+44, "#aebbd5", 14, 650);
+      text("|0> amp", hx+hr+16, hy+4, "#8be28b", 13, 650, "left");
+      text("|1> amp", hx+8, hy-hr-12, "#ff7aa2", 13, 650, "left");
+
+      const qx = hx + hr*Math.cos(half);
+      const qy = hy - hr*Math.sin(half);
+      ctx.save();
+      ctx.strokeStyle = "#5fe4d4"; ctx.lineWidth = 3; ctx.setLineDash([5,8]);
+      ctx.beginPath(); ctx.arc(hx,hy,hr*0.34,0,-half,true); ctx.stroke();
+      ctx.restore();
+      text("θ/2", hx + hr*0.26*Math.cos(half/2), hy - hr*0.26*Math.sin(half/2)-6, "#5fe4d4", 18, 900);
+      arrow(hx, hy, qx, qy, "#5fe4d4", 5);
+      ctx.fillStyle = "#5fe4d4"; ctx.beginPath(); ctx.arc(qx,qy,7,0,2*Math.PI); ctx.fill();
+      text("ket amplitudes", qx+18, qy-8, "#dce9ff", 13, 650, "left");
+
+      ctx.save();
+      ctx.strokeStyle = "rgba(255,255,255,0.20)"; ctx.lineWidth = 1.5; ctx.setLineDash([4,7]);
+      ctx.beginPath(); ctx.moveTo(qx,qy); ctx.lineTo(qx,hy); ctx.lineTo(hx,hy); ctx.stroke();
+      ctx.restore();
+      text("cos(θ/2)", (hx+qx)/2, hy+20, "#8be28b", 13, 750);
+      text("sin(θ/2)", qx+10, (hy+qy)/2, "#ff7aa2", 13, 750, "left");
+
+      ctx.save();
+      ctx.fillStyle = "rgba(0,0,0,0.23)";
+      ctx.strokeStyle = "rgba(255,255,255,0.13)";
+      roundRect(cssW*0.08, cssH-82, cssW*0.84, 48, 18);
+      ctx.fill(); ctx.stroke();
+      ctx.restore();
+      text(`|ψ> = ${Math.cos(half).toFixed(3)} |0> + ${Math.sin(half).toFixed(3)} |1>`, cssW*0.5, cssH-52, "#eef5ff", 18, 850);
+    }
+
+    slider.addEventListener("input", draw);
+    document.querySelectorAll("button[data-theta]").forEach(btn => {
+      btn.addEventListener("click", () => { slider.value = btn.dataset.theta; draw(); });
+    });
+    playBtn.addEventListener("click", () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+        playBtn.textContent = "Animate 0 → π";
+        return;
+      }
+      const start = performance.now();
+      playBtn.textContent = "Stop animation";
+      function tick(t) {
+        const u = ((t - start) % 3200) / 3200;
+        const smooth = 0.5 - 0.5 * Math.cos(2 * Math.PI * u);
+        slider.value = Math.round(180 * smooth);
+        draw();
+        animationId = requestAnimationFrame(tick);
+      }
+      animationId = requestAnimationFrame(tick);
+    });
+    window.addEventListener("resize", draw);
+    draw();
+  </script>
+</body>
+</html>

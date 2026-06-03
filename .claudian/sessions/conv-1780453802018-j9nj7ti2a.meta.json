@@ -4,8 +4,8 @@
   "title": "这渲染有问题，然后讲解一下两个量子比特的联合态空间 是各自态空间的张量积：",
   "titleGenerationStatus": "failed",
   "createdAt": 1780453802018,
-  "updatedAt": 1780454132739,
-  "lastResponseAt": 1780454132739,
+  "updatedAt": 1780455188138,
+  "lastResponseAt": 1780454938707,
   "sessionId": "019e8b51-05f2-7ad1-a9dc-9aed8e0d3256",
   "providerState": {
     "threadId": "019e8b51-05f2-7ad1-a9dc-9aed8e0d3256",
@@ -14,13 +14,13 @@
   },
   "currentNote": "Rydberg atom/Tensor-Product.md",
   "usage": {
-    "inputTokens": 46684,
+    "inputTokens": 55652,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 43904,
+    "cacheReadInputTokens": 54656,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 46684,
-    "percentage": 18,
+    "contextTokens": 55652,
+    "percentage": 22,
     "model": "gpt-5.5"
   }
 }
