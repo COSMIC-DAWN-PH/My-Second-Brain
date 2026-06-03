@@ -1,10 +1,20 @@
 ---
-aliases: [CZ Gate, CZ门, Controlled-Z, 控制Z门, 纠缠门]
-tags: [Physics, Quantum, Gates, TwoQubit, Entanglement]
+aliases:
+  - CZ Gate
+  - CZ门
+  - Controlled-Z
+  - 控制Z门
+  - 纠缠门
+tags:
+  - Physics
+  - Quantum
+  - Gates
+  - TwoQubit
+  - Entanglement
 date: 2026-03-29
-status: Draft
+status: WIP
 source: "[[generall quantum 2026]]"
-comprehension: "vague"
+comprehension: getting there
 ---
 
 # CZ 门（Controlled-Z Gate，纠缠门）
@@ -106,6 +116,9 @@ $$
 即 **CZ 前后各加一层 H 门**（两比特都加），就能得到标准 Bell 态。这也是 §4 中 CZ $\leftrightarrow$ CNOT 转换的一个侧面体现。
 
 ## 4. CZ 门与 CNOT 门的关系
+
+> [!info] 线性代数视角的完整推导
+> 本节给出算符语言和矩阵语言的对比证明。如果你想从更基础的线性代数角度理解——包括为什么 CZ 是酉矩阵、它的本征值结构、以及交换两个 qubit 后为什么不变——请参见 [[CZ-Linear-Algebra]]。
 
 CZ 门和 CNOT 门可以互相转化（只需在目标 qubit 两侧各加一个 $H$ 门）：
 
@@ -349,6 +362,8 @@ $$
 >
 > H 门就是"翻译官"——它把英语翻译成法语，法语翻译回英语。两种语言说的是**同一件事**（同样的纠缠），只是表达方式不同。
 
+^260603
+
 ### 4.5 为什么这对中性原子很重要？
 
 在中性原子中，Rydberg 阻塞天然是对称的——两个原子同时激发时相互阻塞，没有"谁控制谁"的概念。所以 **CZ 是物理原生门**。如果你想做 CNOT（比如跑一个标准量子算法），就得额外加两个 H 门：
@@ -389,11 +404,12 @@ $$
 
 ## 🔗 相关笔记
 
+- [[CZ-Linear-Algebra]] — **CZ 门的线性代数基础**：从向量空间、酉矩阵、本征值分解、投影算符的角度理解 CZ 门
 - [[Entangling-Gate]] — 纠缠门的概念总览：定义、判据、分类、各平台实现
 - [[Two-Qubit-Gates]] — 两比特门总览：CNOT、CZ、SWAP、Bell 态
 - [[Rydberg-Blockade]] — CZ 门的物理实现机制
 - [[Rabi-Flopping]] — $\pi$ 脉冲的物理基础
-- [[Single-Qubit-Gates]] — 与 CZ 门组合构成通用门集的单比特门
+- [[Single-Qubit-Gates]] — 与 CZ 门组合构成通用门集的单比特门（含 $HXH = Z$ 恒等式的完整推导）
 - [[Transversal-Gate]] — 并行施加 CZ 门的容错方案
 
 ## 📝 更新记录
@@ -404,3 +420,4 @@ $$
 - 2026-06-03: 添加 §4.3 算符语言与矩阵语言对照（投影算符直觉、积木对应表、CNOT/CZ 展开验证、双路线证明对比）
 - 2026-06-03: 重写 §3，补充逐步推导、反证法证明纠缠、测量视角直觉、修正 Bell 态标注错误
 - 2026-06-03: 扩充 §4.2，逐行拆解投影算符写法的物理直觉、$HIH=I$ 与 $HXH=Z$ 的验证、张量积分配律、完整四步证明
+- 2026-06-03: 在 §4 添加 [[CZ-Linear-Algebra]] 链接，在相关笔记中添加线性代数基础文档入口
