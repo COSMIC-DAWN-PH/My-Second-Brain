@@ -52,12 +52,12 @@ status: Evergreen
 
 ### Tier 2 - 单/双量子比特概念层
 
-| 笔记 | 理解程度 | 状态 | 直接支撑 | 下游总链条 | 核心作用 |
-|---|---|---|---:|---:|---|
-| [[Anti-Commutation\|反对易]] | 🟠 模糊理解 | Draft | 0 篇 | 0 篇 | Pauli 算符代数关系中的重要结构 |
-| [[Gate-Eigenstates\|门算符本征态]] | 🟠 模糊理解 | Draft | 0 篇 | 0 篇 | 理解门算符作用与测量基的基础 |
-| [[Two-Qubit-State-and-Entanglement\|双量子比特态]] | 🔵 基本理解 | WIP | 1 篇 | 11 篇 | Bell state、纠缠与两比特系统的状态描述 |
-| [[Single-Qubit-Gates\|单量子比特门]] | 🔵 基本理解 | WIP | 5 篇 | 7 篇 | Bloch sphere 上的单比特旋转与门操作 |
+| 笔记                                           | 理解程度    | 状态    | 直接支撑 | 下游总链条 | 核心作用                     |
+| -------------------------------------------- | ------- | ----- | ---: | ----: | ------------------------ |
+| [[Anti-Commutation\|反对易]]                    | 🟠 模糊理解 | Draft |  0 篇 |   0 篇 | Pauli 算符代数关系中的重要结构       |
+| [[Gate-Eigenstates\|门算符本征态]]                 | 🟠 模糊理解 | Draft |  0 篇 |   0 篇 | 理解门算符作用与测量基的基础           |
+| [[Two-Qubit-State-and-Entanglement\|双量子比特态]] | 🔵 基本理解 | WIP   |  1 篇 |  11 篇 | Bell state、纠缠与两比特系统的状态描述 |
+| [[Single-Qubit-Gates\|单量子比特门]]               | 🔵 基本理解 | WIP   |  5 篇 |   7 篇 | Bloch sphere 上的单比特旋转与门操作 |
 
 ### Tier 3 - 物理动力学与原始门
 

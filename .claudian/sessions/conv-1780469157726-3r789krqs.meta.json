@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780469157726-3r789krqs",
+  "providerId": "claude",
+  "title": "Implement this plan:",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780469157726,
+  "updatedAt": 1780469513580,
+  "lastResponseAt": 1780469482326,
+  "sessionId": "c400f783-7c72-4545-8c77-d985cc64448c",
+  "providerState": {
+    "providerSessionId": "c400f783-7c72-4545-8c77-d985cc64448c"
+  },
+  "currentNote": "Handout by AI/2023-parallel-gates-handout.md",
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 393,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 48512,
+    "contextWindow": 1000000,
+    "contextTokens": 48905,
+    "percentage": 5
+  }
+}

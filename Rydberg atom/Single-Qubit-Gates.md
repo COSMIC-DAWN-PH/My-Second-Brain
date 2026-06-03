@@ -218,9 +218,12 @@ $$
 > [!warning] T 门的特殊地位
 > T 门是容错量子计算中最"昂贵"的门——它**无法横向实现**（受 [[Transversal-Gate|Eastin-Knill 定理]] 限制），必须通过 [[Transversal-Teleportation|Gate Teleportation]] + magic state distillation 来实现。在 T-count 优化中，工程师们千方百计地减少 T 门的数量。
 
+^321fbe
 ---
 
 ## 4. 旋转门：任意角度的操控
+
+
 
 Pauli 门只做 $\pi$ 旋转（180°），但实际电路经常需要**任意角度**的旋转。
 

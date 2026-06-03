@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780470177410-9wsezjig6",
+  "providerId": "claude",
+  "title": "这里加入一个双量子比特的参数化表达类似单量子比特的/theta，三角函数的写法",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780470177410,
+  "updatedAt": 1780470448486,
+  "lastResponseAt": 1780470226899,
+  "sessionId": "dac84e16-1605-4a59-ad57-6b815aef44ac",
+  "providerState": {
+    "providerSessionId": "dac84e16-1605-4a59-ad57-6b815aef44ac"
+  },
+  "currentNote": "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 379,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 36096,
+    "contextWindow": 1000000,
+    "contextTokens": 36475,
+    "percentage": 4
+  }
+}

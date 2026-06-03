@@ -457,6 +457,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[Entangling-Gate]] — 纠缠门的概念总览：定义、判据、分类、各平台实现
 - [[Two-Qubit-Gates]] — 两比特门总览：里德堡阻塞是实现 CZ 门的核心物理机制
 - [[CZ-Gate]] — 里德堡阻塞实现的门操作的逻辑定义
 - [[Rabi-Flopping]] — 驱动 $\vert g\rangle \leftrightarrow \vert r\rangle$ 跃迁的物理机制

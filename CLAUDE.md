@@ -192,7 +192,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | Skill | Trigger | Description |
 |-------|---------|-------------|
 | **zotero-notes** | Zotero 批注处理、知识笔记生成 | 从 Zotero 论文笔记中提取批注，生成知识笔记，建立双向链接 |
-| **research-summary** | "summarize today/yesterday/past N days", "daily summary", "weekly summary", "research summary" | Scans Literature/ and Rydberg atom/ for a user-specified range, writes or updates structured summary in Daily Notes/ |
+| **research-summary** | "summarize today/yesterday/past N days", "daily summary", "weekly summary", "research summary" | Scans Literature/ and Rydberg atom/ for a user-specified range, only tracks reading progress (literature read, knowledge notes, comprehension), writes concise summary to Daily Notes/. No AI operation details. |
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 | **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
 

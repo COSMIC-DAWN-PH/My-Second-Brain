@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780471681735-uvrnywohg",
+  "providerId": "claude",
+  "title": "修复好这里有问题渲染",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780471681736,
+  "updatedAt": 1780471829530,
+  "lastResponseAt": 1780471724452,
+  "sessionId": "0f3d9443-8175-4dee-aa0f-0ee2cabb3ab7",
+  "providerState": {
+    "providerSessionId": "0f3d9443-8175-4dee-aa0f-0ee2cabb3ab7"
+  },
+  "currentNote": "Rydberg atom/Entangling-Gate.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 2571,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33472,
+    "contextWindow": 1000000,
+    "contextTokens": 36043,
+    "percentage": 4
+  }
+}

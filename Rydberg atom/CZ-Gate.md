@@ -55,6 +55,90 @@ $$
 \text{CNOT} = (I \otimes H) \cdot \text{CZ} \cdot (I \otimes H)
 $$
 
+$$
+\text{CZ} = (I \otimes H) \cdot \text{CNOT} \cdot (I \otimes H)
+$$
+
+### 4.1 为什么 H 门能做这件事？
+
+关键在于 H 门的**基变换**效果：
+
+$$
+H\vert 0\rangle = \frac{1}{\sqrt{2}}(\vert 0\rangle + \vert 1\rangle) = \vert +\rangle, \quad
+H\vert 1\rangle = \frac{1}{\sqrt{2}}(\vert 0\rangle - \vert 1\rangle) = \vert -\rangle
+$$
+
+H 门把**计算基** $\{\vert 0\rangle, \vert 1\rangle\}$ 变成了 **X 基** $\{\vert +\rangle, \vert -\rangle\}$。
+
+而它有一个极其重要的算符恒等式：
+
+> [!tip] 核心恒等式：$HXH = Z$
+>
+> H 门把 X 门"翻译"成了 Z 门。这不是巧合——X 在计算基下做比特翻转，Z 在计算基下做相位翻转。H 门交换了这两种操作的"语言"。
+
+### 4.2 算符分解严格证明
+
+CNOT 和 CZ 都可以用投影算符写成统一的形式：
+
+$$
+\text{CNOT} = \vert 0\rangle\langle 0\vert \otimes I + \vert 1\rangle\langle 1\vert \otimes X
+$$
+
+$$
+\text{CZ} = \vert 0\rangle\langle 0\vert \otimes I + \vert 1\rangle\langle 1\vert \otimes Z
+$$
+
+两者结构完全一样，区别仅在于第二项中是 $X$ 还是 $Z$。现在对 CNOT 两边施加 $I \otimes H$：
+
+$$
+(I \otimes H) \cdot \text{CNOT} \cdot (I \otimes H)
+$$
+
+$$
+= (I \otimes H) \big[\vert 0\rangle\langle 0\vert \otimes I + \vert 1\rangle\langle 1\vert \otimes X\big] (I \otimes H)
+$$
+
+$$
+= \vert 0\rangle\langle 0\vert \otimes HIH + \vert 1\rangle\langle 1\vert \otimes HXH
+$$
+
+$$
+= \vert 0\rangle\langle 0\vert \otimes I + \vert 1\rangle\langle 1\vert \otimes Z
+$$
+
+$$
+= \text{CZ} \quad \checkmark
+$$
+
+> [!info] 证明的核心
+> 整个推导只用了一个事实：$HXH = Z$。H 门在 CNOT 的目标比特两侧"包裹"，本质上就是把 CNOT 内部的 $X$（比特翻转）替换成了 $Z$（相位翻转），从而把 CNOT 变成了 CZ。
+
+### 4.3 物理含义："两种语言"的翻译
+
+| | CNOT | CZ |
+|--|------|-----|
+| **做了什么** | 条件性**翻转目标比特的值**（$\vert 0\rangle \leftrightarrow \vert 1\rangle$） | 条件性**翻转 $\vert 11\rangle$ 的相位**（$+1 \to -1$） |
+| **翻转的是** | **比特**（X 操作） | **相位**（Z 操作） |
+| **创造纠缠？** | ✅ 是 | ✅ 是（同等强度） |
+| **对称性** | 不对称（有控制/目标之分） | 对称（两个 qubit 地位平等） |
+
+> [!tip] 语言类比
+> 想象你有两种语言来描述同一件事：
+> - **英语**（CNOT）："如果 A 是 true，就翻转 B 的 true/false"——关注**比特值变化**
+> - **法语**（CZ）："如果 A 和 B 都是 true，就给信号加一个负号"——关注**相位变化**
+>
+> H 门就是"翻译官"——它把英语翻译成法语，法语翻译回英语。两种语言说的是**同一件事**（同样的纠缠），只是表达方式不同。
+
+### 4.4 为什么这对中性原子很重要？
+
+在中性原子中，Rydberg 阻塞天然是对称的——两个原子同时激发时相互阻塞，没有"谁控制谁"的概念。所以 **CZ 是物理原生门**。如果你想做 CNOT（比如跑一个标准量子算法），就得额外加两个 H 门：
+
+$$
+\text{CNOT}_{1\to 2} = (I \otimes H) \cdot \text{CZ} \cdot (I \otimes H)
+$$
+
+这就是为什么中性原子平台的线路编译器应该**优先使用 CZ 门**——用 CZ 少两步，用 CNOT 多两步 H 门。
+
 ## 5. 在 Rydberg 体系中的实现
 
 中性原子平台利用 **[[Rydberg-Blockade]]** 实现 CZ 门：
@@ -85,6 +169,7 @@ $$
 
 ## 🔗 相关笔记
 
+- [[Entangling-Gate]] — 纠缠门的概念总览：定义、判据、分类、各平台实现
 - [[Two-Qubit-Gates]] — 两比特门总览：CNOT、CZ、SWAP、Bell 态
 - [[Rydberg-Blockade]] — CZ 门的物理实现机制
 - [[Rabi-Flopping]] — $\pi$ 脉冲的物理基础
@@ -95,3 +180,4 @@ $$
 
 - 2026-03-29: 初始创建
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性
+- 2026-06-03: 扩充 §4，添加 $HXH=Z$ 恒等式、算符分解证明、物理含义对比表、语言类比、中性原子编译优势
