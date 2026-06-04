@@ -11,14 +11,12 @@
             "id": "5025e098a5a489b2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Daily Notes/2026-06-05.md",
-                "mode": "source",
-                "source": false
+                "file": "Rydberg atom/attachments/learning-progress-2026-06-04.png"
               },
-              "icon": "lucide-file",
-              "title": "2026-06-05"
+              "icon": "lucide-image",
+              "title": "learning-progress-2026-06-04"
             }
           }
         ]
@@ -208,20 +206,21 @@
   },
   "active": "5025e098a5a489b2",
   "lastOpenFiles": [
-    "Rydberg atom/Optical-Tweezer-Arrays.md",
+    "Rydberg atom/attachments/learning-progress-2026-06-03.png",
+    "Rydberg atom/attachments/learning-progress-2026-06-04.png",
     "Daily Notes/2026-06-05.md",
     "Handout by AI/2023-parallel-gates-handout.md",
+    "Handout by AI/start_up.md",
+    "Rydberg atom/Optical-Tweezer-Arrays.md",
     "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
     "Daily Notes/2026-06-04.md",
     "Learning-Roadmap.md",
     "Learning-Roadmap.md.tmp.31712.2f60c89f3f75",
-    "Rydberg atom/attachments/learning-progress-2026-06-04.png",
     "tools/gen_progress_chart.py",
     "tools/gen_progress_chart.py.tmp.31712.a97c8d693886",
     "Learning-Roadmap.md.tmp.31712.add99f024cfc",
     "Learning-Roadmap.md.tmp.31712.2dc235cc6f4a",
     "Daily Notes/2026-06-04.md.tmp.28820.19792dad89a1",
-    "Handout by AI/start_up.md",
     "Rydberg atom/Entangling-Gate.md",
     "readme.md.tmp.36492.8ba2ede5e156",
     "readme.md.tmp.36492.c8e8deed1063",
@@ -244,9 +243,7 @@
     "Rydberg atom/Gate-Eigenstates.md",
     "Daily Notes/2026-03-29.md",
     "Literature/Paper-Reading-Order.md",
-    "Rydberg atom/Transversal-Teleportation.md",
     "Rydberg atom/attachments/learning-progress-2026-06-02.png",
-    "Rydberg atom/attachments/learning-progress-2026-06-03.png",
     "Handout by AI/dark_state_physics.png",
     "Handout by AI/gate_waveforms.png",
     "Handout by AI/rabi_oscillations.png",
