@@ -234,6 +234,58 @@ plt.tight_layout()
 plt.show()
 ```
 
+### 2.5 集体 Rabi 频率（√2Ω）
+
+#### 物理图像
+
+当两个原子处于阻塞半径之内，并被同一束激光（拉比频率 $\Omega$）驱动时，系统并不是简单地对每个原子独立地以 $\Omega$ 做 Rabi 振荡。由于阻塞的存在，$\vert r,r\rangle$ 被排除在外，系统的有效演化空间变为 $\{\vert g,g\rangle,\ \vert g,r\rangle,\ \vert r,g\rangle\}$ 这个三能级子空间。
+
+关键在于：从 $\vert g,g\rangle$ 出发，激光可以经由两条路径到达单激发态——先激发原子 1（$\vert g,g\rangle \to \vert r,g\rangle$），或者先激发原子 2（$\vert g,g\rangle \to \vert g,r\rangle$）。这两条量子路径会**相干叠加**，产生 $\sqrt{2}$ 的增强因子。
+
+#### 数学推导
+
+两原子系统的哈密顿量在 $\{\vert g,g\rangle,\ \vert g,r\rangle,\ \vert r,g\rangle,\ \vert r,r\rangle\}$ 基底下写为：
+
+$$
+H = \frac{\Omega}{2}\Big(\vert g,r\rangle\langle g,g\vert + \vert r,g\rangle\langle g,g\vert + \vert r,r\rangle\langle g,r\vert + \vert r,r\rangle\langle r,g\vert + \text{h.c.}\Big) + V_{12}\vert r,r\rangle\langle r,r\vert
+$$
+
+其中 $\Omega/2$ 来自单原子的激光耦合强度（旋转波近似下的 Rabi 频率的一半）。
+
+在阻塞区间 $V_{12} \gg \Omega$，$\vert r,r\rangle$ 被能量排斥，绝热地可以从动力学中消除。定义对称的 W 态：
+
+$$
+\vert W\rangle = \frac{1}{\sqrt{2}}\big(\vert g,r\rangle + \vert r,g\rangle\big)
+$$
+
+则 $\vert g,g\rangle$ 通过激光耦合到 $\vert W\rangle$ 的矩阵元为：
+
+$$
+\langle W\vert\, H_{\text{coupling}}\, \vert g,g\rangle = \frac{1}{\sqrt{2}} \cdot \frac{\Omega}{2} + \frac{1}{\sqrt{2}} \cdot \frac{\Omega}{2} = \frac{\Omega}{\sqrt{2}}
+$$
+
+两条路径（先激原子 1 和先激原子 2）各贡献 $\Omega/(2\sqrt{2})$，相干叠加后总耦合为 $\Omega/\sqrt{2}$，对应的集体 Rabi 频率为：
+
+$$
+\Omega_{\text{eff}} = \sqrt{2}\,\Omega
+$$
+
+因此，在阻塞区间内，$\{\vert g,g\rangle,\ \vert W\rangle\}$ 构成一个有效的二能级系统，以增强的 Rabi 频率 $\sqrt{2}\,\Omega$ 振荡。
+
+> [!tip] 物理直觉
+> √2 的增强来自**量子干涉**：两条路径（先激原子 1 或先激原子 2）不可区分，量子力学要求把概率幅相加再取模平方——两条等幅路径相干叠加，振幅变为单路径的 √2 倍。这与双缝干涉中"两个狭缝各贡献一半振幅，合起来光强翻倍"是同一个道理。
+>
+> 在 $\{\vert g,g\rangle,\ \vert W\rangle,\ \vert r,r\rangle\}$ 的 W 态表象下，图像更清晰：阻塞把 $\vert r,r\rangle$ 的能级抬高到远处，剩下的 $\{\vert g,g\rangle,\ \vert W\rangle\}$ 是一个二能级系统，耦合强度恰好是 $\sqrt{2}\,\Omega$。
+
+#### 物理意义
+
+- **√2 增强是量子干涉效应**：不是经典的"两个原子各驱动一次"，而是两条量子路径的相干叠加。
+- **W 态子空间**：在阻塞区间内，系统的动力学被限制在三维子空间 $\{\vert g,g\rangle,\ \vert W\rangle,\ \vert r,r\rangle\}$ 中；由于 $\vert r,r\rangle$ 被排斥，实际演化的有效空间是 $\{\vert g,g\rangle,\ \vert W\rangle\}$ 这个二能级系统。
+- **CZ 门的优化脉冲设计**：在设计 CZ 门的脉冲时，需要使用 $\sqrt{2}\,\Omega$ 而非 $\Omega$ 来计算 $\pi$ 脉冲或 $2\pi$ 脉冲的持续时间，否则会得到错误的相位。例如，$\pi$ 脉冲时间为 $t_\pi = \pi / (\sqrt{2}\,\Omega)$。
+
+> [!info] 与 start_up 笔记的联系
+> 关于 $\sqrt{2}$ 因子的更详细推导（含数值模拟），参见 [[start_up#2. 双原子希尔伯特空间的演维与 \sqrt{2} 的魔力]]。该笔记从 $\vert g,g\rangle \to \vert r,r\rangle$ 的双光子过程出发，展示了阻塞如何将四维空间压缩为二维，并用 Python 模拟了 Rabi 振荡的增强效应。
+
 ---
 
 ## 3. 里德堡阻塞如何实现 CZ 门？
@@ -450,7 +502,9 @@ $$
 - **R_b**：阻塞半径 — $R_b = (C_6 / \Omega)^{1/6}$
 - **阻塞条件**：阻塞有效的判据 — $V_{12} \gg \Omega$
 - **P_{\text{error}}**：错误激发概率 — $P \sim (\Omega / V_{12})^2$
-- **H**：两原子哈密顿量 — $H = H_1 + H_2 + V_{12}\
+- **\Omega_{\text{eff}}**：集体 Rabi 频率（阻塞区间） — $\Omega_{\text{eff}} = \sqrt{2}\,\Omega$
+- **\vert W\rangle**：对称 W 态 — $\vert W\rangle = (\vert g,r\rangle + \vert r,g\rangle)/\sqrt{2}$
+- **H**：两原子哈密顿量 — $H = H_1 + H_2 + V_{12}\vert r\rangle\langle r\vert \otimes \vert r\rangle\langle r\vert$
 
 
 ---
@@ -472,3 +526,4 @@ $$
 - 2026-06-03: 修复 Markdown 表格中的 ket 写法，将 `\|...\rangle` 改为 `\vert ...\rangle`，避免表格渲染错乱。
 - 2026-06-01: 初始创建，包含阻塞条件、CZ 门实现、Python 图表 ×2
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性
+- 2026-06-04: 新增 §2.5 集体 Rabi 频率（√2Ω），含物理图像、数学推导、W 态子空间分析及与 start_up 笔记的交叉链接；更新核心公式摘要

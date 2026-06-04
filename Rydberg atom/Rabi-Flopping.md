@@ -70,6 +70,17 @@ $$
 
 失谐越大，振荡越快但振幅越小（永远达不到 $P = 1$）。
 
+**完整态演化公式**：初始处于 $\vert g\rangle$ 的系统，在失谐 $\Delta$ 和拉比频率 $\Omega$ 驱动下，$t$ 时刻的态为：
+
+$$
+\vert \psi(t)\rangle = \left[\cos\left(\frac{\tilde{\Omega}t}{2}\right) + i\frac{\Delta}{\tilde{\Omega}}\sin\left(\frac{\tilde{\Omega}t}{2}\right)\right]\vert g\rangle - i\frac{\Omega}{\tilde{\Omega}}\sin\left(\frac{\tilde{\Omega}t}{2}\right)\vert e\rangle
+$$
+
+其中 $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$。注意 $\vert g\rangle$ 的系数不仅有振荡项 $\cos(\tilde{\Omega}t/2)$，还叠加了一个虚部修正 $i(\Delta/\tilde{\Omega})\sin(\tilde{\Omega}t/2)$；而 $\vert e\rangle$ 的振幅被因子 $\Omega/\tilde{\Omega}$ 压制。
+
+> [!tip] AC Stark 效应的起源
+> 当 $\Delta \gg \Omega$ 时，$\vert g\rangle$ 的系数 $\approx 1$（几乎没有布居转移），但积累了相对相位——这就是 [[AC-Stark-Effect]] 的起源。失谐激光虽然不能真正激发原子，却通过虚过程给能级附加了一个相移，等效于对能级施加了一个"光位移"（light shift）。
+
 ## 3. π 脉冲与 π/2 脉冲
 
 | 脉冲类型 | 脉冲面积 | 效果 |
@@ -93,6 +104,16 @@ $$
 1. **单比特门实现**：π 脉冲和 π/2 脉冲通过微波或光场精确控制，实现 X, Y, H 等单比特门
 2. **里德堡激发**：将原子从 $\vert 1\rangle$ 激发到里德堡态 $\vert r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ-Gate]]（经由 [[Rydberg-Blockade]]）的核心步骤
 3. **稳定子测量**：在 [[QEC]] 的 syndrome 提取中，辅助比特经过一系列拉比脉冲与数据比特相互作用后被测量
+
+### 5.2 失谐脉冲与 Rz 门
+
+当激光脉冲的失谐量远大于拉比频率（$\Delta \gg \Omega$）时，原子几乎不发生布居转移（$P_{\vert e\rangle} \approx 0$），但两个能级会各自积累不同的动力学相位。对初始态 $\alpha\vert g\rangle + \beta\vert e\rangle$，经过持续时间为 $t$ 的失谐脉冲后，$\vert e\rangle$ 相对 $\vert g\rangle$ 累积相位 $\varphi = \Delta t$，等效于施加了 $R_z(\varphi)$ 旋转门：
+
+$$
+\alpha\vert g\rangle + \beta\vert e\rangle \;\;\xrightarrow{\;\Delta \gg \Omega,\; t\;}\;\; \alpha\vert g\rangle + \beta\,e^{-i\varphi/2}\vert e\rangle
+$$
+
+这就是**纯相位门**的物理实现：不需要真正驱动跃迁，只利用失谐激光的 AC Stark 效应即可完成 $R_z$ 操作。详细物理机制见 [[AC-Stark-Effect#3. Rz 门的物理实现|Rz 门实现]]，其在中性原子单比特门集中的角色见 [[Single-Qubit-Gates#6. 在中性原子中的物理实现|§6]]。
 
 > [!warning] 易混淆：$\Omega$ vs $\tilde{\Omega}$
 > 共振时（$\Delta=0$）跃迁概率是 $\sin^2(\Omega t/2)$，但失谐时必须用广义拉比频率 $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$。很多初学者忘记失谐修正，导致门保真度计算出错。
