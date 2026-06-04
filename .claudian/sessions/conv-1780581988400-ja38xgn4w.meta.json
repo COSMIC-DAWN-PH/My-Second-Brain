@@ -4,8 +4,8 @@
   "title": "/learning-path 更新一下",
   "titleGenerationStatus": "failed",
   "createdAt": 1780581988400,
-  "updatedAt": 1780582343728,
-  "lastResponseAt": 1780582343728,
+  "updatedAt": 1780583299986,
+  "lastResponseAt": 1780583299986,
   "sessionId": "684f4712-93a8-4898-9ffb-4d400d07082f",
   "providerState": {
     "providerSessionId": "684f4712-93a8-4898-9ffb-4d400d07082f",
@@ -299,12 +299,12 @@
   },
   "currentNote": "Learning-Roadmap.md",
   "usage": {
-    "model": "opus[1m]",
-    "inputTokens": 8001,
+    "model": "sonnet[1m]",
+    "inputTokens": 63588,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 27328,
+    "cacheReadInputTokens": 0,
     "contextWindow": 1000000,
-    "contextTokens": 35329,
-    "percentage": 4
+    "contextTokens": 63588,
+    "percentage": 6
   }
 }
