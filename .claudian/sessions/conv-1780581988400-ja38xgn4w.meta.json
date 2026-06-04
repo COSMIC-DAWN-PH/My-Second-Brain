@@ -1,0 +1,310 @@
+{
+  "id": "conv-1780581988400-ja38xgn4w",
+  "providerId": "claude",
+  "title": "/learning-path 更新一下",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780581988400,
+  "updatedAt": 1780582343728,
+  "lastResponseAt": 1780582343728,
+  "sessionId": "684f4712-93a8-4898-9ffb-4d400d07082f",
+  "providerState": {
+    "providerSessionId": "684f4712-93a8-4898-9ffb-4d400d07082f",
+    "subagentData": {
+      "call_5df7f8e837b74a3cad09ef16": {
+        "id": "call_5df7f8e837b74a3cad09ef16",
+        "description": "Scan all Rydberg atom frontmatter",
+        "prompt": "I need to extract the YAML frontmatter from ALL .md files in the directory `C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\`. \n\nFor each file, I need these fields: comprehension, status, tags, date, source, aliases.\n\nThe files are:\n- Deep-Circuit-Execution.md\n- Quantum-Zeno-Effect.md\n- AC-Stark-Effect.md\n- Grover-Search.md\n- Quantum-Phase-Estimation.md\n- Anti-Commutation.md\n- QEC.md\n- Transversal-Teleportation.md\n- Optical-Tweezer-Arrays.md\n- Tensor-Product.md\n- Transversal-Gate.md\n- Pauli-Matrices.md\n- Rabi-Flopping.md\n- Neutral_Atom_Test.md\n- Qubit-State-and-Superposition.md\n- Gate-Eigenstates.md\n- SU2-SO3-and-Euler-Decomposition.md\n- Rydberg-Blockade.md\n- Entangling-Gate.md\n- Two-Qubit-State-and-Entanglement.md\n- Two-Qubit-Gates.md\n- Surface-Code.md\n- Single-Qubit-Gates.md\n- Basis-Transformation.md\n- CZ-Gate.md\n\nPlease read each file and report the frontmatter fields for ALL 25 files. Be very thorough - read every single file. Report the results in a structured table format.",
+        "status": "completed",
+        "toolCalls": [
+          {
+            "id": "call_1593ea8f8cc74493bfef8ddd",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Deep-Circuit-Execution.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Deep-Circuit Execution\n4\t  - 深度电路执行\n5\t  - 深层电路\n6\t  - 恒定熵计算\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - FaultTolerant\n11\t  - Architecture\n12\t  - DeepCircuit\n13\tdate: 2026-03-29\n14\tstatus: Draft\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: \"don't understand\"\n17\t---\n18\t\n19\t# 深度电路执行（Deep-Circuit Execution）\n20\t\n21\t> 来源批注：*\"deep-circuit execution\"* — Bluvstein et al., 2026, p.39\n22\t> Better Notes 中已有 DeepSeek 详细解答，本笔记提取物理核心并形式化。\n23\t\n24\t## 1. 问题背景\n25\t\n26\t**深度电路执行**的核心挑战：量子算法往往需要执行深度很深的电路（数百甚至数千个逻辑门层），期间物理错误会不断累积。\n27\t\n28\t定义**电路深度** $D$ 为串行门操作的总层数。对于物理错误率 $p$，在 $D$ 层操作后：\n29\t\n30\t$$\n31\tp_{\\text{累积}} \\approx 1 - (1-p)^D \\approx pD \\quad (p \\ll 1)\n32\t$$\n33\t\n34\t在无容错保护时，$D \\gtrsim 1/p$ 后计算将失败。\n35\t\n36\t> [!tip] 物理直觉\n37\t> 想象一个传话游戏：每传一次就可能出错。传 10 次可能还行，传 1000 次就完全走样了。深度电路执行就是要解决\"传话太长会走样\"的问题——通过不断\"刷新\"信息来阻止错误累积。\n38\t\n39\t## 2. 目标：恒定熵（Constant Entropy）\n40\t\n41\t论文的核心目标是维持系统在**恒定熵**状态下运行：\n42\t\n43\t> 处理器的\"熵\"（即错误信息量、无序度）在整个深度电路执行过程中保持不变，不积累。\n44\t\n45\t$$\n46\tS_{\\text{逻辑}}(t) = \\text{const} \\quad \\forall t \\in [0, T_{\\text{circuit}}]\n47\t$$\n48\t\n49\t## 3. 核心机制：逻辑横向隐形传态\n50\t"
+          },
+          {
+            "id": "call_1d257481b2d845e79c74e178",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Quantum-Zeno-Effect.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases: [QZE, Quantum Zeno Effect, 量子芝诺效应, 量子芝诺]\n3\ttags: [Physics, Quantum, Measurement, ZenoEffect]\n4\tdate: 2026-03-29\n5\tstatus: Draft\n6\tsource: \"[[generall quantum 2026]]\"\n7\tcomprehension: \"vague\"\n8\t---\n9\t\n10\t# 量子芝诺效应 (Quantum Zeno Effect)\n11\t\n12\t> 来源批注：评价中明确列出 \"Quantum Zeno Effect\" — Bluvstein et al., 2026\n13\t\n14\t## 1. 经典比喻：看着的水壶不开\n15\t\n16\t古希腊哲学家芝诺提出\"飞矢不动\"悖论：运动中的箭在每一瞬间都是静止的，所以不可能运动。量子芝诺效应借用了这一思想：\n17\t\n18\t> **频繁测量一个量子系统，会\"冻结\"它的演化。**\n19\t\n20\t> [!tip] \"看着的水壶不开\"的量子版本\n21\t> 经典世界中\"盯着水壶水不开\"只是心理错觉；量子世界中，测量确实能阻止演化。测量的物理本质是投影算符——每次测量都把系统\"重置\"回初态附近的子空间，相当于反复按下了重启键。\n22\t\n23\t## 2. 物理直觉\n24\t\n25\t考虑一个初始处于 $|\\psi_0\\rangle$ 的量子系统，在哈密顿量 $H$ 下演化。\n26\t\n27\t经过短时间 $\\Delta t$ 后，系统仍处于初态的概率为：\n28\t\n29\t$$\n30\tP(\\Delta t) = |\\langle \\psi_0 | e^{-iH\\Delta t/\\hbar} |\\psi_0\\rangle|^2 \\approx 1 - \\left(\\frac{\\Delta t}{\\tau_Z}\\right)^2\n31\t$$\n32\t\n33\t其中 **芝诺时间** $\\tau_Z$ 由能量不确定度决定：\n34\t\n35\t$$\n36\t\\tau_Z = \\frac{\\hbar}{\\Delta E}, \\quad \\Delta E = \\sqrt{\\langle H^2 \\rangle - \\langle H \\rangle^2}\n37\t$$\n38\t\n39\t注意：衰减是**二次方**的（不是指数衰减）。\n40\t\n41\t**关键结论**：若在时间 $T$ 内进行 $N$ 次随机测量（间隔 $\\Delta t = T/N$），存活概率为：\n42\t\n43\t$$\n44\tP_N = \\left[1 - \\left(\\frac{T}{N\\tau_Z}\\right)^2\\right]^N \\xrightarrow{N\\to\\infty} 1\n45\t$$\n46\t\n47\t**无限频繁测量 → 系统完全冻结！**\n48\t\n49\t## 3. 量子芝诺子空间（Zeno Subspace）\n50\t"
+          },
+          {
+            "id": "call_ef9329f4146c494b9239d609",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\AC-Stark-Effect.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - AC Stark Effect\n4\t  - AC Stark 效应\n5\t  - 光频移\n6\t  - Light Shift\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - AtomicPhysics\n11\t  - NeutralAtom\n12\tdate: 2026-06-02\n13\tstatus: Draft\n14\tsource: \"[[generall quantum 2026]]\"\n15\tcomprehension: \"don't understand\"\n16\t---\n17\t\n18\t# AC Stark 效应（AC Stark Effect / Light Shift）\n19\t\n20\t> 来源批注：中性原子量子计算基础概念\n21\t> 本笔记介绍 AC Stark 效应的基本物理及其在 $R_z$ 门实现中的角色。内容待补充。\n22\t\n23\t---\n24\t\n25\t## 1. 什么是 AC Stark 效应？\n26\t\n27\t当原子处于**非共振**的光场中时，光场会移动原子的能级——这种由交流（AC）电磁场引起的能级偏移就是 **AC Stark 效应**（也叫**光频移 / Light Shift**）。\n28\t\n29\t核心公式：对失谐 $\\Delta = \\omega_L - \\omega_0$ 的激光，能级偏移量为：\n30\t\n31\t$$\n32\t\\delta E \\propto \\frac{\\Omega^2}{4\\Delta}\n33\t$$\n34\t\n35\t其中 $\\Omega$ 是拉比频率。\n36\t\n37\t> [!tip] 物理直觉\n38\t> 想象弹簧上挂一个球（原子能级），AC Stark 效应就像有人用振动的绳子不断推弹簧——球的平衡位置被\"推偏了\"。失谐越大（推得越快），偏移越小但振荡越快。\n39\t\n40\t---\n41\t\n42\t## 2. 在中性原子量子计算中的应用\n43\t\n44\t### 2.1 $R_z$ 门的物理实现\n45\t\n46\t在 [[Optical-Tweezer-Arrays]] 中，$R_z$ 门（相位旋转）通过 AC Stark 效应实现：\n47\t\n48\t- 施加一个**失谐激光**（$\\Delta \\neq 0$）\n49\t- $|1\\rangle$ 态获得一个额外的相移 $\\delta\\phi = \\delta E \\cdot t / \\hbar$\n50\t- $|0\\rangle$ 态不受影响（或受影响不同）"
+          },
+          {
+            "id": "call_6418b508dedc4eaf9573fa81",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Grover-Search.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Grover Search\n4\t  - Grover 搜索\n5\t  - 量子搜索\n6\t  - 量子振幅放大\n7\t  - Amplitude Amplification\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Algorithm\n12\t  - Search\n13\tdate: 2026-06-02\n14\tstatus: Draft\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: \"don't understand\"\n17\t---\n18\t\n19\t# Grover 搜索（Grover Search / 量子振幅放大）\n20\t\n21\t> 来源批注：量子计算算法基础\n22\t> 本笔记介绍 Grover 搜索算法的基本原理和与相位操控的关系。内容待补充。\n23\t\n24\t---\n25\t\n26\t## 1. 问题背景\n27\t\n28\t在 $N$ 个无序数据中搜索一个特定目标：\n29\t\n30\t- **经典算法**：平均需要 $O(N)$ 次查询\n31\t- **Grover 算法**：只需要 $O(\\sqrt{N})$ 次查询——**二次加速**\n32\t\n33\t虽然不是指数加速，但对于大规模数据库，$\\sqrt{N}$ vs $N$ 的差距是巨大的。\n34\t\n35\t---\n36\t\n37\t## 2. 核心思想：振幅放大\n38\t\n39\tGrover 算法的核心是**反复执行两个操作**，逐步放大目标态的概率振幅：\n40\t\n41\t1. **Oracle（预言机）**：给目标态加一个负号（相位翻转）\n42\t2. **Diffusion 算子**：围绕均匀叠加态做\"反射\"（振幅放大）\n43\t\n44\t每执行一轮，目标态的振幅增大，非目标态的振幅减小。经过约 $\\frac{\\pi}{4}\\sqrt{N}$ 轮后，目标态的振幅接近 1——测量几乎必定得到目标。\n45\t\n46\t> [!tip] 物理直觉\n47\t> 想象一群人站成一圈，其中一个人戴着特殊帽子（目标态）。Grover 算法就像：(1) 先让戴帽子的人\"低头\"（Oracle 翻转相位），(2) 然后让所有人\"对着中心点做镜像反射\"（Diffusion 算子）。反复做这两个动作，戴帽子的人会越来越\"突出\"——最终你几乎一定能找到他。\n48\t\n49\t---\n50\t"
+          },
+          {
+            "id": "call_795a1e9274db4eae93a139ac",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Quantum-Phase-Estimation.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Quantum Phase Estimation\n4\t  - 量子相位估计\n5\t  - QPE\n6\ttags:\n7\t  - Physics\n8\t  - Quantum\n9\t  - Algorithm\n10\t  - PhaseEstimation\n11\tdate: 2026-06-02\n12\tstatus: Draft\n13\tsource: \"[[generall quantum 2026]]\"\n14\tcomprehension: \"don't understand\"\n15\t---\n16\t\n17\t# 量子相位估计（Quantum Phase Estimation, QPE）\n18\t\n19\t> 来源批注：量子计算算法基础\n20\t> 本笔记介绍量子相位估计的基本原理及其在量子化学和 Shor 算法中的核心角色。内容待补充。\n21\t\n22\t---\n23\t\n24\t## 1. 问题\n25\t\n26\t给定一个酉算符 $U$ 和它的一个本征态 $|\\psi\\rangle$：\n27\t\n28\t$$\n29\tU|\\psi\\rangle = e^{2\\pi i \\theta}|\\psi\\rangle\n30\t$$\n31\t\n32\t**目标**：估计相位 $\\theta$（一个 $[0,1)$ 之间的实数）。\n33\t\n34\t> [!tip] 为什么重要？\n35\t> $\\theta$ 包含了 $U$ 的**本征值信息**。如果我们能精确估计 $\\theta$，就能：\n36\t> - 计算分子的能级（量子化学）\n37\t> - 分解大整数（Shor 算法）\n38\t> - 模拟量子系统的动力学\n39\t\n40\t---\n41\t\n42\t## 2. 核心思想\n43\t\n44\tQPE 利用**量子干涉**将相位信息\"编码\"到一组辅助 qubit 的测量结果中：\n45\t\n46\t1. 将 $\\theta$ 的二进制表示 $\\theta = 0.\\theta_1\\theta_2\\cdots\\theta_n$ 编码到 $n$ 个辅助 qubit\n47\t2. 通过受控 $U^{2^k}$ 门将相位信息\"写入\"辅助 qubit\n48\t3. 对辅助 qubit 做**逆量子 Fourier 变换**（inverse QFT）\n49\t4. 测量辅助 qubit → 得到 $\\theta$ 的 $n$ 位二进制近似\n50\t"
+          },
+          {
+            "id": "call_59b1c1eb85544dc495a6c586",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Anti-Commutation.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Anti-Commutation\n4\t  - 反对易\n5\t  - 反对易关系\n6\t  - Anticommutator\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - Mathematics\n11\t  - Algebra\n12\t  - PauliMatrices\n13\tdate: 2026-03-29\n14\tstatus: Draft\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: \"vague\"\n17\t---\n18\t\n19\t# 反对易关系（Anti-Commutation Relation）\n20\t\n21\t> 来源批注：$X_L$ 展开中 *\"反对易（anti-commute）\"* — Bluvstein et al., 2026, p.49\n22\t\n23\t## 1. 对易与反对易的定义\n24\t\n25\t两个算符 $A, B$ 的**对易子**（commutator）和**反对易子**（anticommutator）：\n26\t\n27\t$$\n28\t[A, B] = AB - BA \\quad \\text{（对易子）}\n29\t$$\n30\t\n31\t$$\n32\t\\{A, B\\} = AB + BA \\quad \\text{（反对易子）}\n33\t$$\n34\t\n35\t- 若 $[A, B] = 0$：$A, B$ **对易**，可以同时对角化（有共同本征态）\n36\t- 若 $\\{A, B\\} = 0$：$A, B$ **反对易**，即 $AB = -BA$\n37\t\n38\t> [!tip] 反对易的物理意义：正交性\n39\t> 两个算符反对易意味着它们的本征态互不兼容。例如 $\\{X, Z\\} = 0$ 表明 X 的本征态 $|+\\rangle$ 和 Z 的本征态 $|0\\rangle$ 是正交的——你无法同时精确知道一个量子比特在 X 和 Z 方向上的投影值，这本质上是不确定性关系的体现。\n40\t\n41\t## 2. Pauli 矩阵的反对易关系\n42\t\n43\tPauli 矩阵之间的反对易是量子信息的基础：\n44\t\n45\t$$\n46\t\\{X, Z\\} = XZ + ZX = 0 \\implies XZ = -ZX\n47\t$$\n48\t\n49\t完整关系表：\n50\t"
+          },
+          {
+            "id": "call_923a076ab27142a8a05eb2b5",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\QEC.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases: [QEC, Quantum Error Correction, 量子纠错码]\n3\ttags: [Physics, Quantum, ErrorCorrection, FaultTolerant]\n4\tdate: 2026-03-29\n5\tstatus: Draft\n6\tsource: \"[[generall quantum 2026]]\"\n7\tcomprehension: \"vague\"\n8\t---\n9\t\n10\t# 量子纠错 (Quantum Error Correction, QEC)\n11\t\n12\t> 来源批注：*\"QEC works in practice\"* — Bluvstein et al., 2026, p.39\n13\t\n14\t## 1. 为什么需要量子纠错？\n15\t\n16\t量子比特（qubit）极易受到环境干扰，导致两类物理错误：\n17\t- **比特翻转错误（bit-flip）**：$|0\\rangle \\to |1\\rangle$ 或反之\n18\t- **相位翻转错误（phase-flip）**：$|+\\rangle \\to |-\\rangle$\n19\t\n20\t经典计算机通过**重复冗余**（如存三份）来纠错。但量子力学的**不可克隆定理**禁止直接复制量子态，因此必须用更聪明的方法。\n21\t\n22\t> [!tip] 不可克隆定理迫使编码创新\n23\t> 经典冗余（复制三份）在量子世界行不通。QEC 的核心洞察是：**不是复制信息，而是将信息\"分散\"到多个物理比特的纠缠态中**。这样错误检测不会暴露原始量子态。\n24\t\n25\t## 2. 核心思路：将信息编码在多个物理比特中\n26\t\n27\tQEC 的关键在于：**用多个物理 qubit 共同编码一个逻辑 qubit**。\n28\t\n29\t$$\n30\t|\\psi\\rangle_L = \\alpha|0\\rangle_L + \\beta|1\\rangle_L \\quad \\text{（逻辑态）}\n31\t$$\n32\t\n33\t以最简单的 **3-qubit 比特翻转码**为例：\n34\t\n35\t$$\n36\t|0\\rangle_L = |000\\rangle, \\quad |1\\rangle_L = |111\\rangle\n37\t$$\n38\t\n39\t若第一个 qubit 发生翻转 $|100\\rangle$，通过测量**奇偶校验算符**（不破坏信息）即可定位并修复。\n40\t\n41\t## 3. 稳定子码（Stabilizer Code）框架\n42\t\n43\t现代 QEC 几乎全部基于**稳定子形式主义**（Stabilizer Formalism）：\n44\t\n45\t- 定义一组**稳定子生成元** $\\{S_i\\}$，满足 $S_i|\\psi\\rangle_L = +|\\psi\\rangle_L$\n46\t- 通过测量 $S_i$ 的本征值（±1），获得**错误综合征（syndrome）**，从而定位错误类型和位置\n47\t- 测量本身**不破坏逻辑信息**（稳定子与逻辑算符对易）\n48\t\n49\t## 4. 错误阈值（Error Threshold）\n50\t"
+          },
+          {
+            "id": "call_ac087025323e499da284303b",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Transversal-Teleportation.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Transversal Teleportation\n4\t  - 横向隐形传态\n5\t  - 逻辑隐形传态\n6\t  - Logical Teleportation\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - FaultTolerant\n11\t  - Teleportation\n12\t  - DeepCircuit\n13\tdate: 2026-06-01\n14\tstatus: WIP\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: \"don't understand\"\n17\t---\n18\t\n19\t# 横向隐形传态（Transversal Teleportation）\n20\t\n21\t> 来源批注：*\"transversal teleportation\"* — Bluvstein et al., 2026, pp.39-41\n22\t> 本笔记从\"为什么需要它\"出发，系统介绍横向隐形传态的动机、协议、数学证明及其在容错量子计算中的核心角色。\n23\t\n24\t---\n25\t\n26\t## 1. 两个必须解决的问题\n27\t\n28\t横向隐形传态不是凭空发明的——它是为了解决容错量子计算中两个**根本性困难**而设计的。理解了这两个困难，就会觉得横向隐形传态是\"唯一的出路\"。\n29\t\n30\t### 1.1 困难一：电路深度有天花板\n31\t\n32\t量子算法往往需要执行很多层逻辑门。假设每层操作有物理错误率 $p$，那么 $D$ 层之后累积的错误率为：\n33\t\n34\t$$\n35\tp_{\\text{累积}} \\approx 1 - (1 - p)^D \\approx pD \\quad (p \\ll 1)\n36\t$$\n37\t\n38\t当 $D \\gtrsim 1/p$ 时，错误累积到计算结果完全不可信。\n39\t\n40\t> [!tip] 物理直觉：传话游戏\n41\t> 想象一个传话游戏：每传一次有 5% 的概率出错。传 10 次也许还行，但传 100 次就完全走样了。深度电路执行就面临这个困境——我们需要在\"传话\"过程中不断**刷新信息**来阻止错误累积。\n42\t\n43\t**出路**：我们需要一种方法，在不破坏逻辑信息的前提下，不断\"清理\"物理错误。这就是横向隐形传态的核心使命。\n44\t\n45\t### 1.2 困难二：Eastin-Knill 定理\n46\t\n47\t回忆 [[Transversal-Gate]] 中的结论：\n48\t\n49\t> **Eastin-Knill 定理**：对任何非平凡的量子纠错码，不存在通用的横向门集合。\n50\t"
+          },
+          {
+            "id": "call_d8ebafac5d8f49f6a8c8f73a",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Optical-Tweezer-Arrays.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Optical Tweezer Arrays\n4\t  - 光镊阵列\n5\t  - 光学偶极阱\n6\t  - Optical Dipole Trap\n7\t  - 光镊\n8\t  - Tweezer\n9\ttags:\n10\t  - Physics\n11\t  - Quantum\n12\t  - NeutralAtom\n13\t  - ExperimentalPlatform\n14\t  - RydbergAtom\n15\tdate: 2026-03-29\n16\tstatus: Draft\n17\tsource: \"[[generall quantum 2026]]\"\n18\tcomprehension: don't understand\n19\t---\n20\t\n21\t# 光镊阵列（Optical Tweezer Arrays）\n22\t\n23\t> 📄 来源文献：[[generall quantum 2026]] · 原始批注见 [p.40](zotero://select/library/items/SL8QGCV5)\n24\t\n25\t> 来源批注：*\"optical tweezers\"* — Bluvstein et al., 2026, p.40\n26\t\n27\t## 1. 物理直觉：用光抓住原子\n28\t\n29\t**光镊（Optical Tweezer）**是利用强聚焦激光束产生的**光学梯度力**来俘获微小粒子（包括单个中性原子）的技术。\n30\t\n31\t其物理原理：高斯光束的光强在焦点处最强。一个可极化的粒子（原子）在远离谐振的激光场中会感受到一个**偶极力**，被吸引到光强最大的焦点处：\n32\t\n33\t$$\n34\t\\mathbf{F}_{\\text{dipole}} = -\\nabla U_{\\text{dipole}}, \\quad U_{\\text{dipole}} = -\\frac{1}{2}\\alpha(\\omega) |\\mathbf{E}(\\mathbf{r})|^2\n35\t$$\n36\t\n37\t其中 $\\alpha(\\omega)$ 是原子的动态极化率，$|\\mathbf{E}|^2 \\propto I(\\mathbf{r})$ 为光强。\n38\t\n39\t> 当激光频率**低于**原子共振频率（红失谐，red-detuned）时，$\\alpha > 0$，原子被吸引到光强最大处（焦点），形成稳定俘获。\n40\t\n41\t> [!tip] 光镊 = 微观机械手\n42\t> 可以把光镊想象成一只**看不见的微型机械手**：激光焦点就是手指尖，原子就是被抓住的小零件。关键在于这只手只用\"光\"就能握住和搬运原子，无需物理接触——这在量子计算中至关重要。\n43\t\n44\t## 2. 从单个光镊到阵列\n45\t\n46\t单个聚焦光束可以俘获**单个原子**（平均填充率约 50%，需要后选择）。\n47\t\n48\t**光镊阵列**通过以下技术将数百至数千个光镊排列成任意二维图案：\n49\t- **空间光调制器（SLM, Spatial Light Modulator）**：利用全息图案将单束激光分裂为任意排列的多个焦点\n50\t- **声光偏转器（AOD, Acousto-Optic Deflector）**：高速扫描激光，动态创建光镊阵列"
+          },
+          {
+            "id": "call_d57c748facc24f44a1d87e3e",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Tensor-Product.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Tensor Product\n4\t  - 张量积\n5\t  - 直积\n6\t  - Kronecker Product\n7\t  - ⊗\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Mathematics\n12\t  - LinearAlgebra\n13\tdate: 2026-03-29\n14\tstatus: WIP\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: getting there\n17\t---\n18\t\n19\t# 张量积（Tensor Product）\n20\t\n21\t> 来源批注：评价中列出 \"张量积的数学公式\" — Bluvstein et al., 2026\n22\t\n23\t## 0. 张量积本身的定义\n24\t\n25\t张量积最容易被误解成“把两个向量直接拼起来”。更准确地说：\n26\t\n27\t> [!tip] 一句话定义\n28\t> 如果 $V$ 和 $W$ 是两个向量空间，那么它们的张量积 $V\\otimes W$ 是一个新的向量空间。这个新空间的基本元素写作 $v\\otimes w$，表示“从 $V$ 里取一个方向 $v$，同时从 $W$ 里取一个方向 $w$”形成的联合方向。\n29\t\n30\t它必须满足**双线性**（bilinear）规则：\n31\t\n32\t$$\n33\t(a v_1+b v_2)\\otimes w\n34\t= a(v_1\\otimes w)+b(v_2\\otimes w)\n35\t$$\n36\t\n37\t$$\n38\tv\\otimes(a w_1+b w_2)\n39\t= a(v\\otimes w_1)+b(v\\otimes w_2)\n40\t$$\n41\t\n42\t这两条规则的意思是：张量积对左边的向量线性，对右边的向量也线性。\n43\t\n44\t如果 $V$ 的一组基是：\n45\t\n46\t$$\n47\t\\{e_1,e_2,\\cdots,e_m\\}\n48\t$$\n49\t\n50\t$W$ 的一组基是："
+          },
+          {
+            "id": "call_3766cb480d404b94a91649a9",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Transversal-Gate.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases: [Transversal Gate, 横向纠缠门, Transversal Entangling Gate, 横向门]\n3\ttags: [Physics, Quantum, Gates, FaultTolerant, ErrorCorrection]\n4\tdate: 2026-03-29\n5\tstatus: Draft\n6\tsource: \"[[generall quantum 2026]]\"\n7\tcomprehension: \"vague\"\n8\t---\n9\t\n10\t# 横向纠缠门（Transversal Entangling Gate）\n11\t\n12\t> 来源批注：*\"transversal entangling gate\"* — Bluvstein et al., 2026, p.49\n13\t\n14\t## 1. 什么是横向门（Transversal Gate）？\n15\t\n16\t**横向（transversal）**是容错量子计算中的一个关键概念：\n17\t\n18\t> 若一个逻辑门可以**逐个物理比特独立操作**（即不需要不同码块内的物理 qubit 之间相互作用），则称其为横向门。\n19\t\n20\t形式化地，对逻辑 qubit $L$ 的横向门 $\\bar{U}$：\n21\t\n22\t$$\n23\t\\bar{U} = U^{\\otimes n}\n24\t$$\n25\t\n26\t即对 $n$ 个物理 qubit **同时各自施加单体操作** $U$。\n27\t\n28\t> [!tip] \"独立操作\"是容错的关键\n29\t> 横向门之所以容错，核心在于**每个物理 qubit 的操作完全独立**——没有跨 qubit 的纠缠。这意味着即使某个 qubit 上的门出了错，错误也只局限在那一个 qubit，不会\"感染\"其他 qubit。\n30\t\n31\t## 2. 为什么横向门天然容错？\n32\t\n33\t假设某个物理 qubit 上的 $U$ 出错变成 $U \\cdot E$（$E$ 是错误算符）。\n34\t\n35\t- **普通门**：错误可能通过门操作**扩散**到多个 qubit，导致无法纠正\n36\t- **横向门**：每个物理 qubit 独立操作，**单个 qubit 的错误不会传播到其他 qubit**\n37\t\n38\t$$\n39\t\\bar{U}|E_i\\rangle = U_1 \\otimes \\cdots \\otimes (U\\cdot E)_i \\otimes \\cdots \\otimes U_n |\\psi_L\\rangle\n40\t$$\n41\t\n42\t即错误仍然局限在第 $i$ 个物理 qubit 上，[[QEC]] 可以处理。\n43\t\n44\t## 3. 横向 CZ 门\n45\t\n46\t**论文中的横向纠缠门**是横向 [[CZ-Gate]] 的推广：对两个逻辑 qubit $A, B$ 的所有对应物理 qubit 对 $(a_i, b_i)$ 同时施加 CZ 门：\n47\t\n48\t$$\n49\t\\overline{\\text{CZ}} = \\text{CZ}^{(1)} \\otimes \\text{CZ}^{(2)} \\otimes \\cdots \\otimes \\text{CZ}^{(n)}\n50\t$$"
+          },
+          {
+            "id": "call_326fd35729dd4a6ab2abb171",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Pauli-Matrices.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Pauli Matrices\n4\t  - 泡利矩阵\n5\t  - Pauli Gates\n6\t  - σ_x\n7\t  - σ_y\n8\t  - σ_z\n9\t  - X门\n10\t  - Y门\n11\t  - Z门\n12\ttags:\n13\t  - Physics\n14\t  - Quantum\n15\t  - Mathematics\n16\t  - LinearAlgebra\n17\t  - Gates\n18\tdate: 2026-03-29\n19\tstatus: WIP\n20\tsource: \"[[generall quantum 2026]]\"\n21\tcomprehension: getting there\n22\t---\n23\t\n24\t# 泡利矩阵（Pauli Matrices）\n25\t\n26\t> 📄 来源文献：[[generall quantum 2026]] · 概念来源于量子计算基础学习\n27\t\n28\t---\n29\t\n30\t## 1. 数学定义\n31\t\n32\t泡利矩阵通常记为 $\\sigma_x, \\sigma_y, \\sigma_z$，或在量子电路中简写为 $X, Y, Z$。在计算基 $\\{\\vert 0\\rangle, \\vert 1\\rangle\\}$ 下：\n33\t\n34\t$$\n35\tX = \\sigma_x = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}, \\quad\n36\tY = \\sigma_y = \\begin{pmatrix} 0 & -i \\\\ i & 0 \\end{pmatrix}, \\quad\n37\tZ = \\sigma_z = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}\n38\t$$\n39\t\n40\t加上单位矩阵 $I = \\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}$，这四个矩阵构成 $2\\times2$ 复厄米矩阵空间的一组**完备基**。\n41\t\n42\t> [!tip] Bloch 球可视化\n43\t> 任何单 qubit 态可以表示为 Bloch 球面上的一个点：$\\vert \\psi\\rangle = \\cos\\frac{\\theta}{2}\\vert 0\\rangle + e^{i\\phi}\\sin\\frac{\\theta}{2}\\vert 1\\rangle$。泡利矩阵恰好是 Bloch 球三个坐标轴方向的旋转生成元——X 绕 x 轴、Y 绕 y 轴、Z 绕 z 轴。\n44\t\n45\t## 2. 每个门的物理意义\n46\t\n47\t| 门   | 矩阵作用                                                     | 布洛赫球操作          | 直觉比喻                |\n48\t| --- | -------------------------------------------------------- | --------------- | ------------------- |\n49\t| $X$ | $X\\vert 0\\rangle = \\vert 1\\rangle$，$X\\vert 1\\rangle = \\vert 0\\rangle$    | 绕 $x$ 轴旋转 $\\pi$ | 量子 NOT 门（比特翻转）      |\n50\t| $Z$ | $Z\\vert 0\\rangle = \\vert 0\\rangle$，$Z\\vert 1\\rangle = -\\vert 1\\rangle$   | 绕 $z$ 轴旋转 $\\pi$ | 相位翻转（不改变测量概率）       |"
+          },
+          {
+            "id": "call_7e85c6c337944e558101bfb9",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Rabi-Flopping.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases: [Rabi Flopping, Rabi Oscillation, 拉比振荡, 拉比频率, Ω]\n3\ttags: [Physics, Quantum, NeutralAtom, RydbergAtom, Dynamics]\n4\tdate: 2026-03-29\n5\tstatus: WIP\n6\tsource: \"[[generall quantum 2026]]\"\n7\tcomprehension: \"vague\"\n8\t---\n9\t\n10\t# 拉比振荡（Rabi Flopping / Rabi Oscillation）\n11\t\n12\t> 📄 来源文献：[[generall quantum 2026]] · 原始批注见 [p.40](zotero://select/library/items/SL8QGCV5)\n13\t\n14\t> 来源批注：*\"Rabi oscillation\"* — Bluvstein et al., 2026, p.40\n15\t\n16\t## 1. 物理直觉：什么是拉比振荡？\n17\t\n18\t想象一个二能级原子，在共振激光的驱动下，原子会在基态 $\\vert g\\rangle$ 和激发态 $\\vert e\\rangle$ 之间**周期性地来回振荡**，就像一个钟摆在两个态之间摆动。这种现象就是**拉比振荡**（Rabi Flopping）。\n19\t\n20\t这是量子光学中最基础的相干驱动现象，也是所有量子比特操控的物理基础。\n21\t\n22\t> [!tip] 钟摆类比\n23\t> 拉比振荡就像一个量子钟摆：原子在 $\\vert g\\rangle$ 和 $\\vert e\\rangle$ 之间来回摆动。摆动的速度由拉比频率 $\\Omega$ 决定——激光越强，摆动越快。完成一次完整的摆动（$\\vert g\\rangle \\to \\vert e\\rangle \\to \\vert g\\rangle$）需要时间 $2\\pi/\\Omega$。\n24\t\n25\t## 2. 哈密顿量与方程推导\n26\t\n27\t考虑一个二能级系统（$\\vert 0\\rangle, \\vert 1\\rangle$）受到频率为 $\\omega_L$ 的驱动场，系统哈密顿量为（旋转波近似, RWA）：\n28\t\n29\t$$\n30\t\\hat{H} = \\frac{\\hbar}{2}\\begin{pmatrix} -\\Delta & \\Omega \\\\ \\Omega^* & \\Delta \\end{pmatrix}\n31\t$$\n32\t\n33\t其中：\n34\t- $\\Omega$：**拉比频率**（Rabi frequency），由驱动场强度和原子跃迁偶极矩决定，$\\Omega = \\frac{d \\cdot E_0}{\\hbar}$\n35\t- $\\Delta = \\omega_L - \\omega_0$：**失谐量**（detuning），激光频率与原子共振频率之差\n36\t\n37\t### 共振情形（$\\Delta = 0$）\n38\t\n39\t哈密顿量简化为：\n40\t\n41\t$$\n42\t\\hat{H}_{\\text{res}} = \\frac{\\hbar\\Omega}{2}\\hat{\\sigma}_x\n43\t$$\n44\t\n45\t初始处于 $\\vert 0\\rangle$ 的系统在时间 $t$ 后的态为：\n46\t\n47\t$$\n48\t\\vert \\psi(t)\\rangle = \\cos\\left(\\frac{\\Omega t}{2}\\right)\\vert 0\\rangle - i\\sin\\left(\\frac{\\Omega t}{2}\\right)\\vert 1\\rangle\n49\t$$\n50\t"
+          },
+          {
+            "id": "call_44be8f2799fe42eb84eab0ee",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Neutral_Atom_Test.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Neutral Atom Array Experiment\n4\t  - 中性原子阵列实验\n5\t  - Rydberg Atom Array\n6\ttags:\n7\t  - Physics\n8\t  - Quantum\n9\t  - NeutralAtom\n10\t  - RydbergAtom\n11\t  - Experiment\n12\tdate: 2026-03-17\n13\tstatus: WIP\n14\tsource: \"[[generall quantum 2026]]\"\n15\tcomprehension: \"vague\"\n16\t---\n17\t\n18\t# 中性原子阵列实验（Neutral Atom Array Experiment）\n19\t\n20\t> 来源批注：基于 Bluvstein et al., 2026 的中性原子量子计算实验方案。\n21\t> 本笔记介绍中性原子量子计算的核心哈密顿量、物理假设和实验参数，是理解所有后续概念（[[Rydberg-Blockade]]、[[CZ-Gate]] 等）的出发点。\n22\t\n23\t---\n24\t\n25\t## 1. 物理直觉：中性原子量子计算在做什么？\n26\t\n27\t### 1.1 基本思路\n28\t\n29\t中性原子量子计算的核心思路非常简洁：\n30\t\n31\t1. **用光镊囚禁单个原子**：每个原子是一个量子比特\n32\t2. **用激光驱动里德堡跃迁**：原子可以在基态和里德堡态之间切换\n33\t3. **利用里德堡阻塞实现两比特门**：相邻原子之间的强相互作用使它们不能同时被激发\n34\t\n35\t整个系统的物理由一个**哈密顿量**完全描述。理解这个哈密顿量的每一项，就理解了中性原子量子计算的全部物理。\n36\t\n37\t> [!tip] 哈密顿量三件事\n38\t> 这个哈密顿量只做三件事：(1) 激光试图翻转原子状态（第一项）(2) 失谐控制翻转方向（第二项）(3) 相互作用阻止两个原子同时被激发（第三项）。所有中性原子量子计算的物理都来自这三项的竞争。\n39\t\n40\t### 1.2 量子比特的编码\n41\t\n42\t每个原子有两个能级参与量子计算：\n43\t\n44\t$$\n45\t\\vert 0\\rangle \\equiv \\vert g\\rangle \\quad \\text{（基态，ground state）}\n46\t$$\n47\t$$\n48\t\\vert 1\\rangle \\equiv \\vert r\\rangle \\quad \\text{（里德堡态，Rydberg state）}\n49\t$$\n50\t"
+          },
+          {
+            "id": "call_8c59153a10a4481a883f078e",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Qubit-State-and-Superposition.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Qubit State\n4\t  - 量子比特态\n5\t  - 叠加态\n6\t  - Superposition\n7\t  - 相位因子\n8\t  - Complex Amplitude\n9\ttags:\n10\t  - Physics\n11\t  - Quantum\n12\t  - Qubit\n13\t  - Superposition\n14\t  - Fundamental\n15\tdate: 2026-06-02\n16\tstatus: Evergreen\n17\tsource: \"[[generall quantum 2026]]\"\n18\tcomprehension: understood\n19\t---\n20\t\n21\t# 量子比特态与叠加态（Qubit State and Superposition）\n22\t\n23\t> 来源批注：量子计算与量子力学基础概念\n24\t> 本笔记专门回答一个核心问题：**叠加态到底是什么意思？$\\alpha|0\\rangle + \\beta|1\\rangle$ 前面的复数系数（特别是相位因子）在物理上到底意味着什么？**\n25\t\n26\t---\n27\t\n28\t## 1. 从一个具体问题说起\n29\t\n30\t### 1.1 你可能有的困惑\n31\t\n32\t当你第一次看到叠加态的写法时，很可能会有这样的疑问：\n33\t\n34\t> $|\\psi\\rangle = \\alpha|0\\rangle + \\beta|1\\rangle$\n35\t>\n36\t> 这里的 $\\alpha$ 和 $\\beta$ 为什么必须是**复数**？如果只是\"同时处于 0 和 1\"，用两个实数概率不就行了？前面乘一个 $e^{i\\phi}$ 相位因子有什么意义？它又测不到。\n37\t\n38\t这个困惑非常合理。下面我会从物理出发，一步一步把这个相位因子的意义说清楚。\n39\t\n40\t### 1.2 用你熟悉的东西：自旋\n41\t\n42\t你已经学过自旋（[[Pauli-Matrices|Pauli 矩阵]]）。回忆一下：\n43\t\n44\t$$\n45\t|{\\uparrow}\\rangle = \\begin{pmatrix}1\\\\0\\end{pmatrix}, \\quad |{\\downarrow}\\rangle = \\begin{pmatrix}0\\\\1\\end{pmatrix}\n46\t$$\n47\t\n48\t一个自旋-1/2 粒子可以处于 $|{\\uparrow}\\rangle$ 和 $|{\\downarrow}\\rangle$ 的叠加态：\n49\t\n50\t$$"
+          },
+          {
+            "id": "call_c365ed3690194dd79b82a211",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Gate-Eigenstates.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Gate Eigenstates\n4\t  - 门算符本征态\n5\t  - 本征态\n6\t  - Eigenstate\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - Mathematics\n11\t  - Gates\n12\t  - LinearAlgebra\n13\tdate: 2026-03-29\n14\tstatus: Draft\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: getting there\n17\t---\n18\t\n19\t# 门算符本征态（Gate Operator Eigenstates）\n20\t\n21\t> 来源批注：评价中列出 \"门算符本征态\" — Bluvstein et al., 2026\n22\t\n23\t## 1. 本征方程回顾\n24\t\n25\t对于算符（矩阵）$\\hat{A}$，**本征态** $\\vert \\lambda\\rangle$ 满足：\n26\t\n27\t$$\n28\t\\hat{A}\\vert \\lambda\\rangle = \\lambda\\vert \\lambda\\rangle\n29\t$$\n30\t\n31\t其中 $\\lambda$ 是对应的**本征值**。\n32\t\n33\t物理含义：若系统处于本征态，对 $\\hat{A}$ 的测量结果**确定**为 $\\lambda$（无态坍缩的随机性）。\n34\t\n35\t> [!tip] 本征态的直观理解\n36\t> 本征态就是\"被算符作用后除了一个相位因子外保持不变\"的状态。比如 $Z\\vert 0\\rangle = +1 \\cdot \\vert 0\\rangle$，系统完全没有变化；$Z\\vert 1\\rangle = -1 \\cdot \\vert 1\\rangle$，只多了一个全局相位（物理上不可观测）。\n37\t\n38\t## 2. Pauli 门的本征态\n39\t\n40\t量子门通常是 Pauli 矩阵的组合。以下是三个 Pauli 门的本征态：\n41\t\n42\t### $Z$ 门（$\\sigma_z$）\n43\t$$\n44\tZ = \\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}\n45\t$$\n46\t\n47\t| 本征值 | 本征态 |\n48\t|---|---|\n49\t| $+1$ | $\\vert 0\\rangle = \\begin{pmatrix}1\\\\0\\end{pmatrix}$ |\n50\t| $-1$ | $\\vert 1\\rangle = \\begin{pmatrix}0\\\\1\\end{pmatrix}$ |"
+          },
+          {
+            "id": "call_9d70858bea1049e5943341dd",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\SU2-SO3-and-Euler-Decomposition.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - SU2 SO3 and Euler Decomposition\n4\t  - SU(2) 与 SO(3)\n5\t  - 欧拉分解\n6\t  - Euler Decomposition\n7\t  - Single-Qubit Euler Decomposition\n8\t  - Half Angle\n9\t  - 双覆盖\n10\ttags:\n11\t  - Physics\n12\t  - Quantum\n13\t  - Mathematics\n14\t  - LinearAlgebra\n15\t  - Gates\n16\t  - BlochSphere\n17\tdate: 2026-06-03\n18\tstatus: WIP\n19\tsource: \"[[Single-Qubit-Gates]]\"\n20\tcomprehension: \"vague\"\n21\t---\n22\t\n23\t# SU(2)、SO(3) 与 Euler 分解\n24\t\n25\t> 来源：从 [[Single-Qubit-Gates|单量子比特门]] 的 Euler 分解段落拆出的数学铺垫。目标是解释：为什么任意单比特门可以写成 $R_z R_y R_z$，为什么旋转公式里总是出现 $\\theta/2$，以及这件事如何连接到 Bloch 球上的真实三维旋转。\n26\t\n27\t---\n28\t\n29\t## 1. 先说结论：这套数学在解决什么问题？\n30\t\n31\t单比特门的数学对象是一个 $2\\times2$ 酉矩阵 $U$。实验中我们更愿意把它理解成“让 Bloch 球上的量子态绕某根轴旋转”。这两种语言之间的桥梁就是：\n32\t\n33\t$$\n34\tU(2) \\quad \\longrightarrow \\quad SU(2) \\quad \\longrightarrow \\quad SO(3).\n35\t$$\n36\t\n37\t它们分别表示：\n38\t\n39\t| 对象 | 直觉含义 | 在单比特门中的角色 |\n40\t|---|---|---|\n41\t| $U(2)$ | 所有 $2\\times2$ 酉矩阵 | 最一般的单比特门，包含全局相位 |\n42\t| $SU(2)$ | 行列式为 $1$ 的特殊酉矩阵 | 去掉全局相位后的真正单比特操作 |\n43\t| $SO(3)$ | 三维空间中的旋转 | Bloch 球上看到的旋转 |\n44\t\n45\t> [!tip] 一句话记忆\n46\t> **$U(2)$ 是量子电路里的矩阵语言；$SO(3)$ 是 Bloch 球上的几何语言；$SU(2)$ 是把两者连接起来的中间层。**\n47\t\n48\t---\n49\t\n50\t## 2. 数学铺垫一：为什么单比特门必须是酉矩阵？"
+          },
+          {
+            "id": "call_5a08d37ca75b4b36885a0fbc",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Rydberg-Blockade.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Rydberg Blockade\n4\t  - 里德堡阻塞\n5\t  - Rydberg Blockade Mechanism\n6\t  - 阻塞机制\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - NeutralAtom\n11\t  - RydbergAtom\n12\t  - Gates\n13\t  - Entanglement\n14\tdate: 2026-06-01\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: \"don't understand\"\n18\t---\n19\t\n20\t# 里德堡阻塞（Rydberg Blockade）\n21\t\n22\t> 来源批注：*\"Rydberg blockade\"* — Bluvstein et al., 2026\n23\t> 本笔记是中性原子量子计算的核心概念。里德堡阻塞是实现两量子比特门（CZ 门）的物理机制，也是整个中性原子量子计算平台的基石。\n24\t\n25\t---\n26\t\n27\t## 1. 物理直觉：什么是里德堡阻塞？\n28\t\n29\t### 1.1 从\"两个孩子抢一把椅子\"说起\n30\t\n31\t想象一个场景：房间里只有一把椅子，两个孩子都想坐。如果一个孩子已经坐在椅子上了，另一个孩子就**坐不上去**——椅子被\"占\"了。\n32\t\n33\t里德堡阻塞的物理图像与此类似：\n34\t\n35\t> **当一个原子被激发到里德堡态（Rydberg state）后，它会\"阻塞\"附近的另一个原子，使后者无法也被激发到里德堡态。**\n36\t\n37\t这不是因为激光不够强，而是因为**两个里德堡原子之间的相互作用太强了**——强到第二个原子的能级被大幅移动，激光频率完全无法共振激发它。\n38\t\n39\t> [!tip] 核心类比\n40\t> 里德堡阻塞就像\"两个孩子抢一把椅子\"——一个原子坐了里德堡态的\"椅子\"，另一个就坐不上去。这不是因为第二个孩子不想坐，而是椅子被\"占\"了（能级被移走了）。\n41\t\n42\t### 1.2 什么是里德堡态？\n43\t\n44\t里德堡态是原子的**极高激发态**——主量子数 $n$ 很大（通常 $n \\sim 50-100$）的态。\n45\t\n46\t里德堡原子的特殊性质：\n47\t\n48\t| 性质 | 标度关系 | 物理含义 |\n49\t|------|---------|---------|\n50\t| 轨道半径 | $r \\propto n^2$ | $n=60$ 时轨道半径约 $0.3\\,\\mu\\text{m}$，比基态大 3600 倍 |"
+          },
+          {
+            "id": "call_3ac1066427b545aabd8b7760",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Entangling-Gate.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Entangling Gate\n4\t  - 纠缠门\n5\t  - Entangling Operation\n6\t  - 纠缠操作\n7\t  - 两比特纠缠门\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Gates\n12\t  - TwoQubit\n13\t  - Entanglement\n14\t  - Fundamental\n15\tdate: 2026-06-03\n16\tstatus: Draft\n17\tsource: \"[[2023-parallel-gates-handout]]\"\n18\tcomprehension: \"vague\"\n19\t---\n20\t\n21\t# 纠缠门（Entangling Gate）\n22\t\n23\t> 来源讲义：[[2023-parallel-gates-handout|高保真并行纠缠门讲义]] — Bluvstein et al., Nature 2024\n24\t> 本笔记从**概念层面**系统介绍\"纠缠门\"这个类别——它是什么、如何判别、有哪些类型、在不同物理平台如何实现。与 [[CZ-Gate]]（具体门操作）和 [[Two-Qubit-Gates]]（门的数学性质）互补，这里讨论的是**纠缠门作为一个整体概念**。\n25\t\n26\t---\n27\t\n28\t## 1. 什么是纠缠门？\n29\t\n30\t### 1.1 从单比特门的局限说起\n31\t\n32\t在 [[Single-Qubit-Gates]] 中我们知道，单比特门只做一件事：**在 Bloch 球上旋转单个 qubit 的状态**。\n33\t\n34\t$$\n35\t|\\psi\\rangle = \\alpha|0\\rangle + \\beta|1\\rangle \\xrightarrow{\\text{单比特门}} \\alpha'|0\\rangle + \\beta'|1\\rangle\n36\t$$\n37\t\n38\t无论你怎么旋转，两个独立的 qubit 依然各自独立——它们之间**没有关联**。\n39\t\n40\t> [!tip] 核心直觉\n41\t> 单比特门就像两个人**各自独立思考**——A 改变自己的想法，B 完全不受影响。再多的独立思考者，也无法产生\"共识\"。\n42\t>\n43\t> **纠缠门是让两个 qubit 产生\"共谋\"的操作**——A 的决定会影响 B 的行为。一旦这种关联建立，两个 qubit 就\"纠缠\"在一起了。\n44\t\n45\t### 1.2 纠缠门的精确定义\n46\t\n47\t> **纠缠门（entangling gate）**是一种两量子比特门，它能将**至少一个**乘积态（product state）映射为**纠缠态**（entangled state）。\n48\t\n49\t用数学语言说：\n50\t"
+          },
+          {
+            "id": "call_15e249cf4c034ef4ac83a429",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Two-Qubit State\n4\t  - 双量子比特态\n5\t  - 纠缠态\n6\t  - Entanglement\n7\t  - Concurrence\n8\t  - 并发度\n9\ttags:\n10\t  - Physics\n11\t  - Quantum\n12\t  - Entanglement\n13\t  - TwoQubit\n14\t  - Fundamental\n15\tdate: 2026-06-02\n16\tstatus: WIP\n17\tsource: \"[[generall quantum 2026]]\"\n18\tcomprehension: \"getting there\"\n19\t---\n20\t\n21\t# 双量子比特态与纠缠（Two-Qubit State and Entanglement）\n22\t\n23\t> 来源批注：量子信息基础概念\n24\t> 本笔记专门讨论**两个 qubit 组成的量子态**——它的数学结构、什么时候产生纠缠、如何量化纠缠。与 [[Two-Qubit-Gates]]（讨论\"做什么操作\"）互补，这里讨论\"态本身长什么样\"。\n25\t\n26\t---\n27\t\n28\t## 1. 两个 qubit 的态空间\n29\t\n30\t### 1.1 从一维到四维\n31\t\n32\t一个 qubit 的态生活在**二维**复希尔伯特空间 $\\mathcal{H}_1 = \\mathbb{C}^2$ 中。\n33\t\n34\t两个 qubit 的态生活在**四维**复希尔伯特空间 $\\mathcal{H}_2 = \\mathbb{C}^2 \\otimes \\mathbb{C}^2 = \\mathbb{C}^4$ 中。\n35\t\n36\t计算基有四个：\n37\t\n38\t$$\n39\t|00\\rangle = \\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}, \\quad |01\\rangle = \\begin{pmatrix}0\\\\1\\\\0\\\\0\\end{pmatrix}, \\quad |10\\rangle = \\begin{pmatrix}0\\\\0\\\\1\\\\0\\end{pmatrix}, \\quad |11\\rangle = \\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}\n40\t$$\n41\t\n42\t一般态是这四个基态的线性叠加：\n43\t\n44\t$$\n45\t|\\Psi\\rangle = \\alpha|00\\rangle + \\beta|01\\rangle + \\gamma|10\\rangle + \\delta|11\\rangle\n46\t$$\n47\t\n48\t归一化条件：$|\\alpha|^2 + |\\beta|^2 + |\\gamma|^2 + |\\delta|^2 = 1$。\n49\t\n50\t> [!tip] 复数参数的个数"
+          },
+          {
+            "id": "call_88c43035fa304b7885268522",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Two-Qubit Gates\n4\t  - 两量子比特门\n5\t  - 双比特门\n6\t  - 两比特门\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - Gates\n11\t  - TwoQubit\n12\t  - Entanglement\n13\t  - Fundamental\n14\tdate: 2026-06-02\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: getting there\n18\t---\n19\t\n20\t# 两量子比特门（Two-Qubit Gates）\n21\t\n22\t> 来源批注：量子计算基础概念 — Bluvstein et al., 2026\n23\t> 本笔记系统介绍两比特门的物理直觉、标准门集、与纠缠的关系，以及在中性原子中的物理实现。与 [[Single-Qubit-Gates]] 互补——单比特门做\"精细调节\"，两比特门做\"建立纠缠\"。\n24\t\n25\t---\n26\t\n27\t## 1. 为什么需要两比特门？\n28\t\n29\t### 1.1 单比特门的局限\n30\t\n31\t回忆 [[Single-Qubit-Gates]] 的核心结论：单比特门在 Bloch 球上做旋转，只能改变**单个 qubit** 的叠加状态。\n32\t\n33\t但量子计算的真正威力来自**多个 qubit 之间的关联**。如果两个 qubit 完全独立，量子计算机就只是 $n$ 个并行的经典模拟器——没有纠缠，就没有超越经典的计算能力。\n34\t\n35\t### 1.2 两比特门的核心能力：创造纠缠\n36\t\n37\t两比特门做的事情是：\n38\t\n39\t> **根据一个 qubit 的状态，条件性地改变另一个 qubit 的状态**——这种\"条件性操作\"是创造纠缠的唯一途径。\n40\t\n41\t$$\n42\t\\text{单比特门} \\to \\text{每个 qubit 独立旋转} \\to \\text{无纠缠}\n43\t$$\n44\t$$\n45\t\\text{两比特门} \\to \\text{qubit 之间产生关联} \\to \\text{产生纠缠}\n46\t$$\n47\t\n48\t> [!tip] 物理直觉：传话 vs 共谋\n49\t> 单比特门就像每个人都独立思考——各自改自己的状态。两比特门就像两个人**共谋**——A 的决定会影响 B 的行动。当 A 和 B 的行动开始互相依赖，\"纠缠\"就产生了。\n50\t>"
+          },
+          {
+            "id": "call_cbafcd2809a64be6950798da",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Surface-Code.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases: [Surface Code, 表面码, Toric Code, 距离-5表面码]\n3\ttags: [Physics, Quantum, ErrorCorrection, SurfaceCode]\n4\tdate: 2026-03-29\n5\tstatus: Draft\n6\tsource: \"[[generall quantum 2026]]\"\n7\tcomprehension: \"vague\"\n8\t---\n9\t\n10\t# 表面码 (Surface Code)\n11\t\n12\t> 来源批注：*\"a distance-5 surface code\"* — Bluvstein et al., 2026, p.40\n13\t\n14\t## 1. 什么是表面码？\n15\t\n16\t表面码是目前**最实用的量子纠错码**之一，因为它：\n17\t- 只需要**近邻量子比特之间的二体相互作用**（易于实验实现）\n18\t- 具有约 $1\\%$ 的高错误阈值\n19\t- 逻辑错误率随码距指数衰减\n20\t\n21\t表面码将 qubit 排列在一个 **$d \\times d$ 的二维网格**上（$d$ 为码距）。\n22\t\n23\t## 2. 物理结构\n24\t\n25\t以 $d = 3$ 表面码为例（共 $d^2 + (d-1)^2 = 13$ 个物理 qubit）：\n26\t\n27\t```\n28\t● ─ ○ ─ ●\n29\t│   │   │\n30\t○ ─ ● ─ ○\n31\t│   │   │\n32\t● ─ ○ ─ ●\n33\t```\n34\t\n35\t- **数据 qubit（●）**：存储逻辑信息\n36\t- **辅助 qubit（○）**：用于测量稳定子（syndrome 提取）\n37\t\n38\t> [!tip] 交错棋盘格布局\n39\t> 注意 ● 和 ○ 呈**棋盘格交错排列**——每个辅助 qubit 被数据 qubit 包围，可同时检测周围 4 个 qubit 的错误。这种布局是表面码只需近邻连接的几何基础。\n40\t\n41\t## 3. 稳定子结构\n42\t\n43\t表面码有两类稳定子（参见 [[QEC]]）：\n44\t\n45\t**X 型稳定子**（检测 Z 错误）：\n46\t$$\n47\tA_v = \\prod_{e \\in \\text{vertex } v} X_e\n48\t$$\n49\t\n50\t**Z 型稳定子**（检测 X 错误）："
+          },
+          {
+            "id": "call_58cadf1e2bad4207a26bb34f",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Single-Qubit Gates\n4\t  - 单量子比特门\n5\t  - 单比特门\n6\t  - 量子门\n7\t  - Quantum Gates\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Gates\n12\t  - SingleQubit\n13\t  - Fundamental\n14\tdate: 2026-06-01\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: \"getting there\"\n18\t---\n19\t\n20\t# 单量子比特门（Single-Qubit Gates）\n21\t\n22\t> 来源批注：量子计算基础概念 — Bluvstein et al., 2026\n23\t> 本笔记从\"一个 qubit 能做什么\"出发，系统介绍单比特门的物理直觉、数学定义、标准门集、Bloch 球几何图像以及在中性原子中的实验实现。所有矩阵运算都给出完整步骤，不跳步。\n24\t\n25\t---\n26\t\n27\t## 1. 一个 qubit 能做什么？——单比特门的本质\n28\t\n29\t### 1.1 先从经典世界说起\n30\t\n31\t经典计算机里，一个 bit 要么是 0 要么是 1。经典逻辑门（AND、OR、NOT）作用在确定的 0 或 1 上，输出也是确定的。\n32\t\n33\t但 qubit 不同。一个 qubit 可以处于叠加态：\n34\t\n35\t$$\n36\t\\vert \\psi\\rangle = \\alpha\\vert 0\\rangle + \\beta\\vert 1\\rangle, \\quad |\\alpha|^2 + |\\beta|^2 = 1\n37\t$$\n38\t\n39\t量子门对叠加态的作用是**同时改变 $\\alpha$ 和 $\\beta$ 的大小和相对相位**——这就是单比特门的本质。\n40\t\n41\t### 1.2 三个核心约束\n42\t\n43\t在设计单比特门时，量子力学给了三个硬约束：\n44\t\n45\t**概率守恒**：变换前后概率总和为 1，即 $|\\alpha'|^2 + |\\beta'|^2 = |\\alpha|^2 + |\\beta|^2 = 1$。概率不能凭空出现或消失。\n46\t\n47\t**可逆性**：存在逆操作 $U^{-1}$ 使得 $U^{-1}U = I$。门操作不能丢失信息（否则违反幺正性）。\n48\t\n49\t**线性**：$U(\\alpha\\vert 0\\rangle + \\beta\\vert 1\\rangle) = \\alpha\\,U\\vert 0\\rangle + \\beta\\,U\\vert 1\\rangle$。量子力学是线性的——叠加态的演化等于各分量演化的叠加。\n50\t"
+          },
+          {
+            "id": "call_6545132bf8824758a35c6445",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Basis-Transformation.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - 基变换\n4\t  - Basis Change\n5\t  - 相似变换\n6\t  - Similarity Transformation\n7\t  - 线性代数参考\n8\t  - Linear Algebra Reference\n9\ttags:\n10\t  - Physics\n11\t  - Quantum\n12\t  - Mathematics\n13\t  - LinearAlgebra\n14\t  - Fundamental\n15\tdate: 2026-06-03\n16\tstatus: WIP\n17\tsource: \"通用数学基础\"\n18\tcomprehension: \"getting there\"\n19\t---\n20\t\n21\t# 基变换与相似变换：量子门的线性代数语言\n22\t\n23\t> 本笔记是线性代数参考文档，系统讲解**基变换（change of basis）**和**相似变换（similarity transformation）**的数学基础，最终落到量子计算中 $HXH = Z$ 这类恒等式的深层理解。目标读者：大二物理系学生，已学过表象理论和 Dirac notation。\n24\t\n25\t---\n26\t\n27\t## 1. 向量与基：一切的起点\n28\t\n29\t### 1.1 向量空间\n30\t\n31\t在量子力学中，态矢量生活在线性空间（向量空间）里。最基本的例子：\n32\t\n33\t- 单 qubit 态空间：$\\mathcal{H}_1 = \\mathbb{C}^2$（二维复向量空间）\n34\t- 两个 qubit 的态空间：$\\mathcal{H}_2 = \\mathbb{C}^4$（四维复向量空间）\n35\t\n36\t> [!tip] 直觉\n37\t> 向量空间就是一个\"可以做加法和数乘\"的数学空间。$\\mathbb{C}^2$ 中的向量是二维列向量，$\\mathbb{C}^4$ 中的向量是四维列向量。\n38\t\n39\t### 1.2 基与坐标\n40\t\n41\t**基（basis）是向量空间中一组线性无关的向量，能够通过线性组合表示空间中的**任意**向量。\n42\t\n43\t以 $\\mathbb{C}^2$ 为例，有两组常用的基：\n44\t\n45\t**计算基（computational basis）$\\{|0\\rangle, |1\\rangle\\}$**：\n46\t\n47\t$$\n48\t|0\\rangle = \\begin{pmatrix}1\\\\0\\end{pmatrix}, \\qquad |1\\rangle = \\begin{pmatrix}0\\\\1\\end{pmatrix}\n49\t$$\n50\t"
+          },
+          {
+            "id": "call_91ced5db54644de1a23083a8",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - CZ Gate\n4\t  - CZ门\n5\t  - Controlled-Z\n6\t  - 控制Z门\n7\t  - 纠缠门\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Gates\n12\t  - TwoQubit\n13\t  - Entanglement\n14\tdate: 2026-03-29\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: getting there\n18\t---\n19\t\n20\t# CZ 门（Controlled-Z Gate，纠缠门）\n21\t\n22\t> 来源批注：评价中列出 \"纠缠门（CZ门）\" — Bluvstein et al., 2026\n23\t\n24\t## 1. 什么是 CZ 门？\n25\t\n26\tCZ 门是一个**两量子比特门**，是中性原子量子计算中最核心的门操作之一。\n27\t\n28\t它的作用是：**当且仅当两个 qubit 都处于 $|1\\rangle$ 时，给系统引入一个 $\\pi$ 相位**。\n29\t\n30\t> [!tip] CZ vs CNOT\n31\t> CZ 门是对称的——两个 qubit 地位平等，没有\"控制\"和\"目标\"之分。而 CNOT 门有明确的控制比特和目标比特。在中性原子系统中，CZ 门更自然，因为里德堡阻塞对两个原子是对称的。\n32\t\n33\t## 2. 矩阵表示\n34\t\n35\t在计算基 $\\{|00\\rangle, |01\\rangle, |10\\rangle, |11\\rangle\\}$ 下：\n36\t\n37\t$$\n38\t\\text{CZ} = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & -1 \\end{pmatrix}\n39\t$$\n40\t\n41\t作用规则：\n42\t$$\n43\t|00\\rangle \\to |00\\rangle, \\quad |01\\rangle \\to |01\\rangle, \\quad |10\\rangle \\to |10\\rangle, \\quad |11\\rangle \\to -|11\\rangle\n44\t$$\n45\t\n46\t## 3. CZ 门制造纠缠\n47\t\n48\t### 3.1 逐步推导\n49\t\n50\t**第一步：输入态展开。** 两个 qubit 都处于 $|+\\rangle = \\frac{1}{\\sqrt{2}}(|0\\rangle + |1\\rangle)$，它们彼此独立（乘积态），用分配律展开："
+          }
+        ],
+        "isExpanded": false,
+        "result": "Here is the complete YAML frontmatter for all 25 files, organized in a structured table.\n\n---\n\n## YAML Frontmatter Extraction: All 25 Files in `Rydberg atom/`\n\n| # | File | comprehension | status | tags | date | source | aliases |\n|---|------|--------------|--------|------|------|--------|---------|\n| 1 | **Deep-Circuit-Execution.md** | don't understand | Draft | Physics, Quantum, FaultTolerant, Architecture, DeepCircuit | 2026-03-29 | [[generall quantum 2026]] | Deep-Circuit Execution, 深度电路执行, 深层电路, 恒定熵计算 |\n| 2 | **Quantum-Zeno-Effect.md** | vague | Draft | Physics, Quantum, Measurement, ZenoEffect | 2026-03-29 | [[generall quantum 2026]] | QZE, Quantum Zeno Effect, 量子芝诺效应, 量子芝诺 |\n| 3 | **AC-Stark-Effect.md** | don't understand | Draft | Physics, Quantum, AtomicPhysics, NeutralAtom | 2026-06-02 | [[generall quantum 2026]] | AC Stark Effect, AC Stark 效应, 光频移, Light Shift |\n| 4 | **Grover-Search.md** | don't understand | Draft | Physics, Quantum, Algorithm, Search | 2026-06-02 | [[generall quantum 2026]] | Grover Search, Grover 搜索, 量子搜索, 量子振幅放大, Amplitude Amplification |\n| 5 | **Quantum-Phase-Estimation.md** | don't understand | Draft | Physics, Quantum, Algorithm, PhaseEstimation | 2026-06-02 | [[generall quantum 2026]] | Quantum Phase Estimation, 量子相位估计, QPE |\n| 6 | **Anti-Commutation.md** | vague | Draft | Physics, Quantum, Mathematics, Algebra, PauliMatrices | 2026-03-29 | [[generall quantum 2026]] | Anti-Commutation, 反对易, 反对易关系, Anticommutator |\n| 7 | **QEC.md** | vague | Draft | Physics, Quantum, ErrorCorrection, FaultTolerant | 2026-03-29 | [[generall quantum 2026]] | QEC, Quantum Error Correction, 量子纠错码 |\n| 8 | **Transversal-Teleportation.md** | don't understand | WIP | Physics, Quantum, FaultTolerant, Teleportation, DeepCircuit | 2026-06-01 | [[generall quantum 2026]] | Transversal Teleportation, 横向隐形传态, 逻辑隐形传态, Logical Teleportation |\n| 9 | **Optical-Tweezer-Arrays.md** | don't understand | Draft | Physics, Quantum, NeutralAtom, ExperimentalPlatform, RydbergAtom | 2026-03-29 | [[generall quantum 2026]] | Optical Tweezer Arrays, 光镊阵列, 光学偶极阱, Optical Dipole Trap, 光镊, Tweezer |\n| 10 | **Tensor-Product.md** | getting there | WIP | Physics, Quantum, Mathematics, LinearAlgebra | 2026-03-29 | [[generall quantum 2026]] | Tensor Product, 张量积, 直积, Kronecker Product, (x) |\n| 11 | **Transversal-Gate.md** | vague | Draft | Physics, Quantum, Gates, FaultTolerant, ErrorCorrection | 2026-03-29 | [[generall quantum 2026]] | Transversal Gate, 横向纠缠门, Transversal Entangling Gate, 横向门 |\n| 12 | **Pauli-Matrices.md** | getting there | WIP | Physics, Quantum, Mathematics, LinearAlgebra, Gates | 2026-03-29 | [[generall quantum 2026]] | Pauli Matrices, 泡利矩阵, Pauli Gates, sigma_x, sigma_y, sigma_z, X门, Y门, Z门 |\n| 13 | **Rabi-Flopping.md** | vague | WIP | Physics, Quantum, NeutralAtom, RydbergAtom, Dynamics | 2026-03-29 | [[generall quantum 2026]] | Rabi Flopping, Rabi Oscillation, 拉比振荡, 拉比频率, Omega |\n| 14 | **Neutral_Atom_Test.md** | vague | WIP | Physics, Quantum, NeutralAtom, RydbergAtom, Experiment | 2026-03-17 | [[generall quantum 2026]] | Neutral Atom Array Experiment, 中性原子阵列实验, Rydberg Atom Array |\n| 15 | **Qubit-State-and-Superposition.md** | understood | Evergreen | Physics, Quantum, Qubit, Superposition, Fundamental | 2026-06-02 | [[generall quantum 2026]] | Qubit State, 量子比特态, 叠加态, Superposition, 相位因子, Complex Amplitude |\n| 16 | **Gate-Eigenstates.md** | getting there | Draft | Physics, Quantum, Mathematics, Gates, LinearAlgebra | 2026-03-29 | [[generall quantum 2026]] | Gate Eigenstates, 门算符本征态, 本征态, Eigenstate |\n| 17 | **SU2-SO3-and-Euler-Decomposition.md** | vague | WIP | Physics, Quantum, Mathematics, LinearAlgebra, Gates, BlochSphere | 2026-06-03 | [[Single-Qubit-Gates]] | SU2 SO3 and Euler Decomposition, SU(2) 与 SO(3), 欧拉分解, Euler Decomposition, Single-Qubit Euler Decomposition, Half Angle, 双覆盖 |\n| 18 | **Rydberg-Blockade.md** | don't understand | WIP | Physics, Quantum, NeutralAtom, RydbergAtom, Gates, Entanglement | 2026-06-01 | [[generall quantum 2026]] | Rydberg Blockade, 里德堡阻塞, Rydberg Blockade Mechanism, 阻塞机制 |\n| 19 | **Entangling-Gate.md** | vague | Draft | Physics, Quantum, Gates, TwoQubit, Entanglement, Fundamental | 2026-06-03 | [[2023-parallel-gates-handout]] | Entangling Gate, 纠缠门, Entangling Operation, 纠缠操作, 两比特纠缠门 |\n| 20 | **Two-Qubit-State-and-Entanglement.md** | getting there | WIP | Physics, Quantum, Entanglement, TwoQubit, Fundamental | 2026-06-02 | [[generall quantum 2026]] | Two-Qubit State, 双量子比特态, 纠缠态, Entanglement, Concurrence, 并发度 |\n| 21 | **Two-Qubit-Gates.md** | getting there | WIP | Physics, Quantum, Gates, TwoQubit, Entanglement, Fundamental | 2026-06-02 | [[generall quantum 2026]] | Two-Qubit Gates, 两量子比特门, 双比特门, 两比特门 |\n| 22 | **Surface-Code.md** | vague | Draft | Physics, Quantum, ErrorCorrection, SurfaceCode | 2026-03-29 | [[generall quantum 2026]] | Surface Code, 表面码, Toric Code, 距离-5表面码 |\n| 23 | **Single-Qubit-Gates.md** | getting there | WIP | Physics, Quantum, Gates, SingleQubit, Fundamental | 2026-06-01 | [[generall quantum 2026]] | Single-Qubit Gates, 单量子比特门, 单比特门, 量子门, Quantum Gates |\n| 24 | **Basis-Transformation.md** | getting there | WIP | Physics, Quantum, Mathematics, LinearAlgebra, Fundamental | 2026-06-03 | 通用数学基础 | 基变换, Basis Change, 相似变换, Similarity Transformation, 线性代数参考, Linear Algebra Reference |\n| 25 | **CZ-Gate.md** | getting there | WIP | Physics, Quantum, Gates, TwoQubit, Entanglement | 2026-03-29 | [[generall quantum 2026]] | CZ Gate, CZ门, Controlled-Z, 控制Z门, 纠缠门 |\n\n---\n\n### Summary Statistics\n\n**Comprehension breakdown:**\n- `understood`: 1 file (Qubit-State-and-Superposition)\n- `getting there`: 8 files (Tensor-Product, Pauli-Matrices, Gate-Eigenstates, Two-Qubit-State-and-Entanglement, Two-Qubit-Gates, Single-Qubit-Gates, Basis-Transformation, CZ-Gate)\n- `vague`: 8 files (Quantum-Zeno-Effect, Anti-Commutation, QEC, Transversal-Gate, Rabi-Flopping, Neutral_Atom_Test, SU2-SO3-and-Euler-Decomposition, Entangling-Gate)\n- `don't understand`: 8 files (Deep-Circuit-Execution, AC-Stark-Effect, Grover-Search, Quantum-Phase-Estimation, Transversal-Teleportation, Optical-Tweezer-Arrays, Rydberg-Blockade)\n\n**Status breakdown:**\n- `Evergreen`: 1 file\n- `Draft`: 10 files\n- `WIP`: 14 files\n\n**Source breakdown:**\n- `[[generall quantum 2026]]`: 23 files\n- `[[Single-Qubit-Gates]]`: 1 file (SU2-SO3-and-Euler-Decomposition)\n- `[[2023-parallel-gates-handout]]`: 1 file (Entangling-Gate)\n- `通用数学基础` (plain text, not a wikilink): 1 file (Basis-Transformation)\n\n**Date range:** 2026-03-17 (Neutral_Atom_Test) through 2026-06-03 (SU2-SO3-and-Euler-Decomposition, Entangling-Gate, Basis-Transformation)."
+      }
+    }
+  },
+  "currentNote": "Learning-Roadmap.md",
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 8001,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 27328,
+    "contextWindow": 1000000,
+    "contextTokens": 35329,
+    "percentage": 4
+  }
+}

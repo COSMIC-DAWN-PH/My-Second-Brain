@@ -14,7 +14,7 @@ status: Evergreen
 # 🧭 学习路线图 - 中性原子量子计算
 
 > 由 `/learning-path` 技能自动生成 · 基于各知识笔记的 `comprehension` 字段与 canonical dependency graph（主线依赖图）  
-> 最后更新：2026-06-03 12:11（增补）
+> 最后更新：2026-06-04（增补）
 
 > [!info] 说明
 > 这份路线图会扫描 vault 中的概念笔记，并结合主线依赖图来判断当前学习层级、薄弱环节和下一步学习目标。它不是“成绩单”，而是一个导航图：先补地基，再往上推进。
@@ -23,14 +23,14 @@ status: Evergreen
 
 | 理解程度 | 数量 | 占比 | 对应笔记 |
 |---|---:|---:|---|
-| ✅ 已理解 | 1 | 5% | [[Qubit-State-and-Superposition\|量子比特态]] |
-| 🔵 基本理解 | 5 | 23% | [[Pauli-Matrices\|泡利矩阵]], [[Tensor-Product\|张量积]], [[Single-Qubit-Gates\|单量子比特门]], [[Two-Qubit-State-and-Entanglement\|双量子比特态]], [[Two-Qubit-Gates\|两量子比特门]] |
-| 🟠 模糊理解 | 9 | 41% | [[Anti-Commutation\|反对易]], [[Gate-Eigenstates\|门算符本征态]], [[Quantum-Zeno-Effect\|量子芝诺效应]], [[Rabi-Flopping\|拉比振荡]], [[CZ-Gate\|CZ门]], [[QEC\|量子纠错码]], [[Neutral_Atom_Test\|中性原子阵列实验]], [[Surface-Code\|表面码]], [[Transversal-Gate\|横向纠缠门]] |
-| 🔴 还不理解 | 7 | 32% | [[Optical-Tweezer-Arrays\|光镊阵列]], [[AC-Stark-Effect\|AC Stark 效应]], [[Grover-Search\|Grover 搜索]], [[Quantum-Phase-Estimation\|量子相位估计]], [[Rydberg-Blockade\|里德堡阻塞]], [[Transversal-Teleportation\|横向隐形传态]], [[Deep-Circuit-Execution\|深度电路执行]] |
+| ✅ 已理解 | 1 | 4% | [[Qubit-State-and-Superposition\|量子比特态]] |
+| 🔵 基本理解 | 8 | 32% | [[Pauli-Matrices\|泡利矩阵]], [[Tensor-Product\|张量积]], [[Single-Qubit-Gates\|单量子比特门]], [[Two-Qubit-State-and-Entanglement\|双量子比特态]], [[Two-Qubit-Gates\|两量子比特门]], [[CZ-Gate\|CZ门]], [[Gate-Eigenstates\|门算符本征态]], [[Basis-Transformation\|基变换]] |
+| 🟠 模糊理解 | 8 | 32% | [[Anti-Commutation\|反对易]], [[Quantum-Zeno-Effect\|量子芝诺效应]], [[Rabi-Flopping\|拉比振荡]], [[QEC\|量子纠错码]], [[Neutral_Atom_Test\|中性原子阵列实验]], [[Surface-Code\|表面码]], [[Transversal-Gate\|横向纠缠门]], [[SU2-SO3-and-Euler-Decomposition\|SU(2) 与 SO(3)]], [[Entangling-Gate\|纠缠门]] |
+| 🔴 还不理解 | 7 | 28% | [[Optical-Tweezer-Arrays\|光镊阵列]], [[AC-Stark-Effect\|AC Stark 效应]], [[Grover-Search\|Grover 搜索]], [[Quantum-Phase-Estimation\|量子相位估计]], [[Rydberg-Blockade\|里德堡阻塞]], [[Transversal-Teleportation\|横向隐形传态]], [[Deep-Circuit-Execution\|深度电路执行]] |
 
-**加权总进度**：50%（计分规则：已理解=4，基本理解=3，模糊理解=2，还不理解=1）
+**加权总进度**：54%（计分规则：已理解=4，基本理解=3，模糊理解=2，还不理解=1）
 
-**纳入统计的知识笔记总数**：22 篇
+**纳入统计的知识笔记总数**：25 篇
 
 ## 🧱 按依赖层级排列的学习路径
 
@@ -49,13 +49,15 @@ status: Evergreen
 | [[Optical-Tweezer-Arrays\|光镊阵列]] | 🔴 还不理解 | Draft | 2 篇 | 2 篇 | 中性原子平台中用于俘获和排列原子的核心硬件 |
 | [[Tensor-Product\|张量积]] | 🔵 基本理解 | WIP | 3 篇 | 13 篇 | 多量子比特 Hilbert space 的组合规则 |
 | [[Pauli-Matrices\|泡利矩阵]] | 🔵 基本理解 | WIP | 3 篇 | 10 篇 | 单量子比特算符、Pauli gate 与后续门操作的基础 |
+| [[Basis-Transformation\|基变换]] | 🔵 基本理解 | WIP | 2 篇 | 2 篇 | 线性代数中的基变换 / 相似变换，量子力学表象变换的数学基础 |
 
 ### Tier 2 - 单/双量子比特概念层
 
 | 笔记                                           | 理解程度    | 状态    | 直接支撑 | 下游总链条 | 核心作用                     |
 | -------------------------------------------- | ------- | ----- | ---: | ----: | ------------------------ |
 | [[Anti-Commutation\|反对易]]                    | 🟠 模糊理解 | Draft |  0 篇 |   0 篇 | Pauli 算符代数关系中的重要结构       |
-| [[Gate-Eigenstates\|门算符本征态]]                 | 🟠 模糊理解 | Draft |  0 篇 |   0 篇 | 理解门算符作用与测量基的基础           |
+| [[Gate-Eigenstates\|门算符本征态]]                 | 🔵 基本理解 | Draft |  0 篇 |   0 篇 | 理解门算符作用与测量基的基础           |
+| [[SU2-SO3-and-Euler-Decomposition\|SU(2) 与 SO(3)]] | 🟠 模糊理解 | WIP | 0 篇 | 0 篇 | Bloch sphere 旋转、Euler decomposition 与 half-angle 公式的数学补充 |
 | [[Two-Qubit-State-and-Entanglement\|双量子比特态]] | 🔵 基本理解 | WIP   |  1 篇 |  11 篇 | Bell state、纠缠与两比特系统的状态描述 |
 | [[Single-Qubit-Gates\|单量子比特门]]               | 🔵 基本理解 | WIP   |  5 篇 |   7 篇 | Bloch sphere 上的单比特旋转与门操作 |
 
@@ -66,6 +68,7 @@ status: Evergreen
 | [[AC-Stark-Effect\|AC Stark 效应]] | 🔴 还不理解 | Draft | 0 篇 | 0 篇 | 光场导致的能级移动，是光镊与激光操控中的常见效应 |
 | [[Rabi-Flopping\|拉比振荡]] | 🟠 模糊理解 | WIP | 2 篇 | 2 篇 | 单量子比特门的物理实现图像 |
 | [[Quantum-Zeno-Effect\|量子芝诺效应]] | 🟠 模糊理解 | Draft | 0 篇 | 0 篇 | 频繁测量导致演化被冻结的量子效应 |
+| [[Entangling-Gate\|纠缠门]] | 🟠 模糊理解 | Draft | 0 篇 | 0 篇 | 两量子比特纠缠门的通用概念入口，是 CZ/CNOT 等具体门的上位概念 |
 | [[Two-Qubit-Gates\|两量子比特门]] | 🔵 基本理解 | WIP | 5 篇 | 10 篇 | CZ、CNOT 等纠缠门的统一概念入口 |
 
 ### Tier 4 - 控制门与量子算法入口
@@ -74,7 +77,7 @@ status: Evergreen
 |---|---|---|---:|---:|---|
 | [[Grover-Search\|Grover 搜索]] | 🔴 还不理解 | Draft | 0 篇 | 0 篇 | 量子搜索算法与振幅放大的代表例子 |
 | [[Quantum-Phase-Estimation\|量子相位估计]] | 🔴 还不理解 | Draft | 0 篇 | 0 篇 | 相位估计与许多量子算法的核心子程序 |
-| [[CZ-Gate\|CZ门]] | 🟠 模糊理解 | Draft | 2 篇 | 7 篇 | Controlled-Z 门，是里德堡纠缠门与 QEC 电路的关键门 |
+| [[CZ-Gate\|CZ门]] | 🔵 基本理解 | WIP | 2 篇 | 7 篇 | Controlled-Z 门，是里德堡纠缠门与 QEC 电路的关键门 |
 
 ### Tier 5 - 里德堡纠缠机制与 QEC 入口
 
@@ -115,10 +118,12 @@ status: Evergreen
 | 4 | [[CZ-Gate\|CZ门]] | 🟠 模糊理解；会影响 7 篇下游笔记，是关键瓶颈 | [[Two-Qubit-Gates\|两量子比特门]] |
 | 5 | [[Rabi-Flopping\|拉比振荡]] | 🟠 模糊理解；连接单比特门与里德堡物理实现 | [[Single-Qubit-Gates\|单量子比特门]] |
 | 6 | [[Anti-Commutation\|反对易]] | 🟠 模糊理解；适合巩固 Pauli 代数 | [[Pauli-Matrices\|泡利矩阵]], [[Tensor-Product\|张量积]] |
-| 7 | [[Gate-Eigenstates\|门算符本征态]] | 🟠 模糊理解；适合配合 Pauli gates 一起补 | [[Pauli-Matrices\|泡利矩阵]] |
-| 8 | [[Quantum-Zeno-Effect\|量子芝诺效应]] | 🟠 模糊理解；前置单比特门已基本具备 | [[Single-Qubit-Gates\|单量子比特门]] |
-| 9 | [[Tensor-Product\|张量积]] | 🔵 基本理解但下游很多；继续巩固会释放 13 篇下游笔记 | [[Qubit-State-and-Superposition\|量子比特态]] |
-| 10 | [[Two-Qubit-State-and-Entanglement\|双量子比特态]] | 🔵 基本理解但下游很多；适合继续推进到熟练 | [[Qubit-State-and-Superposition\|量子比特态]], [[Tensor-Product\|张量积]] |
+| 7 | [[SU2-SO3-and-Euler-Decomposition\|SU(2) 与 SO(3)]] | 🟠 模糊理解；Bloch sphere 旋转与 Euler 分解的数学基础，适合配合单比特门一起学 | [[Pauli-Matrices\|泡利矩阵]], [[Single-Qubit-Gates\|单量子比特门]] |
+| 8 | [[Basis-Transformation\|基变换]] | 🔵 基本理解；线性代数基础工具，继续巩固可支撑更多下游概念 | [[Qubit-State-and-Superposition\|量子比特态]], [[Pauli-Matrices\|泡利矩阵]] |
+| 9 | [[Entangling-Gate\|纠缠门]] | 🟠 模糊理解；两比特纠缠门的通用概念入口，适合配合 [[CZ-Gate\|CZ门]] 和 [[Two-Qubit-Gates\|两量子比特门]] 一起复习 | [[Two-Qubit-State-and-Entanglement\|双量子比特态]], [[Tensor-Product\|张量积]] |
+| 10 | [[Quantum-Zeno-Effect\|量子芝诺效应]] | 🟠 模糊理解；前置单比特门已基本具备 | [[Single-Qubit-Gates\|单量子比特门]] |
+| 11 | [[Tensor-Product\|张量积]] | 🔵 基本理解但下游很多；继续巩固会释放 13 篇下游笔记 | [[Qubit-State-and-Superposition\|量子比特态]] |
+| 12 | [[Two-Qubit-State-and-Entanglement\|双量子比特态]] | 🔵 基本理解但下游很多；适合继续推进到熟练 | [[Qubit-State-and-Superposition\|量子比特态]], [[Tensor-Product\|张量积]] |
 
 ## ⚠️ 瓶颈分析
 
@@ -132,7 +137,9 @@ status: Evergreen
 | [[Two-Qubit-Gates\|两量子比特门]] | 🔵 基本理解 | 5 | 10 | 前置已基本满足；建议重点连接 CZ/CNOT 与 entanglement |
 | [[CZ-Gate\|CZ门]] | 🟠 模糊理解 | 2 | 7 | 前置已基本满足；建议作为近期重点补强 |
 | [[Single-Qubit-Gates\|单量子比特门]] | 🔵 基本理解 | 5 | 7 | 前置已基本满足；建议继续巩固 Bloch sphere 旋转图像 |
-| [[QEC\|量子纠错码]] | 🟠 模糊理解 | 2 | 4 | 需要先补强 [[CZ-Gate\|CZ门]] |
+| [[SU2-SO3-and-Euler-Decomposition\|SU(2) 与 SO(3)]] | 🟠 模糊理解 | 0 | 0 | 前置已基本满足；建议配合单比特门一起学，巩固旋转数学 |
+| [[Entangling-Gate\|纠缠门]] | 🟠 模糊理解 | 0 | 0 | 前置已基本满足；建议配合 [[CZ-Gate\|CZ门]] 与 [[Two-Qubit-Gates\|两量子比特门]] 一起理解 |
+| [[QEC\|量子纠错码]] | 🟠 模糊理解 | 2 | 4 | 需要先补强 [[CZ-Gate\|CZ门]]（已基本理解）；建议尽快推进 QEC |
 | [[Optical-Tweezer-Arrays\|光镊阵列]] | 🔴 还不理解 | 2 | 2 | 前置已基本满足；建议先补平台物理图像 |
 | [[Rabi-Flopping\|拉比振荡]] | 🟠 模糊理解 | 2 | 2 | 前置已基本满足；建议配合两能级系统动力学复习 |
 | [[Surface-Code\|表面码]] | 🟠 模糊理解 | 1 | 2 | 需要先补强 [[QEC\|量子纠错码]] |
@@ -170,18 +177,30 @@ status: Evergreen
 
 > 图表内部标签按 vault 规范保留英文，以避免 matplotlib 的 CJK 字符警告。
 
-![[learning-progress-2026-06-03.png]]
+![[learning-progress-2026-06-04.png]]
 
 ## 🧩 本次增补观察
 
-> [!info] 2026-06-03 12:11 增补
-> 本次按“保留原路线图结构，只做局部增补”的方式维护：不重写整篇 [[Learning-Roadmap]]，只记录新增观察与下一步维护建议。
+> [!info] 2026-06-04 增补
+> 本次按”保留原路线图结构，只做局部增补”的方式维护。
 
-- 新增/尚未纳入 canonical graph 的补充笔记：[[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]]。它适合挂在 [[Single-Qubit-Gates|单量子比特门]] 与 [[Pauli-Matrices|泡利矩阵]] 附近，作为 Bloch sphere 旋转、Euler decomposition 和 half-angle 公式的数学补充。
-- 当前扫描显示 [[Gate-Eigenstates|门算符本征态]] 的 `comprehension` 已从 `vague` 提升到 `getting there`。主表保留旧版结构，后续若要同步统计，只应局部改对应行和总览数字，而不是整篇重写。
-- 短期学习重点仍建议放在 [[Optical-Tweezer-Arrays|光镊阵列]]、[[CZ-Gate|CZ门]] 与 [[Rabi-Flopping|拉比振荡]]：它们分别连接硬件平台、纠缠门和相干动力学，是后续 [[Rydberg-Blockade|里德堡阻塞]] 与 QEC 路线的关键入口。
+**本次变化摘要：**
+- **CZ-Gate** 理解程度从 🟠 模糊理解 提升到 🔵 基本理解——这是一个关键进展，因为 CZ-Gate 是 7 篇下游笔记的瓶颈（含 [[Rydberg-Blockade|里德堡阻塞]]、[[QEC|量子纠错码]] 等）。
+- **Gate-Eigenstates** 理解程度从 🟠 模糊理解 提升到 🔵 基本理解。
+- **新增 3 篇补充笔记**（已纳入 Tier 表格）：
+  - [[Basis-Transformation|基变换]]（Tier 1）— 线性代数基础工具，相似变换与表象变换
+  - [[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]]（Tier 2）— Bloch sphere 旋转与 Euler 分解的数学框架
+  - [[Entangling-Gate|纠缠门]]（Tier 3）— 两比特纠缠门的通用概念入口
+- 总笔记数从 22 篇增至 25 篇，加权总进度从 50% 提升至 54%。
+
+**短期学习建议：**
+- [[Optical-Tweezer-Arrays|光镊阵列]] 仍是 🔴 且为硬件平台基础，建议优先补。
+- [[Rabi-Flopping|拉比振荡]] 🟠 模糊，是连接单比特门与里德堡物理实现的关键。
+- [[QEC|量子纠错码]] 现在前置 [[CZ-Gate|CZ门]] 已基本理解，可以开始推进。
+- 新增的 [[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]] 和 [[Basis-Transformation|基变换]] 是数学补充，适合配合对应的 Tier 1-2 概念一起学。
 
 ## 📝 更新记录
 
+- 2026-06-04: 增补更新。CZ-Gate 理解升级（模糊→基本）、Gate-Eigenstates 理解升级（模糊→基本）；新增 3 篇补充笔记（[[Basis-Transformation|基变换]]、[[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]]、[[Entangling-Gate|纠缠门]]）纳入 Tier 表格；总进度 50%→54%。
 - 2026-06-03 12:11: 从 git 恢复旧版路线图；改为增补式维护，记录 [[SU2-SO3-and-Euler-Decomposition|SU(2) 与 SO(3)]] 与 [[Gate-Eigenstates|门算符本征态]] 的理解状态变化。
 - 2026-06-03: 修复乱码与表格渲染问题，并将路线图正文改为中文；保留图表英文标签以避免 CJK warning。

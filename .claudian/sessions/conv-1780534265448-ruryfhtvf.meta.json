@@ -4,8 +4,8 @@
   "title": "/research-summary 昨天的6月3号的完善一下然后规划一下今天的",
   "titleGenerationStatus": "failed",
   "createdAt": 1780534265449,
-  "updatedAt": 1780543581537,
-  "lastResponseAt": 1780543581537,
+  "updatedAt": 1780582115293,
+  "lastResponseAt": 1780582115293,
   "sessionId": "5bdebc4f-3b3c-472a-b885-c45280cd2f7c",
   "providerState": {
     "providerSessionId": "5bdebc4f-3b3c-472a-b885-c45280cd2f7c",
@@ -376,13 +376,13 @@
     }
   },
   "usage": {
-    "model": "sonnet[1m]",
-    "inputTokens": 433,
+    "model": "opus[1m]",
+    "inputTokens": 211,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 156032,
+    "cacheReadInputTokens": 171840,
     "contextWindow": 1000000,
-    "contextTokens": 156465,
-    "percentage": 16,
+    "contextTokens": 172051,
+    "percentage": 17,
     "contextWindowIsAuthoritative": true
   }
 }
