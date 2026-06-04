@@ -16,7 +16,7 @@
 | `Daily Notes/` | Research diary entries |
 | `Handout by AI/` | AI-generated paper reading handouts with Python figures |
 | `tools/` | Templates (`Zotero_Template.md`) and utilities |
-| `.agents/skills/` | Custom skills (zotero-notes, research-summary, literature-handout, learning-path) |
+| `.agents/skills/` | Custom skills (zotero-notes, daily-research, literature-handout, learning-path) |
 
 ### User Profile
 
@@ -200,7 +200,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | Skill | Trigger | Description |
 |-------|---------|-------------|
 | **zotero-notes** | Zotero 批注处理、知识笔记生成 | 从 Zotero 论文笔记中提取批注，生成知识笔记，建立双向链接 |
-| **research-summary** | "summarize today/yesterday/past N days", "daily summary", "weekly summary", "research summary" | Scans Literature/ and Rydberg atom/ for a user-specified range, only tracks reading progress (literature read, knowledge notes, comprehension), writes concise summary to Daily Notes/. No AI operation details. |
+| **daily-research** | "总结今天/昨天", "daily summary", "weekly summary", "research summary", "规划今天" | 总结学习进展 + 规划当日学习任务。扫描 Literature/ 与 Rydberg atom/，基于 block reference 证据写入 Daily Notes/ 的总结区块和学习计划。 |
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 | **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
 
