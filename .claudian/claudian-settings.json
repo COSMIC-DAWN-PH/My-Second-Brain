@@ -1,6 +1,6 @@
 {
   "userName": "",
-  "permissionMode": "yolo",
+  "permissionMode": "plan",
   "model": "opus[1m]",
   "thinkingBudget": "off",
   "effortLevel": "high",
@@ -90,7 +90,7 @@
   },
   "savedProviderThinkingBudget": {},
   "savedProviderPermissionMode": {
-    "claude": "yolo",
+    "claude": "plan",
     "codex": "yolo"
   },
   "lastCustomModel": "mimo-v2.5",

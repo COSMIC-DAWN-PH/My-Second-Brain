@@ -11,12 +11,14 @@
             "id": "5025e098a5a489b2",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Rydberg atom/attachments/learning-progress-2026-06-04.png"
+                "file": "Daily Notes/2026-06-05.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "learning-progress-2026-06-04"
+              "icon": "lucide-file",
+              "title": "2026-06-05"
             }
           }
         ]
@@ -206,8 +208,9 @@
   },
   "active": "5025e098a5a489b2",
   "lastOpenFiles": [
-    "Rydberg atom/attachments/learning-progress-2026-06-03.png",
     "Rydberg atom/attachments/learning-progress-2026-06-04.png",
+    "Daily Notes/2026-06-05.md.tmp.22132.991fc4f9b520",
+    "Rydberg atom/attachments/learning-progress-2026-06-03.png",
     "Daily Notes/2026-06-05.md",
     "Handout by AI/2023-parallel-gates-handout.md",
     "Handout by AI/start_up.md",
@@ -225,7 +228,6 @@
     "readme.md.tmp.36492.8ba2ede5e156",
     "readme.md.tmp.36492.c8e8deed1063",
     "CLAUDE.md.tmp.36492.ac179616ac9a",
-    "AGENTS.md.tmp.36492.8367163c739b",
     "Daily Notes/2026-06-03.md",
     "Rydberg atom/CZ-Gate.md",
     "Literature/generall quantum 2026.md",
