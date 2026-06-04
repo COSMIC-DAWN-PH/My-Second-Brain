@@ -27,8 +27,12 @@ Before generating any physics content, **read** `.agents/memory/user_profile.jso
 - **File names**: Always `English-Name.md` (Chinese aliases go in YAML `aliases` field)
 - **Wiki-links**: `[[English-Name]]` or `[[English-Name|中文显示名]]` — NEVER wrap in backticks (breaks Obsidian indexing)
 - **Wiki-links inside Markdown tables**: Escape display pipes as `[[English-Name\|中文显示名]]`; otherwise the `|` breaks table columns. Normal paragraphs can use `[[English-Name|中文显示名]]`.
+- **链接到具体章节**：`[[English-Name#章节标题]]` — 点击后直接跳转到目标笔记的对应章节。章节标题必须与笔记中的 `##` / `###` 标题文字完全一致。示例：`[[2023-parallel-gates-handout#6. 核心创新一：时间最优单脉冲门]]`
+- **链接到 block reference**：`[[English-Name^block-id]]` — 跳转到目标笔记中标记了 `^block-id` 的段落。可结合显示文本：`[[English-Name^block-id|显示文本]]`。示例：`[[Single-Qubit-Gates#^321fbe|旋转门]]`
+- **链接到章节 + 显示文本**：`[[English-Name#章节标题|显示文本]]` — 跳转到章节但显示自定义文字。示例：`[[Rydberg-Blockade#2. 数学描述：阻塞条件|阻塞条件]]`
 - **Embeds**: `![[English-Name]]` for transclusion, `![[English-Name#Section]]` for partial embed
 - **Block references**: `^block-id` at paragraph end, then `[[English-Name^block-id]]` to reference
+- **学习进度 Block Reference 的区间语义**：在知识笔记中，`^YYMMDD` 和 `^nuYYMMDD` 交替形成区间——每个标记管到上一个相反类型的标记为止。`^260604` = 之前已学懂，`^nu260604` = 之前没懂。示例：`^260604` → `^nu260604` → `^260604` 表示"已学→没懂→已学"三段交替
 - **LaTeX**: Inline `$...$`, block `$$...$$`. Never use `\begin{equation}`
 - **⚠️ Markdown 表格中的 LaTeX（铁律）**：`|0\rangle` 中的 `|` 会被 markdown 解析器优先当作表格列分隔符，即使用 `\|` 转义也经常失败（因为 `\|` 本身也被当作管道符处理）。**✅ 推荐解法：用 `\vert` 替代 `|`**，例如 `$\vert 0 \rangle$` 而不是 `$|0\rangle$`，`\vert` 是 LaTeX 命令，不会被 Markdown 解析器误识别为列分隔符。**退选方案：公式摘要一律用列表格式，绝不用表格。**
 - **Line breaks**: Soft-wrapped markdown (no hard line breaks)

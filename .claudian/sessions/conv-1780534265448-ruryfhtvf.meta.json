@@ -1,0 +1,387 @@
+{
+  "id": "conv-1780534265448-ruryfhtvf",
+  "providerId": "claude",
+  "title": "/research-summary 昨天的6月3号的完善一下然后规划一下今天的",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780534265449,
+  "updatedAt": 1780536309005,
+  "lastResponseAt": 1780536309005,
+  "sessionId": "5bdebc4f-3b3c-472a-b885-c45280cd2f7c",
+  "providerState": {
+    "providerSessionId": "5bdebc4f-3b3c-472a-b885-c45280cd2f7c",
+    "subagentData": {
+      "call_6ad29f73dd1b41b7a6cdcfff": {
+        "id": "call_6ad29f73dd1b41b7a6cdcfff",
+        "description": "Scan Rydberg atom notes for block refs",
+        "prompt": "I need to find all block reference progress markers in the Rydberg atom/ knowledge notes. These are markers in the format `^260603` (learned on 2026-06-03) or `^nu260603` (not understood on 2026-06-03) placed under section headings. Also check for any date patterns like `^2600603`.\n\nSearch for these patterns:\n1. `^260603` or `^2600603` (learned markers for June 3, 2026)\n2. `^nu260603` (not-understood markers for June 3, 2026)\n3. Any block references in general under section headings in Rydberg atom/ files\n\nAlso check the comprehension field in the frontmatter of these key files:\n- Rydberg atom/Rydberg-Blockade.md\n- Rydberg atom/CZ-Gate.md\n- Rydberg atom/Optical-Tweezer-Arrays.md\n- Rydberg atom/Deep-Circuit-Execution.md\n- Rydberg atom/Entangling-Gate.md\n- Rydberg atom/Single-Qubit-Gates.md\n\nBe thorough - search across all files in \"Rydberg atom/\" directory. Report exact file names, line numbers, and the block reference content found.",
+        "status": "completed",
+        "toolCalls": [
+          {
+            "id": "call_7a0af124dda642e0b1f86273",
+            "name": "Grep",
+            "input": {
+              "pattern": "\\^260603",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "output_mode": "content",
+              "-n": true
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\CZ-Gate.md:365:^260603\nRydberg atom\\Two-Qubit-Gates.md:156:^260603"
+          },
+          {
+            "id": "call_63c9c2f5e0374def9c9cdf35",
+            "name": "Grep",
+            "input": {
+              "pattern": "\\^2600603",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "output_mode": "content",
+              "-n": true
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "No matches found"
+          },
+          {
+            "id": "call_4d3e4f5565bc422eac71ff88",
+            "name": "Grep",
+            "input": {
+              "pattern": "\\^nu260603",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "output_mode": "content",
+              "-n": true
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\Two-Qubit-State-and-Entanglement.md:290:^nu260603"
+          },
+          {
+            "id": "call_46c3d5866d0f4b1ba759eb5f",
+            "name": "Grep",
+            "input": {
+              "pattern": "\\^[a-z]?\\d{6}",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "output_mode": "content",
+              "-n": true
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\CZ-Gate.md:365:^260603\nRydberg atom\\Two-Qubit-Gates.md:156:^260603"
+          },
+          {
+            "id": "call_6fae964e5f04427c8a135a95",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Rydberg-Blockade.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Rydberg Blockade\n4\t  - 里德堡阻塞\n5\t  - Rydberg Blockade Mechanism\n6\t  - 阻塞机制\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - NeutralAtom\n11\t  - RydbergAtom\n12\t  - Gates\n13\t  - Entanglement\n14\tdate: 2026-06-01\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: \"don't understand\"\n18\t---\n19\t\n20\t# 里德堡阻塞（Rydberg Blockade）\n21\t\n22\t> 来源批注：*\"Rydberg blockade\"* — Bluvstein et al., 2026\n23\t> 本笔记是中性原子量子计算的核心概念。里德堡阻塞是实现两量子比特门（CZ 门）的物理机制，也是整个中性原子量子计算平台的基石。\n24\t\n25\t---\n26\t\n27\t## 1. 物理直觉：什么是里德堡阻塞？\n28\t\n29\t### 1.1 从\"两个孩子抢一把椅子\"说起\n30\t\n31\t想象一个场景：房间里只有一把椅子，两个孩子都想坐。如果一个孩子已经坐在椅子上了，另一个孩子就**坐不上去**——椅子被\"占\"了。\n32\t\n33\t里德堡阻塞的物理图像与此类似：\n34\t\n35\t> **当一个原子被激发到里德堡态（Rydberg state）后，它会\"阻塞\"附近的另一个原子，使后者无法也被激发到里德堡态。**\n36\t\n37\t这不是因为激光不够强，而是因为**两个里德堡原子之间的相互作用太强了**——强到第二个原子的能级被大幅移动，激光频率完全无法共振激发它。\n38\t\n39\t> [!tip] 核心类比\n40\t> 里德堡阻塞就像\"两个孩子抢一把椅子\"——一个原子坐了里德堡态的\"椅子\"，另一个就坐不上去。这不是因为第二个孩子不想坐，而是椅子被\"占\"了（能级被移走了）。\n41\t\n42\t### 1.2 什么是里德堡态？\n43\t\n44\t里德堡态是原子的**极高激发态**——主量子数 $n$ 很大（通常 $n \\sim 50-100$）的态。\n45\t\n46\t里德堡原子的特殊性质：\n47\t\n48\t| 性质 | 标度关系 | 物理含义 |\n49\t|------|---------|---------|\n50\t| 轨道半径 | $r \\propto n^2$ | $n=60$ 时轨道半径约 $0.3\\,\\mu\\text{m}$，比基态大 3600 倍 |"
+          },
+          {
+            "id": "call_c35f82a339fc4a4297d2f3f8",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - CZ Gate\n4\t  - CZ门\n5\t  - Controlled-Z\n6\t  - 控制Z门\n7\t  - 纠缠门\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Gates\n12\t  - TwoQubit\n13\t  - Entanglement\n14\tdate: 2026-03-29\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: getting there\n18\t---\n19\t\n20\t# CZ 门（Controlled-Z Gate，纠缠门）\n21\t\n22\t> 来源批注：评价中列出 \"纠缠门（CZ门）\" — Bluvstein et al., 2026\n23\t\n24\t## 1. 什么是 CZ 门？\n25\t\n26\tCZ 门是一个**两量子比特门**，是中性原子量子计算中最核心的门操作之一。\n27\t\n28\t它的作用是：**当且仅当两个 qubit 都处于 $|1\\rangle$ 时，给系统引入一个 $\\pi$ 相位**。\n29\t\n30\t> [!tip] CZ vs CNOT\n31\t> CZ 门是对称的——两个 qubit 地位平等，没有\"控制\"和\"目标\"之分。而 CNOT 门有明确的控制比特和目标比特。在中性原子系统中，CZ 门更自然，因为里德堡阻塞对两个原子是对称的。\n32\t\n33\t## 2. 矩阵表示\n34\t\n35\t在计算基 $\\{|00\\rangle, |01\\rangle, |10\\rangle, |11\\rangle\\}$ 下：\n36\t\n37\t$$\n38\t\\text{CZ} = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & -1 \\end{pmatrix}\n39\t$$\n40\t\n41\t作用规则：\n42\t$$\n43\t|00\\rangle \\to |00\\rangle, \\quad |01\\rangle \\to |01\\rangle, \\quad |10\\rangle \\to |10\\rangle, \\quad |11\\rangle \\to -|11\\rangle\n44\t$$\n45\t\n46\t## 3. CZ 门制造纠缠\n47\t\n48\t### 3.1 逐步推导\n49\t\n50\t**第一步：输入态展开。** 两个 qubit 都处于 $|+\\rangle = \\frac{1}{\\sqrt{2}}(|0\\rangle + |1\\rangle)$，它们彼此独立（乘积态），用分配律展开："
+          },
+          {
+            "id": "call_f4894874694743098dbdc19b",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Optical-Tweezer-Arrays.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Optical Tweezer Arrays\n4\t  - 光镊阵列\n5\t  - 光学偶极阱\n6\t  - Optical Dipole Trap\n7\t  - 光镊\n8\t  - Tweezer\n9\ttags:\n10\t  - Physics\n11\t  - Quantum\n12\t  - NeutralAtom\n13\t  - ExperimentalPlatform\n14\t  - RydbergAtom\n15\tdate: 2026-03-29\n16\tstatus: Draft\n17\tsource: \"[[generall quantum 2026]]\"\n18\tcomprehension: don't understand\n19\t---\n20\t\n21\t# 光镊阵列（Optical Tweezer Arrays）\n22\t\n23\t> 📄 来源文献：[[generall quantum 2026]] · 原始批注见 [p.40](zotero://select/library/items/SL8QGCV5)\n24\t\n25\t> 来源批注：*\"optical tweezers\"* — Bluvstein et al., 2026, p.40\n26\t\n27\t## 1. 物理直觉：用光抓住原子\n28\t\n29\t**光镊（Optical Tweezer）**是利用强聚焦激光束产生的**光学梯度力**来俘获微小粒子（包括单个中性原子）的技术。\n30\t\n31\t其物理原理：高斯光束的光强在焦点处最强。一个可极化的粒子（原子）在远离谐振的激光场中会感受到一个**偶极力**，被吸引到光强最大的焦点处：\n32\t\n33\t$$\n34\t\\mathbf{F}_{\\text{dipole}} = -\\nabla U_{\\text{dipole}}, \\quad U_{\\text{dipole}} = -\\frac{1}{2}\\alpha(\\omega) |\\mathbf{E}(\\mathbf{r})|^2\n35\t$$\n36\t\n37\t其中 $\\alpha(\\omega)$ 是原子的动态极化率，$|\\mathbf{E}|^2 \\propto I(\\mathbf{r})$ 为光强。\n38\t\n39\t> 当激光频率**低于**原子共振频率（红失谐，red-detuned）时，$\\alpha > 0$，原子被吸引到光强最大处（焦点），形成稳定俘获。\n40\t\n41\t> [!tip] 光镊 = 微观机械手\n42\t> 可以把光镊想象成一只**看不见的微型机械手**：激光焦点就是手指尖，原子就是被抓住的小零件。关键在于这只手只用\"光\"就能握住和搬运原子，无需物理接触——这在量子计算中至关重要。\n43\t\n44\t## 2. 从单个光镊到阵列\n45\t\n46\t单个聚焦光束可以俘获**单个原子**（平均填充率约 50%，需要后选择）。\n47\t\n48\t**光镊阵列**通过以下技术将数百至数千个光镊排列成任意二维图案：\n49\t- **空间光调制器（SLM, Spatial Light Modulator）**：利用全息图案将单束激光分裂为任意排列的多个焦点\n50\t- **声光偏转器（AOD, Acousto-Optic Deflector）**：高速扫描激光，动态创建光镊阵列"
+          },
+          {
+            "id": "call_768d4de2be304ffc9a172a1f",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Deep-Circuit-Execution.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Deep-Circuit Execution\n4\t  - 深度电路执行\n5\t  - 深层电路\n6\t  - 恒定熵计算\n7\ttags:\n8\t  - Physics\n9\t  - Quantum\n10\t  - FaultTolerant\n11\t  - Architecture\n12\t  - DeepCircuit\n13\tdate: 2026-03-29\n14\tstatus: Draft\n15\tsource: \"[[generall quantum 2026]]\"\n16\tcomprehension: \"don't understand\"\n17\t---\n18\t\n19\t# 深度电路执行（Deep-Circuit Execution）\n20\t\n21\t> 来源批注：*\"deep-circuit execution\"* — Bluvstein et al., 2026, p.39\n22\t> Better Notes 中已有 DeepSeek 详细解答，本笔记提取物理核心并形式化。\n23\t\n24\t## 1. 问题背景\n25\t\n26\t**深度电路执行**的核心挑战：量子算法往往需要执行深度很深的电路（数百甚至数千个逻辑门层），期间物理错误会不断累积。\n27\t\n28\t定义**电路深度** $D$ 为串行门操作的总层数。对于物理错误率 $p$，在 $D$ 层操作后：\n29\t\n30\t$$\n31\tp_{\\text{累积}} \\approx 1 - (1-p)^D \\approx pD \\quad (p \\ll 1)\n32\t$$\n33\t\n34\t在无容错保护时，$D \\gtrsim 1/p$ 后计算将失败。\n35\t\n36\t> [!tip] 物理直觉\n37\t> 想象一个传话游戏：每传一次就可能出错。传 10 次可能还行，传 1000 次就完全走样了。深度电路执行就是要解决\"传话太长会走样\"的问题——通过不断\"刷新\"信息来阻止错误累积。\n38\t\n39\t## 2. 目标：恒定熵（Constant Entropy）\n40\t\n41\t论文的核心目标是维持系统在**恒定熵**状态下运行：\n42\t\n43\t> 处理器的\"熵\"（即错误信息量、无序度）在整个深度电路执行过程中保持不变，不积累。\n44\t\n45\t$$\n46\tS_{\\text{逻辑}}(t) = \\text{const} \\quad \\forall t \\in [0, T_{\\text{circuit}}]\n47\t$$\n48\t\n49\t## 3. 核心机制：逻辑横向隐形传态\n50\t"
+          },
+          {
+            "id": "call_0c832f1346964d46a179f01d",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Entangling-Gate.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Entangling Gate\n4\t  - 纠缠门\n5\t  - Entangling Operation\n6\t  - 纠缠操作\n7\t  - 两比特纠缠门\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Gates\n12\t  - TwoQubit\n13\t  - Entanglement\n14\t  - Fundamental\n15\tdate: 2026-06-03\n16\tstatus: Draft\n17\tsource: \"[[2023-parallel-gates-handout]]\"\n18\tcomprehension: \"vague\"\n19\t---\n20\t\n21\t# 纠缠门（Entangling Gate）\n22\t\n23\t> 来源讲义：[[2023-parallel-gates-handout|高保真并行纠缠门讲义]] — Bluvstein et al., Nature 2024\n24\t> 本笔记从**概念层面**系统介绍\"纠缠门\"这个类别——它是什么、如何判别、有哪些类型、在不同物理平台如何实现。与 [[CZ-Gate]]（具体门操作）和 [[Two-Qubit-Gates]]（门的数学性质）互补，这里讨论的是**纠缠门作为一个整体概念**。\n25\t\n26\t---\n27\t\n28\t## 1. 什么是纠缠门？\n29\t\n30\t### 1.1 从单比特门的局限说起\n31\t\n32\t在 [[Single-Qubit-Gates]] 中我们知道，单比特门只做一件事：**在 Bloch 球上旋转单个 qubit 的状态**。\n33\t\n34\t$$\n35\t|\\psi\\rangle = \\alpha|0\\rangle + \\beta|1\\rangle \\xrightarrow{\\text{单比特门}} \\alpha'|0\\rangle + \\beta'|1\\rangle\n36\t$$\n37\t\n38\t无论你怎么旋转，两个独立的 qubit 依然各自独立——它们之间**没有关联**。\n39\t\n40\t> [!tip] 核心直觉\n41\t> 单比特门就像两个人**各自独立思考**——A 改变自己的想法，B 完全不受影响。再多的独立思考者，也无法产生\"共识\"。\n42\t>\n43\t> **纠缠门是让两个 qubit 产生\"共谋\"的操作**——A 的决定会影响 B 的行为。一旦这种关联建立，两个 qubit 就\"纠缠\"在一起了。\n44\t\n45\t### 1.2 纠缠门的精确定义\n46\t\n47\t> **纠缠门（entangling gate）**是一种两量子比特门，它能将**至少一个**乘积态（product state）映射为**纠缠态**（entangled state）。\n48\t\n49\t用数学语言说：\n50\t"
+          },
+          {
+            "id": "call_337f952389474f1ab8941f15",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md",
+              "limit": 50
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\taliases:\n3\t  - Single-Qubit Gates\n4\t  - 单量子比特门\n5\t  - 单比特门\n6\t  - 量子门\n7\t  - Quantum Gates\n8\ttags:\n9\t  - Physics\n10\t  - Quantum\n11\t  - Gates\n12\t  - SingleQubit\n13\t  - Fundamental\n14\tdate: 2026-06-01\n15\tstatus: WIP\n16\tsource: \"[[generall quantum 2026]]\"\n17\tcomprehension: \"getting there\"\n18\t---\n19\t\n20\t# 单量子比特门（Single-Qubit Gates）\n21\t\n22\t> 来源批注：量子计算基础概念 — Bluvstein et al., 2026\n23\t> 本笔记从\"一个 qubit 能做什么\"出发，系统介绍单比特门的物理直觉、数学定义、标准门集、Bloch 球几何图像以及在中性原子中的实验实现。所有矩阵运算都给出完整步骤，不跳步。\n24\t\n25\t---\n26\t\n27\t## 1. 一个 qubit 能做什么？——单比特门的本质\n28\t\n29\t### 1.1 先从经典世界说起\n30\t\n31\t经典计算机里，一个 bit 要么是 0 要么是 1。经典逻辑门（AND、OR、NOT）作用在确定的 0 或 1 上，输出也是确定的。\n32\t\n33\t但 qubit 不同。一个 qubit 可以处于叠加态：\n34\t\n35\t$$\n36\t\\vert \\psi\\rangle = \\alpha\\vert 0\\rangle + \\beta\\vert 1\\rangle, \\quad |\\alpha|^2 + |\\beta|^2 = 1\n37\t$$\n38\t\n39\t量子门对叠加态的作用是**同时改变 $\\alpha$ 和 $\\beta$ 的大小和相对相位**——这就是单比特门的本质。\n40\t\n41\t### 1.2 三个核心约束\n42\t\n43\t在设计单比特门时，量子力学给了三个硬约束：\n44\t\n45\t**概率守恒**：变换前后概率总和为 1，即 $|\\alpha'|^2 + |\\beta'|^2 = |\\alpha|^2 + |\\beta|^2 = 1$。概率不能凭空出现或消失。\n46\t\n47\t**可逆性**：存在逆操作 $U^{-1}$ 使得 $U^{-1}U = I$。门操作不能丢失信息（否则违反幺正性）。\n48\t\n49\t**线性**：$U(\\alpha\\vert 0\\rangle + \\beta\\vert 1\\rangle) = \\alpha\\,U\\vert 0\\rangle + \\beta\\,U\\vert 1\\rangle$。量子力学是线性的——叠加态的演化等于各分量演化的叠加。\n50\t"
+          },
+          {
+            "id": "call_1387cc60700247318e0faa17",
+            "name": "Glob",
+            "input": {
+              "pattern": "**/*",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\Deep-Circuit-Execution.md\nRydberg atom\\Quantum-Zeno-Effect.md\nRydberg atom\\AC-Stark-Effect.md\nRydberg atom\\Grover-Search.md\nRydberg atom\\Quantum-Phase-Estimation.md\nRydberg atom\\Anti-Commutation.md\nRydberg atom\\QEC.md\nRydberg atom\\Transversal-Teleportation.md\nRydberg atom\\attachments\\learning-progress-2026-06-02.py\nRydberg atom\\Optical-Tweezer-Arrays.md\nRydberg atom\\Tensor-Product.md\nRydberg atom\\Transversal-Gate.md\nRydberg atom\\Pauli-Matrices.md\nRydberg atom\\Rabi-Flopping.md\nRydberg atom\\Neutral_Atom_Test.md\nRydberg atom\\Qubit-State-and-Superposition.md\nRydberg atom\\Gate-Eigenstates.md\nRydberg atom\\SU2-SO3-and-Euler-Decomposition.md\nRydberg atom\\attachments\\learning-progress-2026-06-03.png\nRydberg atom\\Rydberg-Blockade.md\nRydberg atom\\Entangling-Gate.md\nRydberg atom\\Two-Qubit-State-and-Entanglement.md\nRydberg atom\\Two-Qubit-Gates.md\nRydberg atom\\Surface-Code.md\nRydberg atom\\Single-Qubit-Gates.md\nRydberg atom\\Basis-Transformation.md\nRydberg atom\\CZ-Gate.md"
+          },
+          {
+            "id": "call_ee512e3441d44f118f172d4c",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md",
+              "offset": 355,
+              "limit": 20
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "355\t| **创造纠缠？** | ✅ 是 | ✅ 是（同等强度） |\n356\t| **对称性** | 不对称（有控制/目标之分） | 对称（两个 qubit 地位平等） |\n357\t\n358\t> [!tip] 语言类比\n359\t> 想象你有两种语言来描述同一件事：\n360\t> - **英语**（CNOT）：\"如果 A 是 true，就翻转 B 的 true/false\"——关注**比特值变化**\n361\t> - **法语**（CZ）：\"如果 A 和 B 都是 true，就给信号加一个负号\"——关注**相位变化**\n362\t>\n363\t> H 门就是\"翻译官\"——它把英语翻译成法语，法语翻译回英语。两种语言说的是**同一件事**（同样的纠缠），只是表达方式不同。\n364\t\n365\t^260603\n366\t\n367\t### 4.5 为什么这对中性原子很重要？\n368\t\n369\t在中性原子中，Rydberg 阻塞天然是对称的——两个原子同时激发时相互阻塞，没有\"谁控制谁\"的概念。所以 **CZ 是物理原生门**。如果你想做 CNOT（比如跑一个标准量子算法），就得额外加两个 H 门：\n370\t\n371\t$$\n372\t\\text{CNOT}_{1\\to 2} = (I \\otimes H) \\cdot \\text{CZ} \\cdot (I \\otimes H)\n373\t$$\n374\t"
+          },
+          {
+            "id": "call_1d64b32b9ec249cbb569bd5f",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md",
+              "offset": 146,
+              "limit": 20
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "146\t\n147\t$$\n148\t\\text{CZ} = (I \\otimes H) \\cdot \\text{CNOT} \\cdot (I \\otimes H)\n149\t$$\n150\t\n151\t**物理含义**：CZ 和 CNOT 包含相同的纠缠能力，只是\"纠缠的语言\"不同——CNOT 说的是\"比特翻转\"，CZ 说的是\"相位翻转\"。通过 H 门可以在两种语言之间翻译。\n152\t\n153\t> [!info] 详细推导\n154\t> 这个转换为什么成立？核心在于恒等式 $HXH = Z$——H 门把 X（比特翻转）\"翻译\"成 Z（相位翻转）。完整证明和物理直觉见 [[CZ-Gate#4. CZ 门与 CNOT 门的关系|CZ 门 — §4 CZ 与 CNOT 的关系]]。\n155\t\n156\t^260603\n157\t\n158\t---\n159\t\n160\t## 4. SWAP 门：交换两个 qubit 的状态\n161\t\n162\t### 4.1 定义\n163\t\n164\tSWAP 门将两个 qubit 的状态互换：\n165\t"
+          },
+          {
+            "id": "call_37ea7fe1d1cd4e71897c3e58",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md",
+              "offset": 280,
+              "limit": 20
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "280\t验证 $|\\Phi^+\\rangle$：$\\chi = \\pi/4$ 给出 $\\lambda_1 = \\lambda_2 = 1/\\sqrt{2}$，$\\theta_A = \\theta_B = 0$ 给出 $|u_1\\rangle = |v_1\\rangle = |0\\rangle$，$|u_2\\rangle = |v_2\\rangle = |1\\rangle$，代入即得：\n281\t\n282\t$$\n283\t\\frac{1}{\\sqrt{2}}|0\\rangle_A|0\\rangle_B + \\frac{1}{\\sqrt{2}}|1\\rangle_A|1\\rangle_B = \\frac{1}{\\sqrt{2}}(|00\\rangle + |11\\rangle) = |\\Phi^+\\rangle \\quad \\checkmark\n284\t$$\n285\t\n286\t> [!info] 为什么用 Schmidt 分解做参数化？\n287\t> 这是最”干净”的双 qubit 参数化方案，因为它把纠缠的强度（$\\chi$）和局部自由度（$\\theta, \\phi$）完全分离开。其他方案（比如直接写 $\\alpha, \\beta, \\gamma, \\delta$ 的三角函数）虽然也行，但纠缠信息会混在各角度之间，不如这个直观。\n288\t\n289\t\n290\t^nu260603\n291\t### 1.3 Tensor Product 结构\n292\t\n293\t两 qubit 空间不是简单的\"两个空间加在一起\"，而是通过 [[Tensor-Product|张量积]] 组合在一起：\n294\t\n295\t$$\n296\t\\mathcal{H}_2 = \\mathcal{H}_A \\otimes \\mathcal{H}_B\n297\t$$\n298\t\n299\t这种张量积结构是理解纠缠的数学基础——纠缠态正是**无法分解为张量积**的态。"
+          },
+          {
+            "id": "call_58df7cfb79e644919fdeb608",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "-C": 3,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "\\^[a-z]*\\d{5,8}\\b"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-362->\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-363-> H 门就是\"翻译官\"——它把英语翻译成法语，法语翻译回英语。两种语言说的是**同一件事**（同样的纠缠），只是表达方式不同。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-364-\nRydberg atom\\CZ-Gate.md:365:^260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-366-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-367-### 4.5 为什么这对中性原子很重要？\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-368-\n--\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-287-> 这是最”干净”的双 qubit 参数化方案，因为它把纠缠的强度（$\\chi$）和局部自由度（$\\theta, \\phi$）完全分离开。其他方案（比如直接写 $\\alpha, \\beta, \\gamma, \\delta$ 的三角函数）虽然也行，但纠缠信息会混在各角度之间，不如这个直观。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-288-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-289-\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:290:^nu260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-291-### 1.3 Tensor Product 结构\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-292-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-293-两 qubit 空间不是简单的\"两个空间加在一起\"，而是通过 [[Tensor-Product|张量积]] 组合在一起：\n--\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-153-> [!info] 详细推导\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-154-> 这个转换为什么成立？核心在于恒等式 $HXH = Z$——H 门把 X（比特翻转）\"翻译\"成 Z（相位翻转）。完整证明和物理直觉见 [[CZ-Gate#4. CZ 门与 CNOT 门的关系|CZ 门 — §4 CZ 与 CNOT 的关系]]。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-155-\nRydberg atom\\Two-Qubit-Gates.md:156:^260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-157-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-158----\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-159-"
+          },
+          {
+            "id": "call_0a1588384c5f41ce8be8447b",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "-C": 3,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "\\^260[0-9]{3}"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-362->\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-363-> H 门就是\"翻译官\"——它把英语翻译成法语，法语翻译回英语。两种语言说的是**同一件事**（同样的纠缠），只是表达方式不同。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-364-\nRydberg atom\\CZ-Gate.md:365:^260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-366-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-367-### 4.5 为什么这对中性原子很重要？\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-368-\n--\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-153-> [!info] 详细推导\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-154-> 这个转换为什么成立？核心在于恒等式 $HXH = Z$——H 门把 X（比特翻转）\"翻译\"成 Z（相位翻转）。完整证明和物理直觉见 [[CZ-Gate#4. CZ 门与 CNOT 门的关系|CZ 门 — §4 CZ 与 CNOT 的关系]]。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-155-\nRydberg atom\\Two-Qubit-Gates.md:156:^260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-157-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-158----\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-159-"
+          },
+          {
+            "id": "call_f082e7d33ef34db29064e960",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "-C": 3,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "\\^[a-z]*\\d{2}0[0-9]{3}"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-362->\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-363-> H 门就是\"翻译官\"——它把英语翻译成法语，法语翻译回英语。两种语言说的是**同一件事**（同样的纠缠），只是表达方式不同。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-364-\nRydberg atom\\CZ-Gate.md:365:^260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-366-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-367-### 4.5 为什么这对中性原子很重要？\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md-368-\n--\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-153-> [!info] 详细推导\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-154-> 这个转换为什么成立？核心在于恒等式 $HXH = Z$——H 门把 X（比特翻转）\"翻译\"成 Z（相位翻转）。完整证明和物理直觉见 [[CZ-Gate#4. CZ 门与 CNOT 门的关系|CZ 门 — §4 CZ 与 CNOT 的关系]]。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-155-\nRydberg atom\\Two-Qubit-Gates.md:156:^260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-157-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-158----\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md-159-\n--\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-287-> 这是最”干净”的双 qubit 参数化方案，因为它把纠缠的强度（$\\chi$）和局部自由度（$\\theta, \\phi$）完全分离开。其他方案（比如直接写 $\\alpha, \\beta, \\gamma, \\delta$ 的三角函数）虽然也行，但纠缠信息会混在各角度之间，不如这个直观。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-288-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-289-\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:290:^nu260603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-291-### 1.3 Tensor Product 结构\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-292-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-293-两 qubit 空间不是简单的\"两个空间加在一起\"，而是通过 [[Tensor-Product|张量积]] 组合在一起："
+          },
+          {
+            "id": "call_2d5998a4496e43b39bbf2709",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md",
+              "pattern": "^#{1,4} "
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "20:# CZ 门（Controlled-Z Gate，纠缠门）\n24:## 1. 什么是 CZ 门？\n33:## 2. 矩阵表示\n46:## 3. CZ 门制造纠缠\n48:### 3.1 逐步推导\n65:### 3.2 为什么这个态是纠缠的？\n83:### 3.3 测量视角：纠缠意味着什么\n99:### 3.4 注意：这不是标准贝尔态\n118:## 4. CZ 门与 CNOT 门的关系\n133:### 4.1 为什么 H 门能做这件事？\n151:### 4.2 算符分解严格证明\n153:#### 4.2.1 投影算符写法：CNOT 和 CZ 的统一结构\n178:#### 4.2.2 关键等式：$HIH = I$ 和 $HXH = Z$\n204:#### 4.2.3 逐步证明：$(I \\otimes H) \\cdot \\text{CNOT} \\cdot (I \\otimes H) = \\text{CZ}$\n260:### 4.3 算符语言 vs 矩阵语言：两种等价的表达\n264:#### 4.3.1 投影算符的直觉\n277:#### 4.3.2 每块\"积木\"对应哪个矩阵\n288:#### 4.3.3 CNOT 的展开验证\n302:#### 4.3.4 CZ 的展开验证\n316:#### 4.3.5 同一个证明的两条路线\n334:#### 4.3.6 两种语言的对比总结\n349:### 4.4 物理含义：\"两种语言\"的翻译\n367:### 4.5 为什么这对中性原子很重要？\n377:## 5. 在 Rydberg 体系中的实现\n397:## 📐 核心公式摘要\n405:## 🔗 相关笔记\n415:## 📝 更新记录"
+          },
+          {
+            "id": "call_e8a89ce6d17f4a4eb4b7205a",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md",
+              "pattern": "^#{1,4} "
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "20:# 两量子比特门（Two-Qubit Gates）\n27:## 1. 为什么需要两比特门？\n29:### 1.1 单比特门的局限\n35:### 1.2 两比特门的核心能力：创造纠缠\n53:### 1.3 与经典门的关键区别\n63:## 2. CNOT 门：经典-量子的桥梁\n65:### 2.1 定义\n79:### 2.2 四种输入的逐行计算\n86:### 2.3 矩阵表示（$4\\times4$）\n97:### 2.4 CNOT 创造纠缠\n116:## 3. CZ 门：中性原子的首选\n118:### 3.1 定义与矩阵\n132:### 3.2 CZ vs CNOT：对称性\n139:### 3.3 CZ = CNOT 的\"相位版本\"\n160:## 4. SWAP 门：交换两个 qubit 的状态\n162:### 4.1 定义\n176:### 4.2 三个 CNOT = SWAP\n185:### 4.3 SWAP 不创造纠缠\n191:## 5. 四个 Bell 态：纠缠的极致\n193:### 5.1 定义\n213:### 5.2 如何制备 Bell 态？\n221:### 5.3 Bell 态的性质\n235:## 6. 两比特门的 Bloch 球图像\n237:### 6.1 CNOT 门的几何含义\n244:### 6.2 CZ 门的几何含义\n253:## 7. 通用量子计算：单比特门 + 两比特门\n255:### 7.1 通用门集\n265:### 7.2 量子线路的标准结构\n283:### 7.3 T 门数量：资源开销的度量\n291:## 8. 在中性原子中的物理实现\n293:### 8.1 CZ 门：里德堡阻塞\n309:### 8.2 性能参数\n317:### 8.3 CNOT 门的实现\n332:## 📐 核心公式摘要\n344:## 🔗 相关笔记\n357:## 📝 更新记录"
+          },
+          {
+            "id": "call_59e7baa69141439394b0fd72",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md",
+              "pattern": "^#{1,4} "
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "21:# 双量子比特态与纠缠（Two-Qubit State and Entanglement）\n28:## 1. 两个 qubit 的态空间\n30:### 1.1 从一维到四维\n54:### 1.2 双量子比特到底怎么写？\n101:#### 从两个单 qubit 态乘出来\n129:#### 一个具体例子\n162:#### 单 qubit 回顾：Bloch 球参数化\n174:#### 双 qubit 的三角函数参数化\n291:### 1.3 Tensor Product 结构\n303:## 2. 什么态不是纠缠的？——直积态\n305:### 2.1 定义\n319:### 2.2 直积态的特征\n339:### 2.3 例子\n347:## 3. 纠缠态：无法分解的量子关联\n349:### 3.1 定义\n355:### 3.2 最简单的纠缠态：Bell 态\n369:### 3.3 纠缠的物理含义\n381:### 3.4 四个 Bell 态\n394:## 4. 如何判断一个态是否纠缠？\n396:### 4.1 简单判据（两 qubit 纯态）\n404:### 4.2 Peres-Horodecki 判据（更一般的情况）\n417:## 5. 量化纠缠：并发度与 von Neumann 熵\n419:### 5.1 为什么需要量化？\n428:### 5.2 并发度（Concurrence）\n455:### 5.3 纠缠熵（Entanglement Entropy）\n490:### 5.4 直积态 vs 纠缠态的判别总结\n502:## 6. Schmidt 分解：纠缠的数学本质\n504:### 6.1 定理\n514:### 6.2 Schmidt 系数与纠缠\n531:## 7. 约化密度矩阵与\"局部看起来混合\"\n533:### 7.1 从纯态到混合态\n545:### 7.2 为什么这很重要？\n558:## 8. 在 Rydberg 原子中的纠缠\n560:### 8.1 纠缠的制备\n570:### 8.2 实验中的纠缠度量\n579:### 8.3 并发度的实验测量\n592:## 📐 核心公式摘要\n605:## 🔗 相关笔记\n616:## 📝 更新记录"
+          },
+          {
+            "id": "call_ca7e267d7ce6472fa2c66efa",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "^\\^[a-z]*\\d"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\CZ-Gate.md:365:^260603\nRydberg atom\\Single-Qubit-Gates.md:360:^321fbe\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:290:^nu260603\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:413:^0603\nRydberg atom\\Two-Qubit-Gates.md:156:^260603"
+          },
+          {
+            "id": "call_0c120f55ae234e02a287b875",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "\\^[\\w]{5,10}",
+              "glob": "*.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\CZ-Gate.md:365:^260603\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:290:^nu260603\nRydberg atom\\Single-Qubit-Gates.md:360:^321fbe\nRydberg atom\\Two-Qubit-Gates.md:156:^260603"
+          },
+          {
+            "id": "call_9b661c4c52f343bfb0af01de",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md",
+              "limit": 15,
+              "offset": 350
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "350\t| 门 | 矩阵 | 效果 | 与 Z 的关系 |\n351\t|---|---|---|---|\n352\t| $S = Z^{1/2}$ | $\\text{diag}(1,\\;i)$ | $+i$ 相位（$\\pi/2$） | $S^2 = Z$ |\n353\t| $T = Z^{1/4}$ | $\\text{diag}(1,\\;e^{i\\pi/4})$ | $e^{i\\pi/4}$ 相位（$\\pi/4$） | $T^2 = S$，$T^4 = Z$ |\n354\t\n355\t**直觉**：S 门\"走半步\"（$\\pi/2$），T 门\"走四分之一步\"（$\\pi/4$）——它们让量子线路可以做越来越精细的相位操控。\n356\t\n357\t> [!warning] T 门的特殊地位\n358\t> T 门是容错量子计算中最\"昂贵\"的门——它**无法横向实现**（受 [[Transversal-Gate|Eastin-Knill 定理]] 限制），必须通过 [[Transversal-Teleportation|Gate Teleportation]] + magic state distillation 来实现。在 T-count 优化中，工程师们千方百计地减少 T 门的数量。\n359\t\n360\t^321fbe\n361\t---\n362\t\n363\t## 4. 旋转门：任意角度的操控\n364\t"
+          },
+          {
+            "id": "call_3fd47683307a43828c5cd2d8",
+            "name": "Read",
+            "input": {
+              "file_path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md",
+              "limit": 15,
+              "offset": 403
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "403\t\n404\t### 4.2 Peres-Horodecki 判据（更一般的情况）\n405\t\n406\t对**混合态**（密度矩阵 $\\rho$），需要用**部分转置**（partial transpose）判据：\n407\t\n408\t对 $\\rho$ 做 partial transpose（只转置 B 的指标），得到 $\\rho^{T_B}$。如果 $\\rho^{T_B}$ 有负本征值，则态是纠缠的。\n409\t\n410\t> [!info] 什么时候需要密度矩阵？\n411\t> 纯态 $|\\Psi\\rangle$ 可以直接用波函数分析。但如果系统与环境有相互作用（退相干），态会变成**混合态**——需要用密度矩阵 $\\rho$ 描述。在实际 Rydberg 实验中，退相干不可避免，所以混合态纠缠判据也很重要。\n412\t\n413\t^0603\n414\t\n415\t---\n416\t\n417\t## 5. 量化纠缠：并发度与 von Neumann 熵"
+          },
+          {
+            "id": "call_04c0dc4f25b24885b678a6dd",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "-C": 2,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "\\^0603\\b"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-411-> 纯态 $|\\Psi\\rangle$ 可以直接用波函数分析。但如果系统与环境有相互作用（退相干），态会变成**混合态**——需要用密度矩阵 $\\rho$ 描述。在实际 Rydberg 实验中，退相干不可避免，所以混合态纠缠判据也很重要。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-412-\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:413:^0603\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-414-\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md-415----"
+          },
+          {
+            "id": "call_a0a0ebffb0184da5b03dd170",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "-C": 2,
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "\\^321fbe"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md-358-> T 门是容错量子计算中最\"昂贵\"的门——它**无法横向实现**（受 [[Transversal-Gate|Eastin-Knill 定理]] 限制），必须通过 [[Transversal-Teleportation|Gate Teleportation]] + magic state distillation 来实现。在 T-count 优化中，工程师们千方百计地减少 T 门的数量。\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md-359-\nRydberg atom\\Single-Qubit-Gates.md:360:^321fbe\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md-361----\nC:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md-362-"
+          },
+          {
+            "id": "call_3b631416d87a434ba3f9ec6c",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "glob": "*.md",
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "^\\^[a-zA-Z0-9]{3,10}$"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\CZ-Gate.md:365:^260603\nRydberg atom\\Single-Qubit-Gates.md:360:^321fbe\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:290:^nu260603\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:413:^0603\nRydberg atom\\Two-Qubit-Gates.md:156:^260603"
+          },
+          {
+            "id": "call_6eec106413bb470b8a3a1a05",
+            "name": "Grep",
+            "input": {
+              "-n": true,
+              "glob": "*.md",
+              "output_mode": "content",
+              "path": "C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom",
+              "pattern": "comprehension:"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "Rydberg atom\\Deep-Circuit-Execution.md:16:comprehension: \"don't understand\"\nRydberg atom\\Gate-Eigenstates.md:16:comprehension: getting there\nRydberg atom\\Grover-Search.md:16:comprehension: \"don't understand\"\nRydberg atom\\Neutral_Atom_Test.md:15:comprehension: \"vague\"\nRydberg atom\\CZ-Gate.md:17:comprehension: getting there\nRydberg atom\\Entangling-Gate.md:18:comprehension: \"vague\"\nRydberg atom\\Pauli-Matrices.md:21:comprehension: getting there\nRydberg atom\\Optical-Tweezer-Arrays.md:18:comprehension: don't understand\nRydberg atom\\QEC.md:7:comprehension: \"vague\"\nRydberg atom\\Basis-Transformation.md:18:comprehension: \"getting there\"\nRydberg atom\\Anti-Commutation.md:16:comprehension: \"vague\"\nRydberg atom\\Quantum-Phase-Estimation.md:14:comprehension: \"don't understand\"\nRydberg atom\\AC-Stark-Effect.md:15:comprehension: \"don't understand\"\nRydberg atom\\Quantum-Zeno-Effect.md:7:comprehension: \"vague\"\nRydberg atom\\Qubit-State-and-Superposition.md:18:comprehension: understood\nRydberg atom\\Rabi-Flopping.md:7:comprehension: \"vague\"\nRydberg atom\\Rydberg-Blockade.md:17:comprehension: \"don't understand\"\nRydberg atom\\Single-Qubit-Gates.md:17:comprehension: \"getting there\"\nRydberg atom\\Surface-Code.md:7:comprehension: \"vague\"\nRydberg atom\\SU2-SO3-and-Euler-Decomposition.md:20:comprehension: \"vague\"\nRydberg atom\\Transversal-Gate.md:7:comprehension: \"vague\"\nRydberg atom\\Two-Qubit-State-and-Entanglement.md:18:comprehension: \"getting there\"\nRydberg atom\\Tensor-Product.md:16:comprehension: getting there\nRydberg atom\\Transversal-Teleportation.md:16:comprehension: \"don't understand\"\nRydberg atom\\Two-Qubit-Gates.md:17:comprehension: getting there"
+          }
+        ],
+        "isExpanded": false,
+        "result": "I now have a complete picture. Here is the full report.\n\n---\n\n## Block Reference Progress Markers in Rydberg atom/\n\n### 1. `^260603` markers (learned on 2026-06-03) -- 2 found\n\n**File:** `C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\CZ-Gate.md`\n- **Line 365:** `^260603`\n- **Section context:** Placed at the end of section **\"### 4.4 物理含义：'两种语言'的翻译\"**, immediately before \"### 4.5 为什么这对中性原子很重要？\". This marks the CZ-vs-CNOT physical meaning section (the English/French language analogy for the two gate representations) as learned.\n\n**File:** `C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-Gates.md`\n- **Line 156:** `^260603`\n- **Section context:** Placed at the end of section **\"### 3.3 CZ = CNOT 的'相位版本'\"**, immediately before \"## 4. SWAP 门\". This marks the CZ/CNOT equivalence derivation (the $HXH = Z$ identity and the conversion formula) as learned.\n\n---\n\n### 2. `^nu260603` markers (not understood on 2026-06-03) -- 1 found\n\n**File:** `C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md`\n- **Line 290:** `^nu260603`\n- **Section context:** Placed at the end of section **\"### 1.2 双量子比特到底怎么写？\"**, immediately before \"### 1.3 Tensor Product 结构\". This marks the two-qubit parameterization subsection (including the Schmidt decomposition parameterization with chi/theta/phi angles) as not understood.\n\n---\n\n### 3. `^2600603` (typo pattern) -- 0 found\n\nNo occurrences of `^2600603` exist anywhere in the Rydberg atom/ directory.\n\n---\n\n### 4. Other block reference markers found\n\n**`^0603`** (incomplete/variant date marker, possibly intended as `^260603`):\n\n**File:** `C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Two-Qubit-State-and-Entanglement.md`\n- **Line 413:** `^0603`\n- **Section context:** Placed at the end of section **\"### 4.2 Peres-Horodecki 判据（更一般的情况）\"**, immediately before \"## 5. 量化纠缠\". This appears to be a date marker for June 3 but is missing the year prefix `26`. It may be a typo or intentional shorthand.\n\n**`^321fbe`** (hash-based block ref, not a date-based progress marker):\n\n**File:** `C:\\Personal Profile\\Profile\\ScienceResearch\\Quantum Computing\\Rydberg atom\\Single-Qubit-Gates.md`\n- **Line 360:** `^321fbe`\n- **Section context:** Placed at the end of section **\"### 3.6 S 门和 T 门\"** (specifically after the T-gate importance warning), immediately before \"## 4. 旋转门\". This is a hash-style block reference (not a date-based progress marker), so it likely serves a different purpose (e.g., linking target).\n\n---\n\n### 5. Comprehension fields in the 6 key files\n\n| File | comprehension | date |\n|------|--------------|------|\n| `Rydberg atom/Rydberg-Blockade.md` | `\"don't understand\"` | 2026-06-01 |\n| `Rydberg atom/CZ-Gate.md` | `getting there` | 2026-03-29 |\n| `Rydberg atom/Optical-Tweezer-Arrays.md` | `don't understand` | 2026-03-29 |\n| `Rydberg atom/Deep-Circuit-Execution.md` | `\"don't understand\"` | 2026-03-29 |\n| `Rydberg atom/Entangling-Gate.md` | `\"vague\"` | 2026-06-03 |\n| `Rydberg atom/Single-Qubit-Gates.md` | `\"getting there\"` | 2026-06-01 |\n\n---\n\n### 6. Full comprehension field inventory across all Rydberg atom/ .md files\n\nFor reference, the comprehension values across the entire directory:\n\n| File | comprehension |\n|------|--------------|\n| `Qubit-State-and-Superposition.md` | `understood` |\n| `CZ-Gate.md` | `getting there` |\n| `Gate-Eigenstates.md` | `getting there` |\n| `Pauli-Matrices.md` | `getting there` |\n| `Basis-Transformation.md` | `getting there` |\n| `Two-Qubit-State-and-Entanglement.md` | `getting there` |\n| `Tensor-Product.md` | `getting there` |\n| `Two-Qubit-Gates.md` | `getting there` |\n| `Single-Qubit-Gates.md` | `getting there` |\n| `Entangling-Gate.md` | `vague` |\n| `Neutral_Atom_Test.md` | `vague` |\n| `QEC.md` | `vague` |\n| `Anti-Commutation.md` | `vague` |\n| `Quantum-Zeno-Effect.md` | `vague` |\n| `Rabi-Flopping.md` | `vague` |\n| `Surface-Code.md` | `vague` |\n| `SU2-SO3-and-Euler-Decomposition.md` | `vague` |\n| `Transversal-Gate.md` | `vague` |\n| `Rydberg-Blockade.md` | `don't understand` |\n| `Optical-Tweezer-Arrays.md` | `don't understand` |\n| `Deep-Circuit-Execution.md` | `don't understand` |\n| `Grover-Search.md` | `don't understand` |\n| `Quantum-Phase-Estimation.md` | `don't understand` |\n| `AC-Stark-Effect.md` | `don't understand` |\n| `Transversal-Teleportation.md` | `don't understand` |\n\n---\n\n### Summary\n\n- **3 date-based progress markers** were found for 2026-06-03: two `^260603` (learned) and one `^nu260603` (not understood).\n- **1 anomalous marker** `^0603` at `Two-Qubit-State-and-Entanglement.md` line 413 appears to be a truncated date marker missing the `26` year prefix.\n- **1 hash-based block ref** `^321fbe` at `Single-Qubit-Gates.md` line 360 is not a date-based progress marker.\n- **0 instances** of the typo pattern `^2600603` exist.\n- **0 block reference markers** were found in `Rydberg-Blockade.md`, `Optical-Tweezer-Arrays.md`, `Deep-Circuit-Execution.md`, or `Entangling-Gate.md` -- none of these files contain inline progress markers despite having comprehension fields in their frontmatter."
+      }
+    }
+  },
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 383,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 140096,
+    "contextWindow": 1000000,
+    "contextTokens": 140479,
+    "percentage": 14
+  }
+}
