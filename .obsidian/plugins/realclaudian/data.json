@@ -4,6 +4,11 @@
       {
         "tabId": "tab-1780542449413-t071e5w",
         "conversationId": "conv-1780534265448-ruryfhtvf"
+      },
+      {
+        "draftModel": "sonnet[1m]",
+        "tabId": "tab-1780561330579-ajlcx90",
+        "conversationId": null
       }
     ],
     "activeTabId": "tab-1780542449413-t071e5w"
