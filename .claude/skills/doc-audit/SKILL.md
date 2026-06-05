@@ -133,6 +133,9 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 | 中文显示名 | `[[Rydberg-Blockade\|里德堡阻塞]]` | `[[里德堡阻塞 (Rydberg Blockade)]]` |
 | 表格内转义管道符 | `[[Rydberg-Blockade\|里德堡阻塞]]` | `[[Rydberg-Blockade|里德堡阻塞]]` |
 | 章节链接 | `[[Rabi-Flopping#Step 3\|推导]]` | `[推导](#step-3)` |
+| 章节显示文字含标题 | `[[CZ-Gate#5. 在 Rydberg 体系中的实现\|CZ-Gate §5 Rydberg 实现]]` | `[[CZ-Gate#5. 在 Rydberg 体系中的实现\|§5]]` |
+
+**⚠️ 章节链接显示文字审查要点**：当链接格式为 `[[File#章节标题|§N]]` 且显示文字仅为纯编号（如 `§4`、`§5.2`）时，必须标记为不合规。正确格式为 `文件名 §N 标题关键词`（如 `Hyperfine-Structure §4 Clock State 编码`、`start_up §2.3 暗态物理学`），让读者不用 hover 就能知道目标知识点属于哪篇文章。
 
 **输出**：
 - `需补链` 概念列表（含建议的 `[[目标笔记名]]` 格式）

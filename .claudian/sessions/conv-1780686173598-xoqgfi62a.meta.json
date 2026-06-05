@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780686173598-xoqgfi62a",
+  "providerId": "claude",
+  "title": "> 论文通过巧妙地在脉冲开始前调节蓝色与红色激光的相对相位，让初始处于基态 $|1\\rangle$ ...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780686173598,
+  "updatedAt": 1780686375203,
+  "lastResponseAt": 1780686375203,
+  "sessionId": "8a6d2342-9482-4c58-8131-baba27d42d4d",
+  "providerState": {
+    "providerSessionId": "8a6d2342-9482-4c58-8131-baba27d42d4d"
+  },
+  "currentNote": "Handout by AI/start_up.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 321,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 91072,
+    "contextWindow": 1000000,
+    "contextTokens": 91393,
+    "percentage": 9
+  }
+}

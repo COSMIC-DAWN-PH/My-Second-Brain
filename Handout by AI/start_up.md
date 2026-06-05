@@ -343,13 +343,279 @@ $$
 
 ### 3. 暗态物理学——化阻碍为武器
 
-本篇论文取得 $99.5\%$ 超高保真度的绝对核心突破之一，就是利用了量子光学中的**暗态（Dark State）**物理！
+本篇论文取得 $99.5\%$ 超高保真度的绝对核心突破之一，就是利用了量子光学中的**暗态（Dark State）** 物理！
 
 让我们仔细分析上面那个三能级 Hamiltonian 的[[Gate-Eigenstates|门本征态]]。当双光子刚好共振（$\delta = 0$）时，我们发现存在一个特殊的本征态，它的中间态 $|e\rangle$ 组分**严格为零**！
 定义参数 $\alpha \equiv \Omega_b / \Omega_r$，这个状态写为：
 $$
 |D\rangle = \frac{1}{\sqrt{1+\alpha^2}} |1\rangle - \frac{\alpha}{\sqrt{1+\alpha^2}} |r\rangle
 $$
+
+#### 从 Hamiltonian 矩阵本征态一步步推出暗态
+
+我们先不要凭物理直觉“猜”暗态，而是把它当成一个标准的矩阵本征值问题来做。前面三能级系统在基底
+
+$$
+\{|1\rangle, |e\rangle, |r\rangle\}
+$$
+
+下的 Hamiltonian 是
+
+$$
+H = \hbar
+\begin{pmatrix}
+0 & \Omega_b/2 & 0 \\
+\Omega_b/2 & -\Delta & \Omega_r/2 \\
+0 & \Omega_r/2 & -\delta
+\end{pmatrix}.
+$$
+
+这里每一行、每一列分别对应 $|1\rangle$、$|e\rangle$、$|r\rangle$。所谓“找本征态”，就是找一个列向量
+
+$$
+\mathbf{v}=\begin{pmatrix}a\\ b\\ c\end{pmatrix}
+\quad \Longleftrightarrow \quad
+|\psi\rangle=a|1\rangle+b|e\rangle+c|r\rangle,
+$$
+
+使得
+
+$$
+H\mathbf{v}=E\mathbf{v}.
+$$
+
+暗态的关键要求是：它不能含有短寿命中间态 $|e\rangle$，所以我们先设
+
+$$
+b=0,
+\qquad
+\mathbf{v}_D=\begin{pmatrix}a\\ 0\\ c\end{pmatrix}.
+$$
+
+现在把这个向量直接乘进 Hamiltonian。为了看得更清楚，先把外面的 $\hbar$ 暂时拿掉，只看矩阵乘法：
+
+$$
+\begin{pmatrix}
+0 & \Omega_b/2 & 0 \\
+\Omega_b/2 & -\Delta & \Omega_r/2 \\
+0 & \Omega_r/2 & -\delta
+\end{pmatrix}
+\begin{pmatrix}a\\0\\c\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\
+\frac{\Omega_b}{2}a+\frac{\Omega_r}{2}c \\
+-\delta c
+\end{pmatrix}.
+$$
+
+论文这里讨论的是双光子共振情形，即 $\delta=0$。于是上式变成
+
+$$
+H\mathbf{v}_D
+=\hbar
+\begin{pmatrix}
+0 \\
+\frac{\Omega_b}{2}a+\frac{\Omega_r}{2}c \\
+0
+\end{pmatrix}.
+$$
+
+如果 $\mathbf{v}_D$ 真的是本征态，那么必须有
+
+$$
+H\mathbf{v}_D=E\mathbf{v}_D
+=E\begin{pmatrix}a\\0\\c\end{pmatrix}.
+$$
+
+注意左右两边的第 1、3 个分量。左边第 1、3 个分量都是零；而右边第 1、3 个分量是 $Ea$ 和 $Ec$。只要这个态不是零向量，$a$ 和 $c$ 不可能同时为零，因此只能有
+
+$$
+E=0.
+$$
+
+所以暗态其实是这个三能级 Hamiltonian 的一个**零能量本征态**。接下来只需让第 2 个分量也等于零：
+
+$$
+\frac{\Omega_b}{2}a+\frac{\Omega_r}{2}c=0.
+$$
+
+两边乘以 2，得到
+
+$$
+\Omega_b a+\Omega_r c=0.
+$$
+
+因此
+
+$$
+c=-\frac{\Omega_b}{\Omega_r}a.
+$$
+
+这就是暗态负号和系数比例的来源：它不是随便写出来的，而是矩阵本征方程强迫出来的。把 $\alpha\equiv\Omega_b/\Omega_r$ 代入，就有
+
+$$
+\mathbf{v}_D
+=\begin{pmatrix}a\\0\\-\alpha a\end{pmatrix}.
+$$
+
+最后做归一化：
+
+$$
+|a|^2+|c|^2=|a|^2(1+\alpha^2)=1,
+$$
+
+因此可以取
+
+$$
+a=\frac{1}{\sqrt{1+\alpha^2}},
+\qquad
+c=-\frac{\alpha}{\sqrt{1+\alpha^2}}.
+$$
+
+于是
+
+$$
+\mathbf{v}_D=
+\begin{pmatrix}
+\frac{1}{\sqrt{1+\alpha^2}}\\
+0\\
+-\frac{\alpha}{\sqrt{1+\alpha^2}}
+\end{pmatrix},
+$$
+
+翻译回态矢语言就是
+
+$$
+|D\rangle
+=\frac{1}{\sqrt{1+\alpha^2}}|1\rangle
+-\frac{\alpha}{\sqrt{1+\alpha^2}}|r\rangle.
+$$
+
+> [!tip] 一句话理解矩阵推导
+> 暗态就是 Hamiltonian 作用之后**完全不会产生 $|e\rangle$ 分量**的那个特殊线性组合。矩阵乘法中的第二行
+> $$
+> \frac{\Omega_b}{2}a+\frac{\Omega_r}{2}c
+> $$
+> 正是“从 $|1\rangle$ 路径”和“从 $|r\rangle$ 路径”通向 $|e\rangle$ 的总振幅。令它为零，就得到相干相消条件。
+
+> [!warning] 为什么必须要求 $\delta=0$？
+> 如果两光子失谐 $\delta\neq0$，矩阵乘法的第三个分量会变成 $-\delta c$。这时 $\begin{pmatrix}a&0&c\end{pmatrix}^T$ 一般不再是严格的零能量本征态，暗态也就不再“完美”。所以严格暗态成立的核心条件之一就是**双光子共振**。
+
+#### 这个 $|D\rangle$ 是怎么来的？——从“不要耦合到 $|e\rangle$”反推
+
+> [!tip] 暗态的核心判据
+> 暗态不是先猜出来的，而是由一个非常清楚的物理要求定义出来的：找一个由 $|1\rangle$ 和 $|r\rangle$ 组成的叠加态，使它到短寿命中间态 $|e\rangle$ 的总耦合振幅严格为零。也就是说，蓝光路径和红光路径通向 $|e\rangle$ 的量子振幅要发生**相干相消**。
+
+先假设暗态没有中间态成分，只写成
+
+$$
+|D\rangle = a|1\rangle + 0|e\rangle + c|r\rangle.
+$$
+
+这里 $a$ 和 $c$ 是我们要解出来的两个复振幅。现在看 Hamiltonian 中哪些项会把这个态推向 $|e\rangle$：
+
+- $|1\rangle \leftrightarrow |e\rangle$ 的耦合强度是 $\Omega_b/2$；
+- $|r\rangle \leftrightarrow |e\rangle$ 的耦合强度是 $\Omega_r/2$。
+
+> [!info] 为什么 Hamiltonian 里写的是 $\Omega/2$，不是 $\Omega$？
+> 这里的 $\Omega_b$ 和 $\Omega_r$ 按照原子物理里的标准约定，指的是**拉比频率**，也就是两能级系统在共振驱动下真正发生布居振荡的角频率；而 Hamiltonian 的非对角矩阵元只写成 $\hbar\Omega/2$。原因可以从最简单的二能级系统看出来：
+> $$
+> H=\frac{\hbar\Omega}{2}\left(|e\rangle\langle g|+|g\rangle\langle e|\right).
+> $$
+> 把态写成 $|\psi\rangle=c_g|g\rangle+c_e|e\rangle$ 后，薛定谔方程给出
+> $$
+> i\dot c_g=\frac{\Omega}{2}c_e,\qquad i\dot c_e=\frac{\Omega}{2}c_g.
+> $$
+> 若从 $|g\rangle$ 出发，解出来的激发态概率是
+> $$
+> P_e(t)=\sin^2\left(\frac{\Omega t}{2}\right).
+> $$
+> 也就是说，完成一次 $|g\rangle\to |e\rangle$ 的 $\pi$ 脉冲需要 $\Omega t=\pi$，所以 $\Omega$ 才是我们习惯上说的“拉比振荡频率”。如果把矩阵元直接写成 $\hbar\Omega$，概率会变成 $\sin^2(\Omega t)$，等于把拉比频率定义大了两倍。因此这里的“耦合强度是 $\Omega_b/2$”不是物理作用少了一半，而是 Hamiltonian 矩阵元与拉比频率定义之间的标准换算。
+
+因此，$a|1\rangle+c|r\rangle$ 被耦合到 $|e\rangle$ 的总振幅为
+
+$$
+\langle e|H|D\rangle
+= \hbar\left(\frac{\Omega_b}{2}a + \frac{\Omega_r}{2}c\right).
+$$
+
+暗态要求这个量为零：
+
+$$
+\frac{\Omega_b}{2}a + \frac{\Omega_r}{2}c = 0.
+$$
+
+去掉共同因子 $1/2$，得到
+
+$$
+\Omega_b a + \Omega_r c = 0.
+$$
+
+所以
+
+$$
+c = -\frac{\Omega_b}{\Omega_r}a.
+$$
+
+定义
+
+$$
+\alpha \equiv \frac{\Omega_b}{\Omega_r},
+$$
+
+便有
+
+$$
+c=-\alpha a.
+$$
+
+这一步已经决定了暗态的**相对权重**：
+
+$$
+|D\rangle = a|1\rangle - \alpha a|r\rangle.
+$$
+
+最后只剩下归一化。量子态必须满足
+
+$$
+|a|^2 + |c|^2 = 1.
+$$
+
+代入 $c=-\alpha a$，并取 $\alpha$ 为实数，得到
+
+$$
+a^2(1+\alpha^2)=1,
+$$
+
+因此
+
+$$
+a=\frac{1}{\sqrt{1+\alpha^2}},
+\qquad
+c=-\frac{\alpha}{\sqrt{1+\alpha^2}}.
+$$
+
+于是就得到前面的暗态表达式：
+
+$$
+|D\rangle = \frac{1}{\sqrt{1+\alpha^2}} |1\rangle - \frac{\alpha}{\sqrt{1+\alpha^2}} |r\rangle.
+$$
+
+等价地，也可以把它写成更对称的形式：
+
+$$
+|D\rangle
+= \frac{\Omega_r |1\rangle - \Omega_b |r\rangle}{\sqrt{\Omega_r^2+\Omega_b^2}}.
+$$
+
+> [!info] 为什么负号如此关键？
+> 负号表示 $|1\rangle$ 路径和 $|r\rangle$ 路径通往 $|e\rangle$ 的振幅相位相反。正是这个相反相位让
+> $$
+> \Omega_b a + \Omega_r c = 0
+> $$
+> 成立。没有这个负号，两条路径会相长而不是相消，系统就会变成容易占据 $|e\rangle$ 的明态（Bright State）。
+
 因为这个状态不包含任何短寿命中间态 $|e\rangle$ 的成分，所以即使它处于强激光照耀下，也绝对不会发生自发辐射散射！这在物理上被称为**相干完美相消（coherent perfect cancellation）**，该本征态即为**暗态**。
 相反，另外两个本征态会包含 $|e\rangle$ 的成分，称为**明态（Bright State）**：
 $$
@@ -729,3 +995,11 @@ $$
 > 单比特相位 $\phi_{1Q}$ 可以通过在后续激光脉冲中改变相位参考来**零成本补偿**，无需物理执行任何门操作。这是量子编译中的标准技巧。
 > 📍 **建议位置**：`Rydberg atom/Virtual-Z-Gate.md`
 > 🔗 **建议链接**：[[CZ-Gate]]、[[Pauli-Matrices]]
+
+---
+
+## 📝 更新记录
+
+- 2026-06-06: 增补从三能级 Hamiltonian 矩阵本征方程推导暗态 $|D\rangle$ 的详细过程，说明零能量本征值、$\delta=0$ 条件与相干相消的矩阵来源。
+- 2026-06-06: 补充说明 Hamiltonian 非对角耦合写成 $\Omega/2$ 的原因，澄清拉比频率与矩阵元的约定关系。
+- 2026-06-06: [doc-audit] 补充 §3 暗态 $|D\rangle$ 的来源推导，说明相干相消条件、负号来源与归一化步骤。

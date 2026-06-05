@@ -30,6 +30,7 @@ Before generating any physics content, **read** `.agents/memory/user_profile.jso
 - **链接到具体章节**：`[[English-Name#章节标题]]` — 点击后直接跳转到目标笔记的对应章节。章节标题必须与笔记中的 `##` / `###` 标题文字完全一致。示例：`[[2023-parallel-gates-handout#6. 核心创新一：时间最优单脉冲门]]`
 - **链接到 block reference**：`[[English-Name^block-id]]` — 跳转到目标笔记中标记了 `^block-id` 的段落。可结合显示文本：`[[English-Name^block-id|显示文本]]`。示例：`[[Single-Qubit-Gates#^321fbe|旋转门]]`
 - **链接到章节 + 显示文本**：`[[English-Name#章节标题|显示文本]]` — 跳转到章节但显示自定义文字。示例：`[[Rydberg-Blockade#2. 数学描述：阻塞条件|阻塞条件]]`
+- **⚠️ 章节链接显示文字必须包含标题关键词**：禁止只写 `§4`、`§5.2` 等纯编号。正确格式：`文件名 §N 标题`，如 `Hyperfine-Structure §4 Clock State 编码`、`start_up §5.2 失谐脉冲与 Rz 门`。读者应不用 hover 就能知道链接指向哪个文章的哪个知识点。
 - **Embeds**: `![[English-Name]]` for transclusion, `![[English-Name#Section]]` for partial embed
 - **Block references**: `^block-id` at paragraph end, then `[[English-Name^block-id]]` to reference
 - **学习进度 Block Reference 的区间语义**：在知识笔记中，`^YYMMDD` 和 `^nuYYMMDD` 交替形成区间——每个标记管到上一个相反类型的标记为止。`^260604` = 之前已学懂，`^nu260604` = 之前没懂。示例：`^260604` → `^nu260604` → `^260604` 表示"已学→没懂→已学"三段交替

@@ -110,6 +110,15 @@ Obsidian 的核心功能是用 `[[文件名]]` 在笔记之间建立双向链接
 
 示例：`[[Rydberg-Blockade#2. 数学描述：阻塞条件|阻塞条件]]`
 
+> **⚠️ 显示文字必须包含「文件名 + §N + 章节标题关键词」**：不能只写 `§4`、`§5.2` 这种纯编号。正确格式：`文件名 §N 标题`，让读者**不用 hover 就知道链接指向哪个文章的哪个知识点**。
+
+| ✅ 正确 | ❌ 错误 |
+|---------|---------|
+| `[[Hyperfine-Structure#4. Clock State 编码\|Hyperfine-Structure §4 Clock State 编码]]` | `[[Hyperfine-Structure#4. Clock State 编码\|§4]]` |
+| `[[CZ-Gate#5. 在 Rydberg 体系中的实现\|CZ-Gate §5 Rydberg 实现]]` | `[[CZ-Gate#5. 在 Rydberg 体系中的实现\|§5]]` |
+| `[[start_up#3. 暗态物理学\|start_up §2.3 暗态物理学]]` | `[[start_up#3. 暗态物理学\|§2.3 暗态物理学]]` |
+| `[[2023-parallel-gates-handout#7. 暗态与亮态\|2023-parallel-gates §7 暗态与亮态]]` | `[[2023-parallel-gates-handout#7. 暗态与亮态\|§7 暗态与亮态]]` |
+
 ### 链接到 block reference + 显示文本 `[[File#^block-id|文本]]`
 
 跳转到标记了 `^block-id` 的段落，同时显示自定义文字。这是引用**学习进度标记**的标准方式：
@@ -217,11 +226,12 @@ comprehension: "vague"  # don't understand → vague → getting there → under
 
 1. **物理直觉优先** — 先讲核心物理图像，再给公式。用 Callout 标注核心洞察
 2. **公式用 KaTeX** — `$...$` 行内，`$$...$$` 行间（不用 `\begin{equation}`）
-3. **双链交叉引用** — `[[English-Name]]` 关联其他知识点（**绝对不能**在双链外包围反引号）
-4. **Callout 标注** — 用 `> [!tip]` 等做重点标注
-5. **核心公式表** — 结尾用 `## 📐 核心公式摘要` 总结关键公式
-6. **层级结构** — `#` → `##` → `###`，不要跳级
-7. **更新记录** — 文件末尾追加 `## 📝 更新记录`
+3. **⚠️ Markdown 表格中的 LaTeX（铁律）**：`|0\rangle` 中的 `|` 会被 markdown 解析器优先当作表格列分隔符，即使用 `\|` 转义也经常失败（因为 `\|` 本身也被当作管道符处理）。**✅ 推荐解法：用 `\vert` 替代 `|`**，例如 `$\vert 0 \rangle$` 而不是 `$|0\rangle$`，`\vert` 是 LaTeX 命令，不会被 Markdown 解析器误识别为列分隔符。**退选方案：公式摘要一律用列表格式，绝不用表格。**
+4. **双链交叉引用** — `[[English-Name]]` 关联其他知识点（**绝对不能**在双链外包围反引号）
+5. **Callout 标注** — 用 `> [!tip]` 等做重点标注
+6. **核心公式表** — 结尾用 `## 📐 核心公式摘要` 总结关键公式
+7. **层级结构** — `#` → `##` → `###`，不要跳级
+8. **更新记录** — 文件末尾追加 `## 📝 更新记录`
 
 ### 语言与编码铁律（必须遵守）
 
@@ -275,7 +285,7 @@ When creating derivative knowledge notes, use the `zotero-notes` skill (see belo
 | Skill | File | Trigger |
 |---|---|---|
 | **zotero-notes** | `.agents/skills/zotero-notes/SKILL.md` | Zotero 文献笔记处理：提取批注、生成知识笔记、建立双向链接 |
-| **daily-research** | `.agents/skills/daily-research/skill.md` | "总结今天/昨天/这周/过去 N 天", "daily summary", "weekly summary", "research summary", "规划今天" |
+| **daily-research** | `.agents/skills/daily-research/SKILL.md` | "总结今天/昨天/这周/过去 N 天", "daily summary", "weekly summary", "research summary", "规划今天" |
 | **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
 | **learning-path** | `.agents/skills/learning-path/SKILL.md` | "学习路径", "下一步学什么", "learning path", "学习规划" |
 | **sync-config** | `.agents/skills/sync-config/SKILL.md` | `/sync-config`, "同步配置", "sync agents", "check config drift" |

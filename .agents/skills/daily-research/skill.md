@@ -286,7 +286,35 @@ comprehension 字段 = **只读**，AI 不读取用于决策，更不修改
 | Rydberg atom | `Rydberg atom/` |
 | Daily Notes | `Daily Notes/` |
 
-### 5.2 写入顺序
+### 5.2 学习计划项格式规范（Learning Plan Item Format）
+
+> **每次生成学习计划时，每个学习项必须严格遵循以下格式。**
+
+```markdown
+**Part N：主题（~X min）**
+
+- [ ] [[讲义#章节标题|讲义 §N 主题]]——核心知识点一句话
+- 🔗 对照 [[相关笔记]]——说明关联
+- 🔗 对照 [[相关笔记#^block-id|笔记 §N 标题]]——说明关联
+- 放 `^YYMMDD` 或 `^nuYYMMDD`
+```
+
+**格式要求：**
+1. **主任务行**：`- [ ] [[讲义#章节标题|讲义 §N 主题]]` + 破折号 + 核心知识点一句话概括
+2. **对照链接行**（可选但推荐）：`- 🔗 对照 [[相关笔记]]` + 说明与当前任务的关联（如"你已学过的 xxx"、"笔记中有完整推导"等）
+3. **⚠️ block reference 提醒行（必须）**：最后一行写 `放 \`^YYMMDD\` 或 \`^nuYYMMDD\``，提醒用户在学完后放置进度标记。日期根据当天日期自动填入。
+
+**示例（2026-06-05）：**
+```markdown
+**Part 2.1：拉比振荡（~10 min）**
+
+- [x] [[start_up#1. 单比特相干驱动：拉比振荡|start_up §2.1 单比特相干驱动：拉比振荡]]——$P(t)=\sin^2(\Omega t/2)$
+- 🔗 对照 [[Rabi-Flopping]]——笔记中有完整 Hamiltonian 推导和**失谐态演化公式**（已补充）
+- 🔗 对照 [[Single-Qubit-Gates#^321fbe|Single-Qubit-Gates §3.6 前]]——你已学过的 $\pi$ 脉冲和 Pauli 门
+- 放 `^260605` 或 `^nu260605`
+```
+
+### 5.3 写入顺序
 
 1. 先读取所有源文件（`Literature/` + `Rydberg atom/`）。
 2. 在内存中汇总数据并生成 Markdown。

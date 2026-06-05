@@ -1,0 +1,26 @@
+{
+  "id": "conv-1780685509340-vhu3e6aiz",
+  "providerId": "codex",
+  "title": "详细讲解一下这部分呢，这个\\vectD\\rangle咋来的",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780685509341,
+  "updatedAt": 1780685876445,
+  "lastResponseAt": 1780685737851,
+  "sessionId": "019e9920-9974-7d80-949a-941bb2bb90be",
+  "providerState": {
+    "threadId": "019e9920-9974-7d80-949a-941bb2bb90be",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\06\\rollout-2026-06-06T02-51-56-019e9920-9974-7d80-949a-941bb2bb90be.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "currentNote": "Handout by AI/start_up.md",
+  "usage": {
+    "inputTokens": 62017,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 60800,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 62017,
+    "percentage": 24,
+    "model": "gpt-5.5"
+  }
+}

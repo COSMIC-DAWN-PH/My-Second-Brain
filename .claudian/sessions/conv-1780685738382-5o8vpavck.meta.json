@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780685738382-5o8vpavck",
+  "providerId": "claude",
+  "title": "/daily-research **Part 2",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780685738383,
+  "updatedAt": 1780686011104,
+  "lastResponseAt": 1780685980721,
+  "sessionId": "7b68f50e-3458-4c3e-aabd-4f43f32e8165",
+  "providerState": {
+    "providerSessionId": "7b68f50e-3458-4c3e-aabd-4f43f32e8165"
+  },
+  "currentNote": "Daily Notes/2026-06-05.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 283,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 80768,
+    "contextWindow": 1000000,
+    "contextTokens": 81051,
+    "percentage": 8
+  }
+}
