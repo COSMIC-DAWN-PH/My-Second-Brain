@@ -1,0 +1,1270 @@
+Article
+
+A quantum processor based on coherent
+transport of entangled atom arrays
+
+https://doi.org/10.1038/s41586-022-04592-6                      Dolev Bluvstein1, Harry Levine1,6, Giulia Semeghini1, Tout T. Wang1, Sepehr Ebadi1,
+                                                                Marcin Kalinowski1, Alexander Keesling1,2, Nishad Maskara1, Hannes Pichler3,4,
+Received: 6 December 2021
+                                                                Markus Greiner1, Vladan Vuletić5 & Mikhail D. Lukin1 ✉
+Accepted: 28 February 2022
+
+Published online: 20 April 2022
+                                                                The ability to engineer parallel, programmable operations between desired qubits
+Open access                                                     within a quantum processor is key for building scalable quantum information
+    Check for updates                                           systems1,2. In most state-of-the-art approaches, qubits interact locally, constrained by
+                                                                the connectivity associated with their fixed spatial layout. Here we demonstrate a
+                                                                quantum processor with dynamic, non-local connectivity, in which entangled qubits
+                                                                are coherently transported in a highly parallel manner across two spatial dimensions,
+                                                                between layers of single- and two-qubit operations. Our approach makes use of
+                                                                neutral atom arrays trapped and transported by optical tweezers; hyperfine states are
+                                                                used for robust quantum information storage, and excitation into Rydberg states is
+                                                                used for entanglement generation3–5. We use this architecture to realize
+                                                                programmable generation of entangled graph states, such as cluster states and a
+                                                                seven-qubit Steane code state6,7. Furthermore, we shuttle entangled ancilla arrays to
+                                                                realize a surface code state with thirteen data and six ancillary qubits8 and a toric code
+                                                                state on a torus with sixteen data and eight ancillary qubits9. Finally, we use this
+                                                                architecture to realize a hybrid analogue–digital evolution2 and use it for measuring
+                                                                entanglement entropy in quantum simulations10–12, experimentally observing
+                                                                non-monotonic entanglement dynamics associated with quantum many-body
+                                                                scars13,14. Realizing a long-standing goal, these results provide a route towards scalable
+                                                                quantum processing and enable applications ranging from simulation to metrology.
+
+
+Quantum information systems derive their power from controllable                                 powerful quantum information architecture, which we employ to real-
+interactions that generate quantum entanglement. However, the                                    ize applications including entangled-state generation, the creation of
+natural, local character of interactions limits the connectivity of                              topological surface and toric code states, and hybrid analogue–digital
+quantum circuits and simulations. Non-local connectivity can be                                  quantum simulations.
+engineered via a global shared quantum data bus15–18, but in prac-
+tice these approaches have been limited in either control or size.
+A number of visionary architectures to address this challenge have                               Entanglement transport in atom arrays
+been proposed theoretically over the past two decades. On the basis                              Our experiments utilize a two-dimensional (2D) atom array system
+of coherent, dynamical transport of quantum information using                                    described previously25, with key upgrades to enable coherent trans-
+movable traps or photonic links, these techniques have been the                                  port and multiple layers of single-qubit and two-qubit gates. We store
+subject of intensive experimental explorations across different                                  quantum information in magnetically insensitive clock states within
+platforms1,19–24. However, progress has been limited to small-scale,                             the ground-state hyperfine manifold of 87Rb atoms20, and implement
+few-qubit systems lacking either full connectivity, programmability                              robust single-qubit Raman rotations (scattering error per π pulse
+or true parallelism.                                                                             of about 7 × 10−5)26, realized by composite pulses that are robust to
+   Our approach to address this long-standing challenge utilizes dynam-                          pulse errors (Extended Data Fig. 3)27. High-fidelity controlled-Z (CZ)
+ically reconfigurable arrays of entangled neutral atoms, shuttled by                             entangling gates in the hyperfine basis {|0⟩, |1⟩} (Fig. 1a) are imple-
+optical tweezers in two spatial dimensions (Fig. 1a). Hyperfine states                           mented in parallel using global Rydberg excitation pulses on the
+are used for storing and transporting quantum information between                                |1⟩ ↔ |r⟩ Rydberg transition5. For dynamic reconfiguration, we initial-
+quantum operations, and excitation into Rydberg states is used for                               ize atoms into two sets of traps: static traps generated by a spatial
+generating entanglement. Highly parallel operations are enabled via                              light modulator (SLM) and mobile traps generated by a crossed 2D
+selective qubit operations in distinct zones that qubits are dynami-                             acousto-optic deflector (AOD). To execute a specific circuit, we arrange
+cally shuttled between. Taken together, these ingredients enable a                               qubits into desired pairs, perform Rydberg-mediated CZ gates on
+
+
+Department of Physics, Harvard University, Cambridge, MA, USA. 2QuEra Computing Inc., Boston, MA, USA. 3Institute for Theoretical Physics, University of Innsbruck, Innsbruck, Austria.
+1
+
+4
+ Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria. 5Department of Physics and Research Laboratory of Electronics, Massachusetts
+Institute of Technology, Cambridge, MA, USA. 6Present address: AWS Center for Quantum Computing, Pasadena, CA, USA. ✉e-mail: lukin@physics.harvard.edu
+
+
+
+                                                                                                                                           Nature | Vol 604 | 21 April 2022 | 451
+Article
+a
+
+
+
+
+                                                                                                                                                    |r〉
+                                                                                                                                                                                Rydberg
+                                                                                                                                                                                (generate entanglement)
+              Zone 2
+                                                                                                                                                    |1〉
+                                                                                                                                                                                Hyperfine qubit
+                                                                                                                                                                                (store information)
+                                                                                                                                                    |0〉
+
+                                                                                                                             CZ gate
+                               Zone 1
+
+
+
+
+b                                                                                              c                         Stationary       Transported         d
+                                                                                                               1.0                                                              1.0
+
+                                                                                                                                                                                0.8
+                                                                                                               0.5
+
+
+
+
+                                                                                                                                                          Bell state fidelity
+                                                                                            Two-atom parity
+    Entangle pairs                               Transport                                                                                                                      0.6
+
+
+                                                                                  110 μm
+
+
+
+
+                                                                                                                                                                                      Normalized by loss
+                                                 entanglement                                                   0                                                                                          1.1
+                                                                                                                                                                                0.4
+                                                                                                                                                                                                           1.0
+
+                                                                                                              –0.5                                                              0.2
+                                                                                                                                                                                                           0.9
+
+                                                                                                                                                                                                           0.8
+                                                                                                                                                                                                              0.2       1.0
+
+                                                                                                              –1.0                                                               0
+                                                                                                                     0      π/2       π   3π/2      2π                            0.2                            0.4   0.6    0.8   1.0
+                                                                                                                         Phase of final π/2 pulse                                        Average speed (μm μs–1)
+
+Fig. 1 | Quantum information architecture enabled by coherent transport                    state (Methods), and are then separated by 110 μm over a span of 300 μs.
+of neutral atoms. a, In our approach, qubits are transported to perform                    c, Parity oscillations indicate that movement does not observably affect
+entangling gates with distant qubits, enabling programmable and non-local                  entanglement or coherence. For both the moving and the stationary
+connectivity. Atom shuttling is performed using optical tweezers, with high                measurements, qubit coherence is preserved using an XY8 dynamical
+parallelism in two dimensions and between multiple zones allowing selective                decoupling sequence for 300 μs (Methods). d, Measured Bell-state fidelity as a
+manipulations. Inset: the atomic levels used. The |0⟩, |1⟩ qubit states refer to the       function of separation speed over the 110 μm, showing that fidelity is
+m F = 0 clock states of 87Rb, and |r⟩ is a Rydberg state used for generating               unaffected for a move slower than 200 μs (average separation speed of
+entanglement between qubits (Extended Data Fig. 1b). b, Atom images                        0.55 μm μs−1). Inset: normalizing by atom loss during the move results in
+illustrating coherent transport of entangled qubits. Using a sequence of                   constant fidelity, indicating that atom loss is the dominant error mechanism
+single-qubit and two-qubit gates, atom pairs are each prepared in the |Φ+⟩ Bell            (see Methods for details).
+
+
+
+each pair simultaneously and then move all mobile traps in parallel
+to dynamically change the connectivity into the next desired qubit                         Programmable circuits and graph states
+arrangement.                                                                               To exemplify the ability to generate non-local connectivity between
+   Figure 1 shows our ability to transport qubits across large distances                   qubit arrays in parallel, we carry out the preparation of entangled graph
+while preserving entanglement and coherence20. We initialize pairs at                      states: a large class of useful quantum information states, with exam-
+an atom–atom distance of 3 μm (Fig. 1b) and then create a Bell state                       ples ranging from Greenberger–Horne–Zeilinger states and cluster
+         1
+Φ+ = 2 ( 00 + 11 ) in the hyperfine basis (Methods)5. To measure the                       states to quantum error correction (QEC) codes31. Graph states are
+resulting entangled-state fidelity, we apply a variable single-qubit phase                 defined by initializing all qubits, located on the vertices of a geometric
+                                                                                                              0 + 1
+gate before a final π/2 pulse, resulting in oscillations of the two-atom                   graph, in + ≡            and then performing CZ gates on the links between
+                                                                                                                 2
+parity σ 1zσ 2z (Fig. 1c)5. We then repeat this experiment, but now move                   qubits (corresponding to the edges of the graph)31. N-qubit graph states
+the atoms apart by 110 μm before applying the final π/2 pulse. Our                         |G⟩ are associated with a set of N stabilizers, defined by Si = Xi Πj ∈ui Z j ,
+transport protocol is optimized to suppress heating and loss by imple-                     where X and Z are the Pauli matrices, ui is the set of qubits (vertices)
+menting cubic-interpolated atom trajectories (Methods), and is further                     connected by an edge to qubit i, and Π denotes a product over qubit
+accompanied by an eight-pulse XY8 robust dynamical decoupling                              indices j (ref. 31). The stabilizers each have +1 eigenvalue for the graph
+sequence28 to suppress dephasing. The resulting parity oscillations                        state |G⟩. Measuring these operators and their expectation values can
+indicate that two-atom entanglement is unaffected by the transport                         be used to characterize the preparation of the target state.
+process20,29. Performing this experiment as a function of movement                            As an example, Fig. 2a shows the preparation of a one-dimensional (1D)
+speed30 shows that the fidelity remains unchanged until the total                          cluster state, a graph state defined by a linear chain of qubits32,33. To realize
+separation speed becomes more than 0.55 μm μs−1, corresponding to                          this state, we perform one global, parallel layer of CZ gates on adjacent
+the onset of atom loss (Fig. 1d). We note that the entanglement transport                  atom pairs, move half the atoms to form new pairs and then perform
+in Fig. 1b corresponds to moving quantum information across a region                       another parallel layer of CZ gates (Fig. 2a, b). To probe the resultant 12-qubit
+of space that can, in principle, host about 2,000 qubits (at an atom                       cluster state, we measure the stabilizer set {Si} = {Zi−1XiZi+1} through readout
+separation of 3 μm), on a timescale corresponding to <10−3 of the coher-                   in two measurement settings, given by a local π/2 rotation on either the
+ence time T2 (Extended Data Fig. 3), directly enabling applications in                     odd or the even sublattice before projective measurement34. We achieve
+large-scale quantum information systems.                                                   the local rotation by moving one sublattice of qubits to a separate zone and
+
+
+452 | Nature | Vol 604 | 21 April 2022
+ a                                             1D cluster state graph                                                                d                                                  e                      Seven-qubit Steane code graph
+                                                                                                                                                                                                                                          Four layers
+                                                                                                                                                     4                                                 1 |0〉     Y(π/2)
+                                                                                                                                                                                                       2 |0〉                                                                YY(π/2)
+                                                                                                                                                                                                                                                                               (π/2)
+
+     First parallel layer                                                                                                                                  2                                           3 |0〉                                                                YY(π/2)
+                                                                                                                                                                                                                                                                               (π/2)
+                                  1 2    3 4            5 6    7 8                                   9 10       11 12                                                                                  4 |0〉
+                                                                                                                                              6      3
+                                                                                                                                                                                                       5 |0〉
+ Second parallel layer                                                                                                                                                                                 6 |0〉                                                                YY(π/2)
+                                                                                                                                                                                                                                                                               (π/2)
+                                  1     2 3        4 5        6 7                                  8 9        10 11      12
+                                                                                                                                                                                                       7 |0〉    Y (π/2)                                                     YY(π/2)
+                                                                                                                                                                                                                                                                               (π/2)
+                                                                                                                                         5                 7      1
+                                                                                                                                                                                                                          + Dynamical decoupling
+ b                                                                       c                                  Si = Zi – 1 Xi Zi + 1    f
+
+
+
+
+                                                                                                                                                                                                                            Logical operator expectation value
+           1 |0〉     Y(π/2)                    Y(π/2)
+                                                                                                   1.0                                                                                           1.0                                                             1.0
+           2 |0〉
+
+
+
+
+                                                                    Stabilizer expectation value
+
+
+
+
+                                                                                                                                                                  Stabilizer expectation value
+           3 |0〉                                                                                                                             S1 = X1X2X3X7                                                                                                                        Raw
+                                                                                                   0.8                                                                                           0.8                                                             0.8              Error detection
+           4 |0〉                                                                                                                             S2 = X3X5X6X7
+           5 |0〉                                                                                                                             S3 = X2X3X4X6
+                                                                                                   0.6                                                                                           0.6                                                             0.6
+           6 |0〉
+                                                                                                                                             S4 = Z1Z2Z3Z7
+           7 |0〉                                                                                                                             S5 = Z3Z5Z6Z7
+                                                                                                   0.4                                                                                           0.4                                                             0.4
+           8 |0〉                                                                                                                             S6 = Z2Z3Z4Z6
+           9 |0〉
+                                                                                                   0.2                                       XL = X1X2X4                                         0.2                                                             0.2
+          10 |0〉
+          11 |0〉                               Y (π/2)                                                                                       ZL = Z1Z2Z4
+          12 |0〉    Y (π/2)                                                                         0                                                                                             0                                                               0
+
+                                                                                                            12 stabilizers Si                                  Plaquettes:                               X         Z                                                   XL      ZL
+                              + Dynamical decoupling
+
+Fig. 2 | One- and two-dimensional graph states using dynamic                                                                        qubits). d, Graph-state representation of the seven-qubit Steane code
+entanglement transport. a, Generation of a 12-atom 1D cluster-state graph,                                                          (colours represent stabilizer plaquettes). e, Circuit for preparing the Steane
+created by initializing all qubits (vertices) in |+⟩ and applying CZ gates on the                                                   code logical |+⟩L state, performed in four parallel gate layers. f, Measured
+links (edges) between qubits. The atom images show the configuration for the                                                        stabilizers and logical operators after preparing |+⟩L . Error detection is done by
+first and second gate layers. b, Quantum circuit representation of the 1D                                                           postselecting on measurements where all stabilizers are +1. For both the 1D
+cluster-state preparation and measurement. Dynamical decoupling is applied                                                          cluster state and the Steane code, the stabilizers and logical operators are
+throughout all quantum circuits (Methods). c, Raw measured stabilizers of the                                                       measured with two measurement settings (see text). Error bars represent 68%
+resulting 1D cluster state, given by S i = Zi−1 X i Zi+1 (X 1 Z 2 and Z11 X 12 for the edge                                         confidence intervals.
+
+
+
+then performing a rotation on the unmoved qubits with a homogeneous                                                                 quickly move arrays of atoms across the entire system, the use of ancillary
+beam illuminating the experiment zone (Fig. 1a, Methods). We measure ⟨Si⟩                                                           qubits naturally complements our movement capabilities. Specifically,
+by analysing the resulting bit-string outputs and plot the resulting raw sta-                                                       we employ ancillas for state preparation by mediating entanglement
+bilizer measurements (Fig. 2c). Across all 12 stabilizers, we find an average                                                       between physical qubits that never directly interact, followed by projec-
+⟨Si⟩ = 0.87(1) (Fig. 2c) (accounting for state-preparation-and-measurement                                                          tive measurement of the ancilla array (performed simultaneously with
+(SPAM) errors would yield ⟨Si⟩ = 0.91(1)), certifying biseparable entangle-                                                         the measurement of the data qubits), a form of measurement-based
+ment in a cluster state (all ⟨Si⟩ > 0.5 (ref. 34)). The measured fidelities would                                                   quantum computation32,35. In particular, we prepare topological surface
+correspond to a few-percent error per operation for a measurement-based                                                             code and toric code states8,9,38,39, whose states are more difficult to con-
+quantum computation32,35.                                                                                                           struct by direct CZ gates between physical qubits (requiring an extensive
+   An important class of graph states are QEC codes, where the                                                                      number of layers8,40). For these codes, the measured values of the ancilla
+graph-state stabilizers manifest as the stabilizers of the QEC code and                                                             qubits simply redefine the stabilizers and are handled in-software for
+can be measured to correct errors on an encoded logical qubit. As an                                                                practical QEC operation38. As the redefinition is applied in-software,
+example, we prepare the seven-qubit Steane code6,7, a topological colour                                                            without physical intervention, the projective measurements on the ancil-
+code depicted by the graph in Fig. 2d, in the logical state |+⟩L. To prepare                                                        lae commute with all operations on the data qubits and can be done at
+this state, we initialize all qubits in |+⟩, apply CZs on the links between                                                         any time, and so we measure all qubits simultaneously.
+qubits (in four parallel layers; Extended Data Fig. 5) and then rotate either                                                          Figure 3a shows the preparation of a 19-qubit graph state creating
+of the two sublattices for measuring stabilizers (Fig. 2e). After sublattice                                                        the |+⟩L logical state of the surface code8,38. The surface code is defined
+rotation, six of the graph-state stabilizers transform into the six Steane                                                          by X-plaquette and Z-star stabilizers, and logical operators XL (ZL) are
+code stabilizers, given by four-body products of Xi or Zi. Figure 2f shows                                                          defined as strings of X (Z) products across the height (width) of the
+the raw measured expectation values of these six stabilizers. The seventh                                                           graph. To prepare this state, ancillas are moved to perform CZ gates
+graph-state stabilizer transforms into the logical qubit operator XL and                                                            with each of their four neighbours and are then measured, projecting
+has eigenvalue +1 for the graph state |G⟩, while anticommuting with                                                                 the data qubits into the surface code state. The graph-state stabilizers
+logical ZL. Accordingly, in Fig. 2f, we find ⟨XL⟩ = 0.71(2) and ⟨ZL⟩ = −0.02(3),                                                    now transform into the X plaquettes, the Z stars (with value ±1 for a
+demonstrating the preparation of the logical qubit state |+⟩L. Moreover,                                                            measurement outcome of ±1 of the central ancilla) and the logical XL
+we perform error detection by post-selecting on measurement outcomes                                                                operator35,41. Remarkably, this procedure creates a topologically
+where all measured stabilizers yield +1 (refs. 36,37; with 66(1)% probability                                                       ordered state in a constant-depth circuit35,40, where measured ancilla
+of no detected errors). Using this procedure, we obtain corrected                                                                   values can be used for redefining stabilizers, which can be handled
+values of XL = 0.991+0.004  −0.007 and, ZL = −0.03(3) demonstrating the                                                             in-software for practical QEC operation38. Figure 3b shows the meas-
+error-detecting properties of the Steane code graph (see Extended Data                                                              ured expectation values of the 12 resulting stabilizers, as well as the
+Fig. 7 for error correction and logical operations).                                                                                logical operator expectation values with and without error detection.
+                                                                                                                                    We find a raw value of ⟨XL⟩ = 0.64(3), and a corrected value of XL = 1+0 −0.01
+                                                                                                                                    using the measured stabilizers for error detection (with 35(1)% prob-
+Topological states with ancilla arrays                                                                                              ability of no detected errors), demonstrating the preparation of this
+We next make use of transportable ancillary qubit arrays to mediate                                                                 topological QEC state (see also Extended Data Fig. 7, showing the
+quantum operations between remote qubits1. Owing to the ability to                                                                  expected attributes for all prepared error-protected logical states).
+
+
+                                                                                                                                                                                                          Nature | Vol 604 | 21 April 2022 | 453
+Article
+a                                                      Surface code                                                                                     c                                                             Toric code (on a torus)
+                                                                                                                             Z star
+                                                                                                                         Z
+                                                        Data qubit                                                                                                                                                                     X
+                                                                                                                                                                                                                         XL(2)
+                                                        Ancilla                                                      Z   X    Z
+                                                                                                                                                                                                                                                                                X           X        X        X
+                                                                                                                         Z
+                                                                                                                                                                                                                                       X
+
+
+
+                                                                                                                Z        Z        Z   ZL                    XL(1)
+
+                                                                                                                X   XL
+
+
+
+
+                                                                                                                                      X plaquette
+                                                                                                                         X    X
+ |0〉   Y(π/2)                                                                                   Y(π/2)
+                                                                                                                X        X        X
+ |0〉   Y(π/2)
+ |0〉   Y(π/2)                                                                                                                 X
+ |0〉   Y(π/2)
+ |0〉   Y(π/2)                                                                                                   Z
+                                                                                                                X
+
+                                                                                                                                                    0                                        205               410               615                                                  820                      1,170                 Time (μs)
+                                                                Logical operator expectation value
+
+
+
+
+                                                                                                                                                                                                                                           Logical operator expectation value
+b                                     1.0                                                            1.0                                                d                                          1.0                                                                              1.0
+       Stabilizer expectation value
+
+
+
+
+                                                                                                                                                                    Stabilizer expectation value
+                                                                                                                    Raw                                                                                                                                                                                                   Raw
+                                      0.8                                                            0.8            Error detection                                                                0.8                                                                              0.8                                   Error detection
+
+                                      0.6                                                            0.6                                                                                           0.6                                                                              0.6
+
+                                      0.4                                                            0.4                                                                                           0.4                                                                              0.4
+
+                                      0.2                                                            0.2                                                                                           0.2                                                                              0.2
+
+                                       0                                                              0                                                                                             0                                                                                0
+
+                                                X        Z                                                 XL       ZL                                                                                       X           Z                                                                  XL(1)   ZL(1)   XL(2)      ZL(2)
+                                            plaquettes stars                                                                                                                                             plaquettes    stars
+
+Fig. 3 | Topological surface code and toric code states using mobile ancilla                                                                                        Top: graph state realizing the two logical-qubit product state + L + L of the
+                                                                                                                                                                                                                                                                                                                               (1)   (2)
+
+qubit arrays. a, Graph state realizing the surface code. Left: the circuit depicts                                                                                  toric code upon projective measurement of the ancilla qubits in the X basis.
+formation of the graph state by use of mobile ancilla qubits; each move                                                                                             Bottom: images showing the movement steps implemented in creating and
+corresponds to performing a CZ gate with a neighbouring data qubit                                                                                                  measuring the toric code state (Supplementary Video 1). The blue shading in
+(illustrated in box). The logical |+⟩L state is created upon projective                                                                                             the final image represents a local rotation on the data qubit zone. d, Measured
+measurement of the ancilla qubits in the X basis. Right: stabilizers and logical                                                                                    X-plaquette and Z-star stabilizers, along with logical operators for the two
+operators of the code. b, Measured X-plaquette and Z-star stabilizers of the                                                                                        logical qubits with and without error detection (implemented in
+resultant surface code, along with logical operators with and without error                                                                                         postselection).
+detection (implemented in postselection). c, Implementation of the toric code.
+
+
+
+
+   Although surface code states have previously been prepared with
+other methods, our transport capabilities allow us to use the full range                                                                                            Hybrid analogue–digital circuits
+of motion of ancilla qubits across the entire qubit array to enable peri-                                                                                           Having established atom movement for realizing digital circuits, we
+odic boundary conditions and realize the toric code state on a torus9.                                                                                              now explore the applications to quantum simulation. In particular,
+To this end, we create the 24-qubit graph state shown in Fig. 3c by per-                                                                                            we perform hybrid, modular quantum circuits composed of analogue
+forming five layers of parallel gates and moving the ancillae to their                                                                                              Hamiltonian evolution, reconfiguration and digital gates (Fig. 4a).
+separate zone for readout in a separate basis (see also Supplementary                                                                                               Together, these tools open a wide variety of possibilities in quantum
+Video 1 showing the full atom trajectory). The state we prepare has seven                                                                                           simulation and many-body physics. As a specific example, we measure
+(owing to periodic boundary conditions) independent X plaquettes and                                                                                                the Renyi entanglement entropy after a quantum quench by effectively
+seven independent Z stars. Moreover, owing to the topological proper-                                                                                               interfering two copies of a many-body system10,11.
+ties of this graph, two independent logical qubits can be encoded with                                                                                                Figure 4b illustrates the experimental procedure. After initializing
+logical operators X (1)     (1)     (2)   (2)
+                      L , Z L and X L , Z L that wrap around the entire torus                                                                                       both copies with all qubits in |1⟩, we independently evolve each copy
+along two topologically distinct directions9. Upon projective measure-                                                                                              under the Rydberg Hamiltonian HRyd for a time t, generating an entan-
+ment of the ancilla qubits in the X basis we create the toric code state                                                                                            gled many-body state in the {|1⟩, |r⟩} basis (Methods)13. Raman and
+ + (1)    (2)
+    L + L . State preparation is verified in Fig. 3d by measuring the toric                                                                                         Rydberg π pulses then map |1⟩ → |0⟩ and |r⟩ → |1⟩, transferring the entan-
+code stabilizers. For the two encoded logical qubits, we find raw                                                                                                   gled many-body state into the long-lived and non-interacting {|0⟩, |1⟩}
+logical qubit expectation values of ⟨X (1)                        (2)
+                                             L ⟩ = 0.64(2) and ⟨X L ⟩ = 0.38(2),                                                                                    basis42. Finally, we measure entanglement entropy by rearranging the
+                                      (1)                  (2)
+                                              +0
+and error-detected values of ⟨X L ⟩ = 1−0.01 and ⟨X L ⟩ = 0.92+0.02   −0.03 (with                                                                                   system and interfering each qubit in the first copy with its identical
+20(1)% probability of no detected errors), demonstrating the prepara-                                                                                               twin in the second copy, by use of a Bell measurement circuit. Measur-
+tion of the toric code. We note that the different expectation values of                                                                                            ing twins in the Bell basis detects occurences of the antisymmetric
+                                                                                                                                                                                          01 − 10
+the corrected logical qubits originate from the aspect ratio of our torus,                                                                                          singlet state Ψ − =               , the presence of which indicates that sub-
+                                                                                                                                                                                                  2
+where X (1)       (2)
+          L and X L are protected to code distance d = 4 and d = 2, respec-                                                                                         systems of the two copies were in different states owing to entangle-
+tively (see also Extended Data Fig. 7). Our measured fidelities are in                                                                                              ment with the rest of the many-body system10,11. Quantitatively,
+good agreement with numerical simulations of the circuit (Extended                                                                                                  analysing the number parity of observed singlets within subsystem A
+Data Fig. 6), wherein each qubit experiences a per-layer error rate inde-                                                                                           yields the purity Trρ 2A  of the reduced density matrix ρA, and thus yields
+pendent of the number of qubits or the shuttling process, indicating                                                                                                the second-order Renyi entanglement entropy S2(A) = − log 2Trρ 2A 
+that errors in CZ gates (fidelity of about 97.5%; Methods5) constitute                                                                                              (Methods). This measurement circuit provides the Renyi entropy of
+our dominant error source.                                                                                                                                          any constituent subsystem of our whole closed quantum system, where
+
+
+454 | Nature | Vol 604 | 21 April 2022
+                                                                                                                                                                                                          Reconfigure
+      a                                                                                                                                                         b                 Many-body dynamics                     Measure entanglement entropy
+                                  Analogue Reconfigure            Digital                                            Modular circuit
+
+                                                                                                                                                                                                                                         Bell measurement
+                                        H(t)                                                                                                                                               H(t)
+
+                                                                                                                                                                                                                                       X(π/2)            X(π/2)
+                                                                                                                                                                                                                                                  CZ
+                                                                                                                                                                                                                                                         X(π/2)
+
+
+      c                                                                                   d 3                                                                       e
+                                  2.0 |\(0)〉 = |gggggggg〉                                                                                                                                          |\(0)〉 = |gggggggg〉                          |\(0)〉 = |rgrgrgrg〉
+Half-chain entanglement entropy
+
+
+
+
+                                                                                                                                                                                0.8
+
+
+
+                                                                                        Mutual information IAB
+                                  1.5
+                                                                                                                 2                                                              0.6
+
+
+
+
+                                                                                                                                                                Renyi entropy
+                                                                                                                             ~Volume law
+                                  1.0
+                                                                                                                                                                                0.4
+                                                                                                                 1
+                                  0.5
+                                                                                                                                           ~Area law                            0.2
+
+                                                              |\(0)〉 = |rgrgrgrg〉
+                                   0                                                                             0                                                               0
+                                         0     0.2      0.4      0.6        0.8   1.0                                0   1   2     3   4     5   6     7   8                          0   0.2     0.4   0.6   0.8    1.0   0     0.2    0.4        0.6        0.8   1.0
+                                                     Quench time (μs)                                                            System A size                                              Quench time (μs)                       Quench time (μs)
+
+Fig. 4 | Dynamic reconfigurability for hybrid analogue–digital quantum                                                                                         the mutual information at 0.5-μs quench time reveals a volume-law scaling for
+simulation. a, Hybrid quantum circuit combining coherent atom transport                                                                                        the thermalizing |gggg...⟩ state, and an area-law scaling for the scarring |rgrg...⟩
+with analogue Hamiltonian evolution and digital quantum gates. b, Measuring                                                                                    state. e, The single-site Renyi entropies for sites in the middle of the chain
+entanglement entropy in a many-body Rydberg system via two-copy                                                                                                quickly increase and saturate for the |gggg...⟩ quench, but show large
+interferometry. c, Measured half-chain Renyi entanglement entropy after                                                                                        oscillations for the |rgrg...⟩ quench. The solid curves are results of exact
+many-body dynamics following quenches on two eight-atom systems.                                                                                               numerical simulations for the isolated quantum system under HRyd with no free
+Quenching from |gggg...⟩ (|g⟩ ≡ |1⟩) results in rapid entropy growth and                                                                                       parameters (see Methods for details of data processing). Error bars represent
+saturation, signifying quantum thermalization. Quenching from |rgrg...⟩                                                                                        one standard deviation.
+reveals a significantly slower growth of entanglement entropy. d, Measuring
+
+
+
+the calculation over any desired subsystem A is simply performed in                                                                                            of quantum many-body scars, and constitute the direct observation of
+data processing10,11.                                                                                                                                          exotic entanglement phenomena in a many-body system.
+   We use this method to probe the growth of entanglement entropy                                                                                                 These observations are in excellent agreement with exact numerical
+produced by many-body dynamics (see Methods for additional bench-                                                                                              simulations in the isolated system (lines plotted in Fig. 4c, e, Extended
+marking of the technique). Specifically, we study the evolution of two                                                                                         Data Fig. 10). Moreover, whereas the single-site purity approaches
+eight-atom copies under the Rydberg Hamiltonian, subject to the                                                                                                that of a fully mixed state, our global purity (a 16-body observable
+nearest-neighbour blockade constraint4,13. Upon a rapid quench from                                                                                            composed of three-level systems) remains more than 100 times that
+an initial state with all atoms in the ground state |g⟩ ≡ |1⟩, we observe                                                                                      of a fully mixed state (Extended Data Fig. 9), altogether demonstrating
+that the half-chain Renyi entanglement entropy quickly grows and satu-                                                                                         the high accuracy and fidelity of our circuit-based technique. These
+rates (Fig. 4c), a process corresponding to quantum thermalization12.                                                                                          results demonstrate that combining atom movement, many-body Ham-
+By analysing the Renyi mutual information IAB = S2(A) + S2(B) − S2(AB)                                                                                         iltonian evolution and digital quantum circuits yields powerful tools
+between the leftmost n atoms in the chain (A) and the complement                                                                                               for simulating and probing the quantum physics of complex systems.
+subsystem of the rightmost 8 − n atoms (B), we find a volume-law scal-
+ing in the resulting state (Fig. 4d)11,12.
+   Although such thermalizing dynamics is generically expected in                                                                                              Discussion and outlook
+strongly interacting many-body systems, remarkably, it was demon-                                                                                              Our experiments demonstrate highly parallel coherent qubit trans-
+strated previously that for certain initial states this system can evade                                                                                       port and entanglement enabling a powerful quantum information
+thermalization. Underpinned by special, non-thermal eigenstates called                                                                                         architecture. The present techniques can be extended along a num-
+quantum many-body scars13,14,43, these states were theoretically predicted                                                                                     ber of directions. Local Rydberg excitation on subsets of qubit pairs
+to feature dynamics associated with a slow, non-monotonic entangle-                                                                                            would eliminate residual interactions from unintended atoms, allowing
+ment growth. Figure 4 shows the measurement of entanglement prop-                                                                                              parallel, independent operations on arrays with significantly higher
+erties of many-body scars following a rapid quench from the initial state                                                                                      qubit densities. Two-qubit gate fidelity can be improved using higher
+ Z2 ≡ rgrg ... , initialized by applying local Rydberg π pulses (Methods).                                                                                     Rydberg laser power or more efficient delivery methods, as well as more
+We find that the rate of entropy growth for this initial state is significantly                                                                                advanced atom cooling44. These technical improvements should allow
+suppressed, and the mutual information reveals an area-law scaling                                                                                             for scaling to deep quantum circuits operating on thousands of neutral
+(Fig. 4d). Furthermore, Fig. 4e shows the single-site entropy in the mid-                                                                                      atom qubits. These upgrades can be additionally supplemented by
+dle of the chain, demonstrating rapid growth and saturation for the                                                                                            more sophisticated local single-qubit control employing, for example,
+thermalizing |gggg...⟩ state but large oscillations for the |Z2⟩ state13,14.                                                                                   parallel Raman excitation through acousto-optic modulator arrays16.
+Remarkably, the data show that when sites of one sublattice return to                                                                                          Mid-circuit readout can be implemented by moving ancillas into a
+low entropy, the other sublattice goes to high entropy; this reveals that                                                                                      separate zone and imaging using, for example, avalanche photodiode
+the scar dynamics entangle distant atoms (of the same sublattice) while                                                                                        arrays within a few hundred microseconds45.
+disentangling nearest neighbours, even with only nearest-neighbour                                                                                               Our method has a clear potential for realizing scalable QEC46. For
+interactions (Methods). These measurements reveal non-trivial aspects                                                                                          example, the procedure demonstrated in Fig. 3c can be used for
+
+
+                                                                                                                                                                                                                Nature | Vol 604 | 21 April 2022 | 455
+Article
+syndrome extraction in a practical QEC sequence, wherein ancillas                                22.   Wu, T.-Y., Kumar, A., Giraldo, F. & Weiss, D. S. Stern–Gerlach detection of neutral-atom
+                                                                                                       qubits in a state-dependent optical lattice. Nat. Phys. 15, 538–542 (2019).
+are entangled with their data qubit neighbours and then moved to                                 23.   Pompili, M. et al. Realization of a multinode quantum network of remote solid-state
+a separate zone for mid-circuit readout. We estimate that an entire                                    qubits. Science 372, 259–264 (2021).
+QEC round can be implemented within a millisecond, much faster                                   24.   Pino, J. M. et al. Demonstration of the trapped-ion quantum CCD computer architecture.
+                                                                                                       Nature 592, 209–213 (2021).
+than the measured T2 > 1 s, and with projected fidelity improvements                             25.   Ebadi, S. et al. Quantum phases of matter on a 256-atom programmable quantum
+theoretically surpassing the surface code threshold (Methods). We                                      simulator. Nature 595, 227–232 (2021).
+emphasize that such a mid-circuit readout is essential for realizing                             26.   Levine, H. et al. Dispersive optics for scalable Raman driving of hyperfine qubits. Phys.
+                                                                                                       Rev. A 105, 032618 (2022).
+scalable fault-tolerant quantum computation. Furthermore, the abil-                              27.   Vandersypen, L. M. K. & Chuang, I. L. NMR techniques for quantum control and
+ity to reconfigure and interlace our arrays will allow efficient, paral-                               computation. Rev. Mod. Phys. 76, 1037 (2005).
+lel execution of transversal entangling gates between many logical                               28.   Gullion, T., Baker, D. B. & Conradi, M. S. New, compensated Carr–Purcell sequences.
+                                                                                                       J. Magn. Reson. 89, 479–484 (1990).
+qubits38,47. In addition, these techniques also enable implementation                            29.   Dordević, T. et al. Entanglement transport and a nanophotonic interface for atoms in
+of higher-dimensional or non-local error-correcting codes with more                                    optical tweezers. Science 373, 1511–1514 (2021).
+favourable properties48,49. Together, these ingredients could enable an                          30.   Lam, M. R. et al. Demonstration of quantum brachistochrones between distant states of
+                                                                                                       an atom. Phys. Rev. X 11, 011035 (2021).
+approach to universal, fault-tolerant quantum computing with thou-                               31.   Hein, M. et al. Entanglement in graph states and its applications. In Proc. International
+sands of physical qubits.                                                                              School of Physics “Enrico Fermi” (eds Casati, G. et al.) Vol. 162, 115–218 (IOS Press, 2006).
+   Our dynamically reconfigurable architecture also opens many oppor-                            32.   Raussendorf, R. & Briegel, H. J. A one-way quantum computer. Phys. Rev. Lett. 86, 5188
+                                                                                                       (2001).
+tunities for digital and analogue quantum simulations. For example, our                          33.   Schwartz, I. et al. Deterministic generation of a cluster state of entangled photons.
+hybrid approach can be extended to probing the entire entanglement                                     Science 354, 434–437 (2016).
+spectrum50, simulating wormhole creation51, performing many-body                                 34.   Tóth, G. & Gühne, O. Entanglement detection in the stabilizer formalism. Phys. Rev. A 72,
+                                                                                                       022340 (2005).
+purification52 and engineering non-equilibrium states53. Entanglement                            35.   Raussendorf, R. & Harrington, J. Fault-tolerant quantum computation with high threshold
+transport could also empower metrological applications such as creat-                                  in two dimensions. Phys. Rev. Lett. 98, 190504 (2007).
+ing distributed states for probing gravitational gradients54. Finally, our                       36.   Gottesman, D. An introduction to quantum error correction and fault-tolerant quantum
+                                                                                                       computation. Preprint at https://arxiv.org/abs/0904.2557 (2009).
+approach can facilitate quantum networking between separated arrays,                             37.   Egan, L. et al. Fault-tolerant control of an error-corrected qubit. Nature 598, 281–286 (2021).
+paving the way towards large-scale quantum information systems29,55                              38.   Fowler, A. G., Mariantoni, M., Martinis, J. M. & Cleland, A. N. Surface codes: towards
+                                                                                                       practical large-scale quantum computation. Phys. Rev. A 86, 032324 (2012).
+and distributed quantum metrology54,56.
+                                                                                                 39.   Semeghini, G. et al. Probing topological spin liquids on a programmable quantum
+                                                                                                       simulator. Science 374, 1242–1247 (2021).
+                                                                                                 40.   Bravyi, S., Hastings, M. B. & Verstraete, F. Lieb–Robinson bounds and the generation of
+Online content                                                                                         correlations and topological quantum order. Phys. Rev. Lett. 97, 050401 (2006).
+                                                                                                 41.   Bolt, A., Duclos-Cianci, G., Poulin, D. & Stace, T. Foliated quantum error-correcting codes.
+Any methods, additional references, Nature Research reporting sum-                                     Phys. Rev. Lett. 117, 070501 (2016).
+maries, source data, extended data, supplementary information,                                   42.   Wilk, T. et al. Entanglement of two individual neutral atoms using Rydberg blockade.
+                                                                                                       Phys. Rev. Lett. 104, 010502 (2010).
+acknowledgements, peer review information; details of author contri-
+                                                                                                 43.   Lesanovsky, I. & Katsura, H. Interacting Fibonacci anyons in a Rydberg gas. Phys. Rev. A
+butions and competing interests; and statements of data and code avail-                                86, 041601 (2012).
+ability are available at https://doi.org/10.1038/s41586-022-04592-6.                             44.   Kaufman, A. M., Lester, B. J. & Regal, C. A. Cooling a single atom in an optical tweezer to
+                                                                                                       its quantum ground state. Phys. Rev. 2, 041014 (2012).
+                                                                                                 45.   Shea, M. E., Baker, P. M., Joseph, J. A., Kim, J. & Gauthier, D. J. Submillisecond,
+1.  Cirac, J. I. & Zoller, P. A scalable quantum computer with ions in an array of microtraps.         nondestructive, time-resolved quantum-state readout of a single, trapped neutral atom.
+    Nature 404, 579–581 (2000).                                                                        Phys. Rev. A 102, 053101 (2020).
+2.  Preskill, J. Quantum Computing in the NISQ era and beyond. Quantum 2, 79 (2018).             46.   Cong, I., Levine, H., Keesling, A., Bluvstein, D., Wang, S.-T. & Lukin, M. D.
+3.  Jaksch, D. et al. Fast quantum gates for neutral atoms. Phys. Rev. Lett. 85, 2208–2211             Hardware-efficient, fault-tolerant quantum computation with Rydberg atoms. Preprint at
+    (2000).                                                                                            https://arxiv.org/abs/2105.13501 (2021).
+4. Urban, E. et al. Observation of Rydberg blockade between two atoms. Nat. Phys. 5,             47.   Wang, C., Harrington, J. & Preskill, J. Confinement-Higgs transition in a disordered gauge
+    110–114 (2009).                                                                                    theory and the accuracy threshold for quantum memory. Ann. Phys. 303, 31–58 (2003).
+5.  Levine, H. et al. Parallel implementation of high-fidelity multiqubit gates with neutral     48.   Bombín, H. Gauge color codes: optimal transversal gates and gauge fixing in topological
+    atoms. Phys. Rev. Lett. 123, 170503 (2019).                                                        stabilizer codes. New J. Phys. 17, 083002 (2015).
+6.  Nigg, D. et al. Quantum computations on a topologically encoded qubit. Science 345,          49.   Breuckmann, N. P. & Eberhardt, J. N. Quantum low-density parity-check codes. PRX
+    302–305 (2014).                                                                                    Quantum 2, 040101 (2021).
+7.  Ryan-Anderson, C. et al. Realization of real-time fault-tolerant quantum error correction.   50.   Pichler, H., Zhu, G., Seif, A., Zoller, P. & Hafezi, M. Measurement protocol for the
+    Phys. Rev. 11, 041058 (2021).                                                                      entanglement spectrum of cold atoms. Phys. Rev. 6, 041033 (2016).
+8.  Satzinger, K. J. et al. Realizing topologically ordered states on a quantum processor.       51.   Brown, A. R. et al. Quantum gravity in the lab: teleportation by size and traversable
+    Science 374, 1237–1241 (2021).                                                                     wormholes. Preprint at https://arxiv.org/abs/1911.06314 (2019).
+9.  Kitaev, A. Y. Fault-tolerant quantum computation by anyons. Ann. Phys. 303, 2–30             52.   Koczor, B. Exponential error suppression for near-term quantum devices. Phys. Rev. 11,
+    (2003).                                                                                            031057 (2021).
+10. Daley, A. J., Pichler, H., Schachenmayer, J. & Zoller, P. Measuring entanglement growth in   53.   Hashizume, T., Bentsen, G. S., Weber, S. & Daley, A. J. Deterministic fast scrambling with
+    quench dynamics of bosons in an optical lattice. Phys. Rev. Lett. 109, 020505 (2012).              neutral atom arrays. Phys. Rev. Lett. 126, 200603 (2021).
+11. Islam, R. et al. Measuring entanglement entropy in a quantum many-body system. Nature        54.   Bothwell, T. et al. Resolving the gravitational redshift within a millimeter atomic sample.
+    528, 77–83 (2015).                                                                                 Nature 602, 420–424 (2022).
+12. Kaufman, A. M. et al. Quantum thermalization through entanglement in an isolated             55.   Fowler, A. G. et al. Surface code quantum communication. Phys. Rev. Lett. 104, 180503
+    many-body system. Science 353, 794–800 (2016).                                                     (2010).
+13. Bernien, H. et al. Probing many-body dynamics on a 51-atom quantum simulator. Nature         56.   Zheng, X. et al. High precision differential clock comparisons with a multiplexed optical
+    551, 579–584 (2017).                                                                               lattice clock. Nature 602, 425–430 (2022).
+14. Turner, C. J., Michailidis, A. A., Abanin, D. A., Serbyn, M. & Papić, Z. Weak ergodicity
+    breaking from quantum many-body scars. Nat. Phys. 14, 745–749 (2018).                        Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+15. Molmer, K. & Sorensen, A. Multiparticle entanglement of hot trapped ions. Phys. Rev. Lett.   published maps and institutional affiliations.
+    82, 1835 (1999).
+16. Wright, K. et al. Benchmarking an 11-qubit quantum computer. Nat. Commun. 10, 5464                              Open Access This article is licensed under a Creative Commons Attribution
+    (2019).                                                                                                         4.0 International License, which permits use, sharing, adaptation, distribution
+17. Periwal, A. et al. Programmable interactions and emergent geometry in an array of atom                          and reproduction in any medium or format, as long as you give appropriate
+    clouds. Nature 600, 630–635 (2021).                                                          credit to the original author(s) and the source, provide a link to the Creative Commons license,
+18. Majer, J. et al. Coupling superconducting qubits via a cavity bus. Nature 449, 443–447       and indicate if changes were made. The images or other third party material in this article are
+    (2007).                                                                                      included in the article’s Creative Commons license, unless indicated otherwise in a credit line
+19. Mandel, O. et al. Coherent transport of neutral atoms in spin-dependent optical lattice      to the material. If material is not included in the article’s Creative Commons license and your
+    potentials. Phys. Rev. Lett. 91, 010407 (2003).                                              intended use is not permitted by statutory regulation or exceeds the permitted use, you will
+20. Beugnon, J. et al. Two-dimensional transport and transfer of a single atomic qubit in        need to obtain permission directly from the copyright holder. To view a copy of this license,
+    optical tweezers. Nat. Phys. 3, 696–699 (2007).                                              visit http://creativecommons.org/licenses/by/4.0/.
+21. Monroe, C. et al. Large-scale modular quantum-computer architecture with atomic
+    memory and photonic interconnects. Phys. Rev. A 89, 022317 (2014).                           © The Author(s) 2022
+
+
+
+456 | Nature | Vol 604 | 21 April 2022
+Methods                                                                       by an electro-optic modulator (Qubig), which is driven by microwaves
+                                                                              at 3.4 GHz (Stanford Research Systems SRS SG384) that are doubled
+Dynamic reconfiguration in 2D tweezer arrays                                  to 6.8 GHz and amplified. The laser phase modulation is converted to
+Our experiments utilize the same apparatus described previously in ref. 25.   amplitude modulation for driving Raman transitions through use of
+Inside our vacuum cell, 87Rb atoms are loaded from a magneto-optical          a chirped Bragg grating (Optigrate)26. IQ (in-phase and quadrature)
+trap into a backbone array of programmable optical tweezers generated         control of the SG384 is used for frequency and phase control of the
+by an SLM57. Atoms are rearranged in parallel into defect-free target         microwaves, which are imprinted onto the laser amplitude modulation
+positions in this SLM backbone57 by additional optical tweezers gener-        and thus give us direct frequency and phase control over the hyperfine
+ated from a crossed 2D AOD. Following the rearrangement procedure,            qubit drive.
+we transfer selected atoms from the static SLM traps back into the               The Raman laser illuminates the atom plane from the side in a cir-
+mobile AOD traps, and then move these mobile atoms to their start-            cularly polarized elliptical beam with waists of 40 μm and 560 μm on
+ing positions in the quantum circuit. During this entire process, the         the thin axis and the tall axis, respectively, with a total average optical
+atoms are cooled with polarization-gradient cooling. Before running           power of 150 mW on the atoms. The large vertical extent ensures <1%
+the quantum circuit, we take a camera image of the atoms in their ini-        inhomogeneity across the atoms, and shot-to-shot fluctuations in the
+tial starting positions, and following the circuit we take a final camera     laser intensity are also <1%. For Figs. 1–3, we operate our Raman laser
+image to detect qubit states |0⟩ (atom presence) and |1⟩ (atom loss,          at a blue-detuned intermediate-state detuning of 180 GHz, resulting
+following resonant pushout). We postselect all data on finding perfect        in two-photon Rabi frequencies of 1 MHz and an estimated scattering
+rearrangement of the AOD and SLM atoms before running the circuit.            error per π pulse of 7 × 10−5 (that is, 1 scattering event per 15,000 π
+In all experiments here, each atom remains in a single static or single       pulses)26. For Fig. 4, to shorten the duration of the coherent mapping
+mobile trap throughout the duration of the quantum circuit20,58,59.           pulse sequence, we increase the Raman laser power and operate at a
+   The crossed AOD system is composed of two independently controlled         smaller blue-detuned intermediate-state detuning of 63 GHz, with a
+AODs (AA Opto Electronic DTSX-400) for x and y control of the beam            corresponding two-photon Rabi frequency of 3.2 MHz and an estimated
+positions. Both AODs are driven by independent arbitrary waveforms,           scattering error per π pulse of 2 × 10−4.
+which are generated by a dual-channel arbitrary waveform genera-
+tor (M4i.6631-x8 by Spectrum Instrumentation) and then amplified              Robust single-qubit rotations
+through independent MW amplifiers (Minicircuits ZHL-5W-1).                    For almost all single-qubit rotations in this work (other than XY8 and
+The time-domain arbitrary waveforms are composed of multiple                  XY16 self-correcting sequences), we implement robust single-qubit
+frequency tones corresponding to the x and y positions of columns             rotations in the form of composite pulse sequences. These composite
+and rows, which are independently changed as a function of time for           pulse sequences are well known in the NMR community27,60 and can
+steering around the AOD-trapped atoms dynamically; the full x and y           be highly insensitive to pulse errors such as amplitude or detuning
+waveforms are calculated by adding together the time-domain profile           miscalibrations. Our dominant source of coherent single-qubit errors
+of all frequency components with a given amplitude and phase for each         arise from ≲1% amplitude drifts and inhomogeneity across the array; as
+component. For running quantum circuits, we program the positions             such, we primarily use the ‘BB1’ (broadband 1) pulse sequence, which
+of the AOD atoms at each gate location and then smoothly interpolate          is a sequence of four pulses that implements an arbitrary rotation on
+(with a cubic profile) the AOD frequencies as a function of time between      the Bloch sphere while being insensitive to amplitude errors to sixth
+gate positions. The cubic profile enacts a constant jerk onto the atoms,      order27,60. We benchmark the performance of these robust pulses in
+which allows us to move roughly five-to-ten-times faster (without heat-       Extended Data Fig. 3a. Furthermore, by applying a train of BB1 pulses,
+ing and loss) than if we move at a constant velocity (linear profile).        we find an accumulated error consistent with the estimated scattering
+In our movement protocol, we only do stretches, compressions and              limit (not plotted here), suggesting that the scattering limit roughly
+translations of the AOD trap array: that is, the AOD rows and columns         represents our single-qubit rotation infidelities (about 3 × 10−4 error
+never cross each other to avoid atom loss and heating associated with         per BB1 pulse owing to the increased length of the composite pulse
+two frequency components crossing each other.                                 sequence). Randomized benchmarking61 can be applied in future stud-
+   We homogenize the AOD tweezer intensity throughout the whole               ies to further study single-qubit rotation fidelity.
+atom trajectory to minimize dephasing induced by a time-varying
+magnitude of differential light shifts. To this end, we use a reference       Qubit coherence and dynamical decoupling
+camera in the image plane to gauge the intensity of each AOD tweezer          In our 830-nm traps, hyperfine qubit coherence is characterized by
+at each gate location and homogenize by varying the amplitude of              inhomogeneous dephasing time T ⁎2 = 4 ms (not plotted here), T2 = 1.5 s
+each frequency component; during motion between two locations, we             (XY16 with 128 total π pulses) and relaxation time T1 = 4 s (including
+interpolate the amplitude of each individual frequency component.             atom loss) (Extended Data Fig. 3b, c). All of our experiments in this
+   The SLM tweezer light (830 nm) and the AOD tweezer light (828 nm)          work are performed in a d.c. magnetic field of 8.5 G. Coherence can be
+are generated by two separate, free-running titanium:sapphire lasers          further improved by using further-detuned optical tweezers (with trap
+(M Squared, 18-W pump). Projected through a 0.5 numerical aperture            depth held constant, the tweezer differential lightshifts decrease as
+objective, the SLM tweezers have a waist of roughly 900 nm (roughly           1/Δ and 1/T1 decreases as 1/Δ3 (ref. 62), where Δ is the detuning of the trap
+1,000 nm for AODs). When loading the atoms, the trap depths are about         wavelength) and shielding against magnetic field fluctuations.
+2π × 16 MHz, with radial trap frequencies of about 2π × 80 kHz, and           For practical QEC operation, atom loss can be detected in a hardware-
+when running quantum circuits the trap depths are about 2π × 4 MHz,           efficient manner46 and the atom then replaced from a reservoir, which
+with radial trap frequencies of about 2π × 40 kHz.                            could in principle be continuously reloaded by a magneto-optical trap
+                                                                              for reaching arbitrarily deep circuits.
+Raman laser system                                                               All of our transport sequences20,58,59 are accompanied by dynami-
+Fast, high-fidelity single-qubit manipulations are critical ingredients of    cal decoupling sequences. The number of pulses we use is a trade-off
+the quantum circuits demonstrated in this work. To this end, we use a         between preserving qubit coherence while minimizing pulse errors.
+high-power 795-nm Raman laser system for driving global single-qubit          We interchange between two types of dynamical decoupling sequence:
+rotations between magnetic sublevel mF = 0 clock states. This Raman           XY8 and XY16 sequences, composed of phase-alternated individual π
+laser system is based on dispersive optics, developed and described           pulses that are self-correcting for amplitude and detuning errors28,63,
+in ref. 26. The 795-nm light (Toptica TA pro, 1.8 W) is phase-modulated       and Carr–Purcell–Meiboom–Gill (CPMG)-type dynamical decoupling
+Article
+sequences composed of robust BB1 pulses. The CPMG-BB1 sequence is             a different plane and thus deforms the trap and reduces the peak trap
+more robust to amplitude errors but incurs more scattering error. We          intensity (and ω0) as given by the Strehl ratio.
+empirically optimize for any given experiment by choosing between                Additional heating and loss during the circuit can also be caused by
+these different sequences and a variable number of decoupling π               repeated short drops for performing two-qubit gates, where the twee-
+pulses, optimizing on either single-qubit coherence (including the            zers are briefly turned off to avoid anti-trapping of the Rydberg state
+movement) or the final signal. Typically, our decoupling sequences            and light shifts of the ground–Rydberg transition. However, drop–
+are composed of a total 12–18 π pulses.                                       recapture measurements in Extended Data Fig. 2c suggest that the
+                                                                              500-ns drops we use experimentally have a negligible effect until hun-
+Movement effects on atom heating and loss                                     dreds of drops per atom (corresponding to hundreds of CZ gates). We
+We study here the effects of movement on atom loss and heating in             find that atom loss and heating as a function of number of drops are
+the harmonic oscillator potential given by the tweezer trap. Motion of        well described by a diffusion model, which would then predict that
+the trap potential is equivalent to the non-inertial frame of reference       reducing atom temperature by a factor of 2× (reducing thermal veloc-
+where the harmonic oscillator potential is stationary but the atom            ity by 2 ×) and reducing the drop time tdrop by 2×, together would
+experiences a fictitious force given by F(t) = −ma(t), where m is the         increase the number of possible CZ gates per atom to thousands.
+mass of the particle and a(t) is the acceleration of the trap as a func-
+tion of time64,65. By following ref. 66 (equation 5.4), we find the average   Two-qubit CZ gates implementation
+vibrational quantum number increase ΔN is given by                            We implement our two-qubit gates and calibrations following ref. 5. Spe-
+                                                                              cifically, the two-qubit CZ gate is implemented by two global Rydberg
+                                   ∼(ω ) 2
+                                   a  0                                       pulses, with each pulse at detuning Δ and length τ, and with a phase
+                          ΔN =                  ,                       (1)
+                                 (2xzpf ω0) 2                                 jump ξ between the two pulses. The pulse parameters are chosen such
+                                                                              that qubit pairs, adjacent and under the Rydberg blockade constraint,
+where a ∼(ω ) is the Fourier transform of a(t) evaluated at the trap fre-     will return from the Rydberg state back to the hyperfine qubit manifold
+             0
+quency ω0, and the zero-point size of the particle xzpf ≡ ħ /(2mω0) ,         with a phase depending on the state of the other qubit. The numerical
+where ħ is the reduced Planck constant. ΔN is the same for all initial        values for these pulse parameters are:
+levels of the oscillator66. Experimentally, we apply an acceleration pro-
+file a(t) = jt to the atom, from time −T/2 to +T/2 to move a distance D
+                                                                                                          Δ = − 0.377371Ω
+with constant jerk j. We calculate |a∼(ω)|2, simplify using ω T ≫ 1, and
+                                                              0
+assume a small range of trap frequencies to average the oscillatory                                    ξ = − 0.621089 × (2π)
+terms, resulting in
+                                                                                                      τ = 0.683201/[Ω /(2π)]
+                                                2
+                             1  6D /xzpf 
+                         ΔN =  2 2  .                                (2)
+                             2  ω0T                                            For our experiments in Figs. 1–3, we operate with a two-photon
+                                                                              Rydberg Rabi frequency of Ω/2π = 3.6 MHz, giving a theoretical
+   Several relevant insights can be gleaned from this formula. First, this    τ = 190 ns and a theoretical Δ/(2π) = −1.36 MHz. We choose the negative
+expression indicates our ability to move large distances D with com-          detuning sign to help minimize excitation into the mj = +1/2 Rydberg
+parably small increases in time T. Furthermore, to maintain a constant        state (mj denotes magnetic sublevel of the 70S1/2 Rydberg state), which
+ΔN, the movement time T ∝ ω−3/4  0 . Moreover, to perform a large number      is detuned by about 24 MHz under the field of 8.5 G (and experiences
+of moves k for a deep circuit, we can estimate ΔN ∝ k/T 4, suggesting         a three-times lower coupling to the Rydberg laser than the desired
+that we can increase our number of moves from, for example, 5 to 80           mj = −1/2 state owing to reduced Clebsch–Gordan coefficients). In this
+by slowing each move from 200 μs to 400 μs. Move speed could be               work, we operate with strong blockade between adjacent qubits, with
+further improved with different a(t) profiles, but inevitably with finite     Rydberg–Rydberg interactions V0/2π ranging from 200 MHz to 1 GHz.
+resources such as trap depth, quantum speed limits will eventually            In Fig. 4, we operate with Ω/2π = 4.45 MHz for the two-qubit gates.
+prevent arbitrarily fast motion of qubits across the array30.
+   We now compare equation (2) with our experimental observations.            Managing spurious phases during CZ gates
+In Fig. 1d we start to observe atom loss when we move 55 μm in 200 μs         The two-qubit gate from ref. 5 induces both an intrinsic single-qubit
+under a constant negative jerk. This speed limit is consistent with our       phase, as well as spurious phases that are primarily induced by the
+above estimates: using ω0 = 2π × 40 kHz and xzpf = 38 nm, we predict          differential light shift from the 420-nm laser. Under certain configura-
+ΔN ≈ 6 for this move, corresponding to the onset of tangible heating          tions, the 420-nm-induced differential light shift on the hyperfine qubit
+at this move speed. More quantitatively, we assume a Poisson distribu-        can be exceedingly large (>8 MHz), yielding phase accumulations on
+tion with mean N and variance N and integrate the population above            the hyperfine qubit of about 6π. Small, percent-level variations of the
+some critical Nmax upon which the atom will leave the trap. From this         420-nm intensity can thus lead to significant qubit dephasing.
+                                                1
+analysis we find atom retention is given by 2 (1 + erf[(Nmax − N )/ 2N ]).       Reference 5 addresses this 420-induced-phase issue by performing an
+   Extended Data Fig. 2a, b measures the atom retention as a function         echo sequence: after the CZ gate, the 1,013-nm Rydberg laser is turned
+of move time T and trap frequency ω0/2π. Using the functional form            off, a Raman π pulse is applied and then the 420-nm laser is pulsed
+above, for both sets of measurements, we extract an Nmax of about 30,         again to cancel the phase induced by the 420 light during the CZ gate.
+corresponding to adding about 30 excitations before exciting the atom         This method echoes out the 420-induced phase, but comes at a cost
+out of the trap. Such a limit is physically reasonable as the absolute trap   of a factor of two increase in the 420-induced scattering error, which
+depth of 4 MHz implies only about 100 levels, the atom starts at finite       is the dominant source of error in our two-qubit CZ gates.
+temperature, and moreover the effective trap frequency reduces once
+the anharmonicity of the trap starts to play a role. We note that these       Echo between CZ gates. To address these various issues, here we
+estimates are only approximate (we roughly estimate ω0 for the trap           perform a Raman π pulse between each CZ gate to echo out spurious
+depths used during the motion), but nonetheless suggests our motion           gate-induced phases on the hyperfine qubit (Extended Data Fig. 1).
+limit is consistent with physical limits for our chosen a(t). Our analysis    This approach has several advantages. The 420-induced phase is now
+here also neglects the acoustic lensing effects associated with ramping       cancelled by pairs of CZ gates, without explicitly applying additional
+the AOD frequency, which causes astigmatism by focusing one axis to           420-nm pulses to echo each individual CZ gate, thereby reducing the
+scattering error of the CZ gate in this work by a factor of approximately       sequence is roughly 96.5% for the toric code circuit, which we measure
+two. We estimate that this echo technique, having reduced the scattering        by embedding the entire experiment in a Ramsey sequence: that is, we
+error incurred during each gate, roughly compensates the increased              perform a Raman π/2 pulse, do all motion and decoupling, and then
+scattering rate incurred by spreading our optical power over more space         do a final π/2 pulse with variable phase to measure total contrast. We
+in 2D, thereby giving us comparable gate fidelites to the two-qubit CZ          are able to account for our single-qubit fidelity quantitatively as being
+gate fidelities of ≥97.4(2)% reported in ref. 5. Furthermore, the echo          composed of our known single-qubit errors in Extended Data Fig. 6c.
+between CZ gates also cancels the intrinsic single-qubit phase of the              Estimated contributions to two-qubit gate error are summarized in
+CZ gate, removing errors in the calibration of this parameter, as well as       Extended Data Fig. 6c. These estimates come from numerical simulations
+cancelling any other gate-induced spurious single-qubit phases such as          in QuTiP (version 4.5.0) with experimental parameters. The effects of
+a roughly 0.01-rad phase induced by pulsing the traps off for 500 ns for        intermediate state scattering and Rydberg decay are included via collapse
+the two-qubit gate (Extended Data Fig. 1). In instances where the number        operators in the Lindblad master equation solver. Other error contribu-
+of CZ gates we apply is odd, we perform the echo for the final CZ gate.         tions include finite-temperature random Doppler shifts and position
+                                                                                fluctuations, as well as laser pulse-to-pulse fluctuations, all of which are
+Sign of intermediate-state detuning. To further suppress the effect             simulated using classical Monte Carlo sampling of experiment param-
+of the spurious, 420-induced phase, we operate our 420-nm laser to be           eters. Experimental parameters used for the simulations are as follows:
+red-detuned (by 2 GHz) from the 6P3/2 transition. For red detunings, the        blue and red Rabi frequencies (Ωb, Ωr) = 2π × (160, 90) MHz, 6P3/2 interme-
+light shift on the |0⟩ state and the |1⟩ state are of the same sign, minimiz-   diate state detuning of 2 GHz, intermediate state lifetime of 110 ns, 70S1/2
+ing the differential light shift, whereas for blue detunings <6.8 GHz,          Rydberg state lifetime of 150 μs, Rydberg blockade energy of 500 MHz,
+the light shift on the |0⟩ state and the |1⟩ state have opposite signs and      splitting to second Rydberg state of 24 MHz, radial and axial trap frequen-
+amplify the differential light shift.                                           cies (ωr, ωz) = 2π × (40, 6) kHz, and temperature T = 20 μK. We can also
+                                                                                use this modelling to project for future performance; by assuming a 10
+Sensitivity to axial trap oscillations                                          times increase in available 1,013-nm intensity and that atoms are cooled
+In typical Rydberg excitation timescales with optical tweezers, the axial       to a temperature of 2 uK, we project a possible CZ gate fidelity of 99.7%,
+trap oscillation frequencies of several kilohertz are inconsequential.          beyond the surface code threshold38,67. Alkaline-earth atoms could also
+Here with our circuits running as long as 1.2 ms, with Rydberg pulses           offer other routes to high-fidelity operations for QEC68–70.
+throughout, we find that the axial trap oscillations can have important            To understand how our various single-qubit and two-qubit errors
+effects. In particular, the axial oscillations cause the atoms to make          contribute to our graph-state fidelities, we perform a stochastic simula-
+oscillations in and out of the Rydberg beams: at our estimated axial            tion of the quantum circuit used for graph-state preparation (Extended
+temperature of about 25 μK and axial oscillation frequency of 6 kHz,            Data Fig. 6a, b). We utilize the Clifford properties of our circuit, allowing
+we estimate an axial spread z 2 ≈ 1.3 μm. For our 20-μm-waist beams,            for efficient numerical evaluation and random sampling of many pos-
+the effect of this positional spread is relatively small on the pulse param-    sible error realizations. The simulation is performed under a realistic
+eters of the CZ gate, but can be significant on the sensitive 420-induced       error model, where the rates of ambient depolarizing noise and atom
+phase we seek to cancel by echoing out the phase induced by CZ gates            loss are measured in the experiment (Extended Data Fig. 6c). The result-
+separated by about 200 μs (see previous section). When using                    ing stabilizer and logical qubit expectation values agree well with those
+20-μm-waist beams, and a 2.5-GHz blue detuning of our 420-nm laser,             measured experimentally.
+we find that the dephasing due to the axial trap oscillations is significant
+(Extended Data Fig. 4). To remedy this deleterious effect, we increase          Rydberg beam shaping and homogeneity
+the beam waist of our 420-nm laser to 35 μm (while maintaining con-             We shape our Rydberg beams into tophats of variable size through
+stant intensity) and change the laser frequency to be 2-GHz red-detuned,        wavefront control using the phase profile on an SLM25. This ability
+together resulting in a significant reduction in the dephasing associated       allows us to match the height of our beam profile to the experiment
+with improper echoing of the 420-nm pulse.                                      zone size of any given experiment, thereby maximizing our 1,013-nm
+                                                                                light intensity and CZ gate fidelities. We optimize our Rydberg beam
+Bell-state preparation and fidelity                                             homogeneity until peak-to-peak inhomogenities are below <1%. To this
+In Fig. 1, we prepare the |Φ+⟩ Bell state in the same way that is done in       end, we correct all aberrations up to the window of our vacuum cham-
+ref. 5. After initializing a pair of qubits in |00⟩, we apply X(π/2) pulse–CZ   ber, as done in ref. 25, which yields an inhomogeneity on the atoms of
+gate–X(π/4) pulse. We calculate and plot the raw resulting fidelity of this     several per cent that we attribute to imperfections of the final window.
+|Φ+⟩ Bell state as the sum of populations in |00⟩ and |11⟩, averaged with       To further optimize the homogeneity, we empirically tune aberration
+the fitted amplitude of parity oscillations (example in Fig. 1c), which         corrections on the tophat through Zernike polynomial corrections
+measures the off-diagonal coherences. In Fig. 1d, upon significant loss         to the phase profile in the SLM plane (Fourier plane). With this proce-
+from movement, this fidelity estimate becomes skewed because we                 dure, we reduce peak-to-peak inhomogeneities to <1% over a range of
+begin measuring an artificially large population in |11⟩ (as state |1⟩ is       40–50 μm in the atom plane.
+detected as loss); accordingly, we estimate the |Φ+⟩ population as two
+times the population of |00⟩ once the population difference between             Creation and optimization of graph layouts
+|11⟩ and |00⟩ becomes greater than 0.1 (an arbitrary cut-off where the          We outline here a description of how we optimize our graph layouts for
+effects of loss start to become significant). In Fig. 1d, for moves slower      the cluster state, Steane code, surface code and toric code preparation.
+than 300 μs, we achieve an average raw Bell-state fidelity after the mov-       Our optimization in this work is heuristic, and future work can develop
+ing of 94.8(2)%. If we do not move or attempt to preserve coherence             appropriate algorithms for designing optimal circuits through atom
+for 500 μs (that is, if we measure immediately after preparing the Bell         spatial arrangement and AOD trajectories. Extended Data Fig. 5 shows
+state), then we measure a raw Bell-state fidelity of 95.2(1)% (not plotted      all of the graphs we create and the process for creating them. There
+here), consistent with the results in ref. 5.                                   are several parameters we optimize for. (1) Minimize the number of
+                                                                                parallel two-qubit gate layers. (2) Minimize the total move distance
+Analysis of error sources                                                       for the moving atoms. (3) Have all moving atoms in one sublattice (all
+We detail here some of our measured and estimated sources of error for          graphs realized here are bipartite) to facilitate the final local rotation
+an entire sequence (toric code preparation in particular, our deepest           of one sublattice. (4) Minimize the vertical extent of the array and the
+circuit). We find the total single-qubit fidelity after performing the entire   number of distinct rows (to maximize 1,013-nm light intensity and
+Article
+minimize sensitivity to beam inhomogeneity between the rows).
+(5) When ordering gates, apply two-qubit gates as early as possible in            Coherent mapping protocol
+the circuit. If a gate layer induces a bit-flip (X error) then that error can     As described in the text, we implement a coherent mapping protocol to
+propagate during subsequent gates (becoming a Z error on the other                transfer a generic many-body state in the {|1⟩, |r⟩} basis to the long-lived
+qubit), so gates should be in the earliest layer possible.                        and non-interacting {|0⟩, |1⟩} basis. To achieve this mapping, immedi-
+                                                                                  ately following the Rydberg dynamics we apply a Raman π pulse to map
+Local (sublattice) hyperfine rotations                                            |1⟩ → |0⟩, and then a subsequent Rydberg π pulse to map |r⟩ → |1⟩ (ref. 72).
+We perform local rotations in the hyperfine basis by use of our hori-                Even for perfect Raman and Rydberg π pulses (on isolated atoms),
+zontally propagating 420-nm beam, which imposes a differential light              there are three key sources of infidelity associated with this mapping
+of several megahertz on the hyperfine qubit and can thus be used for              process. (1) Any population in blockade-violating states (that is, two
+realizing a fast Z rotation. To realize the local Y(π/2) rotation used            adjacent atoms both in |r⟩) will be strongly shifted off-resonance for
+throughout this work, we move one sublattice of atoms out of the                  the final Rydberg π pulse. As such, this atomic population will be left
+420-nm beam, then apply [global Y(π/4)]–[local Z(π)]–[global Y(π/4)].             in the Rydberg state and lost. (2) Long-range interactions, for exam-
+This realizes a Y(π/2) rotation on one sublattice and a Z(π) rotation on          ple, from next-nearest neighbours, will detune the final Rydberg π
+the other sublattice (which is inconsequential as it then commutes                pulse from resonance and thus reduce pulse fidelity. As the long-range
+with the immediately following measurement in the Z basis). To apply              interactions are not the same for all many-body microstates, this effect
+a Y(π/2) on the other sublattice of atoms, we add an additional global            cannot be mitigated by a simple shift of the detuning. (3) Dephasing
+Z(π) (implemented by jumping the Raman laser phase) between the two               of the state occurs throughout the duration of the Raman π pulse,
+Y(π/4) pulses. Future experiments will benefit from an additional set of          predominantly from Doppler shifts between the ground states |0⟩ and
+locally focused beams for performing local Raman control of hyperfine             |1⟩ and the Rydberg state |r⟩. Although these random on-site detunings
+qubit states, but we find that moving atoms works so efficiently (even            are also present during the many-body dynamics, turning the Rydberg
+for moving >50 μm to move out of the 420-nm beam) that this approach              drive Ω off allows the system to freely accumulate phase and makes us
+is well suited for producing a high-fidelity, homogeneous rotation on             particularly sensitive to dephasing errors.
+roughly half the qubits.                                                             We now detail our mitigation of the above error mechanisms. To
+                                                                                  minimize errors from (1), we perform our many-body dynamics with
+Local Rydberg initialization                                                      Ω2 /(2V 02) ≈ 0.01. This minimizes the probability of an atom to violate
+We perform local Rydberg control to initialize the |ℤ2⟩ = |rgrg...⟩ ≡ |r1r1...⟩   blockade to be of order 1%. To help minimize errors from (2), we increase
+state for studying the dynamics of many-body scars. We achieve this local         the amplitude of the 420-nm laser for the final π pulse by a factor of
+initialization by applying approximately 50-MHz light shifts between              2×, such that (VNNN/Ω)2 = 0.005 (where VNNN is the interactions with
+|1⟩ and |r⟩ using 810-nm tweezers generated by an SLM onto a desired              next-nearest neighbours), reducing pulse errors from long-range inter-
+subset of sites, and then apply a global Rydberg π pulse, which excites           actions to order 1%. Finally, to reduce errors from (3), we perform a fast
+the non-light-shifted atoms. We use this approach here to prepare every           Raman π pulse and leave only 150 ns between ending the many-body
+other atom in each chain into |r⟩, but emphasize that as the locations of         Rydberg dynamics and beginning the Rydberg π pulse. The 150-ns gap
+the SLM tweezers are fully programmable, this technique can be used to            is comparably short relative to the T ⁎2 ≈ 3–4 μs of the {|g⟩, |r⟩} basis,
+prepare any initial blockade-satisfying configuration of atoms in |1⟩ and |r⟩.    leading to a random phase accumulation of the order of about
+   The 50-MHz biasing light shift is significantly larger than the Rydberg        0.02 × 2π rad per particle, but is further compounded by having entan-
+Rabi frequency Ω/2π = 4.45 MHz, leading to a Rydberg population on                gled states of N particles in one copy accumulating a random phase
+undesired sites of <1%. The t = 0 time point of Extended Data Fig. 10b            relative to entangled states of N particles in the second copy. We study
+shows the high-fidelity preparation of the |ℤ2⟩ state using this approach.        these various effects numerically in Extended Data Fig. 9c.
+We note that with 810-nm light, even though the achieved biasing light               Finally, we note that the global Raman beam induces a light-shift-
+shift is significant, the Raman-scattering-induced T1 (of the hyperfine           induced phase shift of about π on |0⟩ and |1⟩ relative to |r⟩ during
+qubit) is still about 50 ms and thus leads to a scattering error ≲4 × 10−6        the Raman π pulse. Similarly, the global 420-nm laser also induces a
+during the 200-ns pulse of the light-shifting tweezers. There can also            light-shift-induced phase shift of about π between |0⟩ and |1⟩ during
+be a motional effect from the biasing tweezers, with an estimated radial          the Rydberg π pulse. Although the measurements we perform here
+trapping frequency of 150 kHz, which we also deem to be negligible                are interferometric (in other words, the singlet state we measure is
+during the 200-ns pulse.                                                          invariant under global rotations) and thus not affected by these global
+                                                                                  phase shifts, in future work these phase shifts can be measured and
+Rydberg Hamiltonian                                                               accounted for where relevant.
+In Fig. 4, we study dynamics under the many-body Rydberg Hamiltonian
+                                                                                   Measuring entanglement entropy
+                  HRyd Ω                                                           The second-order Renyi entanglement entropy is given by S2(A)=
+                      = ∑ σix − Δ∑ ni + ∑ Vijni nj ,                       (3)
+                    ħ  2 i       i      i< j                                      −log 2Tr ρ 2A , where Trρ 2A  is the state purity of reduced density matrix
+                                                                                   ρA on subsystem A. The purity can be measured with two copies by
+                                                                                   noticing that Tr ρ A  = Tr S   ˆ ρ ⊗ ρ  is the expectation value of the
+                                                                                                            2
+where ħ is the reduced Planck constant, Ω is the Rabi frequency, Δ is                                                       A    A
+the laser frequency detuning, ni = |ri⟩⟨ri| is the projector onto the              many-body SWAP operator Ŝ (ref. 10,11). The many-body SWAP operator
+Rydberg state at site i and σix = 1i ri + ri 1i flips the atomic state.            is composed of individual SWAP operators sˆi on each twin pair, that is,
+For the entanglement entropy measurements in this work, we choose                 S^ = Πi s^i (with i ∈ A). Measuring this expectation value amounts to prob-
+lattice spacings where the nearest-neighbour interaction V0 > Ω results            ing occurences of the singlet state |01⟩ − |10⟩ (with eigenvalue −1 under ŝi ),
+                                                                                                                                    2
+in the Rydberg blockade, preventing adjacent atoms from simultane-                 as all other sˆi eigenstates have eigenvalue +1. Occurences of the singlet
+ously occupying |r⟩. In particular, the many-body experiments are                  state in each twin pair, that is, the Bell state |Ψ−⟩, is extracted by a Bell
+performed on eight-atom chains, quenching to a time-independent                    measurement circuit (with an additional local Z(π), see next paragraph),
+HRyd with V0/2π = 20 MHz, Ω/2π = 3.1 MHz and Δ/2π = 0.3 MHz. Quench-               which maps |Ψ−⟩ → |00⟩ and can thereafter be measured in the compu-
+ing to small, positive Δ = 0.0173V0 partially suppresses the always-               tational basis. As such, after performing the Bell measurement circuit,
+positive long-range interactions and thereby is optimal for scar lifetime,         we analyse the resulting bit-string outputs and calculate the purity of
+as derived and shown experimentally in ref. 71.                                    any subsystem A by calculating ⟨Πi∈A ˆ           si ⟩: that is, we measure purity as
+the average parity = ⟨(−1)observed |00⟩ pairs⟩ within A. In the absence of exper-   the main text. We show the measured single-site entropy of each site
+imental imperfections, the purity will equal 1 for the whole system, and            in the eight-atom chain for the |ℤ2⟩ quench in Extended Data Fig. 10a.
+be less than 1 for subsystems that are entangled with the rest of the               Furthermore, in Extended Data Fig. 10b, we plot the global Rydberg
+system.                                                                             population, measured in both the {|1⟩, |r⟩} basis and the {|0⟩, |1⟩} basis.
+   A Bell measurement circuit can be decomposed into applying an
+X(π/2) rotation on one atom of the twin pair, then applying a CZ gate
+and then a global X(π/2) rotation. In other measurements, we realize a              Data availability
+local X(π/2) by doing a global X(π/4) rotation, then local Z(π) rotation            The data that supports the findings of this study are available from the
+and then global X(π/4). However, we note that for this singlet measure-             corresponding author on reasonable request.
+ment circuit, the first X(π/4) is redundant as the singlet state is invariant
+under global rotations, and so for the local X(π/2) we only apply the               57.   Labuhn, H. et al. Tunable two-dimensional arrays of single Rydberg atoms for realizing
+                                                                                          quantum Ising models. Nature 534, 667–670 (2016).
+local Z(π) and then the second global X(π/4). This effectively realizes             58.   Lengwenus, A., Kruse, J., Schlosser, M., Tichelmann, S. & Birkl, G. Coherent transport of
+the X(π/2) on one qubit, up to a Z(π) on the other qubit (not shown                       atomic quantum states in a scalable shift register. Phys. Rev. Lett. 105, 170502 (2010).
+in circuit diagram in Fig. 4). Under this simplification, the Bell meas-            59.   Yang, J. et al. Coherence preservation of a single neutral atom qubit transferred between
+                                                                                          magic-intensity optical traps. Phys. Rev. Lett. 117, 123201 (2016).
+urement circuit to map |Ψ−⟩ → |00⟩ can be roughly understood as the                 60.   Wimperis, S. Broadband, narrowband, and passband composite pulses for use in
+reverse of the Bell-state preparation circuit in ref. 5, which is precisely               advanced NMR experiments. J. Magn. Reson. A 109, 221–231 (1994).
+                                                                                    61.   Xia, T. et al. Randomized benchmarking of single-qubit gates in a 2D array of neutral-atom
+how we calibrate the parameters of the Bell measurement.
+                                                                                          qubits. Phys. Rev. Lett. 114, 100503 (2015).
+                                                                                    62.   Ozeri, R. et al. Errors in trapped-ion quantum gates due to spontaneous photon
+Calibrating and benchmarking the interferometry. To validate the                          scattering. Phys. Rev. A 75, 042329 (2007).
+                                                                                    63.   Souza, A. M., Lvarez, G. A. & Suter, D. Robust dynamical decoupling. Phil. Trans. R. Soc. A
+interferometry measurement (and check for proper calibration), we
+                                                                                          370, 4748–4769 (2012).
+benchmark it separately from the many-body dynamics and coher-                      64.   Couvert, A., Kawalec, T., Reinaudi, G. & Guéry-Odelin, D. Optimal transport of ultracold
+ent mapping protocol. We perform this benchmarking by preparing                           atoms in the non-adiabatic regime. Europhys. Lett. 83, 13001 (2008).
+                                                                                    65.   Reichle, R. et al. Transport dynamics of single ions in segmented microstructured Paul
+independent qubits in identical, variable single-qubit superpositions
+                                                                                          trap arrays. Fortschr. Phys. 54, 666–685 (2006).
+(through a global Raman pulse of variable time) and ensuring that the               66.   Carruthers, P. & Nieto, M. M. Coherent states and the forced quantum oscillator. Am.
+interferometry rarely results in |00⟩ for all the variable initial product                J. Phys. 33, 537 (1965).
+                                                                                    67.   Chen, Z. et al. Exponential suppression of bit or phase errors with cyclic error correction.
+states (Extended Data Fig. 8a). We find this is an important benchmark-
+                                                                                          Nature 595, 383–387 (2021).
+ing step, because we find that small miscalibrations of the Bell measure-           68.   Wilson, J. T. et al. Trapping alkaline earth rydberg atoms optical tweezer arrays. Phys. Rev.
+ment can lead to lower fidelity (that is, higher entropy) for different                   Lett. 128, 033201 (2022).
+                                                                                    69.   Madjarov, I. S. et al. High-fidelity entanglement and detection of alkaline-earth Rydberg
+initial product states and thereby result in additional spurious signals
+                                                                                          atoms. Nat. Phys. 16, 857–861 (2020).
+in an entanglement entropy measurement. We note that this measure-                  70.   Schine, N., Young, A. W., Eckner, W. J., Martin, M. J. & Kaufman, A. M. Long-lived Bell states
+ment is particularly sensitive to the single-qubit phase immediately                      in an array of optical clock qubits. Preprint at https://arxiv.org/abs/2111.14653 (2021).
+                                                                                    71.   Bluvstein, D. et al. Controlling quantum many-body dynamics in driven Rydberg atom
+before the final X(π/2) pulse (induced by the CZ gate and cancelled by                    arrays. Science 371, 1355–1359 (2021).
+a global Z(θ) pulse).                                                               72.   Picken, C. J., Legaie, R., McDonnell, K. & Pritchard, J. D. Entanglement of neutral-atom
+                                                                                          qubits with long ground-Rydberg coherence times. Quantum Sci. Technol. 4, 015011
+                                                                                          (2018).
+Additional many-body data and details
+                                                                                    73.   Steane, A. Multiple-particle interference and quantum error correction. Proc. R. Soc.
+To benchmark our method of measuring entanglement entropy in a                            Lond. A 452, 2551–2577 (1996).
+many-body system, in Extended Data Fig. 8b we study the entanglement                74.   Erhard, A. et al. Entangling logical qubits with lattice surgery. Nature 589, 220–224 (2021).
+                                                                                    75.   Ho, W. W., Choi, S., Pichler, H. & Lukin, M. D. Periodic orbits, entanglement, and quantum
+dynamics after initializing two proximal atoms in |1⟩ and resonantly                      many-body scars in constrained models: matrix product state approach. Phys. Rev. Lett.
+exciting to the Rydberg state for a variable time t. Under conditions of                  122, 040603 (2019).
+Rydberg blockade, this excitation results in two-particle Rabi oscilla-
+                                                           1
+tions between |11⟩ and the entangled state W =                ( 1r + r 1 ) (top     Acknowledgements We thank I. Cong and X. Gao for their insight into QEC and for pointing us
+                                                            2
+                                   3,13,72
+panel of Extended Data Fig. 8b)           . The state purity of this two-parti-     to the connections between graph states and QEC codes; M. Abobeih, H. Bernien, M. Cain,
+                                                                                    S. Choi, M. Endres, S. Evered, W. W. Ho, T. Manovitz, A. Omran, M. Serbyn and H. Zhou for
+cle system is measured by performing Bell measurements on atom                      reading of the manuscript and helpful discussions. We acknowledge financial support from
+pairs from two identical copies. Locally, the measured purity of the                the Center for Ultracold Atoms, the National Science Foundation, the Vannevar Bush Faculty
+one-particle subsystem reduces to a value of about 0.5 when the system              Fellowship, the US Department of Energy (DE-SC0021013 and DOE Quantum Systems
+                                                                                    Accelerator Center, contract number 7568717), the Office of Naval Research, the Army
+enters the maximally entangled |W⟩ state, at which point the reduced                Research Office MURI (grant number W911NF-20-1-0082) and the DARPA ONISQ programme
+density matrix of each individual atom is maximally mixed. In contrast,             (grant number W911NF2010021). D.B. acknowledges support from the NSF Graduate Research
+the purity of the global, two-particle state remains high. The observa-             Fellowship Program (grant DGE1745303) and The Fannie and John Hertz Foundation. H.L.
+                                                                                    acknowledges support from the National Defense Science and Engineering Graduate (NDSEG)
+tion that the global-state purity is higher than the local-subsystem                fellowship. G.S. acknowledges support from a fellowship from the Max Planck/Harvard
+purity is a distinct signature of quantum entanglement11,12.                        Research Center for Quantum Optics. N.M. acknowledges support by the Department of
+   For the data shown in Fig. 4c, e, we subtract the data by an extensive           Energy Computational Science Graduate Fellowship under award number DE-SC0021110. H.P.
+                                                                                    acknowledges support by the Army Research Office (grant number W911NF-21-1-0367)
+classical entropy as is done in ref. 12. This fixed, time-independent offset
+is given by the entropy per particle, that is, (global entropy at quench            Author contributions D.B., H.L., G.S., T.T.W., S.E., M.K. and A.K. contributed to building the
+time t = 0) × (subsystem size)/(global system size). In Extended Data               experimental setup, performed the measurements and analysed the data. M.K., N.M. and H.P.
+                                                                                    performed theoretical analysis. All work was supervised by M.G., V.V. and M.D.L. All authors
+Fig. 9a, we show the raw entanglement entropy measurements along-                   discussed the results and contributed to the manuscript.
+side numerics, to indicate the size of the extensive classical entropy
+contribution. In plotting, we also delay the theory curves by 10 ns to              Competing interests M.G., V.V. and M.D.L. are co-founders and shareholders of QuEra
+                                                                                    Computing. A.K. is an executive at and shareholder of QuEra Computing. All other authors
+account for the fact that the Raman π pulse cuts off the final 10 ns of the         declare no competing interests.
+Rydberg evolution, which is done to keep the coherent mapping gap
+as short as possible and minimize Doppler dephasing. Furthermore,                   Additional information
+                                                                                    Supplementary information The online version contains supplementary material available at
+in Extended Data Fig. 9b we plot the measured global purity and com-                https://doi.org/10.1038/s41586-022-04592-6.
+pare it with numerical simulations incorporating experimental errors                Correspondence and requests for materials should be addressed to Mikhail D. Lukin.
+(Extended Data Fig. 9c).                                                            Peer review information Nature thanks Hannah Williams and the other, anonymous,
+                                                                                    reviewer(s) for their contribution to the peer review of this work. Peer reviewer reports are
+   In Extended Data Fig. 10, we show additional many-body data on the               available.
+eight-atom chain system, with the same parameters as those used in                  Reprints and permissions information is available at http://www.nature.com/reprints.
+Article
+ a
+                                CZ gate echo
+
+
+                                                                                              =
+        Systematic and spurious
+
+
+ b
+                                                                                           mj = +1/2
+                                                70S1/2                           |r       γB/2π = 24 MHz
+                                                (Rydberg)           mj = -1/2
+
+                                                                                  σ+
+                                                                                 1013 nm
+                                                6P3/2
+                                                            2 GHz
+
+                                                                                 420 nm
+
+                                                5P1/2
+                                                                                                          180 GHz
+                                                                                σ-       σ+
+                                                                                              795 nm
+
+                                                                                                                           γB/2π = 24 MHz
+                                                                                          |1 = |F = 2, mF = 0
+                                                5S1/2                 6.8 GHz
+                                                                                          |0 = |F = 1, mF = 0
+
+
+ c
+
+
+
+
+                                                                                      + Dynamical decoupling
+                            BB1(π/2)        X               Y            X                Y              Y           X            Y            X   π/4   π/4
+        Raman (795 nm)
+                                       CZ                                        CZ                                                                  Z(π)
+      Rydberg (420 nm)
+
+     Rydberg (1013 nm)
+
+     Trap light (830 nm)
+
+              Movement                           Change connectivity                              Move qubits 1 and 3 out of experiment zone
+
+
+  Pushout |1 (780 nm)
+
+Extended Data Fig. 1 | CZ gate echo, atomic level structure, and typical                      This echo procedure removes any need to calibrate the intrinsic phase from the
+pulse sequence. a, The two-qubit gates we apply, in addition to applying a                    CZ gate, and renders us insensitive to any spurious changes in Z(ζ ) slower than
+controlled-Z operation between the two qubits, also induce a single-qubit                     ~200 μs. The additional Y(π) propagates in a known way through the CZ gates
+phase Z(ζ ) to both qubits, composed of the intrinsic phase of the CZ gate5 and               and multiplies certain stabilizers by a −1 sign, which simply redefines the sign of
+additional spurious phases from the 420-nm Rydberg laser and pulsing the                      stabilizers and logical qubits. b, Level diagram showing key 87Rb atomic levels
+traps off. Since we apply all gates in parallel by global pulses of the Rydberg               used. Our Rydberg excitation scheme from |1⟩ to |r⟩ is composed of a
+laser, if a qubit is not adjacent to another qubit, it does not perform a CZ gate             two-photon transition driven by a 420-nm laser and a 1013-nm laser (see ref. 25
+but still acquires the same Z(ζ ) (identical to being adjacent to another qubit in            for description of laser system). A DC magnetic field of B = 8.5 G is applied
+state |0⟩, which is dark to the Rydberg laser). As diagrammed, we cancel the                  throughout this work. c, A typical pulse sequence for running a quantum
+additional, undesired Z(ζ ) by applying a π pulse between pairs of CZ gates.                  circuit.
+                                                           a                                        b
+
+
+
+
+                  Movement:
+
+
+
+
+                                                                    +                                             +
+
+
+
+
+                                             c                                                                                       Rescaled
+
+
+
+
+           Multiple drop-recaptures:
+
+
+
+                                                                                      tdrop used in CZ gates
+
+
+
+
+Extended Data Fig. 2 | Movement characterization and multiple                       sensitive to ω 0 which we roughly estimate. c, Atom loss as a function of drop
+drop-recaptures. a, Atom retention as a function of average separation speed        time and number of drop loops, with 100 μs wait between each drop. When
+2D/T (as is plotted in Fig. 1d of the main text for separating Bell pairs), with    running quantum circuits we use 500-ns drops for each CZ gate (to avoid
+subtracted background loss of 0.7%. The inset in Fig. 1d of the main text is        anti-trapping of the Rydberg state and light shifts of the transition), for which
+normalized by (Atom retention)2 (without subtracting background loss). Dark         we observe here that hundreds of drops can be made (corresponding to
+curve is calculated using experimental parameters and Eq. 2, matched to the         hundreds of possible CZ gates per atom) before atom loss becomes significant.
+experimental data by setting Nmax = 26 and averaging over a range of ω 0/2π of      d, By rescaling the x-axis of the data to t drop N , we find the data of the various
+±15% around an average ω 0/2π = 40 kHz. b, Atom retention as a function of          tdrop collapse onto a universal curve, suggesting a diffusion model for
+inverse trap frequency (2π/ω 0) after the four moves of the surface code circuit.   explaining the atom loss after a certain number of drops. By modeling such a
+For calculating the atom loss here we set Nmax = 33 and average the trap            diffusion process analytically we obtain the black curve with a temperature of
+frequencies over a range of ± 15%. We note that these quantitative estimates are    10 μK and a trapping radius of 1 μm.
+Article
+   a                  (π)φ+ (2π)3φ+ (π)φ+ (θ)            b                                                       c
+
+                BB1(θ,):                                                                     XY16-128         t                                                      t
+
+
+
+
+Extended Data Fig. 3 | Robust single-qubit control and qubit coherence.                 Qubit coherence is observed on a timescale of seconds, with a fitted coherence
+a, Robust BB1 single-qubit rotation in comparison to a normal single-qubit              time T2 = 1.49(8)s. Data is measured with either a + π/2 or −π/2 pulse at the end of
+rotation, as a function of pulse area error. An arbitrary BB1(θ, ϕ) rotation on the     the sequence, and these curves are then subtracted to yield the coherence
+Bloch sphere of angle θ about axis ϕ is realized with a sequence of four pulses:        y-axis. c, Hyperfine qubit T 1, measured by the difference of final F = 2
+(π)φ + ϕ(2π)3φ + ϕ(π)φ + ϕ(θ)ϕ, where φ = cos−1 (−θ/4π)60. Pulse fidelity is measured   populations between measurements starting in |F = 2, m F = 0⟩ and |F = 1, m F = 0⟩.
+here for a π pulse, defined such that the fidelity is the probability of successful     Atom loss without cooling is separately measured (predominantly arising from
+transfer from |0⟩ → |1⟩, including SPAM correction. b, Preserving hyperfine             vacuum loss) and normalized to also measure the intrinsic spin relaxation time
+qubit coherence using dynamical decoupling (XY16 with 128 total π pulses).              T ′1 in the absence of atom loss. All data here is measured in 830-nm traps.
+                                         a                                          Pulse gap τ
+                                                            π/2                     π                        π/2
+
+                                                          Raman              420 pulse
+                                                                             2 μs, 8 MHz diff. light shift
+                                         b                                          c
+
+
+
+
+Extended Data Fig. 4 | Effect of axial trap oscillations on echo fidelity of        to a decorrelation of the 420-nm intensity, but then increases again, showing
+420-nm Rydberg pulse. a, Noise correlation measurement of the 420-nm                that the correlation of the 420-nm intensity is non-monotonic. The decaying
+Rydberg laser pulse intensity. In the blue-detuned configuration used in this       oscillations are fit to a functional form of y = y0 + Acos2(πfτ)exp[−(τ/T)2]. c, The
+figure only, the 420-nm laser induces an 8 MHz differential light shift on the      fitted oscillation frequency f of the correlation / decorrelation of the noise
+hyperfine qubit, and consequently a phase accumulation of 32π during a 2-μs         follows a square-root relationship with the trap power, and is consistent with the
+pulse (our CZ gates are 400-ns total). Small fluctuations of the 420-nm laser       expected axial trap oscillation frequency. These observations indicate that a
+intensity lead to large fluctuations in phase accumulation of the hyperfine         significant portion of the correlation / decorrelation of the 420-nm noise
+qubit, and thus cause significant dephasing. The echo sequence diagrammed           arises from the several-μm axial oscillations of the atom in the trap. For this
+here probes the correlation of the accumulated phase between two 420-nm             measurement, we intentionally displace the 420-nm beam by several μm in
+pulses separated by a variable time τ, and thus informs how far-separated in time   order to place the atom on a slope of the beam, increasing our sensitivity to this
+the 420-nm pulses can be while still properly echoing out fluctuations in the       phenomenon. For the other experiments in our work, we minimize sensitivity to
+420-nm intensity. b, Hyperfine coherence (a proxy for echo fidelity) versus gap     these effects by operating in the center of a larger (35-micron-waist) 420-nm
+time τ between the two 420-nm pulses. The echo fidelity decreases initially due     beam and operating red-detuned of the intermediate-state transition.
+Article
+
+
+
+
+Extended Data Fig. 5 | Movement schematics. Schematics showing the                  initial positions and applying an appropriate AOD waveform. To realize a
+gate-by-gate creation of a the 1D cluster state, b the Steane code, c the surface   desired circuit, atom layouts and trajectories are optimized heuristically in the
+code, and d the toric code (see also Supplementary Video 1), in a side-by-side      way described in the Methods text. Panel c also shows the definition of surface
+comparison. These various graph states are all generated in the same way, and       code stabilizers as ordered in the main text.
+encoding a desired circuit is a matter of positioning the atoms in different
+ a                                               Experiment data                                                      Monte Carlo error simulation
+
+
+
+
+ Surface code:
+
+
+
+
+                                  X plaquettes Z stars                                                          X plaquettes Z stars
+
+ b                                               Experiment data                                                      Monte Carlo error simulation
+
+
+
+
+     Toric code:
+
+
+
+
+                              X plaquettes Z stars                                                          X plaquettes Z stars
+
+ c
+
+
+
+
+Extended Data Fig. 6 | Error simulations and tabulated single-qubit and                   before the circuit begins (empirically factoring in SPAM errors). c, Tabulation of
+two-qubit error estimates. We compare our measured graph state fidelities to              single-qubit (SQ) and two-qubit (TQ) gate errors that are measured, estimated,
+those from a stochastic Monte Carlo simulation of our system for a, the surface           and extrapolated. Simulated TQ fidelities include the 0.6% scattering error from
+code and b, the toric code. We find that the simulated stabilizers agree well             the 420-nm echo pulse. The estimated TQ fidelities are given for the
+with the experimental data for this empirical depolarizing noise model.                   experiments of the surface code and toric code, but is an underestimate of the
+In addition, for the surface code (toric code) in the experiment we find 35% (20%)        TQ fidelities for the cluster state and Steane code measurements where we
+of measurements detect no stabilizer errors, compared to 40% (26%) in the                 increase the 1013-nm intensity by 2× and reduce the 420-nm intensity by 2×,
+simulation. We assume two-qubit errors are described by rates of 0.2% Y error,            increasing gate fidelity. The Bell state estimate of CZ gate fidelity is similarly
+0.2% X error, 0.5% Z error, and 0.5% loss per qubit per parallel layer (4 layers for      done with 2× higher 1013 intensity, but includes the 420-nm echo pulse, and
+surface code, 5 layers for toric code), corresponding to a 97.2% CZ-gate fidelity.        consequently yields a similar gate fidelity as the surface and toric code
+We also add ambient, single-qubit errors at a rate of 0.1% Y error, 0.1% X error,         estimates.
+0.4% Z error, and 0.2% loss per qubit per parallel layer, as well as an initial 1% loss
+Article
+a                                                           b                                                        c                 Logical π/2 rotation
+
+
+
+
+                                                                                                                               X plaqs Z plaqs
+                                          (d=2, uncorrectable)
+
+Extended Data Fig. 7 | Properties of encoded logical states. a, Summary of            preparation, the |+⟩L state is held for a variable time before projective
+logical error probabilities for the various error correcting graphs made in this      measurement, with two π pulses applied for dynamical decoupling (lifetime
+work (all in logical state |+⟩L), for raw measurements as well as implementing        can be extended significantly further by applying e.g. 128 π pulses as done in
+error correction and error detection in postprocessing. Error correction for          Extended Data Fig. 3b). Some experimental parameters are slightly different
+the Steane code is implemented with the Steane code decoder36,73 and is               here compared to those in a, hence the higher error rates here at the time 0
+implemented with the minimum-weight-perfect-matching algorithm for the                point. c, Logical π/2 rotation on the Steane code to prepare logical qubit state
+surface and toric codes38. For the even-distance toric code, when correction is       |0 L⟩. The Steane code, surface code, and toric code all have transversal
+ambiguous we do not flip the logical qubit, and accordingly the distance d = 2        single-qubit Clifford operations on the logical qubit8,36 (including in-software
+logical qubit does not change under the correction procedure. We remark that          rotations of the lattice), which is a high-fidelity operation in our system since
+the observed fidelities are comparable to similar demonstrations in                   the transveral rotations are implemented in parallel with our global Raman
+state-of-the-art experiments with other platforms8,74. These will need to be          laser and the physical single-qubit fidelities are high. We show a logical π/2
+improved to surpass the threshold for practical error correction38                    rotation here for the Steane code as an example but emphasize that we can
+(see Methods text). b, Lifetime of the logical |+⟩L state on the surface code, with   readily realize the various basis states for all of these codes.
+correction and detection performed in postprocessing as in a. After state
+           a                              Unitary rotation   Purity                                      b       Two-particle dynamics        Map          Purity
+
+
+
+
+                                                                                                                                P11
+                                                                                                                       P00
+                         Triplet states                               Average purity = 0.961(3)
+                                                                      (two-body observable)
+                         Singlet state                                                                               P01+ P10
+                                                                                                                                P1r+ Pr1
+
+
+
+
+                                                                                                                                                Local purity
+                                                                                                                                               Global purity
+
+
+
+
+Extended Data Fig. 8 | Benchmarking the interferometry measurement.                     result in significant state-dependence of the observed purity that would
+a, To benchmark our gate-based interferometry technique, we prepare variable            then compromise the validity of the many-body entanglement entropy
+single-particle pure states (by applying a variable-length resonant Raman               measurement. b, Benchmarking the entanglement entropy measurement with
+pulse) and then reconfigure the system and apply the interferometry circuit on          Bell state arrays. (Top) Microstate populations during two-particle oscillations
+                                                                                                              1
+twin pairs. The interferometry circuit converts the anti-symmetric singlet state        between |11⟩ and ( 1r + r 1 ) under a Rydberg pulse of variable duration. Faint
+                                                                                                               2
+|Ψ−⟩ to the computational basis state |00⟩, while converting the symmetric              lines show measurement results in the {|1⟩, |r⟩} basis, and dark lines show results
+triplet states to other computational states. We plot the resulting twin pair           in the {|0⟩, |1⟩} basis after the coherent mapping process. (Bottom) Measured
+output states in the left panel. We rarely observe the |00⟩ state (1.95(2)% of          local and global purities by analyzing the number parity of observed |00⟩ twin
+measurements), with a measurement fidelity independent of the initial state.            pairs in each measurement. For this two-particle data we use a gap of 230 ns in
+This low probability P00 of observing |00⟩ corresponds to a high extracted              the coherent mapping sequence as opposed to the 150-ns gap used in the
+single-particle purity of 2P00 − 1 = 0.961(3) (right panel). We find this               many-body data.
+measurement to be a useful benchmark, as interferometry miscalibrations can
+Article
+
+
+                      a
+
+
+
+
+                          b                                                                       c
+
+
+
+
+                                                          Fully mixed
+
+
+                                                                            Global purity
+
+
+
+
+                                                                        (                    )8
+
+
+
+
+Extended Data Fig. 9 | Raw many-body data and numerical modeling of                         numerical modeling of the three-level system {|0⟩, |1⟩ ≡ |g⟩, |r⟩} with a variety of
+errors. a, Raw measured Renyi entropy without subtracting the extensive                     simulated error sources. We model the experimentally measured purity by
+classical entropy, as a function of subsystem size for quenches from |rgrgrgrg⟩             calculating the expectation value of the SWAP operator in the {|0⟩, |1⟩} basis
+and |gggggggg⟩. The Renyi entropy of the 4-atom subsystem is the same                       between two independent chains, taking into account that residual population
+underlying data as the half-chain entanglement entropy plotted in Fig. 4d of the            in |r⟩ results in atom loss and measurement associated with the +1 eigenvalue of
+main text. In the main text, we subtract the data by a fixed offset given by the            the SWAP operator (as the twin state |00⟩ can no longer be detected). The top
+classical entropy-per-particle, corresponding to the time = 0 offset for each               curve includes only errors from population left in |r⟩ following the coherent
+subsystem size. The extensive, classical entropy offset is slightly larger for the          mapping step (see methods text). The second-from-top curve includes
+|rgrgrgrg⟩ quench due to non-unity fidelities both of preparing |r⟩ and mapping             single-site dephasing (T 2⁎) during the Rydberg dynamics and the coherent
+|r⟩ → |1⟩. b, Raw global purity after the |gggggggg⟩ quench. The global purity is a         mapping gap, modeled by a random on-site detuning which is
+sensitive proxy for the fidelity of our entire process. We find this 16-body                Gaussian-distributed with zero mean and standard deviation of 100 kHz. The
+observable, composed of three-level systems, remains > 100× the purity                      third and fourth curves include multiplication by the experimentally observed
+expected for a fully mixed state of 8 qubits (1/28) (see inset). For comparison of          raw global purity at quench time t = 0, and then further multiplying empirically
+scale we also plot single-particle purity to the 8th power, to indicate what the            by an exponential decay exp[−16 × t/(70 μs)] as a simple model for scattering
+global purity would be if the measurement results on each twin were                         and decay errors with an experimentally estimated rate of roughly 70 μs for
+uncorrelated. c, Global purity for the 8-atom quench calculated through                     each of the 16 atoms between the two chains.
+  a
+
+
+
+
+  b                                                                                                     c                    Numerics, PXP model, L=24 PBC
+
+
+
+
+                                                                               Single-site entropy
+
+
+
+
+                                                                                                        d
+                                                                                                                        Diagram of constrained Hilbert space
+
+                                                                           Sublattice Rydberg density
+
+                                                                                                                                       ...
+
+
+                                                                                                                                Hamming distance from Z2 crystal
+
+
+Extended Data Fig. 10 | Local observables and entanglement entropy for                 Rydberg π pulses. In plotting, we delay the theory curves and the {|1⟩, |r⟩} basis
+quantum many-body scars. a, Experimentally measured single-site entropy                measurement by 10 ns to account for the fact that the Raman π pulse we apply
+for each site in the 8-atom chain when quenching from the scarred |ℤ 2⟩ state,         cuts off the final 10 ns of the Rydberg evolution, when measuring in the {|0⟩, |1⟩}
+including the classical entropy subtraction. Solid curves plot exact, ideal            basis. c, Numerical simulations of the single-site Renyi entropy on two adjacent
+(imperfection-free) numerics of HRyd (Eq. 3); excellent agreement between data         sites in the idealized ‘PXP’ model of perfect nearest-neighbor blockade14. The
+and numerics is found for every atom in the chain. b, (Top) Same data as Fig. 4f       system size is 24 atoms with periodic boundary conditions, showing the same
+of the main text, showing single-site entropy of the middle two atoms in the           out-of-phase oscillations in the entanglement entropy of the two sublattices.
+chain, for two different initial states75. (Bottom) Measurements of the                d, Diagram of the constrained Hilbert space of the system14. The early-time,
+many-body state in the Z-basis with the interferometry circuit turned off.             out-of-phase entropy oscillations75 of the scars can be understood in this
+Characteristic of the scars from the |ℤ 2⟩ = |rgrgrgrg⟩ state, the Rydberg             constrained Hilbert space picture, where the scar dynamics are known to take
+excitation probability on the sublattices exhibits periodic oscillations71. In the     the state from the left end (|rgrgrgrg⟩) to the right end (|grgrgrgr⟩) (dark circles
+bottom row, the dark data points are measured in the {|1⟩, |r⟩} basis, and the faint   represent |r⟩ and white circles represent |g⟩)14. Near these crystalline ends of
+data points are measured in the {|0⟩, |1⟩} basis after the coherent mapping            this constrained Hilbert space, the Rydberg atoms can fluctuate (high
+sequence. Measurements in both bases agree well with exact numerics (solid             entropy), but the ground state atoms are pinned (low entropy). Our analysis
+lines), which we emphasize has no free fit parameters and does not account for         shows that entanglement between atoms on the same sublattice contributes to
+any experimental imperfections, such as detection infidelity. Moreover, the            the eventual degradation of the revival fidelity of the |ℤ 2⟩ state.
+data indicate the high fidelity of preparation into the |ℤ 2⟩ state by use of local
+

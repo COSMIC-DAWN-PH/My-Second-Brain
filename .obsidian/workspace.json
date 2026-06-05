@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Handout by AI/2023-parallel-gates-handout.md",
-                "mode": "source",
+                "file": "Rydberg atom/Fine-Structure.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2023-parallel-gates-handout"
+              "title": "Fine-Structure"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily Notes/2026-06-05.md",
+                "file": "Rydberg atom/Fine-Structure.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2026-06-05 的大纲"
+              "title": "Fine-Structure 的大纲"
             }
           },
           {
@@ -186,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -206,30 +206,31 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "5025e098a5a489b2",
+  "active": "4a6b4fa5da937d58",
   "lastOpenFiles": [
     "Daily Notes/2026-06-05.md",
+    "Handout by AI/2023-parallel-gates-handout.md",
+    "Handout by AI/2022-2025-neutral-atom-ftqc-roadmap-handout.md",
+    "Rydberg atom/Fine-Structure.md",
+    "tmp/literature-handout-extract/2025-universal-qc.txt",
+    "tmp/literature-handout-extract/2025-3000-qubit.txt",
+    "tmp/literature-handout-extract/2023-logical-processor.txt",
+    "tmp/literature-handout-extract/2022-coherent-transport.txt",
     "CLAUDE.md.tmp.2192.cc4d2f0c4934",
     "Rydberg atom/Rabi-Flopping.md.tmp.22132.8ebd5d5eafcc",
     "Rydberg atom/Rabi-Flopping.md.tmp.22132.02cf8a920124",
     "Rydberg atom/Rydberg-Blockade.md.tmp.22132.1207ee489a9c",
     "Rydberg atom/Hyperfine-Structure.md",
-    "Rydberg atom/Fine-Structure.md",
     "Rydberg atom/Fine-Structure.md.tmp.22132.6770e296bc34",
     "Rydberg atom/Zeeman-Effect.md",
     "Rydberg atom/attachments/learning-progress-2026-06-04.png",
     "Daily Notes/2026-06-05.md.tmp.22132.991fc4f9b520",
     "Rydberg atom/attachments/learning-progress-2026-06-03.png",
-    "Handout by AI/2023-parallel-gates-handout.md",
     "Handout by AI/start_up.md",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
     "Rydberg atom/Two-Qubit-State-and-Entanglement.md",
     "Daily Notes/2026-06-04.md",
     "Learning-Roadmap.md",
-    "Learning-Roadmap.md.tmp.31712.2f60c89f3f75",
-    "tools/gen_progress_chart.py",
-    "tools/gen_progress_chart.py.tmp.31712.a97c8d693886",
-    "Learning-Roadmap.md.tmp.31712.add99f024cfc",
     "Rydberg atom/Entangling-Gate.md",
     "Daily Notes/2026-06-03.md",
     "Rydberg atom/CZ-Gate.md",

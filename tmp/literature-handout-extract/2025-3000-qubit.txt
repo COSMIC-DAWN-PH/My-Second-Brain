@@ -1,0 +1,984 @@
+Article
+
+Continuous operation of a coherent
+3,000-qubit system
+
+https://doi.org/10.1038/s41586-025-09596-6                    Neng-Chun Chiu1,3, Elias C. Trapp1,3, Jinen Guo1,3, Mohamed H. Abobeih1,3, Luke M. Stewart1,3,
+                                                              Simon Hollerith1,3 ✉, Pavel L. Stroganov1, Marcin Kalinowski1, Alexandra A. Geim1,
+Received: 25 June 2025
+                                                              Simon J. Evered1, Sophie H. Li1, Xingjian Lyu1, Lisa M. Peters1, Dolev Bluvstein1, Tout T. Wang1,
+Accepted: 5 September 2025                                    Markus Greiner2, Vladan Vuletić2 & Mikhail D. Lukin1 ✉
+
+Published online: 15 September 2025
+
+Open access                                                   Neutral atoms are a promising platform for quantum science, enabling advances in
+    Check for updates                                         areas ranging from quantum simulations1–3 and computation4–10 to metrology, atomic
+                                                              clocks11–13 and quantum networking14–16. Although atom losses typically limit these
+                                                              systems to a pulsed mode, continuous operation17–22 could substantially enhance cycle
+                                                              rates, remove bottlenecks in metrology23 and enable deep-circuit quantum evolution
+                                                              through quantum error correction24,25. Here we demonstrate an experimental
+                                                              architecture for high-rate reloading and continuous operation of a large-scale
+                                                              atom-array system while realizing coherent storage and manipulation of quantum
+                                                              information. Our approach utilizes a series of two optical lattice conveyor belts
+                                                              to transport atom reservoirs into the science region, where atoms are repeatedly
+                                                              extracted into optical tweezers without affecting the coherence of qubits stored
+                                                              nearby. Using a reloading rate of 300,000 atoms in tweezers per second, we create
+                                                              over 30,000 initialized qubits per second, which we leverage to assemble and maintain
+                                                              an array of over 3,000 atoms for more than 2 hours. Furthermore, we demonstrate
+                                                              persistent refilling of the array with atomic qubits in either a spin-polarized or a
+                                                              coherent superposition state while preserving the quantum state of stored qubits.
+                                                              Our results pave the way for the realization of large-scale continuously operated
+                                                              atomic clocks, sensors and fault-tolerant quantum computers.
+
+
+
+Neutral-atom systems have recently emerged as a leading platform for                         but also is consistent with simultaneous coherent qubit storage and
+quantum technologies, enabling advances in quantum simulations1,2,                           manipulation.
+quantum computing4–9, atomic clocks and metrology11–13, and quantum                              Recent experiments have enabled continuous atomic30 and optical
+networking14–16. However, an outstanding challenge associated with                           clocks31–33, as well as the realization of continuous Bose–Einstein con-
+these systems involves atom loss, originating from errors in entangling                      densation34. Although past efforts have primarily focused on controlling
+operations4, state readout9,24 and finite trap lifetime26. Atom losses                       atomic ensembles, most recently these techniques have been extended
+necessitate pulsed operation, which limits the performance of these                          to explore continuous operation with individual atom control17–20.
+quantum systems, including the circuit depth of quantum compu-                               If expanded to high reloading rates within a coherence-preserving
+tation24,25, the accuracy of atomic clocks23 and the rate of entangle-                       setting21,22, these pioneering experiments highlight the exciting pos-
+ment generation in quantum networking protocols27. For instance, in                          sibility of fully continuous operation of large-scale atomic systems.
+quantum computing, scaling up to large, practical algorithms requires                            Here we introduce a tweezer array architecture that enables such
+encoding information in logical qubits, protected by repeated quantum                        coherent continuous operation at large scale with reloading rates of
+error-correction cycles28,29. Although these cycles can suppress error                       up to 30,000 qubits per second, nearly 2 orders of magnitude above
+rates far below those of individual physical qubits28,29, useful quantum                     the current state of the art18,19. Our architecture is based on two serial
+circuits may require billions of operations, which eventually lead to loss                   optical lattice conveyor belts that transport a cloud of laser-cooled
+of atomic qubits that need to be replaced9,24. Similarly, atomic clock                       87
+                                                                                                Rb atoms into the field of view of our microscope objective. From
+applications would benefit from coherent, continuous operation to                            this reservoir cloud, atoms are loaded into optical tweezers ‘in the
+improve duty cycles and reduce dead time, thereby enhancing stability                        dark’ (that is, without laser cooling) and then repeatedly extracted
+and precision by mitigating Dick noise, one of the primary limitations of                    into a ‘preparation zone’, where they are laser-cooled, imaged, rear-
+state-of-the-art optical clocks23. Addressing these challenges requires                      ranged and initialized into their qubit states. Once initialized, atomic
+a reliable scheme for fast, continuous reloading of atomic qubits that                       qubits are then transported and iteratively assembled into a large
+not only outpaces the rate of errors owing to decoherence and loss                           array in the ‘storage zone’, where dynamical decoupling is applied to
+
+
+Department of Physics, Harvard University, Cambridge, MA, USA. 2Department of Physics and Research Laboratory of Electronics, Massachusetts Institute of Technology, Cambridge, MA, USA.
+1
+
+
+These authors contributed equally: Neng-Chun Chiu, Elias C. Trapp, Jinen Guo, Mohamed H. Abobeih, Luke M. Stewart, Simon Hollerith. ✉e-mail: shollerith@fas.harvard.edu; lukin@physics.
+3
+
+
+harvard.edu
+
+
+
+                                                                                                                               Nature | Vol 646 | 30 October 2025 | 1075
+Article
+                a
+
+
+                                                                                                                                                                                          MOT
+
+
+                                          Storage
+                                             zone
+
+
+
+                                                                                                                                                                    4D5/2
+
+                                                                                                                                                                              Shielding
+                                                                                                                                                          5P3/2
+                Preparation
+                      zone                                                                                                                                             Qubit preparation
+                                                                                                                                                                       and readout
+
+                                                                                                                                                                             |F = 2, mF = 0〉 ≡ |1〉
+                                                                                                                                                          5S1/2
+                                                                                                                                                                             |F = 1, mF = 0〉 ≡ |0〉
+                                Reservoir                                                                                                                         Raman
+
+
+                b                                                                                                 c
+                                          100,000
+                                                        N
+                 Cumulative atom number
+
+
+
+
+                                                            Image
+                                                                                                                                     100,000
+
+
+
+
+                                                                                                                 Cumulative number
+                                           75,000       Reservoir
+                                                                                        20
+                                                                          Probability
+                                                                           density
+
+
+
+
+                                           50,000                                       10                                            10,000
+                                                                                                                                                                                    Atoms
+                                           25,000                                       0
+                                                                                             0.45 0.50 0.55                                                                         Qubits
+                                                                                              Filling fraction                         1,000                                        Qubits (R)
+                                                0
+                                                    0   50          100    150               200       250                                     0   0.25    0.50       0.75         1.00       1.25
+                                                                Number of extractions N                                                                           Time (s)
+
+Fig. 1 | Atom-array architecture for continuous operation. a, A cloud of                                          b, Cumulative number of atoms obtained by N-repeated tweezer extractions
+laser-cooled atoms is transported over 0.5 m from a separate MOT region into                                      from a single lattice reservoir (see top-left schematic), where we observe a
+the science region via two optical lattice conveyor belts crossed at an angle. In                                 decline in tweezer filling fraction after about 70 repeated extractions owing to
+the science region, the optical lattice serves as an atomic reservoir, from which                                 reservoir depletion (see also Extended Data Fig. 4). For reference, the grey line
+a two-dimensional array of optical tweezers repeatedly extracts atoms into                                        indicates 50% array filling. Inset: histogram of tweezer filling fractions for the
+the ‘preparation zone’. Here, atoms are laser-cooled, rearranged into a defect-                                   first 30 extractions from the reservoir. Notably, no laser cooling is applied
+free array and their qubit state initialized, then transferred into a large-scale                                 during the tweezer loading process. c, Cumulative number of atoms and qubits
+storage tweezer array (‘storage zone’). Our dual-lattice scheme avoids direct                                     obtained by tweezer extraction from repeatedly replaced lattice reservoirs.
+line of sight between the tweezer arrays and the MOT location, and enables                                        The grey markers indicate an atom flux of about 300,000 atoms per second
+fully concurrent preparation and replenishment of the atomic reservoir. Inset:                                    after light-assisted collisions, where the brief interruptions originate from the
+relevant atomic levels of 87Rb, where F denotes the hyperfine level and m F the                                   second transport stage of reservoir replacement during which no reservoir is
+magnetic sublevel. During qubit preparation, storage qubits are protected                                         present. Performing the qubit preparation sequence after each extraction, we
+from near-resonant photon scattering with the 5S1/2 → 5P3/2 transition by                                         achieve a continuous qubit flux of 15,000 qubits per second with rearrangement
+light-shifting the excited state (‘shielding’). Single-qubit gates are implemented                                (R; orange) and 30,000 qubits per second without rearrangement (green).
+via optical Raman transitions that drive clock states 0⟩ and 1⟩ (Methods).                                        Error bars represent the standard error of the mean across 10 repetitions.
+
+
+
+maintain qubit coherence. Qubits in the storage zone are spatially                                                differential pumping tube to the separate science chamber, where it
+protected against scattered cooling light by avoiding direct line of                                              is transferred to a second lattice conveyor belt and delivered into the
+sight to the magneto-optical trap (MOT), and spectrally protected by                                              microscope field of view to serve as an atomic reservoir (Extended
+light-shifting the cooling transition out of resonance (‘shielding’)35.                                           Data Figs. 1 and 2). Using this two-stage procedure, a fresh reservoir
+We demonstrate in situ atom replenishment and maintenance of                                                      of 2.5 million 120-μK cold atoms arrives in the science region every
+more than 3,000 storage array atoms for more than 2 hours, well                                                   150 ms. From the lattice reservoir, atoms are repeatedly loaded into
+beyond the trap lifetime of about 60 seconds. Furthermore, we sus-                                                a dynamic optical tweezer array of 120 × 12 sites, generated by a pair
+tain the storage zone with either spin-polarized qubits (Z basis) or                                              of crossed acousto-optic deflectors (AODs; Extended Data Fig. 3).
+qubits in the equal superposition state (X basis) for, in principle,                                              To load atoms, we switch on the AOD tweezers overlapped with the
+unlimited duration.                                                                                               lattice reservoir and immediately transport captured atoms into the
+                                                                                                                  preparation-zone region placed 220 μm above. This procedure takes
+                                                                                                                  less than 2.5 ms and, importantly, allows for multiple extraction cycles
+High-rate reloading from a lattice reservoir                                                                      from a single reservoir. Following the extraction, atoms in AOD tweezers
+Our dual-lattice architecture is designed for uninterrupted high-rate                                             are transferred to a static tweezer array generated by a spatial light
+qubit reloading that enables repetitive usage and periodic replace-                                               modulator (SLM).
+ment of an atomic reservoir (Fig. 1a). The experiment starts by load-                                                Figure 1b shows the results of repeated tweezer extraction from a
+ing around 4 million 87Rb atoms from a MOT into an optical lattice                                                single lattice reservoir. Here, we extract atoms for multiple cycles and
+conveyor belt36–39. Then, the atom cloud is transported through a                                                 only image and count single atoms after the final extraction cycle, and
+
+
+1076 | Nature | Vol 646 | 30 October 2025
+a                                                                   b
+
+
+
+
+                        Storage zone
+
+    210 μm
+
+
+
+
+                       Preparation zone
+                                                                    c
+                                                                                   3,000
+
+    220 μm                                                                         2,500
+                                                                                                              3,000
+
+
+
+
+                                                                     Atom number
+                                                                                   2,000
+                                                                                                              2,000
+                       Lattice reservoir                                           1,500
+                                                                                                              1,000
+                                                                                   1,000
+                                                                                                                      0     0.5      1.0
+                                                                                    500                                     Time (s)
+
+                                                                                           0     1        2        3        4         5        6      7         60       120
+                                                                                                                                  Time (min)
+
+Fig. 2 | Iterative assembly and continuous maintenance of a large-scale                        the storage array and refilled with a fresh set of atoms every 80 ms (see also
+atomic array. a, Atom fluorescence image outlining the zone architecture                       Extended Data Fig. 6 and Supplementary Video 1). Here we show cyclic
+consisting of a lattice reservoir, a 1,440-site preparation zone, and a 3,240-site             subarray replenishment and continuous maintenance of a 3,000+ atomic
+storage zone. (Averaged) images of each zone are exposed separately and                        array for over 2 hours of operation, far beyond the tweezer-limited lifetime
+combined with different weights for visualization purposes. Scale bar, 100 μm.                 of about 60 seconds (grey). At the final data point, t = 2.3 h, over 50 million
+b, Single-shot fluorescence image of 3,217 atoms in the 3,240-site storage array               individually imaged and rearranged atoms have been cycled through the
+(99.3% filling). c, Iterative construction and continuous maintenance of a                     storage array. Error bars represent the standard error of the mean across
+large-scale atomic array. Initial assembly occurs in 0.5 seconds via 6 loading                 10 repetitions.
+iterations (inset). Afterwards, one of six segments (‘subarrays’) is ejected from
+
+
+
+quote the cumulative number by summing the atom counts over all                                laser cooling via polarization gradient cooling during AOD-to-SLM
+N cycles. We find that, initially, array filling fractions of >50% are com-                    handover, then apply a resonant push-out pulse to eliminate atoms in
+parable to conventional tweezer loading from an MOT40, but gradually                           out-of-plane traps10. This is followed by high-contrast, inherently
+decline as the reservoir is depleted (see also Extended Data Fig. 4).                          background-free imaging (Methods). Afterwards, we arrange atoms
+A key aspect of our dual-lattice design is the ability to extract atoms                        into a defect-free array while further laser cooling via electromag-
+from one reservoir while preparing and delivering a fresh reservoir to                         netically induced transparency with light blue-detuned from the
+the science chamber. By replacing reservoirs as they are depleted, this                        F = 2 → F′ = 2 transition42. Finally, atoms are initialized to the qubit state
+approach overcomes capacity limits of any single reservoir. In Fig. 1c, we                      0⟩ by optical pumping on the F = 1 → F′ = 0 transition, resulting in a
+demonstrate this by repeatedly extracting atoms into the preparation                           state preparation and measurement fidelity of approximately 98%
+zone as before, now replacing the reservoir every 60 tweezer loading                           within 20 μs. Under optimal conditions and without atom sorting, the
+cycles. As a result, we achieve a flux of approximately 300,000 atoms                          qubit preparation sequence takes 20 ms (Methods).
+in tweezers per second, corresponding to the maximum rate at which                                Figure 1c shows the results of repeatedly extracting atoms and per-
+reservoir atoms can be extracted.                                                              forming the qubit preparation sequence as described above, while
+   Notably, in contrast to the conventional approach to tweezer load-                          the lattice reservoir is replaced in parallel every few tweezer extrac-
+ing40, no laser cooling is applied during the extraction process. We                           tion cycles. As a result, we achieve a qubit flux of over 30,000 qubits
+attribute the ability to load optical tweezers ‘in the dark’ to a combi-                       per second when choosing to not rearrange atoms. With atom sorting,
+nation of stochastic overlap with atoms in the reservoir, and atomic                           the qubit preparation time approximately doubles and we obtain up
+collisions similar to the notion of a dimple trap41 (Methods). Whereas                         to 15,000 qubits per second, rearranged into defect-free batches of
+previous experiments17–19 have relied on dissipative laser cooling or                          600 qubits. In all cases, the qubit preparation time exceeds the time
+tweezer-lattice intensity ramps when loading fresh atoms from the                              required for the second transport stage of reservoir replacement; as
+reservoir, our scattering-free method helps preserve coherence of                              such, there is always a reservoir present for tweezer extraction and the
+nearby storage qubits and avoiding lattice ramp-down enables repeti-                           qubit flux is uninterrupted.
+tive usage of the reservoir.
+   To prepare atomic qubits, we perform an initialization procedure
+after every extraction from the reservoir (Extended Data Fig. 5). Each                         Assembly and maintenance of a large atom array
+step of this procedure relies on two counter-propagating laser beams                           After the preparation sequence, the rearranged array is transported
+local to the preparation zone and aligned coaxially with an externally                         to the storage zone, which consists of 3,240 (90 × 36) SLM-generated
+applied static magnetic field24 (Methods). First, an explicit parity-                          optical tweezers with an average trap depth of 270 μK. The storage
+projection pulse via finite-field polarization gradient cooling on a                           tweezer array features alternating regularly spaced columns for loss-
+red-detuned F = 2 → F′ = 3 transition prevents multiply occupied opti-                         less atom transport in between (Methods), and is positioned with suf-
+cal tweezers. Here, F denotes the hyperfine level of the atomic ground                         ficient distance to the preparation zone and the lattice reservoir to
+state and F′ the hyperfine level of the 5P3/2 excited state. We continue                       limit crosstalk between zones (Fig. 2a).
+
+
+                                                                                                                                Nature | Vol 646 | 30 October 2025 | 1077
+ Article
+ a                             π
+                                               ·∙∙XY16-N∙∙∙ Y
+                                                                         π     b                           F=2            Scattering                 c            5P3/2           Shielding
+                               2   X      Y                       X      2                                 F=1             events                                 5S1/2
+                                                                                                                                                                                 0.30   0.40    0.50
+                     0.8                                                                             0.8                                                          Storage zone
+                                                                                                                                                                                                           0.8
+
+
+
+
+                                                                                                                                                                                                                 Atom signal
+                                                                                                                                                         Image
+
+
+
+
+                                                                                                                                                                                                                    (a.u.)
+                                                                             Polarization contrast
+Coherence contrast
+
+
+
+
+                                                                                                                                                                                                           0.4
+                                                                                                                                                         Shield
+                     0.4                                                                             0.4
+                                                                                                                                                                  Storage zone                             0
+                                       Reference
+                                       MOT only                                                                                                          Raman                                             0.9
+
+
+
+
+                                                                                                                                                                                                                 probability
+                     0.2                                                                             0.2
+
+
+
+
+                                                                                                                                                                                                                  Readout
+                                       Lattice only
+                                       Qubit preparation                                                                                                 Shield
+                                       Qubit preparation + shielding
+                                                                                                                                                                                                           0.8
+                     0.1                                                                             0.1                                                Qubit
+                           0             0.5            1.0            1.5                                  0    2   4              6   8      10                                   0.350      0.375
+                                                                                                                                                     preparation Preparation
+                                                Time (s)                                                                 Time (s)                                   zone          Wavelength (+1,529 nm)
+
+Fig. 3 | Benchmarking concurrent qubit preparation. a, Coherence contrast                                                    mitigated by shielding storage qubits from near-resonant light (orange,
+under various conditions when applying N repetitions of an XY16 dynamical                                                    T 1 = 3.43(3) s), mainly limited by off-resonant Raman scattering from the lattice
+decoupling sequence with π-pulse spacing 2τ ≈ 1.6 ms to storage qubits, where                                                light to which the shielding is ineffective (brown). A similar investigation for
+the reference measurement yields T2 = 1.34(4) s (grey). Operating the distant                                                 0⟩ state depolarization along with all measured T1 and T2 times is presented in
+MOT in parallel to dynamical decoupling, we observe a minimal effect on                                                      Extended Data Fig. 8. For a and b, the difference of qubit populations measured
+coherence (green) compared with the reference, but a strong effect when                                                      in 0⟩ and 1⟩ provides the contrast (Methods). c, Shielding light spectroscopy
+additionally imaging in the preparation zone (blue). By applying qubit shielding,                                            on storage qubits. First, we image the storage array while applying low-power
+we restore coherence almost fully (orange, T2 = 1.09(3) s). b, A similar comparison                                          shielding light at variable wavelength to resolve the 4D5/2 resonance by
+probing depolarization of qubits initialized in 1⟩ with the reference measurement                                            suppression of imaging signal (top). In a fine scan, we optimize for storage qubit
+T1 = 12.6(1) s (grey), consistent with Raman scattering calculations owing to the                                            coherence under dynamical decoupling while imaging in the preparation zone
+tweezer light 51. Although operating the MOT simultaneously has a negligible                                                 by maximizing the readout probability in 0⟩ (bottom). Error bars represent the
+effect on storage qubits (green), additionally imaging in the preparation zone                                               standard error of the mean across 10 repetitions.
+results in rapid qubit depolarization (blue). Similar to before, this can be
+
+
+    We assemble the storage array in six iterations, each time transferring                                                  operates under constant finite magnetic field24 and is localized to the
+ atoms into one of six segments (‘subarrays’) interspersed throughout                                                        preparation zone. However, we initially observe in Fig. 3a that stor-
+ the storage array (Extended Data Fig. 6). Preparation and loading of                                                        age qubit coherence is strongly affected by beam crosstalk during the
+ each subarray, including atom transport to the storage zone, takes                                                          preparation-zone imaging procedure. To suppress this effect, we pro-
+ roughly 80 ms (mostly limited by rearrangement time and image data                                                          tect qubits from near-resonant scattering by light-shifting the excited
+ transfer). Assembly of the entire storage array is completed in about                                                       state35 of storage-zone qubits as shown in Fig. 3c (see also Extended
+ 500 ms with an averaged loading of 3,193 atoms (98.5% filling fraction)                                                     Data Fig. 7), and find that the coherence time can be nearly completely
+ over 300 trials. Figure 2b shows a single-shot fluorescence image of                                                        restored (T2 = 1.09(3) s). In addition, we probe storage qubit depolariza-
+ 3,217 atoms loaded into the array.                                                                                          tion under the same conditions in Fig. 3b, resulting in a similar conclu-
+    In Fig. 2c, we demonstrate the ability to maintain over 3,000 atoms                                                      sion. Here, however, one observes an increased T1 decay compared with
+ in the storage array for over 2 hours of continuous operation. After                                                        a reference measurement despite shielding, which is largely dominated
+ initial storage array assembly, we sequentially eject and refill the                                                        by off-resonant scattering from the lattice reservoir light (Extended
+ longest-stored subarray with a concurrently prepared set of fresh                                                           Data Fig. 8). This increase does not measurably affect our T2, but can be
+ atoms from the preparation zone (Supplementary Video 1). In paral-                                                          further mitigated by, for example, greater reservoir distance from the
+ lel to atom preparation and subsequent replenishment, we replace the                                                        storage array, smaller lattice reservoir waist or larger lattice detuning.
+ lattice reservoir every other tweezer extraction cycle without affecting                                                       Building on these results, we now assess atom-loss replenishment in
+ the storage-zone array. Using these techniques, we replenish atoms                                                          simple quantum circuits by repeatedly replacing storage-zone qubits
+ on much faster timescales than their tweezer-limited lifetime, and                                                          while maintaining coherence. In Fig. 4b, we first show high-rate reload-
+ therefore enable operation that is, in principle, indefinite.                                                               ing and continuous maintenance of a large array of spin-polarized
+                                                                                                                             storage qubits. Similar to Fig. 2c, we now repeatedly prepare freshly
+                                                                                                                             initialized qubit subarrays in the preparation zone, then eject and
+ Coherence during continuous operation                                                                                       refill the oldest subarray in the storage zone as shown schematically in
+ The ability to reload qubits while preserving the coherence of existing                                                     Fig. 4a (see also Extended Data Fig. 9). Sequentially replenishing qubits
+ qubits is essential for applications in deep-circuit quantum computa-                                                       allows us to sustain a high degree of storage array polarization for, in
+ tion and high-bandwidth metrology24,34,43. To address this challenge,                                                       principle, unbounded duration; here, we show maintenance of over
+ in Fig. 3a we first investigate the impact of a simultaneously operating                                                    3,000 qubits for 2 minutes.
+ MOT on storage qubit coherence. We observe a coherence time of                                                                 Finally, in Fig. 4c,d, we show the ability to reload and sustain a large
+ T2 = 1.15(3) s when applying dynamical decoupling in the presence of                                                        array of atomic qubits in a coherent superposition state (see also
+ the distant MOT, which shows minor modification compared with a                                                             Extended Data Fig. 10). While shielding and replenishing qubits as in
+ reference measurement without the MOT (T2 = 1.34(4) s). In Fig. 3b, we                                                      Fig. 4b, we additionally rotate storage qubits into state +⟩ and sustain
+ find a similar result when probing the storage qubit depolarization time                                                    coherence by applying a dynamical decoupling sequence during each
+ T1 with and without the MOT. Therefore, by preventing a direct line                                                         subarray reloading cycle. Shortly before replenishing a qubit subarray
+ of sight between MOT and qubits, our angled dual-lattice transport                                                          with fresh qubits from the preparation zone, we map coherence into
+ scheme successfully disentangles the scattering-intense initial capture                                                     population by rotating all storage qubits into state 0⟩, eject and replace
+ of an atomic gas from parallel quantum operations32,44.                                                                     the oldest qubits with newly spin-polarized ones, then rotate back into
+    In addition to the MOT, the coherence of existing qubits can                                                             state +⟩ as a new reloading cycle starts. This enables us to keep qubits
+ be affected by scattered light and magnetic-field changes during                                                            in a superposition state at about 90% duty cycle, with the coherence
+ mid-circuit qubit preparation. To mitigate this, our beam architecture                                                      of individual subarrays unaffected by concurrent reloading cycles.
+
+
+ 1078 | Nature | Vol 646 | 30 October 2025
+a                                                     2         3              4          5             6
+                                                                                                                          b
+                                         1
+                                                                                                                                                1.0
+
+                            1        4
+
+
+
+
+                                                                                                                        Polarization contrast
+                            2        5                                                                                                          0.8
+                            3        6
+
+                                                                                                                                                0.6
+
+                                          Shielding              80 ms                                                                          0.4
+                    Storage zone         XY16-64      XY16-64   XY16-64        XY16-64    XY16-64       XY16-64                                           T1 = 12.6(1) s
+    Preparation zone                                                                                                                            0.2
+    Lattice reservoir
+MOT and transport                                                                                                                                     0   20     40     60       80   100   120
+                                                                                                                                                                      Time (s)
+c                                                                                                                         d
+                           1.0                                                                                                                  1.0
+
+                           0.8
+     Readout probability
+
+
+
+
+                                                                                                                        Readout probability
+                                                                                                                                                0.8
+
+                           0.6                                                                                                                  0.6
+
+                           0.4                                                                                                                  0.4
+
+                           0.2                                                                                                                  0.2
+
+                            0                                                                                                                    0
+                                 0           0.5          1.0        1.5            2.0          2.5              3.0                                 0   0.2      0.4    0.6      0.8      1.0
+                                                                    Time (s)                                                                                    Readout phase (2π)
+
+Fig. 4 | Continuous operation while maintaining storage qubit coherence.                   the replenishment cycle by reading out qubits in state 0⟩ (blue) or 1⟩ (red) as
+a, Time sequence visualizing our reloading protocol (see also Extended Data                detailed in Methods. Individual subarrays (colour shading) are unaffected by
+Fig. 9 and Supplementary Video 1). Following the initial storage array assembly,           adjacent qubit reloading, and their dephasing is offset in time due to the cyclic
+the longest-stored subarray is ejected and refilled with a preloaded set of                subarray reloading protocol. The exponential sawtooth overlays are guides
+qubits from the preparation zone every 80 ms, whereas storage-zone shielding               to the eye. For reference, we provide the T2 measurement of a single subarray
+is applied throughout. For c and d, storage qubits are placed in the equal                 under the same cyclic decoupling sequence without qubit replenishment (grey).
+superposition state and undergo an XY16-64 decoupling sequence during                      d, After multiple rounds of reloading under dynamical decoupling, we apply a
+each reloading cycle. b, Sequentially replenishing storage-zone qubits, we                 final dynamical decoupling sequence and vary the phase of the last π/2 pulse to
+maintain a high degree of storage array polarization (red) for, in principle,              read out in different qubit bases. Complementary to c, the observed coherence
+unbounded duration. For reference, we provide a T1 measurement without                     contrast varies for each subarray (colour shading) owing to the time offset in
+qubit replenishment (grey). c, Similar to b, now additionally applying an                  subarray replenishment. Error bars represent the standard error of the mean
+Xπ/2 − (XY16-64) − X−π/2 dynamical decoupling sequence during each subarray                across 10 repetitions.
+replenishment. We probe coherence of each subarray at various times during
+
+
+                                                                                           dynamically reconfigurable qubit arrays9,24. This architecture there-
+Discussion and outlook                                                                     fore presents a promising approach towards the implementation
+Our experiments demonstrate an atom-array architecture that                                of deep, fault-tolerant quantum circuits using error correction. In a
+enables continuous operation with reloading rates of up to 30,000                          complementary experiment conducted in a separate apparatus, we
+initialized qubits per second while preserving coherence across                            demonstrate the core components of such a fault-tolerant quantum
+a rearranged large-scale qubit array. The results can be extended                          processor, including a method for mid-circuit loss-resolving qubit
+along several directions. First, the qubit preparation time can be                         readout and re-use as well as deep-circuit protocols involving logical
+substantially shortened through optimized readout and the use of                           qubit teleportation, below-threshold repeated error correction and
+field-programmable-gate-array-based and/or artificial-intelligence-                        universal fault-tolerant processing24. Atom losses have a major role in
+optimized rearrangement protocols45,46. Second, larger preparation-                        these experiments25, and the ultimate circuit depth is directly limited
+zone arrays can be engineered by fully utilizing the system’s optical field                by atomic reservoir depletion.
+of view. We estimate that these technical improvements would lead to a                        Taken together, our experiments open the door for realizing
+more than fivefold increase in qubit reloading rate, as this rate is directly              large-scale error-corrected quantum processors. For example, account-
+proportional to qubit preparation time and preparation-zone size. In                       ing for the current entangling gate fidelity (approximately 99.5%) and
+addition, although the present experiments demonstrate continuous                          atom-loss rate, at a 1-ms duration per gate layer, we estimate that 15,000
+operation for over 2 hours, achieving much longer operation would                          rearranged qubits per second should be sufficient to replenish lost
+benefit from active stabilization of the SLM–AOD tweezer overlap or                        atoms in a quantum processor with about 10,000 physical qubits.
+automated beam alignment procedures. Finally, higher-power trapping                        Furthermore, realistic improvements in entangling gate fidelities to
+lasers and high-efficiency diffractive optics, such as metasurfaces47, can                 approximately 99.9% and reloading flux to 80,000 qubits per second
+be immediately deployed to scale the storage and preparation-zone                          could enable the operation of several hundred surface code logical
+size, supporting continuous operation of tens of thousands of atomic                       qubits with a logical failure rate down to 10−8 (ref. 48). Moreover, the
+qubits.                                                                                    natural compatibility of this architecture with high-rate quantum
+   Our results open up a range of scientific opportunities based on                        low-density parity check codes will probably unlock further improve-
+atom-array platforms. In particular, our method is directly compat-                        ment in quantum processor performance49,50.
+ible with a zoned architecture for quantum computation involving                              Beyond applications in quantum computation, a continuously oper-
+Rydberg-mediated entangling gates, local optical Raman control and                         ating atom-array system could overcome several limitations in quantum
+
+
+                                                                                                                            Nature | Vol 646 | 30 October 2025 | 1079
+Article
+metrology23, enabling high-bandwidth and entanglement-enhanced                                        25.   Baranes, G. et al. Leveraging atom loss errors in fault tolerant quantum algorithms.
+                                                                                                            Preprint at https://arxiv.org/abs/2502.20558 (2025).
+precision quantum sensing12,13. Furthermore, a continuous stream of                                   26.   Zhang, Z. et al. High optical access cryogenic system for rydberg atom arrays with a
+atomic qubits is essential to achieve fast generation of remote entangle-                                   3000-second trap lifetime. PRX Quantum 6, 020337 (2025).
+ment in quantum networking applications14,15,27. Finally, our high-rate                               27.   Pattison, C. A., Baranes, G., Ataides, J. P. B., Lukin, M. D. & Zhou, H. Fast quantum
+                                                                                                            interconnects via constant-rate entanglement distillation. Preprint at https://arxiv.org/
+reloading scheme and the transition from pulsed to continuous opera-                                        abs/2408.15936 (2024).
+tion that it enables may be utilized to improve the performance of a                                  28.   Terhal, B. M. Quantum error correction for quantum memories. Rev. Mod. Phys. 87,
+broad class of cold-atom experiments, including quantum simulation,                                         307–346 (2015).
+                                                                                                      29.   Preskill, J. Fault-tolerant quantum computation. Preprint at https://arxiv.org/abs/quant-ph/
+sensing and precision measurements.                                                                         9712048 (1997).
+                                                                                                      30.   Biedermann, G. W. et al. Zero-dead-time operation of interleaved atomic clocks. Phys.
+                                                                                                            Rev. Lett. 111, 170802 (2013).
+Online content                                                                                        31.   Schioppo, M. et al. Ultrastable optical clock with two cold-atom ensembles. Nat. Photon.
+                                                                                                            11, 48–52 (2017).
+Any methods, additional references, Nature Portfolio reporting summa-                                 32.   Okaba, S., Takeuchi, R., Tsuji, S. & Katori, H. Continuous generation of an ultracold atomic
+ries, source data, extended data, supplementary information, acknowl-                                       beam using crossed moving optical lattices. Phys. Rev. Appl. 21, 034006 (2024).
+                                                                                                      33.   Cline, J. R. K. et al. Continuous collective strong coupling of strontium atoms to a high
+edgements, peer review information; details of author contributions                                         finesse ring cavity. Phys. Rev. Lett. 134, 013403 (2025).
+and competing interests; and statements of data and code availability                                 34.   Chen, C.-C. et al. Continuous Bose–Einstein condensation. Nature 606, 683–687 (2022).
+are available at https://doi.org/10.1038/s41586-025-09596-6.                                          35.   Hu, B. et al. Site-selective cavity readout and classical error correction of a 5-bit atomic
+                                                                                                            register. Phys. Rev. Lett. 134, 120801 (2025).
+                                                                                                      36.   Kuppens, S. J. M., Corwin, K. L., Miller, K. W., Chupp, T. E. & Wieman, C. E. Loading an
+1.  Browaeys, A. & Lahaye, T. Many-body physics with individually controlled Rydberg atoms.                 optical dipole trap. Phys. Rev. A 62, 013406 (2000).
+    Nat. Phys. 16, 132–142 (2020).                                                                    37.   Trisnadi, J., Zhang, M., Weiss, L. & Chin, C. Design and construction of a quantum matter
+2.  Gross, C. & Bloch, I. Quantum simulations with ultracold atoms in optical lattices. Science             synthesizer. Rev. Sci. Instrum. 93, 083203 (2022).
+    357, 995–1001 (2017).                                                                             38.   Klostermann, T. et al. Fast long-distance transport of cold cesium atoms. Phys. Rev. A 105,
+3.  Xu, M. et al. A neutral-atom Hubbard quantum simulator in the cryogenic regime. Nature                  043319 (2022).
+    642, 909–915 (2025).                                                                              39.   Matthies, A. J. et al. Long-distance optical-conveyor-belt transport of ultracold 133Cs and
+4. Evered, S. J. et al. High-fidelity parallel entangling gates on a neutral-atom quantum
+                                                                                                            87
+                                                                                                              Rb atoms. Phys. Rev. A 109, 023321 (2024).
+    computer. Nature 622, 268–272 (2023).                                                             40.   Schlosser, N., Reymond, G. & Grangier, P. Collisional blockade in microscopic optical
+5.  Muniz, J. A. et al. High-fidelity universal gates in the 171Yb ground-state nuclear-spin qubit.         dipole traps. Phys. Rev. Lett. 89, 023005 (2002).
+    PRX Quantum 6, 020334 (2025).                                                                     41.   Comparat, D. et al. Optimized production of large Bose–Einstein condensates. Phys. Rev.
+6.  Tsai, R. B.-S., Sun, X., Shaw, A. L., Finkelstein, R. & Endres, M. Benchmarking and fidelity            A 73, 043410 (2006).
+    response theory of high-fidelity Rydberg Entangling gates. PRX Quantum 6, 010331                  42.   Chow, C. H., Ng, B. L., Prakash, V. & Kurtsiefer, C. Fano resonance in excitation spectroscopy
+    (2025).                                                                                                 and cooling of an optically trapped single atom. Phys. Rev. Res. 6, 023154 (2024).
+7.  Peper, M. et al. Spectroscopy and modeling of 171Yb Rydberg states for high-fidelity              43.   Savoie, D. et al. Interleaved atom interferometry for high-sensitivity inertial measurements.
+    two-qubit gates. Phys. Rev. X 15, 011009 (2025).                                                        Sci. Adv. 4, eaau7948 (2018).
+8.  Radnaev, A. G. et al. Universal neutral-atom quantum computer with individual optical             44.   Chikkatur, A. P. et al. A continuous source of Bose–Einstein condensed atoms. Science
+    addressing and nondestructive readout. PRX Quantum 6, 030334 (2025).                                    296, 2193–2195 (2002).
+9.  Bluvstein, D. et al. Logical quantum processor based on reconfigurable atom arrays.               45.   Wang, S. et al. Accelerating the assembly of defect-free atomic arrays with maximum
+    Nature 626, 58–65 (2024).                                                                               parallelisms. Phys. Rev. Appl. 19, 054032 (2023).
+10. Manetsch, H. J. et al. A tweezer array with 6100 highly coherent atomic qubits. Nature            46.   Lin, R. et al. AI-enabled parallel assembly of thousands of defect-free neutral atom arrays.
+    https://doi.org/10.1038/s41586-025-09641-4 (2025).                                                      Phys. Rev. Lett. 135, 060602 (2025).
+11. Young, A. et al. Half-minute-scale atomic coherence and high relative stability in a              47.   Holman, A. et al. Trapping of single atoms in metasurface optical tweezer arrays. Preprint
+    tweezer clock. Nature 588, 408–413 (2020).                                                              at https://arxiv.org/abs/2411.05321 (2024).
+12. Finkelstein, R. et al. Universal quantum operations and ancilla-based read-out for tweezer        48.   Xu, Q. et al. Constant-overhead fault-tolerant quantum computation with reconfigurable
+    clocks. Nature 634, 321–327 (2024).                                                                     atom arrays. Nat. Phys. 20, 1084–1090 (2024).
+13. Cao, A. et al. Multi-qubit gates and Schrödinger cat states in an optical clock. Nature 634,      49.   Breuckmann, N. P. & Eberhardt, J. N. Quantum low-density parity-check codes. PRX Quantum
+    315–320 (2024).                                                                                         2, 040101 (2021).
+14. Covey, J. P., Weinfurter, H. & Bernien, H. Quantum networks with neutral atom processing          50.   Bravyi, S. et al. High-threshold and low-overhead fault-tolerant quantum memory. Nature
+    nodes. npj Quantum Inf. 9, 90 (2023).                                                                   627, 778–782 (2024).
+15. Hartung, L., Seubert, M., Welte, S., Distante, E. & Rempe, G. A quantum-network register          51.   Moore, I. D. et al. Photon scattering errors during stimulated Raman transitions in trapped-
+    assembled with optical tweezers in an optical cavity. Science 385, 179–183 (2024).                      ion qubits. Phys. Rev. A 107, 032413 (2023).
+16. Grinkemeyer, B. et al. Error-detected quantum operations with neutral atoms mediated
+    by an optical cavity. Science 387, 1301–1305 (2025).                                              Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+17. Pause, L., Preuschoff, T., Schäffner, D., Schlosser, M. & Birkl, G. Reservoir-based               published maps and institutional affiliations.
+    deterministic loading of single-atom tweezer arrays. Phys. Rev. Res. 5, L032009 (2023).
+18. Norcia, M. et al. Iterative assembly of 171Yb atom arrays with cavity-enhanced optical                               Open Access This article is licensed under a Creative Commons Attribution-
+    lattices. PRX Quantum 5, 030316 (2024).                                                                              NonCommercial-NoDerivatives 4.0 International License, which permits any
+19. Gyger, F. et al. Continuous operation of large-scale atom arrays in optical lattices. Phys.                          non-commercial use, sharing, distribution and reproduction in any medium or
+    Rev. Res. 6, 033104 (2024).                                                                       format, as long as you give appropriate credit to the original author(s) and the source, provide
+20. Singh, K., Anand, S., Pocklington, A., Kemp, J. T. & Bernien, H. Dual-element, two-               a link to the Creative Commons licence, and indicate if you modified the licensed material.
+    dimensional atom array with continuous-mode operation. Phys. Rev. X 12, 011040 (2022).            You do not have permission under this licence to share adapted material derived from this
+21. Muniz, J. A. et al. Repeated ancilla reuse for logical computation on a neutral atom              article or parts of it. The images or other third party material in this article are included in the
+    quantum computer. Preprint at https://arxiv.org/abs/2506.09936 (2025).                            article’s Creative Commons licence, unless indicated otherwise in a credit line to the material.
+22. Li, Y. et al. Fast, continuous and coherent atom replacement in a neutral atom qubit array.       If material is not included in the article’s Creative Commons licence and your intended use is
+    Preprint at https://arxiv.org/abs/2506.15633 (2025).                                              not permitted by statutory regulation or exceeds the permitted use, you will need to obtain
+23. Ludlow, A. D., Boyd, M. M., Ye, J., Peik, E. & Schmidt, P. O. Optical atomic clocks. Rev. Mod.    permission directly from the copyright holder. To view a copy of this licence, visit http://
+    Phys. 87, 637–701 (2015).                                                                         creativecommons.org/licenses/by-nc-nd/4.0/.
+24. Bluvstein, D. et al. Architectural mechanisms of a universal fault-tolerant quantum
+    computer. Preprint at https://arxiv.org/abs/2506.20661 (2025).                                    © The Author(s) 2025
+
+
+
+
+1080 | Nature | Vol 646 | 30 October 2025
+Methods                                                                    of 600 μK. We empirically find a reduction in tweezer lifetime as we
+                                                                           reduce AOD tweezer spacing, potentially owing to atom heating from
+Vacuum system                                                              beating between residual optical potentials of neighbouring tweezers.
+A simplified schematic of our vacuum system is shown in Extended Data         Static optical tweezer arrays in the preparation zone and the storage
+Fig. 1a. The system consists of an MOT chamber and a science chamber,      zone are generated in two separate beam paths by two independent
+separated by a custom-designed differential pumping tube (DPT; Limit       SLMs (Hamamatsu X15213-02R) and then combined on a polarizing
+Vacuum Technology) with a 1.5-mm back aperture and 4.3-mm front            beamsplitter. Each beam path includes a 4f relay lens system to map
+aperture. The DPT maintains a pressure differential between the two        the SLM aperture to the Fourier plane of the objective. The SLM phase
+chambers and blocks most of the MOT light. Both the DPT and the MOT        pattern is calculated using a variation of the weighted Gerchberg–
+chamber are tilted by approximately 4° to prevent direct scattering of     Saxton (WGS) algorithm52, and calculation accelerated with a graph-
+cooling light onto the atomic array in the science chamber, where the      ics processing unit. We numerically ‘pad’ the SLM with zeros such
+line of sight passes about 1 cm above the array location. The MOT cham-    that the two-dimensional SLM field array (iteratively optimized using
+ber is primarily composed of a glass cell (Precision Glassblowing) with    WGS algorithm) is 10 × 10-times larger than the SLM pixel number,
+two rubidium dispenser arms (not shown in Extended Data Fig. 1). The       enabling 10-times-finer control over tweezer positions53. This cor-
+science chamber features a double-sided antireflection-coated glass        responds to a tweezer positioning precision of 65 nm, which reflects
+cell (Akatsuki Technology) with optical contact technology. In both        an order-of-magnitude improvement over the natural diffraction unit
+chambers, the pressure remains below the measurable threshold of the       of 650 nm.
+ion pumps (SAES NEXTorr and Agilent StarCell 75). Several components          We find substantial tweezer spacing distortion owing to nonlinear
+are omitted from the figure for clarity, including in-vacuum electrodes    effects across the large array span. To systematically overlap thousands
+(not used in this work) and a vacuum viewport, which provides optical      of AOD and SLM tweezers, we run an automated procedure that images
+access to the in-vacuum mirror.                                            both AOD and SLM tweezers on a camera, calculates the displacement
+                                                                           between the two sets of tweezers for each site, and feeds back on the
+Objective and imaging system                                               target tweezer positions of the WGS algorithm site by site. We also apply
+The experimental set-up features a high-numerical-aperture (high-NA)       Zernike polynomials to correct for aberrations in the optical system54,
+optical system, which enables high-efficiency imaging and tight trap-      which increases the tweezer trap depth by about 10% post-correction.
+ping of single atoms over a field of view of more than 1.5 mm diam-           SLM diffraction efficiency decreases as the distance to the zeroth
+eter (Extended Data Fig. 3a). At its core are two 0.65-NA objectives       order increases. To homogenize our backbone tweezer arrays in
+(Special Optics, custom-design). One of the objectives is used for pro-    the preparation zone and the storage zone, we apply the following
+jecting optical tweezers and the other for single-atom imaging. The        two-step procedure. First, when generating optical tweezer arrays
+two objectives maintain diffraction-limited performance across the         using the WGS algorithm, we precompensate for spatially varying dif-
+entire field of view for wavelengths ranging from 780 nm to 860 nm.        fraction efficiency by including a ‘sinc’ term in the target array54. This
+The objective’s optical transmission is 92%, and we estimate the total     rough homogenization typically yields 15% to 20% inhomogeneity.
+absorption to be about 1% (taking into account finite reflection at each   Then we run an atom-based homogenization procedure that relies on
+antireflection-coated surface), which reduces thermal lensing and          site-resolved measurements of tweezer-induced light shifts, which
+enables higher trapping laser power in the future.                         is used to feed back onto the WGS target intensity at each site. In the
+   For single-atom imaging, we use two 4f telescopes (one high-NA          preparation zone, we measure the tweezer light shift by probing the
+objective and three relay lenses) to map the atomic plane inside the       F = 2 → F′ = 2 transition; in the storage zone, we infer the differential
+glass cell onto a low-noise camera (Hamamatsu C15550-20UP). The            light shift via Ramsey interferometry between the two qubit states55.
+imaging system magnification is 7.6, such that the fluorescence of a       After a few rounds of atom-based feedback, we arrive at about 5–6%
+single atom is mapped onto approximately 3 × 3 camera pixels. The          inhomogeneity in both preparation and storage zone (Extended Data
+quantum efficiency of the camera at the 780-nm imaging wavelength          Fig. 3b,c). After aberration correction and homogenization, the average
+is about 50%. All relay lenses used in the objective beam path (both for   SLM trap depth is 370 μK (270 μK) in the preparation (storage) zone
+imaging and tweezer projection) are custom-designed (Special Optics)       with a tweezer waist of about 800 nm.
+to accommodate the large field of view.
+                                                                           MOT and lattice loading
+Tweezer generation                                                         The experiment starts with the preparation of an atom reservoir
+For optical tweezer projection, we use polarizing beamsplitters and        (Extended Data Fig. 1b). We first load approximately 107 atoms in an
+dichroic beamsplitters to combine 3 separate beam paths powered by         MOT within 80 ms and the first optical lattice conveyor belt (Lattice-1)
+3 high-power lasers: a 15-W, 828-nm fibre amplifier system (Precilaser)    is overlapped throughout. The MOT light is 23-MHz red-detuned from
+that generates the dynamic optical tweezers for atom transport, and        the hyperfine transition F = 2 → F′ = 3, where F refers to hyperfine levels
+two 15-W, 852-nm fibre amplifier systems (Precilaser) that each form       in the 5S1/2 ground state and F′ refers to hyperfine levels in the 5P3/2
+the backbone static tweezer array in the preparation and storage zones     excited state. The repumping light, created via modulating a sideband
+(Extended Data Fig. 3a).                                                   on the cooling light, resonantly drives the F = 1 → F′ = 2 transition. We
+   The 828-nm dynamic tweezers beam path, dedicated to atom trans-         operate the MOT at a magnetic-field gradient of 13 G cm−1, and use
+port and sorting, consists of two perpendicularly mounted AODs             a 395-nm ultraviolet light-emitting diode for light-induced atom
+(G&H AODF 4085) separated by a 1-to-1 4f telescope. Another 4f sys-        desorption from the glass cell. After the MOT stage, the MOT light is
+tem maps the AOD aperture to the Fourier plane of the objective. The       ramped to lower intensity and about 140-MHz red-detuning over 7 ms
+AOD-generated tweezers have a waist of about 800 nm and a travel           for compression of the atomic cloud into the lattice. A brief idle time
+range of 600 μm in each dimension on the atom plane. Depending             follows the lattice loading procedure, in which the cooling lights are
+on the transport pattern required, we dynamically switch between           switched off and the magnetic field is zeroed. Subsequently, we perform
+different tweezer configurations within one cycle of the experiment.       lambda-grey molasses (LGM)56 at low cooling light intensity, with the
+When extracting atoms from the reservoir to the preparation zone, we       carrier frequency placed 30-MHz blue-detuned from the F = 2 → F′ = 2
+use 1,440 tweezers at 4.5-μm spacing with average depth of 450 μK. To      transition and the coherent repumper sideband on 2-photon reso-
+transport sorted atoms to or eject atoms from the storage zone, we         nance with the F = 1 → F = 2 transition between both hyperfine ground
+generate an array of 540 tweezers at 9-μm spacing with an average depth    states. After tLGM = 11 ms, we load approximately 4 × 106 atoms at
+Article
+temperatures T ≈ 20 μK into Lattice-1 as measured via absorption                point in parallel. This enables fast sequential reservoir replacement,
+imaging.                                                                        and decouples the MOT and lattice loading sequence from science
+                                                                                chamber operations.
+Dual-lattice optical transport
+We transport atoms from the MOT to the science region using two                 Tweezer loading from the lattice reservoir
+angled conveyor belt optical lattices32,38,39. Both transport lattices are      In this work, we load optical tweezers from the dense lattice reservoir
+derived from a single titanium:sapphire laser (Matisse, Spectra-Physics)        without employing additional laser cooling during the loading process.
+and approximately 300-GHz red-detuned from the D1 line, which is                Here we briefly discuss our current understanding of the underlying
+found to be the empirical optimum for our available laser power                 mechanisms, and outline the effect of loading and extracting twee-
+(Extended Data Fig. 2d,e). Lattice-1 has a Gaussian beam waist of around        zers from an active reservoir. In our parameter regime, we expect two
+330 μm at the position of the MOT and a minimum waist of around                 mechanisms to contribute to our tweezer loading: stochastic and/or
+250 μm. Particularly at the position of the DPT, its beam diameter is           collisional loading. Both critically depend on atomic density n(r, z) in
+roughly three times smaller than the DPT aperture. Both conveyor                the reservoir, which is a function of atom number N per lattice site,
+belt lattices are spatially mode-matched at the handover point, from            atom temperature T, and both radial and axial trapping frequencies
+which the waist of the second conveyor belt lattice (Lattice-2) decreases       ωr and ωz. Within one lattice site, it is given by
+to a minimum waist of 150 μm in the microscope field of view. Both
+conveyor belt lattices are created via retro-reflection of their respec-                                             m                     
+                                                                                                  n(r , z) = n0 exp −     (wr2r 2 + wz2z 2)
+tive incoming beams, which are deflected by two acousto-optical                                                      2kBT                  
+modulators (AOMs) into opposite diffraction orders, then imaged
+back onto the lattice waist (quad-pass configuration)37. Mount-                 with n0 = Nωr2ωz (m /(2πkBT ))3/2 the peak density, m the mass of 87Rb,
+ing the AOMs perpendicular to each other ensures a circular beam                r the radial distance from the centre of the reservoir, z the axial distance
+shape and enables optimal overlap with the incoming lattice beam                from the lattice site, and kB the Boltzmann constant. Neglecting depend-
+on retro-reflection. The quad-pass efficiency is (0.88)4 ≈ 60%, such            encies on atom temperature and the relative trap depth between the
+that for typical incoming powers Pin ≈ 1 W we achieve lattice depths            lattice and tweezers, we now turn to a brief discussion of both loading
+Ulat > 500 μK for both conveyor belt lattices across the entire transport       mechanisms.
+distance.
+   After loading Lattice-1, we linearly ramp the frequency of one of            Stochastic loading. When turning on the tweezer, the number of res-
+the retro-AOMs to introduce a frequency detuning Δν(t) between                  ervoir atoms stochastically overlapped with the tweezer volume can be
+both interfering laser beams, and obtain a conveyor belt lattice                approximated as Nst ∝ Vtwz⟨n(r = 0)⟩lat, where we assume peak density in
+moving at velocity v = λΔν(t)/2, with λ the wavelength of the lattice           the radial direction and ⟨ ⟩lat denotes averaging across the axial lattice
+laser38,39. The atom cloud is transported over about 39 cm (Extended            sites. These are valid approximations, as the tweezers are far smaller
+Data Fig. 2a) before arriving at the handover point after tL1 = 50 ms.          than the radial dimension of the reservoir but capture multiple lattice
+Here, we transfer the atomic cloud from Lattice-1 to Lattice-2 within           sites axially. For our reservoir parameters, we estimate an atom density
+tHO = 1 ms by a simultaneous and opposite linear intensity ramp of both         of ⟨n(r = 0)⟩lat ≈ 5 × 1011 cm−3 and tweezer volume Vtwz ≈ 10−17 m3, which
+lattice lights and without applying cooling light during the handover           results in about 5 atoms stochastically overlapped with the tweezer
+(Extended Data Fig. 2b). Finally, within tL2 = 21 ms, Lattice-2 transports      volume.
+the atoms over another approximately 17 cm into the microscope
+field of view, where it serves as an atom reservoir. For both conveyor          Collisional loading. An atom moving through a background gas
+belt lattices, we find optimal transport efficiency for accelerations           collides with a rate Γ(r, z) = n(r, z)vrelσ, with vrel the thermal relative
+alat ≈ 4,000 m s−2 (Extended Data Fig. 2c) and velocities of 8–10 m s−1,        velocity between two atoms and σ the scattering cross-section. The
+                                                                                                                                   1
+limited by AOM bandwidth. Using this scheme, we deliver reservoirs              two-body collision density is given by γ(r , z) = 2 n(r , z) 2 vrelσ , such that
+of approximately 2.5 × 106 atoms at a temperature of around 120 μK              the collision rate within the tweezer volume is proportional to Γtwz ∝
+into our reloading zone, which corresponds to an approximately 60%              Vtwz⟨γ(r = 0)⟩lat using the same approximations as above. For our system
+dual-lattice transport efficiency at 6 times the original temperature.          parameters, we estimate ⟨γ(r = 0)⟩lat ≈ 3 × 1019 m−3 s−1 and therefore load-
+Most of the observed heating is attributed to the lattice handover, not         ing of about 0.3 atoms per millisecond of tweezer-lattice overlap,
+the long-distance transport.                                                    assuming 1 atom trapped per atomic collision.
+   When periodically replacing the atomic reservoir, we start load-                 Although these order-of-magnitude estimates imply that stochas-
+ing a new MOT directly after the lattice handover and, as such, can             tic loading is dominating, we point out two simplistic assumptions
+deliver a fresh reservoir cloud to the science region every approxi-            that this model is making. (1) Although spatial overlap is necessary,
+mately 150 ms. It is noted that only during the second stage of lattice         it is not a sufficient condition for trapping; additionally considering
+transport, tL2 = 21 ms, no reservoir is available for loading optical twee-     kinetic energy constraints would lead to a decrease of stochastically
+zers; however, as described in the main text, this is not a limitation to       captured atoms. (2) Owing to the abruptly altered potential landscape
+continuous operation as the qubit preparation procedure typically               on tweezer turn-on, nearby atoms accelerate towards the trap centre
+exceeds tL2 .                                                                   and the atomic collision rate within the tweezer increases; this results
+   Compared with a single transport lattice design38,39, our dual-lattice       in a larger number of atoms loaded via collisions41. For these reasons,
+architecture offers several advantages. (1) Owing to the angle between          we expect both mechanisms to contribute and further investigation
+both transport lattices and the differential pumping tube aperture, we          is warranted.
+avoid a direct line of sight and therefore reduce scattering from the MOT           In the regime of few tweezer extractions (that is, saturated loading;
+onto qubits already present in the science region. (2) The waist of the         see also Fig. 1b), we find that, on average, approximately 5 atoms are
+second conveyor belt lattice becomes largely independent of overall             lost from the reservoir per tweezer extraction, which is of the same
+transport distance, and therefore can be decreased within the field of          order as the combined tweezer loading estimates above. This number
+view of the objective. This increases the reservoir density for tweezer         is measured by comparing reservoir atom number with the number of
+loading and also limits the impact of lattice-induced scattering and            atoms obtained in tweezers from repeated extraction, accounting for
+dipole potentials on other zones. (3) While Lattice-2 is still in active use,   parity projection. It should be noted that this serves as an upper bound
+atoms in Lattice-1 can be prepared and transported to the handover              and does not necessarily imply loading of 5 atoms per tweezer, as we
+expect the rather invasive extraction procedure to accelerate evapo-         axial temperatures, yields comparable results despite limited momen-
+rative losses in the reservoir as well. After loading, captured atoms        tum projection of the cooling light along the tweezers’ axial direction.
+are transported out of the active reservoir perpendicular to the axial       All cooling lights (PGC and EIT) contain a repumper frequency address-
+lattice potential. As shown in Extended Data Fig. 4b, we observe no dif-     ing the F = 1 → F′ = 2 transition, created by modulating an electro-optic
+ference in survival when moving atoms through the reservoir versus           modulator at about 6.8 GHz.
+in free space as a function of tweezer velocity19.
+                                                                             Atom rearrangement
+Finite-field laser cooling and imaging                                       After stochastically loading the preparation-zone 120 × 12 tweezer array,
+A key feature of our reloading architecture is the ability to initialize     we rearrange the atoms into a defect-free array of typically 540 sites,
+fresh qubits and perform mid-circuit laser cooling and imaging in the        except for the qubit flux demonstration in Fig. 1c where we arrange
+presence of a static magnetic field. Avoiding field changes, such as         to 600 sites. The same two-dimensional AOD pair used for extracting
+field-zeroing as typically necessary for polarization gradient cooling       atoms from the lattice reservoir performs rearrangement, controlled
+(PGC), protects coherence in existing qubits and enables faster qubit        by a dedicated arbitrary waveform generator (AWG; Spectrum Instru-
+preparation cycles. To this end, all qubit preparation and manipulation      mentation M4i.6631-x8). Leveraging our unique large-aspect-ratio
+protocols are designed to operate at a fixed magnetic field of 4.2 G,        preparation-zone geometry, we execute efficient row-by-row sorting
+which defines the qubit quantization axis at all times. The preparation      (Extended Data Fig. 6a). In each row, a single parallel move fills all empty
+zone is illuminated with a pair of one-dimensional counter-propagating       target sites using available atoms while navigating through inter-row
+780-nm beams with opposite circular polarizations (σ+ and σ−) aligned        gaps to avoid backbone SLM traps. Each row takes 700 μs to sort, with
+along the magnetic-field axis. The two beams are detuned relative to         EIT cooling active throughout.
+each other by twice the Zeeman splitting to compensate for the energy            To optimize real-time processing, we precompute all possible move
+shift of hyperfine levels owing to the quantization field57. We use this     segments as waveform chirps. During each experiment, the rearrange-
+architecture for laser cooling, imaging, parity projection and qubit         ment program selectively synthesizes the precomputed waveform
+state initialization as shown schematically in Extended Data Fig. 5a,        chirps based on the specific atom loading information of that shot
+with cooling and imaging performing comparably to the zero-field             (provided by a real-time image analysis program). We exploit the
+configuration.                                                               AWG’s FIFO mode to reduce latency from waveform calculation. As
+   To begin qubit preparation on atoms extracted into the preparation        each row’s sorting is independent, we stream its waveform as soon as
+zone from the reservoir, an explicit parity-projection pulse is required     it is computed while moves for the next row are calculated in paral-
+as our loading mechanism typically results in more than one atom             lel. This reduces calculation latency by over an order of magnitude.
+loaded per tweezer. Before ramping up SLM tweezers in the prepa-             Under optimal conditions, we allocate approximately 20 ms for rear-
+ration zone, we perform PGC with light 60-MHz red-detuned from               rangement, which takes into account data transfer latency, row-by-row
+F = 2 → F′ = 3 to induce pair-wise atom losses in the AOD tweezers via       sorting time and a small buffer to accommodate program runtime
+light-assisted collisions58. After 10 ms, we hand over atoms to the SLM      fluctuations. For all sequences involving storage-zone operation, we
+array and observe roughly 50% occupation and less than 1% of sites with      increase the camera region of interest (ROI) to include the storage zone,
+more than 1 atom. This parity-projection step therefore sets an upper        which increases latency (and therefore the time allocated for rear-
+bound on imaging survival and is crucial for obtaining well-separated        rangement) by about 10–20 ms. This large ROI is unnecessary for future
+imaging histograms. In addition, we observe atoms trapped in weak            continuously operating experiments (for example, for error-correcting
+out-of-plane potentials created by the SLM (Talbot effect), which we         circuits), where imaging is confined to the preparation zone and not
+remove with a brief resonant push-out pulse10 applied to the entire          required in the storage zone.
+array during PGC.                                                                For 540-site rearrangement, we achieve an averaged target array
+   Fast, lossless imaging is then used to identify atoms for rearrange-      filling fraction of 99.6% (Extended Data Fig. 6b), primarily limited by
+ment. We image for 10 ms using PGC parameters, which achieves a              imaging survival. Given our vacuum lifetime of over 150 seconds, losses
+site-resolved discriminant fidelity of 99.99% (Extended Data Fig. 5b)        from background gas collisions contribute less than 0.1% to the rear-
+with a survival probability of 99.5%. Higher imaging fidelity and survival   rangement infidelity. Extended Data Fig. 6a (bottom) showcases a
+can always be achieved by imaging longer at larger detuning or weaker        single-shot preparation-zone fluorescence image of a defect-free array
+powers. Our one-dimensional counter-propagating beam configura-              after rearranging to 600 sites. Atoms remaining outside the target
+tion offers the added benefit of a background-free imaging signal,           array are automatically discarded when the subarray is transported to
+eliminating the need for Fourier filtering as the beams do not directly      (re)load the storage zone. We intentionally rearrange into every other
+scatter into the imaging objective. During imaging in particular, we         column of the SLM backbone array, creating a sparse array geometry
+observe that atoms from our lattice reservoir occasionally leak into         that reduces the average atom travel distance during sorting, thereby
+the nearby preparation zone, which are then trapped into tweezers by         improving both rearrangement fidelity and speed.
+imaging or cooling light. We avoid this by moving our lattice reservoir
+roughly a centimetre away from the objective field of view after every       Storage array building
+tweezer extraction cycle, and move it back before the next cycle. If         One of the key considerations in generating large-scale atom arrays
+not accounted for, atom spilling from the lattice and improper parity        is the trade-off between increasing tweezer spacing to minimize
+projection in tweezers can each decrease imaging survival by about 5%,       inter-tweezer crosstalk, and decreasing tweezer spacing for higher SLM
+with the exact number dependent on reservoir density and imaging             diffraction efficiency. Therefore, our 3,240-site storage-zone tweezer
+duration.                                                                    array features alternating horizontal spacings: wide, 6-μm channels for
+   During the 20 ms to 40 ms of rearrangement, we apply laser cool-          minimal AOD–SLM tweezer crosstalk during atom transport through
+ing via electromagnetically induced transparency (EIT)42. We use the         the array, and smaller spacings of 3 μm to pack the array close to the
+same laser and beam geometry, except in a strong ‘coupling’ and weak         SLM zeroth order where diffraction efficiency is substantially higher.
+‘probe’ configuration, operating on a 2-photon resonance 70-MHz              The entire array is placed on one side (two quadrants) of the SLM zeroth
+blue-detuned from the F = 2 → F′ = 2 transition42 with intensity ratio       order, as we empirically find that having large tweezer arrays in all four
+13:1. We probe the atom temperature via drop-recapture and extract           quadrants introduces additional ghost optical spots between tweezers.
+radial temperatures of 12 μK (Extended Data Fig. 5c). A complementary           The 90 × 36-site storage array is divided into 6 interleaved subarrays
+adiabatic trap ramp-down measurement, which is more sensitive to             of 45 × 12 sites. Subarrays feature regular tweezer spacings of 9 μm and
+Article
+are filled sequentially, such that the entire storage array is assembled      Raman beam and the atoms in the preparation zone, we knife-edge
+in 6 iterations (Fig. 2c, inset, and Extended Data Fig. 6d). Within each      the beam tail at the intermediate imaging plane of the beam shaping
+iteration, we first load the preparation-zone array stochastically, then      telescope, and thus remove residual light in the preparation zone.
+rearrange atoms into a 540-site target array with a spacing of 9 μm              To selectively read out qubits in 0⟩, we apply a push-out pulse that
+horizontally and 4.5 μm vertically. Afterwards, atoms are picked up by        resonantly removes atoms in F = 2 from the trap, then image atoms that
+AOD tweezers and transported to one of the six subarrays. During this         remain in the F = 1 ground-state manifold. To readout qubits in 1⟩, we
+transport, the subarray is vertically expanded from 4.5 μm to match           first apply a π pulse to rotate the population to ∣0⟩, followed by the
+the 9-μm spacing in the storage zone, while the horizontal spacing            same push-out and imaging pulse. We follow a slightly different imag-
+remains at 9 μm (see also Supplementary Video 1). Maintaining identi-         ing procedure depending on where atomic qubits are read out. In the
+cal horizontal spacings throughout the transport minimizes expansion          preparation zone, we use PGC for qubit readout under a finite magnetic
+overhead and enables faster transport. In addition, the sparse subarray       field, which, in this work, is primarily used to identify occupied tweezer
+structure largely avoids AOD heating at closer spacings.                      sites for atom rearrangement, but can also serve as mid-circuit readout
+   We observe a slightly lower atom survival probability during tweezer       in future error-correction protocols. For global readout of all storage
+transport to the storage zone when the static lattice reservoir is present,   array qubits at the end of the experiment, we use a separate retro-
+which can be recovered when the lattice potential itself is in motion         reflected circularly polarized global imaging beam at zero magnetic
+simultaneously. As described previously, the lattice reservoir is trans-      field.
+lated by 1 cm out of the objective field of view to avoid lattice spilling
+during high-contrast imaging, and moved back before the next tweezer          Qubit shielding
+extraction cycle. Therefore, we now simply time atom movement to the          Throughout the experiment and particularly during qubit preparation,
+storage zone to occur synchronously with moving the lattice reservoir         we protect the 5S1/2 ground-state qubits in the storage zone from
+back into the objective field of view, thereby mitigating the above effect.   near-resonant photon scattering with the 5S1/2 → 5P3/2 transition by
+Extended Data Fig. 6c showcases storage-zone assembly statistics after        addressing the 5P3/2 → 4D5/2 transition near 1,529 nm (ref. 35). This results
+300 repeated trials; on average, we load 3,193 atoms out of 3,240 sites,      in an Autler–Townes splitting ±ΔAT ≈ ±2π × 10 GHz of the excited state,
+corresponding to a loading fraction of 98.5%.                                 and therefore a suppression of scattering from nearby imaging/
+                                                                              cooling light with detuning Δcool by a factor of approximately
+Qubit initialization                                                          (ΔAT /Δcool) 2 > 10, 000 (‘shielding’).
+After rearranging a defect-free array, we initialize the atoms into their        The shielding light is sourced from a single-frequency fibre laser
+qubit subspace. The qubit subspace is spanned by the two hyperfine            (Connet CoSF-D) outputting up to 10 W at 1,529.6 nm, which is passed
+clock states in the ground-state manifold of 87Rb, which we define            through an AOM (G&H 3165-1) for fast switching control and fibre-
+as F = 1, mF = 0⟩ ≡ 0⟩ and F = 2, mF = 0⟩ ≡ 1⟩ . To prepare the atoms in      coupled onto the experimental table. Similar to the Raman beam, we
+state ∣0⟩, we leverage the previously discussed one-dimensional local         shape the shielding beam with a holographic phase plate (HOLO/OR
+beam configuration. Both of the counter-propagating preparation-zone          ST-356) to create a flat-top beam profile of approximately 250 μm along
+beams simultaneously address the F = 1 → F′ = 0 and F = 2 → F′ = 2 transi-    the vertical extent of the storage-zone array with Gaussian beam waist
+tions. By selection rules, state 0⟩ is dark to the σ± circularly polarized    of approximately 50 μm horizontally and 2.5 W projected onto the
+light field addressing F = 1 → F′ = 0, whereas the states F = 1, mF = ± 1⟩    atoms. The beam tails are knife-edged in an intermediate imaging
+are optically pumped to ∣0⟩ through ∣F ′ = 0, mF ′ = 0⟩. Simultaneously,      plane to ensure no shielding crosstalk onto the preparation zone. The
+atoms in states F = 2 are depumped into F = 1 by addressing the               knife-edged flat-top beam profile is shown in Extended Data Fig. 7b.
+F = 2 → F′ = 2 transition (Extended Data Fig. 5d). We observe a 1/e time         In Fig. 3c, we show the shielding effect in a spectroscopy scan by
+of 5 μs for populating state 0⟩. This technique for fast state initializa-    stepping the 1,529-nm wavelength during simultaneous imaging and
+tion is advantageous as it requires only a few scattered photons, mini-       low-power shielding of storage-zone atoms, and resolve the 4D5/2 reso-
+mizing heating from scattering, while simultaneously avoiding                 nance by suppression of global imaging signal. To further optimize
+magnetic-field rotations4. From the preparation-zone Rabi contrast,           shielding performance, we maximize the T2 time of storage qubits
+we infer a state preparation and measurement fidelity of 98.1(3)%, prob-      as a function of shielding wavelength while locally imaging qubits
+ably limited by polarization impurities and off-resonant scattering to        in the preparation zone. In practice, the shielding light is operated
+other hyperfine levels in the excited state. The state preparation fidel-     free-running approximately 1 GHz red-detuned from the 5P3/2 → 4D5/2
+ity can potentially be improved by incorporating Raman-assisted               transition with a measured frequency stability of ±10 MHz.
+optical pumping schemes4.
+                                                                              Maintaining coherence while reloading
+Qubit manipulation and readout                                                In Fig. 3a, we apply N repetitions of a XY16 dynamical decoupling pulse
+We drive the qubit states via optical Raman transitions, in a set-up          sequence (denoted as XY16-N) with fixed π-pulse spacing 2τ ≈ 1.6 ms.
+similar to previous studies59 but operating 400-GHz blue-detuned              During dynamical decoupling, we measure storage qubit coherence
+from the 780-nm transition. The Raman beam drives the qubits at Rabi          under various conditions. First, we quantify the effect of the distant
+frequency Ω/2π ≈ 1 MHz. At this intensity, we measure a T1-like scat-         MOT on storage qubits when pulsing the MOT at a 30% duty cycle with
+tering lifetime of 10 ms, in agreement with ab initio Raman scattering        the lattice reservoir lights off. This particular duty cycle is chosen to
+calculations. From this, we infer a scattering-limited fidelity of 0.99995    replicate typical MOT loading cycles in our qubit reloading protocol.
+per π pulse. We note, however, that this represents an upper bound            Second, we additionally switch on the preparation-zone imaging light
+on our single-qubit gate fidelity; in practice, additional error sources      while the reservoir is present for the entire probing duration to simu-
+such as atomic decoherence, intensity fluctuations and phase noise            late the effect of concurrent local qubit preparation. We observe no
+may also contribute10. The Raman beam is shaped to homogeneously              difference between turning on local imaging light with atoms present
+address qubits in the large storage zone, which is achieved by using a        in the preparation zone versus without, suggesting that the primary
+fixed holographic phase plate (HOLO/OR ST-268) that forms a top-hat           source of decoherence during qubit preparation arises from scattered
+beam profile across the extent of the array. From measuring row-by-row        light originating from the optics and apparatus, rather than from pho-
+Rabi frequency, we infer a beam homogeneity of approximately 1.04%            tons scattered by atoms in the preparation zone. Lastly, we shield
+root-mean-square variation and 3.4% peak-to-peak variation on the             storage-zone qubits while the distant MOT is loaded and held at satu-
+atoms (Extended Data Fig. 7a). To minimize crosstalk between the              ration, the lattice reservoir is present and preparation-zone imaging
+light is switched on for the entire probing duration. This simulates            decoupling pulses, and supply the chirped waveforms for atom sorting
+the most demanding application of storage array shielding. Comple­              and transport in AOD tweezers.
+mentary to Fig. 3a, which measures T2 times under the conditions                   Our control system is designed to allow for practically unlimited
+described above, we similarly probe depolarization of storage-zone              duration of continuous operation. For NI-generated control signals, we
+qubits when the qubit is initialized in either ∣0⟩ (Extended Data Fig. 8a)      calculate and stream the waveform samples on-the-fly to circumvent
+or ∣1⟩ (Fig. 3b). Here, in addition to the above variations, we also quantify   memory limitations. For AWG-controlled atom transport and dynami-
+storage qubit depolarization caused by the lattice reservoir light alone.       cal decoupling, we instead store the precalculated waveform in the
+                                                                                onboard memory and loop over it for an arbitrary number of times.
+ Continuous coherent operation                                                  Here, the dynamical decoupling sequence requires particular care in
+ In this section, we detail the experimental sequence used to achieve           selecting the signal frequency when looping over the same memory
+ our results of qubit reloading while maintaining the storage qubit             segment to avoid phase jumps in the modulated 6.8-GHz microwave
+ coherence shown in Fig. 4b–d and Extended Data Fig. 10a,b. A sequence          signal. More details of our control software will be discussed in an inde-
+ schematic is given in Extended Data Fig. 9. First, we transport a lattice      pendent paper that is currently in preparation.
+ reservoir into the science region, from which tweezers repeatedly                 Calibrating and maintaining intensity of light pulses that are too
+ extract atoms into the preparation zone. Subsequently, loaded lattice          short for active real-time stabilization is a notable technical challenge
+ reservoirs are transported to the tweezer science region in parallel,          in continuously operating experiments. For our optical Raman light,
+ such that the reservoir itself is replaced every two tweezer extractions.      we employ a field-programmable-gate-array-based digital servo with
+ Once in the preparation zone, atoms undergo the qubit preparation              digital sample-and-hold60 to stabilize pulse intensity, which eliminates
+ sequence shown in Extended Data Fig. 5a before being transported into          analogue hold decay and integral windup, and enables calibration
+ the storage zone. The complete qubit preparation sequence, including           pulses as short as 5 μs. This calibration pulse is inserted before every
+ the move to the storage array, takes a total of about 80 ms and consti-        XY16-64 decoupling cycle with the 6.8-GHz microwave source detuned
+ tutes one reloading cycle. After initial assembly of the storage qubit         by 20 MHz to ensure that qubit states are not driven. Although the
+ array, we continue preparing newly state-initialized qubit ensembles           calibration pulse flashes onto existing storage qubits, its duration is
+ in the preparation zone, and eject and refill one of six qubit subarrays       3 orders of magnitude shorter than the approximately 10 ms T1-like
+ in the storage zone as described in the main text. To eject a subarray,        scattering timescale associated with the Raman light. With the digital
+ the qubits are transferred back into overlapped AOD tweezers and               hold, we actively stabilize every decoupling cycle in situ, and achieve
+ accelerated out of the objective field of view. Storage subarray ejec-         no long-term decay in pulse intensity and pulse-to-pulse error of ≲1%.
+ tion takes about 5 ms and occurs in parallel to the preparation-zone
+ image used for atom rearrangement. For Fig. 4b, we loop this qubit             Data analysis
+ reloading sequence for variable time before our global imaging read-           For the measurements in Figs. 3a,b and 4b and Extended Data Fig. 8a,
+ out. Shielding light is applied to the storage zone during the entire          we read out the qubit state after the probing duration and define con-
+ experimental sequence.                                                         trast as (P0(t) − P1(t))/(Pa(t) − P m F =±1⟩(t = 0)) . Here, P0(t) (P1(t)) denotes
+    For Fig. 4c,d, we additionally apply dynamical decoupling sequences         the probability to measure qubits in 0⟩ ( 1⟩) at given time t by reading
+ (Xπ/2 − XY16-64 − X−π/2) with a fixed π-pulse spacing 2τ ≈ 1.1 ms onto all     out the F = 1 hyperfine level without (with) a preceding π pulse as
+ storage-zone qubits during each reloading cycle. Therefore, within             described above. Pa(t) is the probability to measure an atom in any state
+ each loop, qubits are first rotated ∣0⟩ → ∣+⟩, then undergo the XY16           by omitting the push-out pulse before imaging atoms (lifetime meas-
+ decoupling sequence to mitigate dephasing. Right before fresh qubits           urement). In addition, we correct for qubits initially populating neigh-
+ are moved into the storage array from the preparation zone, we apply           bouring Zeeman states F = 1, mF = ± 1⟩ at t = 0 denoted as P m F =±1⟩(t = 0),
+ a X−π/2 pulse to map remaining coherence to population by rotating             as we observe 5–10% leakage from state 0⟩ into other mF states
+ back to state ∣0⟩, replace the oldest qubit subarray, then rotate all qubits   within the F = 1 manifold when transporting qubits from the pre­
+ again to ∣+⟩ as a new reloading cycle starts. This is repeated for a vari-     paration to the storage array using AOD tweezers. This is attributed
+ able number of times, where each subarray is exchanged with a set of           to beating of radio frequencies driving the transitions bet­ween
+ fresh qubits every six iterations. In Extended Data Fig. 10a, we supple-        0⟩ → F = 1, mF = ± 1⟩ levels, which can be mitigated by operating at
+ ment Fig. 4c by averaging readout probability over the entire storage          higher quantization fields or fine-tuning the radio frequencies app­
+ array instead of analysing each subarray individually.                         lied to the AODs in future experiments. To measure P m F =±1⟩(t = 0), we
+    Instead of mapping coherence back to ∣0⟩ population after each              isolate qubits in states F = 1, mF = ± 1⟩ by first applying a push-out
+ reloading cycle, we can also map it to alternating ∣0⟩ or ∣1⟩ population       pulse, then a π pulse to transfer the population 0⟩ → 1⟩, followed by a
+ by choosing (Xπ/2 − XY16-64 − X+π/2) as the cyclic decoupling sequence.        final push-out pulse before readout. For all measurements of Fig. 3a,b
+ This results in subarrays 1, 3 and 5 hosting qubits in superposition state     and Extended Data Fig. 8a, we fit an exponential decay to the contrast
+∣+⟩ and subarrays 2, 4 and 6 qubits in the opposite state ∣−⟩ during            and quote the fitted 1/e decay time as T2 and T1 times, which are pre-
+ dynamical decoupling after initial array assembly. When mapped back            sented in Extended Data Fig. 8b.
+ to population, this yields a checkerboard pattern of qubit states 1⟩              For the measurements in Fig. 4c,d and Extended Data Fig. 10a,b,
+ and 0⟩ in the storage array. Analogous to Fig. 4d, this is shown in            ‘readout probability’ is defined as (P0(t) − P m F =±1⟩(t = 0))/(Pa(t) −
+ Extended Data Fig. 10b where the storage array is read out in different        P m F =±1⟩(t = 0)), where P 0(t) again denotes the probability to mea­
+ qubit bases and each subarray analysed individually.                           sure qubits in 0⟩ at given time t as described above, and Pa(t) the
+                                                                                life­time measurement. For the red-shaded lines in Fig. 4c and Extended
+Control system and timing                                                       Data Fig. 10a, we apply a π pulse before the measurement. As before,
+We use National Instruments (NI) cards to generate digital and analogue         we measure and correct for qubits initially populating neighbour­
+control signals (NI PXIe-6535 and NI PXIe-6738, respectively) for the           ing Zeeman states F = 1, mF = ± 1⟩ due to state leakage during atom
+laser-cooling and trapping stages of our experiment, including the              transport.
+MOT loading, dual-lattice transport and qubit preparation sequences.
+For operations that require waveform generation with nanosecond
+precision, we utilize AWGs (Spectrum Instrumentation DN2.663-04 and             Data availability
+M4i.6631-x8) whose output is triggered by the NI cards. In our experi-          The data that support the findings of this study are available from the
+ments, AWGs handle the timing of single-qubit gates and dynamical               corresponding authors on request.
+Article
+52. Kim, D. et al. Large-scale uniform optical focus array generation with a phase spatial light         the Center for Ultracold Atoms (an NSF Physics Frontier Center), the National Science Foundation
+    modulator. Opt. Lett. 44, 3178–3181 (2019).                                                          (grant numbers PHY-2012023 and CCF-2313084) and QuEra Computing. M.H.A. acknowledges
+53. Kim, H., Kim, M., Lee, W. & Ahn, J. Gerchberg–Saxton algorithm for fast and efficient atom           support by a Rubicon Grant from the Netherlands Organization for Scientific Research (NWO).
+    rearrangement in optical tweezer traps. Opt. Express 27, 2184–2196 (2019).                           S.H. acknowledges funding through the Harvard Quantum Initiative Postdoctoral Fellowship in
+54. Ebadi, S. et al. Quantum phases of matter on a 256-atom programmable quantum                         Quantum Science and Engineering. S.J.E. acknowledges support from the National Defense
+    simulator. Nature 595, 227–232 (2021).                                                               Science and Engineering Graduate (NDSEG) fellowship. D.B. acknowledges support from the
+55. Tomita, T. et al. Atom camera: super-resolution scanning microscope of a light pattern               Fannie and John Hertz Foundation.
+    with a single ultracold atom. Preprint at https://arxiv.org/abs/2410.03241 (2024).
+56. Rosi, S. et al. Λ-enhanced grey molasses on the D2 transition of rubidium-87 atoms. Sci.             Author contributions N.-C.C., E.C.T., S.H., J.G., L.M.S., M.H.A. and T.T.W. planned the experiments,
+    Rep. 8, 1301 (2018).                                                                                 performed measurements, analysed the data and contributed to building the experimental
+57. Walhout, M., Dalibard, J., Rolston, S. L. & Phillips, W. D. σ+–σ− optical molasses in a              apparatus. P.L.S., M.K. and X.L. contributed to the experimental control system. A.A.G., S.J.E.,
+    longitudinal magnetic field. J. Opt. Soc. Am. B 9, 1997–2007 (1992).                                 S.H.L. and D.B. contributed to development of methods and techniques for continuous operation.
+58. Pampel, S. K., Marinelli, M., Brown, M. O., D’Incao, J. P. & Regal, C. A. Quantifying light-         L.M.P. contributed to data interpretation. All work was supervised by M.G., V.V. and M.D.L.
+    assisted collisions in optical tweezers across the hyperfine spectrum. Phys. Rev. Lett. 134,         All authors discussed the results and contributed to the paper.
+    013202 (2025).
+59. Levine, H. et al. Dispersive optical systems for scalable Raman driving of hyperfine qubits.         Competing interests M.G., V.V. and M.D.L. are co-founders and shareholders, V.V. is Chief
+    Phys. Rev. A 105, 032618 (2022).                                                                     Technology Officer, and M.D.L. is Chief Scientist of QuEra Computing. Some of the techniques
+60. Neuhaus, L. et al. Python Red Pitaya Lockbox (PyRPL): an open source software package                and methods used in this work are included in provisional and pending patent applications
+    for digital feedback control in quantum optics experiments. Rev. Sci. Instrum. 95,                   filed by Harvard University (US patent application numbers 63/772,191 and 63/656,377).
+    033003 (2024).
+                                                                                                         Additional information
+Acknowledgements We thank Y. Bao, H. Bernien, S. Cantu, J. Dalibard, S. Ebadi, M. Endres,                Supplementary information The online version contains supplementary material available at
+T. Esslinger, B. Grinkemeyer, N. Jepsen, S. Kolkowitz, J. Léonard, A. Lukin, T. Manovitz, J. Robinson,   https://doi.org/10.1038/s41586-025-09596-6.
+P. Sales Rodriguez, G. Semeghini, R. Tao, J. Ye, J. Zeiher and H. Zhou for discussions; and S. Geier,    Correspondence and requests for materials should be addressed to Simon Hollerith or
+J. MacArthur and T.-K. Shen for help with the experiment. We acknowledge financial support               Mikhail D. Lukin.
+from the US Department of Energy (DOE Quantum Systems Accelerator Center, contract                       Peer review information Nature thanks Sylvain de Léséleuc, Takafumi Tomita and the other,
+number 7568717), IARPA and the Army Research Office, under the Entangled Logical Qubits                  anonymous, reviewer(s) for their contribution to the peer review of this work. Peer reviewer
+programme (Cooperative Agreement Number W911NF-23-2-0219), DARPA ONISQ programme                         reports are available.
+(grant number W911NF2010021) and MeasQuIT programme (grant number HR0011-24-9-0359),                     Reprints and permissions information is available at http://www.nature.com/reprints.
+Extended Data Fig. 1 | Vacuum chamber and dual-lattice transport sequence.       the dual-lattice transport sequence, including the MOT stage, loading and
+a, Simplified view of the vacuum chamber. Atoms are cooled and loaded from       cooling of Lattice-1 as well as lattice transport and handover. After the lattice
+a MOT into an optical lattice (Lattice-1) and then transported through the       handover, we restart the lattice loading procedure in the MOT chamber, while
+differential pumping tube (DPT, orange) to the science chamber. The atomic       atoms in Lattice-2 are shipped to the science region where they serve as an
+cloud is then handed over to a second optical lattice (Lattice-2), which is      atomic reservoir for tweezer extraction. In the Lattice-2 velocity graph, the
+reflected out of the chamber by an in-vacuum mirror. While most MOT light is     brief back-and-forth movement used to avoid atom spilling during qubit
+blocked by the DPT, the tilted design between both chambers avoids direct line   preparation is omitted for clarity. The grey-shaded regions indicate the
+of sight between the computational array and the MOT location. b, Summary of     previous/next lattice loading cycle.
+Article
+
+
+
+
+Extended Data Fig. 2 | Dual-lattice conveyor belt transport. a, Atom              and temperature (blue) in the respective transport lattices before (d) and
+number (normalized) obtained in the reservoir after transport as a function       after (e) transport, shown for varying MOT loading times with the lattices ~300
+of Lattice-1 travel distance before handing the atomic cloud over to Lattice-2.   GHz red-detuned from the D1 line (darker color shading). The dashed grey line
+b, Atom number (normalized) obtained in the reservoir as a function of time       represents our chosen MOT loading time, which was sufficient to obtain the
+dedicated for lattice handover, which consists of a simultaneous and opposite     reservoir density required for tweezer loading. The light-shaded curves are
+ramp of the Lattice-1 and Lattice-2 intensities (see inset schematic). c, Atom    measured for further red-detuned lattices (~700 GHz), providing lower lattice-
+number (normalized) obtained in the reservoir as a function of conveyor belt      induced scattering and colder temperatures but also lower atom numbers.
+acceleration, here shown exemplary for Lattice-1. d, e, Atom number (red)         Error bars represent the standard error of the mean across 10 repetitions.
+Extended Data Fig. 3 | High-NA beam paths and optical tweezer                 imaging. Relay optics are omitted for simplicity. Figure adapted from ref. 54,
+characterization. a, Simplified optical beam paths for tweezer generation     Springer Nature Limited. b, c, Histograms of trap depth measured for the
+and single-atom imaging. Before the tweezer-generation objective, the         preparation zone (b) and storage zone (c) tweezer arrays after two-stage
+preparation and storage zone SLMs (both at 852 nm) are combined on a          homogenization. The preparation (storage) zone tweezers have an average
+polarizing beamsplitter, then further combined with the 828 nm AOD beam       trap depth of 370 μK (270 μK) with standard deviation 5.4% each.
+path on a dichroic beamsplitter. A second objective is used for single-atom
+Article
+
+
+
+
+Extended Data Fig. 4 | Extracting atoms from the lattice reservoir. a, Single-     atoms perpendicularly through the lattice potential versus in free-space, with a
+shot fluorescence images of the lattice reservoir after extracting atoms via       slightly higher survival possibly attributed to the superimposed lattice-tweezer
+optical tweezers for N-repetitions. b, Normalized tweezer array loading fraction   potential during atom transport. Error bars represent the standard error of the
+obtained in the preparation zone as a function of tweezer velocity during          mean across 10 repetitions.
+extraction from the reservoir. We find negligible difference when moving
+Extended Data Fig. 5 | Characterization of the qubit preparation sequence.         circularly-polarized counter-propagating laser beams at static magnetic field
+a, Summary of the experimental sequence for qubit preparation. After extraction    (schematic). b, Imaging histogram for 1D imaging at finite magnetic field.
+from the reservoir, the atoms are transported to the preparation zone within       The extracted average discriminant fidelity is 0.9993 with a site-resolved
+~2.5 ms. Here, a parity-projection pulse of 10 ms is performed to achieve either   discriminant fidelity of 0.9999. The blue curve visualizes the discriminant
+one or zero atoms per AOD tweezer trap. Atoms are then handed off to a             fidelity as a function of threshold value. Note that the net imaging fidelity
+backbone tweezer array generated by an SLM while applying PGC, involving           must also account for imaging survival, which limits total fidelity to F ~ 0.995.
+SLM-AOD intensity ramps and a brief (30 μs) resonant Talbot plane push-            c, Drop-and-recapture measurement of atomic temperature after 40 ms of
+out pulse. A 10 ms fluorescence image is used to identify occupied sites for       1D EIT cooling and subsequent qubit state preparation. The temperature is
+rearrangement, followed by EIT cooling and simultaneous atom sorting               extracted as T = 12 μK via Monte-Carlo simulations. Inset: Relevant atomic
+into a defect-free array. Depending on the camera settings and desired atom        levels for EIT cooling. d, Schematic illustrating relevant atomic levels for fast
+configuration, rearrangement takes between 20 ms and 40 ms (largely                initialization of qubit state 0⟩. Error bars represent the standard error of the
+dominated by data transfer latency). Finally, atoms are optically pumped           mean across 10 repetitions.
+into the qubit state 0⟩ within 50 μs. All light pulses are performed by two
+Article
+
+
+
+
+Extended Data Fig. 6 | Preparation zone atom rearrangement and iterative              into the 530-atom bin. c, Storage zone loading histogram (300 trials). We achieve
+assembly of the storage zone array. a, Single-shot fluorescence images of the         an average loading fraction of 98.5% (3,193 atoms). d, Storage zone iterative
+preparation zone atom array. Before rearrangement, atoms are stochastically           assembly scheme. In each iteration, 540 AOD tweezers pick up sorted atoms
+loaded (top). After rearrangement, the target array is filled with near-unity         from the preparation zone target array (bottom), which are transported to the
+probability (bottom). For this shot, the 600-site target array has zero defects.      storage zone (top) to sequentially fill one of six subarrays (blue color shading).
+Explicitly ejecting atoms outside the target array is not necessary, as only the      The AOD tweezers travel through wide channels in the storage array to avoid
+target array is picked up by AOD tweezers and transported to the storage zone.        crosstalk with the static SLM tweezer traps. The schematic illustrates filling of
+b, Preparation zone rearrangement histogram (500 trials) of 540 target sites.         the second subarray, where the first subarray has already been filled. See also
+We achieve a 99.6% average filling fraction with 14% of trials having zero defects.   Supplementary Video.
+For visualization, trials with fewer than 530 atoms (≈1% of all trials) are grouped
+Extended Data Fig. 7 | Raman and shielding beam characterization. a, Rabi            where the storage zone location is indicated. The plot on the right shows a
+oscillations between qubit states for each row of the storage array. The variation   zoomed-in line profile through the center of the beam, where the orange (gray)
+of fitted Rabi frequency allows us to extract a Raman beam homogeneity of            curve corresponds to the profile with (without) the knife edge. Evidently,
+approximately 1.04% root-mean-square variation and 3.4% peak-to-peak variation       cropping residual beam tails is imperative to avoid beam cross talk into the
+on the atoms. b, Beam profile of the knife-edged flat-top 1529 nm shielding light,   preparation zone (location marked with the black arrow).
+Article
+
+
+
+
+Extended Data Fig. 8 | Qubit depolarization under various conditions.               with and without shielding, we are able to recover the measured T1-time up to
+a, In main text Fig. 3b, we investigate how various parallel operations influence   the depolarization rate set by the lattice lights. As expected, we generally find
+qubit polarization when initialized in state ∣1⟩, where we expect a strong effect   lower depolarization rates compared to starting in 1⟩. b, Summary of the fitted
+as pumping lights used for MOT and qubit preparation predominantly operate          1/e T2- and T 1-times from Fig. 3a,b and Extended Data Fig. 8a. Errors and error
+from F = 2. Here, we show a complementary analysis for qubits initialized in 0⟩.    bars represent the standard error of the mean across 10 repetitions.
+Similarly comparing storage qubit depolarization during local qubit preparation
+Extended Data Fig. 9 | Experimental sequence for continuous operation                  pulse, before the next qubit subarray is introduced. Thereby, qubits are in
+while maintaining qubit coherence. Summary of the sequence used to                     the equal superposition state for about 90% of total experiment duration.
+achieve the results of Fig. 4b,c,d and Extended Data Figs. 10a,b. In the storage       In Extended Data Fig. 10b, we show an example of mapping back into alternating
+zone, dynamical decoupling (except for Fig. 4b) and shielding are continuously          0⟩ and 1⟩ populations by using a final X+π/2 pulse instead. Throughout the
+applied to the storage qubits, while the oldest qubit subarray is discarded and        experimental sequence, laser cooling in the MOT chamber, dual-lattice
+refilled with fresh qubits from the reservoir. First, an initial Xπ/2 pulse prepares   transport, and qubit preparation run in parallel in the background to provide
+qubits in a coherent superposition state. After XY16-64 decoupling, (remaining)        a high-rate qubit supply. For Fig. 4b, no decoupling pulses are applied to the
+coherence is briefly mapped back to population, typically into 0⟩ with a X−π/2         storage zone and we simply probe qubit polarization.
+Article
+
+
+
+
+Extended Data Fig. 10 | Coherence under continuous operation.                     applied during each reloading cycle. This results in alternating qubit states in
+a, Complementary analysis to Fig. 4c when array-averaging the probability         the storage array (checkerboard pattern). The blue (red) curves represent the
+to read out qubits in state 0⟩ (blue) or 1⟩ (red). The green line indicates the   readout probability of even (odd) subarrays, indicated by the color shading.
+contrast, i.e. the difference of populations measured in 0⟩ and 1⟩. b, Similar    Error bars represent the standard error of the mean across 10 repetitions.
+to Fig. 4d, but instead with the decoupling sequence (Xπ/2 − XY16-64 − X+π/2)
+

@@ -1,7 +1,7 @@
 {
   "userName": "",
   "permissionMode": "yolo",
-  "model": "opus[1m]",
+  "model": "sonnet[1m]",
   "thinkingBudget": "off",
   "effortLevel": "high",
   "serviceTier": "default",
@@ -33,7 +33,7 @@
       "enableOpus1M": true,
       "enableSonnet1M": true,
       "customModels": "mimo-v2.5\nmimo-v2.5-pro\ndeepseek-v4-pro\ndeepseek-v4-flash",
-      "lastModel": "opus[1m]",
+      "lastModel": "sonnet[1m]",
       "environmentVariables": "",
       "environmentHash": ""
     },
@@ -78,7 +78,7 @@
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "opus[1m]",
+    "claude": "sonnet[1m]",
     "codex": "gpt-5.5"
   },
   "savedProviderEffort": {
