@@ -115,10 +115,40 @@ plt.show()
 现在，我们的系统从二能级变成了三能级，基底为 $\{|1\rangle, |e\rangle, |r\rangle\}$。
 蓝色激光以拉比频率 $\Omega_b$ 驱动 $|1\rangle \to |e\rangle$，且有极大的单光子失谐 $\Delta$；红色激光以拉比频率 $\Omega_r$ 驱动 $|e\rangle \to |r\rangle$，同样有失谐 $\Delta$，从而使得整体依然保持**双光子共振**（或微小两光子失谐 $\delta$）。
 
+> [!info] 什么是双光子失谐 $\delta$？
+> 两束激光的频率之和 $\omega_b + \omega_r$ 与原子的 $|1\rangle \to |r\rangle$ 跃迁频率 $\omega_{1r}$ 之间的差值，就是**双光子失谐（Two-Photon Detuning）**：
+> $$
+> \delta = (\omega_b + \omega_r) - \omega_{1r}
+> $$
+> 当 $\delta = 0$ 时，两束激光的频率加起来**恰好**等于原子跃迁能量，称为**双光子共振**。此时 $|1\rangle$ 和 $|r\rangle$ 之间可以高效地发生相干跃迁。
+>
+> 实验中 $\delta$ 通常很小（MHz 量级），远小于单光子失谐 $\Delta$（GHz 量级）。但 $\delta$ 不为零时会有深远的物理后果——它决定了系统走暗态分支还是明态分支（见 §2.3 暗态物理学）。论文中，$\delta$ 的值并非固定不变，而是通过**蓝色激光的相位调制**随时间变化：$\delta(t) \propto -\phi'_{\text{blue}}(t)$。
+
 写出三能级系统的 Hamiltonian 表象：
 $$
 H = \hbar \begin{pmatrix} 0 & \Omega_b/2 & 0 \\ \Omega_b/2 & -\Delta & \Omega_r/2 \\ 0 & \Omega_r/2 & -\delta \end{pmatrix}
 $$
+
+> [!warning] 这里的 $\Delta$ 是简写——蓝光和红光的失谐其实**符号相反**！
+> 你可能会疑惑：蓝色激光和红色激光的频率差了三倍，怎么可能有"同样"的失谐 $\Delta$？
+>
+> 事实是：**两束激光各自的单光子失谐大小相等、符号相反**。
+> - 蓝色激光的失谐：$\Delta_b = \omega_b - \omega_{1e}$（蓝光频率减去 $|1\rangle \to |e\rangle$ 跃迁频率）
+> - 红色激光的失谐：$\Delta_r = \omega_r - \omega_{er}$（红光频率减去 $|e\rangle \to |r\rangle$ 跃迁频率）
+>
+> 而双光子失谐正是两者之和：$\delta = \Delta_b + \Delta_r$。当双光子共振（$\delta = 0$）时，$\Delta_b = -\Delta_r$。
+>
+> 论文用同一个 $\Delta$ 来写是一种**简写**：它把两个大小相等、符号相反的失谐"打包"成了一个参数。Hamiltonian 里中间态的对角项 $-\Delta$ 实际上代表的是"两束激光各自失谐的共同大小"，而非某一个激光的真实失谐。记住这个约定，后面推导就不会被符号搞混。
+
+> [!info] Hamiltonian 对角项 $-\Delta$ 和 $-\delta$ 是什么意思？
+> 这个 Hamiltonian 是在**旋转框架（Rotating Frame）**下写出的——也就是说，我们已经"坐上"了激光频率的旋转摩天轮，看到的是**相对于激光频率的能量差**，而不是原子的真实能级。
+>
+> 在旋转框架下：
+> - **$|1\rangle$ 的能量设为 $0$**（这是我们选的参考点）
+> - **$|e\rangle$ 的能量是 $-\Delta$**：因为蓝色激光的频率**不等于** $|1\rangle \to |e\rangle$ 的原子跃迁频率，差了一个 $\Delta$。在旋转框架中，这个差值表现为中间态被"推"到了能量 $-\Delta$ 的位置。由于 $\Delta > 0$，所以 $-\Delta < 0$，意味着中间态在旋转框架中**低于**基态。
+> - **$|r\rangle$ 的能量是 $-\delta$**：同理，红色激光的频率与 $|e\rangle \to |r\rangle$ 跃迁频率的偏差 $\delta$，决定了里德堡态在旋转框架中的位置。
+>
+> **物理直觉**：$-\Delta$ 的绝对值越大（即失谐越大），中间态离"共振"越远，原子就越难被激发到 $|e\rangle$ 上——这就是**大失谐抑制中间态占据**的数学来源。后面会看到，绝热消去正是利用了 $|-\Delta| \gg \Omega_b, \Omega_r$ 这个条件。
 
 当单光子失谐 $\Delta$ 远大于激光的拉比频率时（即 $\Delta \gg \Omega_b, \Omega_r$），原子的电子几乎“没有时间”真正停留在中间态 $|e\rangle$。在物理上，我们可以将中间态 $|e\rangle$ **绝热消去（Adiabatic Elimination）**。
 消去后，系统重新退化为一个有效二能级系统（effective two-level system） $\{|1\rangle, |r\rangle\}$，其有效拉比频率为：
@@ -622,48 +652,147 @@ $$
 |B\rangle \approx \frac{\alpha}{\sqrt{1+\alpha^2}} |1\rangle + \frac{\alpha\Omega_r}{2\Delta} |e\rangle + \frac{1}{\sqrt{1+\alpha^2}} |r\rangle
 $$
 
-> 💡 **论文的相干 dressing 图像**：
-> 论文通过巧妙地在脉冲开始前调节蓝色与红色激光的相对相位，让初始处于基态 $|1\rangle$ 的原子在激光开启时**只投影并锁定在暗态 $|D\rangle$ 上**，从而在整个跃迁过程中几乎彻底避免了中间态 $|e\rangle$ 的自发散射误差！
+#### 论文的相干 dressing 图像：如何让原子"选择"暗态分支？  
 
-以下 Python 仿真代码（严格使用论文的物理参数：$\Delta = 7.8\,\mathrm{GHz}$, $\Omega_r = 303\,\mathrm{MHz}$, $\Omega_b = 237\,\mathrm{MHz}$）展示了选择不同相位的分支（暗态 vs 亮态）时，中间态居量 $P_{|e\rangle}$ 的天壤之别：
+^nu260605 论文这个dressing没太懂
+
+上面的推导告诉我们暗态 $|D\rangle$ 的存在，但有一个关键问题尚未回答：**实验中的原子初始处于 $|1\rangle$，而 $|1\rangle$ 并不是 Hamiltonian 的本征态——它同时包含暗态和明态两个分量。论文是如何确保系统沿暗态分支演化的？**
+
+> [!tip] 论文的核心操作
+> 论文通过**蓝色激光的相位调制**产生一个时变的双光子失谐 $\delta(t)$，利用 $\delta$ 的初始符号与 AC Stark 位移 $\Delta$ 的符号关系，让原子在脉冲开启时**自然地投影并锁定在暗态 $|D\rangle$ 分支上**，从而在整个跃迁过程中避免了中间态 $|e\rangle$ 的自发散射误差！
+
+让我一步一步拆解论文原文描述的这个机制。
+
+**第一步：实验设置——红色激光恒定，蓝色激光调制**
+
+> [!info] 论文的激光配置（关键！）
+> 根据论文原文："红色 $1013\,\mathrm{nm}$ 激光的振幅和相位在所有时刻保持恒定，蓝色 $420\,\mathrm{nm}$ 激光的振幅和相位由时变的双光子失谐 $\delta = \delta(t) \propto -\phi'(t)$ 捕获。"
+>
+> 也就是说：**红色激光不动，蓝色激光被调制**。双光子失谐 $\delta(t)$ 完全来源于蓝色激光的相位变化率 $\phi'(t)$。
+
+三能级 Hamiltonian 在 $(|1\rangle, |e\rangle, |r\rangle)$ 基下写为：
+
+$$
+H = \begin{pmatrix} 0 & \Omega_b/2 & 0 \\ \Omega_b/2 & -\Delta & \Omega_r/2 \\ 0 & \Omega_r/2 & -\delta \end{pmatrix}
+$$
+
+其中 $\Omega_b = \Omega_{420}$, $\Omega_r = \Omega_{1013}$，且 $\Delta \gg \Omega_b, \Omega_r$（大单光子失谐）。
+
+**第二步：初始态不是 $|1\rangle$，而是被蓝光 dressed 后的 $|\bar{1}\rangle$**
+
+> [!warning] 
+> 蓝色激光在脉冲开始时**缓慢开启**（上升沿 $\sim 10\,\mathrm{ns}$），在这个过程中，裸态 $|1\rangle$ 被**绝热地 dressing** 成 dressed 态 $|\bar{1}\rangle$。
+
+dressed 态 $|\bar{1}\rangle$ 的展开式为：
+
+$$
+|\bar{1}\rangle = |1\rangle + \frac{\alpha \Omega_r}{2\Delta} |e\rangle
+$$
+
+其中 $\alpha = \Omega_b/\Omega_r$。在 $\{|D\rangle, |B\rangle\}$ 基下，这个态写为：
+
+$$
+|\bar{1}\rangle = \frac{\alpha}{\sqrt{1+\alpha^2}} |B\rangle - \frac{1}{\sqrt{1+\alpha^2}} |D\rangle + \mathcal{O}(\Delta^{-3}) |E\rangle
+$$
+
+> [!tip] 物理直觉
+> 注意这里的符号：dressed 初始态 $|\bar{1}\rangle$ 同时包含暗态分量和明态分量——明态分量的权重是 $\alpha/\sqrt{1+\alpha^2}$，暗态分量的权重是 $1/\sqrt{1+\alpha^2}$。在 $\alpha \approx 1$ 时两者大致相当。关键在于：**哪个分量在演化中被激活，取决于 $\delta$ 的符号。**
+
+**第三步：$\delta$ 的正负决定哪个分支被激活**
+
+回忆一下：$\Delta$ 在本文中始终是一个**正数**（$\Delta = 7.8\,\mathrm{GHz}$）。它的物理含义是：**每束激光距离各自原子跃迁频率的"偏差大小"**——蓝色激光偏离 $|1\rangle \to |e\rangle$ 跃迁 $7.8\,\mathrm{GHz}$，红色激光偏离 $|e\rangle \to |r\rangle$ 跃迁也是 $7.8\,\mathrm{GHz}$（方向相反）。这个偏差越大，原子越难被真正激发到中间态 $|e\rangle$ 上，散射就越少。而双光子失谐 $\delta$ 则**可正可负**——它的符号取决于蓝色激光的相位调制。
+
+论文给出了精确的判据：里德堡态布居**主要通过暗态实现**的条件是
+
+$$
+0 < \delta < D(\delta) \quad (\text{即暗态能量低于 } \Delta/2)
+$$
+
+注意第一个不等式 $0 < \delta$：**$\delta$ 必须为正**。物理上，这意味着：
+
+- $\delta > 0$（$\delta$ 与 $\Delta$ **同号**，都是正数）→ 暗态分支的能量低于 $\Delta/2$ → 里德堡态布居主要通过暗态实现 → **$P_{|e\rangle}$ 被抑制**
+- $\delta < 0$（$\delta$ 与 $\Delta$ **异号**，一正一负）→ 系统走明态分支 → 里德堡态布居通过明态实现 → **$P_{|e\rangle}$ 不被抑制**
+
+> [!tip] 物理直觉
+> 想象一个岔路口：两条路（暗态分支 vs 明态分支）的能量随着 $\delta$ 的变化而升降。当 $\delta > 0$ 时，暗态分支的能量被"压"到低于 $\Delta/2$，系统自然走这条路；当 $\delta < 0$ 时，明态分支变成低能路径，系统走上"散射之路"。**$\delta$ 在脉冲开始时的正负号，就锁定了整条演化路径。**
+
+**第四步：$\delta(t)$ 的来源——蓝色激光的相位调制**
+
+论文明确说双光子失谐 $\delta(t)$ 来源于蓝色激光的相位变化：
+
+$$
+\delta(t) \propto -\phi'(t)
+$$
+
+其中 $\phi(t)$ 是蓝色激光的时变相位。对于**时间最优门**，这个相位调制是：
+
+$$
+\phi(t) = A\cos(\omega t - \phi_0) + \delta_0 t
+$$
+
+参数 $A = 2\pi \times 0.1122$, $\omega = 1.0431\Omega$, $\phi_0 = -0.7318$。
+
+关键点：$\phi_0$ 决定了 $\phi(t)$ 在 $t=0$ 时的值和 $\phi'(t)$ 的初始符号，也就决定了 $\delta(t)$ 在脉冲开始时的符号。**正是这个初始符号，将系统锁定在暗态分支上。**
+
+**第五步：绝热锁定——为什么一旦选定就不会"跳车道"**
+
+由于 $\delta(t)$ 是一个**低频调制**（频率 $\omega \approx 1.0431\Omega_{\text{eff}} \approx 2\pi \times 4.8\,\mathrm{MHz}$），而暗态和明态之间的能级分裂由 $\Omega_{\text{eff}}$ 决定，调制足够慢以满足绝热条件。因此：
+
+1. 脉冲开始时，$\delta(t)$ 的初始符号将系统投影到暗态分支
+2. 演化过程中，$\delta(t)$ 随时间变化但始终满足绝热条件 → 系统**不会跳到明态分支**
+3. 暗态 $|D\rangle$ 的中间态分量**精确为零** → 整个演化过程中 $P_{|e\rangle} = 0$
+
+> [!info] 论文原文的验证
+> 论文明确写道："一个轨迹实现了通过暗态的里德堡态布居，因此最小化了中间态布居，导致散射被抑制。"（"one of the trajectories realizes the Rydberg population through the dark state and, as a result, minimizes the intermediate-state population, leading to suppressed scattering."）
+>
+> 另一条轨迹（$\delta$ 符号相反）则走明态分支，散射显著增大。
+
+**总结：完整的物理图像**
+
+| 时间段 | 发生了什么 | 中间态居量 $P_{\vert e\rangle}$ |
+|--------|----------|--------------------------|
+| $t < 0$ | 激光关闭，原子处于 $\vert 1\rangle$ | $0$ |
+| $0 < t < t_{\text{rise}}$ | 蓝光缓慢开启（$\sim 10\,\mathrm{ns}$），$\vert 1\rangle$ 被绝热 dressing 成 $\vert\bar{1}\rangle$ | $\sim (\alpha\Omega_r/2\Delta)^2 \ll 1$ |
+| $t = t_{\text{rise}}$ | $\delta(t)$ 的初始符号将 $\vert\bar{1}\rangle$ 投影到暗态分支 | → $0$ |
+| $t_{\text{rise}} < t < T$ | 系统沿暗态分支绝热演化，始终锁定在 $\vert D\rangle$ | **精确为零** |
+| $t = T$ | 脉冲关闭，$\vert D\rangle$ 映射回计算基 | $0$ |
+
+这就是论文标题中 **"High-fidelity"** 的核心物理保证——通过蓝色激光相位调制产生的 $\delta(t)$ 初始符号，选择暗态分支并绝热锁定，自发辐射散射被**物理上消除**（不是压制，是消除），而不是仅靠大失谐来"减小"。
+
+^nu260605 这里的具体实现没太懂
+
+以下 Python 仿真代码（严格使用论文的物理参数：$\Delta = 7.8\,\mathrm{GHz}$, $\Omega_r = 303\,\mathrm{MHz}$, $\Omega_b = 237\,\mathrm{MHz}$）展示了不同双光子失谐符号（暗态 vs 明态分支）时，中间态居量 $P_{|e\rangle}$ 的显著差异：
 
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
 # Simulation parameters (in MHz, ns)
-Delta = 7800.0  
-Om_r = 303.0        
-Om_b = 237.0        
-T = 275.0
-dt = 0.1
+Delta = 7800.0   # single-photon detuning (standard convention: H[1,1] = +Delta)
+Om_r = 303.0     # 1013 nm Rabi freq (constant)
+Om_b = 237.0     # 420 nm Rabi freq (modulated)
+T = 275.0        # gate time
+dt = 0.01        # small dt for RK4 accuracy (H~50000 rad/us needs dt<<1)
 t = np.arange(0, T, dt)
 
-# Detuning profile from two-photon phase modulation
-A = 2 * np.pi * 0.1122
-omega = 1.0431 * (2 * np.pi * 4.6 / 1000)
-phi_0 = -0.7318
-delta_profile = A * (omega * 1000 / (2*np.pi)) * np.sin(omega * t - phi_0)
-
-def simulate(sign):
+def simulate(delta_val):
+    """Three-level RK4 simulation. H[1,1]=+Delta (standard convention)."""
     psi = np.array([1.0+0.0j, 0.0j, 0.0j])
     P_e = []
     coeff = 2 * np.pi / 1000.0
     for idx in range(len(t)):
         curr_t = t[idx]
+        # Smooth sin^2 pulse envelope: 30 ns rise, flat top, 30 ns fall
         scale = 1.0
-        if curr_t < 15.0:
-            scale = np.sin(np.pi * curr_t / 30.0)**2
-        elif curr_t > T - 15.0:
-            scale = np.sin(np.pi * (T - curr_t) / 30.0)**2
-            
+        if curr_t < 30.0:
+            scale = np.sin(np.pi * curr_t / 60.0)**2
+        elif curr_t > T - 30.0:
+            scale = np.sin(np.pi * (T - curr_t) / 60.0)**2
         H = np.zeros((3, 3), dtype=complex)
         H[0, 1] = H[1, 0] = (Om_b * scale) / 2.0
         H[1, 2] = H[2, 1] = Om_r / 2.0
-        H[1, 1] = -Delta
-        H[2, 2] = -sign * delta_profile[idx]
-        
-        # RK4 Time Evolution
+        H[1, 1] = +Delta    # standard: intermediate state above ground
+        H[2, 2] = -delta_val # Rydberg state energy
         k1 = -1j * np.dot(H * coeff, psi)
         k2 = -1j * np.dot(H * coeff, psi + k1 * dt / 2)
         k3 = -1j * np.dot(H * coeff, psi + k2 * dt / 2)
@@ -673,22 +802,24 @@ def simulate(sign):
         P_e.append(np.abs(psi[1])**2)
     return P_e
 
-P_bad = simulate(1)
-P_good = simulate(-1)
+P_dark = simulate(+5.0)     # delta > 0 -> dark branch
+P_bright = simulate(-5.0)   # delta < 0 -> bright branch
 
 plt.figure(figsize=(7, 4.0))
-plt.plot(t, np.array(P_bad) * 1e4, '-', color='#d62728', label=r'Bright State Branch ($\delta\Delta > 0$)')
-plt.plot(t, np.array(P_good) * 1e4, '-', color='#2ca02c', lw=2, label=r'Dark State Branch ($\delta\Delta < 0$)')
+plt.plot(t, np.array(P_bright) * 1e4, '-', color='#d62728',
+         label=r'Bright branch ($\delta < 0$)')
+plt.plot(t, np.array(P_dark) * 1e4, '-', color='#2ca02c', lw=2,
+         label=r'Dark branch ($\delta > 0$, paper choice)')
 plt.xlabel('Time $t$ (ns)')
-plt.ylabel(r'Intermediate State Population $P_{|e\rangle}$ ($\times 10^{-4}$)')
-plt.title(r'Dark State Suppression ($\Delta = 7.8\,\mathrm{GHz}$)')
+plt.ylabel(r'$P_{|e\rangle}(t)$ ($\times 10^{-4}$)')
+plt.title(r'Dark/Bright Branch ($\Delta = 7.8\,\mathrm{GHz}$)')
 plt.grid(alpha=0.3, ls=':')
 plt.legend(frameon=False)
 plt.tight_layout()
 plt.show()
 ```
 
-![暗态物理](file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/Handout%20by%20AI/dark_state_physics.png)
+![暗态分支选择](file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/Handout%20by%20AI/dark_branch_selection.png)
 
 ---
 
@@ -1003,3 +1134,4 @@ $$
 - 2026-06-06: 增补从三能级 Hamiltonian 矩阵本征方程推导暗态 $|D\rangle$ 的详细过程，说明零能量本征值、$\delta=0$ 条件与相干相消的矩阵来源。
 - 2026-06-06: 补充说明 Hamiltonian 非对角耦合写成 $\Omega/2$ 的原因，澄清拉比频率与矩阵元的约定关系。
 - 2026-06-06: [doc-audit] 补充 §3 暗态 $|D\rangle$ 的来源推导，说明相干相消条件、负号来源与归一化步骤。
+- 2026-06-06: [doc-audit] 重写暗态分支选择机制详解——基于论文原文纠正：(1) 红光恒定、蓝光调制的实验配置，(2) 初始态为 dressed 态 $|\bar{1}\rangle$ 而非裸态 $|1\rangle$，(3) $\delta > 0$（与 $\Delta$ 同号）选择暗态分支的判据，(4) $\delta(t)$ 来源于蓝光相位调制；补充 $\Delta$ 作为单光子失谐大小（正数）的统一约定，添加 $\delta$ 定义和 $\Delta$ 简写说明的 callout。
