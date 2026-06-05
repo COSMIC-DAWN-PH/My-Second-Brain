@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Handout by AI/start_up.md",
+                "file": "Rydberg atom/Rabi-Flopping.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "start_up"
+              "title": "Rabi-Flopping"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Handout by AI/start_up.md",
+                "file": "Rydberg atom/Rabi-Flopping.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "start_up 的大纲"
+              "title": "Rabi-Flopping 的大纲"
             }
           },
           {
@@ -186,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -208,9 +208,9 @@
   },
   "active": "5025e098a5a489b2",
   "lastOpenFiles": [
+    "Handout by AI/start_up.md",
     "Daily Notes/2026-06-05.md",
     "Rydberg atom/Single-Qubit-Gates.md",
-    "Handout by AI/start_up.md",
     "Rydberg atom/Zeeman-Effect.md",
     "Rydberg atom/Hyperfine-Structure.md",
     "Rydberg atom/Fine-Structure.md",
