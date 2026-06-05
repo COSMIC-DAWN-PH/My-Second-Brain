@@ -203,6 +203,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | **daily-research** | "总结今天/昨天", "daily summary", "weekly summary", "research summary", "规划今天" | 总结学习进展 + 规划当日学习任务。扫描 Literature/ 与 Rydberg atom/，基于 block reference 证据写入 Daily Notes/ 的总结区块和学习计划。 |
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 | **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
+| **sync-config** | `/sync-config`, "同步配置", "sync agents", "check config drift" | 配置同步元技能：同步 CLAUDE.md ↔ AGENTS.md 规则一致性，以及 .claude/ ↔ .agents/ 目录文件一致性 |
 
 ### Literature Note Sections
 

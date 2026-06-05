@@ -278,6 +278,7 @@ When creating derivative knowledge notes, use the `zotero-notes` skill (see belo
 | **daily-research** | `.agents/skills/daily-research/skill.md` | "总结今天/昨天/这周/过去 N 天", "daily summary", "weekly summary", "research summary", "规划今天" |
 | **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
 | **learning-path** | `.agents/skills/learning-path/SKILL.md` | "学习路径", "下一步学什么", "learning path", "学习规划" |
+| **sync-config** | `.agents/skills/sync-config/SKILL.md` | `/sync-config`, "同步配置", "sync agents", "check config drift" |
 
 Key skill behaviors:
 - **zotero-notes**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
