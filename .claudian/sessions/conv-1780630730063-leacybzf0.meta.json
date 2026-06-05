@@ -4,8 +4,8 @@
   "title": "搞一个skill就是自动同步",
   "titleGenerationStatus": "failed",
   "createdAt": 1780630730063,
-  "updatedAt": 1780631462986,
-  "lastResponseAt": 1780631462986,
+  "updatedAt": 1780642466706,
+  "lastResponseAt": 1780642466706,
   "sessionId": "69a9bbe8-dac7-4a5a-bb1e-5a5b839c1af1",
   "providerState": {
     "providerSessionId": "69a9bbe8-dac7-4a5a-bb1e-5a5b839c1af1",
@@ -609,11 +609,12 @@
   },
   "usage": {
     "model": "opus[1m]",
-    "inputTokens": 1325,
+    "inputTokens": 540,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 24640,
+    "cacheReadInputTokens": 112768,
     "contextWindow": 1000000,
-    "contextTokens": 25965,
-    "percentage": 3
+    "contextTokens": 113308,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
   }
 }

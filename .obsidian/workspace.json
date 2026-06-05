@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily Notes/2026-06-05.md",
+                "file": "Handout by AI/2023-parallel-gates-handout.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-05"
+              "title": "2023-parallel-gates-handout"
             }
           }
         ]
@@ -206,8 +206,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e7450bd268df1ad7",
+  "active": "5025e098a5a489b2",
   "lastOpenFiles": [
+    "Daily Notes/2026-06-05.md",
     "CLAUDE.md.tmp.2192.cc4d2f0c4934",
     "Rydberg atom/Rabi-Flopping.md.tmp.22132.8ebd5d5eafcc",
     "Rydberg atom/Rabi-Flopping.md.tmp.22132.02cf8a920124",
@@ -219,7 +220,6 @@
     "Rydberg atom/attachments/learning-progress-2026-06-04.png",
     "Daily Notes/2026-06-05.md.tmp.22132.991fc4f9b520",
     "Rydberg atom/attachments/learning-progress-2026-06-03.png",
-    "Daily Notes/2026-06-05.md",
     "Handout by AI/2023-parallel-gates-handout.md",
     "Handout by AI/start_up.md",
     "Rydberg atom/Optical-Tweezer-Arrays.md",
@@ -230,7 +230,6 @@
     "tools/gen_progress_chart.py",
     "tools/gen_progress_chart.py.tmp.31712.a97c8d693886",
     "Learning-Roadmap.md.tmp.31712.add99f024cfc",
-    "Learning-Roadmap.md.tmp.31712.2dc235cc6f4a",
     "Rydberg atom/Entangling-Gate.md",
     "Daily Notes/2026-06-03.md",
     "Rydberg atom/CZ-Gate.md",
