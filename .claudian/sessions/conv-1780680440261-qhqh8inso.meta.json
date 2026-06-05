@@ -1,9 +1,23 @@
 {
   "id": "conv-1780680440261-qhqh8inso",
   "providerId": "claude",
-  "title": "详细推导展开一下",
-  "titleGenerationStatus": "pending",
+  "title": "详细推导一下这里",
+  "titleGenerationStatus": "failed",
   "createdAt": 1780680440261,
-  "updatedAt": 1780680440337,
-  "sessionId": null
+  "updatedAt": 1780681811336,
+  "lastResponseAt": 1780681811336,
+  "sessionId": "3a37d9cb-defa-4341-a990-b13353c2af10",
+  "providerState": {
+    "providerSessionId": "3a37d9cb-defa-4341-a990-b13353c2af10"
+  },
+  "currentNote": "Rydberg atom/Rabi-Flopping.md",
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 1010,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 68160,
+    "contextWindow": 1000000,
+    "contextTokens": 69170,
+    "percentage": 7
+  }
 }

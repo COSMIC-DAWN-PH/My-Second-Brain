@@ -16,7 +16,7 @@
 | `Daily Notes/` | Research diary entries |
 | `Handout by AI/` | AI-generated paper reading handouts with Python figures |
 | `tools/` | Templates (`Zotero_Template.md`) and utilities |
-| `.agents/skills/` | Custom skills (zotero-notes, daily-research, literature-handout, learning-path) |
+| `.agents/skills/` | Custom skills (zotero-notes, daily-research, literature-handout, learning-path, doc-audit) |
 
 ### User Profile
 
@@ -204,6 +204,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 | **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
 | **sync-config** | `/sync-config`, "同步配置", "sync agents", "check config drift" | 配置同步元技能：同步 CLAUDE.md ↔ AGENTS.md 规则一致性，以及 .claude/ ↔ .agents/ 目录文件一致性 |
+| **doc-audit** | "审核笔记", "检查笔记", "audit note", "升级笔记", "该链接的链接，改画图的画图" | 知识笔记/讲义文档质量审查与增强：系统性扫描 YAML/wiki-link/LaTeX/Callout/可视化/格式合规性，补全链接、生成图表、修复格式 |
 
 ### Literature Note Sections
 

@@ -17,7 +17,7 @@
 | `Daily Notes/` | 每日科研日记 |
 | `Handout by AI/` | AI 生成的论文讲义（含 Python 图表） |
 | `tools/` | 模板文件（`Zotero_Template.md`） |
-| `.agents/skills/` | 自定义技能（zotero-notes、daily-research、literature-handout、learning-path） |
+| `.agents/skills/` | 自定义技能（zotero-notes、daily-research、literature-handout、learning-path、doc-audit） |
 
 ## Obsidian 双链（Wiki-links）
 
@@ -279,11 +279,13 @@ When creating derivative knowledge notes, use the `zotero-notes` skill (see belo
 | **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
 | **learning-path** | `.agents/skills/learning-path/SKILL.md` | "学习路径", "下一步学什么", "learning path", "学习规划" |
 | **sync-config** | `.agents/skills/sync-config/SKILL.md` | `/sync-config`, "同步配置", "sync agents", "check config drift" |
+| **doc-audit** | `.agents/skills/doc-audit/SKILL.md` | "审核笔记", "检查笔记", "audit note", "升级笔记", "该链接的链接，改画图的画图" |
 
 Key skill behaviors:
 - **zotero-notes**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
 - **daily-research**: 扫描 `Literature/` 和 `Rydberg atom/`，总结学习进展 + 规划当日学习任务，写入 `Daily Notes/`
 - **learning-path**: Scans comprehension fields & dependency graph in `Rydberg atom/`, generates personalized learning roadmap with tier-based path, bottleneck analysis, and progress visualization
+- **doc-audit**: 对知识笔记和讲义文档执行 9 项系统性审查（YAML/frontmatter、wiki-link、LaTeX、表格、Callout、可读性、Python 可视化、文档结构、block reference），补全链接、生成缺失图表、修复格式问题
 
 ## Python 图表（替代 Mermaid）
 
