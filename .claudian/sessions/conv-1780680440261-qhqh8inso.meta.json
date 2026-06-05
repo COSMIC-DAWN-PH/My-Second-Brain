@@ -4,8 +4,8 @@
   "title": "详细推导一下这里",
   "titleGenerationStatus": "failed",
   "createdAt": 1780680440261,
-  "updatedAt": 1780681811336,
-  "lastResponseAt": 1780681811336,
+  "updatedAt": 1780683065520,
+  "lastResponseAt": 1780683065520,
   "sessionId": "3a37d9cb-defa-4341-a990-b13353c2af10",
   "providerState": {
     "providerSessionId": "3a37d9cb-defa-4341-a990-b13353c2af10"
@@ -13,11 +13,12 @@
   "currentNote": "Rydberg atom/Rabi-Flopping.md",
   "usage": {
     "model": "sonnet[1m]",
-    "inputTokens": 1010,
+    "inputTokens": 764,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 68160,
+    "cacheReadInputTokens": 71424,
     "contextWindow": 1000000,
-    "contextTokens": 69170,
-    "percentage": 7
+    "contextTokens": 72188,
+    "percentage": 7,
+    "contextWindowIsAuthoritative": true
   }
 }

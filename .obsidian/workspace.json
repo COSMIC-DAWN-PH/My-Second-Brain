@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Handout by AI/start_up.md",
+                "file": "Daily Notes/2026-06-05.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "start_up"
+              "title": "2026-06-05"
             }
           }
         ]
@@ -208,9 +208,11 @@
   },
   "active": "b64c73e06bf44a7b",
   "lastOpenFiles": [
-    "Rydberg atom/Rabi-Flopping.md",
-    "AGENTS.md.tmp.20064.7205589dbf53",
     "Handout by AI/start_up.md",
+    "Daily Notes/2026-06-05.md",
+    "Rydberg atom/Rabi-Flopping.md",
+    "Rydberg atom/AC-Stark-Effect.md",
+    "AGENTS.md.tmp.20064.7205589dbf53",
     "AGENTS.md.tmp.20064.5d77e713143a",
     "CLAUDE.md.tmp.20064.e5616ced96a9",
     "CLAUDE.md.tmp.20064.e49c2a30c59b",
@@ -223,7 +225,6 @@
     "Rydberg atom/attachments/rabi_freq_vs_intensity.png",
     "Rydberg atom/attachments/rabi_oscillation_detuned.png",
     "Rydberg atom/attachments/rabi_oscillation_resonant.png",
-    "Daily Notes/2026-06-05.md",
     "Rydberg atom/Adiabatic-Elimination.md",
     "Rydberg atom/Single-Qubit-Gates.md",
     "Daily Notes/2026-06-04.md",
