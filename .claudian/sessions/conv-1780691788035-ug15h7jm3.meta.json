@@ -1,0 +1,26 @@
+{
+  "id": "conv-1780691788035-ug15h7jm3",
+  "providerId": "codex",
+  "title": "给这个小节的python变成html动态解释",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780691788035,
+  "updatedAt": 1780694034389,
+  "lastResponseAt": 1780694034389,
+  "sessionId": "019e9980-653c-7152-8485-6f52907e8e9f",
+  "providerState": {
+    "threadId": "019e9980-653c-7152-8485-6f52907e8e9f",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\06\\rollout-2026-06-06T04-36-34-019e9980-653c-7152-8485-6f52907e8e9f.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "currentNote": "Rydberg atom/Rydberg-Blockade.md",
+  "usage": {
+    "inputTokens": 150471,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 149376,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 150471,
+    "percentage": 58,
+    "model": "gpt-5.5"
+  }
+}

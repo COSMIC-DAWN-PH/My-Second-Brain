@@ -37,7 +37,7 @@ $$
 ^nu260605 这里哈密顿量由来没懂
 
 其中：
-- $\Omega$：**拉比频率**（Rabi frequency），由驱动场强度和原子跃迁偶极矩决定，$\Omega = \frac{d \cdot E_0}{\hbar}$
+- $\Omega$：**拉比频率**（Rabi frequency），由驱动场强度和原子跃迁偶极矩决定，$\Omega = \frac{d \cdot E_0}{\hbar}$ ^1212
 - $\Delta = \omega_L - \omega_0$：**失谐量**（detuning），激光频率与原子共振频率之差
 
 ### $\Omega$ 到底和什么有关？——光强 vs 频率
@@ -353,8 +353,6 @@ $$
 
 ^260605 具体推导没认真看
 
-![[rabi_oscillation_resonant]]
-
 #### Step 7：物理图像总结
 
 共振拉比振荡的关键特征：
@@ -386,6 +384,66 @@ P_{\vert 1\rangle}(t) = \frac{\Omega^2}{\tilde{\Omega}^2}\sin^2\left(\frac{\tild
 $$
 
 失谐越大，振荡越快但振幅越小（永远达不到 $P = 1$）。
+
+#### Python 图示：共振 vs 失谐驱动
+
+下面这段代码把共振与不同失谐量放在同一张图里比较。上图显示：$\Delta=0$ 时，$\pi$ 脉冲可以把布居完全转移到 $\vert e\rangle$；一旦 $\Delta \neq 0$，振荡频率变成 $\tilde{\Omega}$，峰值却被因子 $\Omega^2/\tilde{\Omega}^2$ 压低。下图把这个趋势单独抽出来：失谐越大，最大可转移布居越低，但广义拉比频率越高。
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+Omega = 1.0
+detunings = [0.0, 0.5, 1.0, 2.0]
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
+
+# Dimensionless time: x = Omega * t / pi
+x = np.linspace(0, 6, 900)
+t = np.pi * x / Omega
+
+fig, axes = plt.subplots(2, 1, figsize=(9, 7), sharex=False)
+
+for Delta, color in zip(detunings, colors):
+    Omega_tilde = np.sqrt(Omega**2 + Delta**2)
+    transfer_amplitude = Omega**2 / Omega_tilde**2
+    P_excited = transfer_amplitude * np.sin(Omega_tilde * t / 2)**2
+    label = rf'$\Delta/\Omega = {Delta:.1f}$'
+    axes[0].plot(x, P_excited, lw=2.4, color=color, label=label)
+
+axes[0].axvline(1, color='0.25', lw=1.2, ls='--')
+axes[0].annotate(r'Resonant $\pi$ pulse', xy=(1, 1), xytext=(1.18, 0.83),
+                 arrowprops=dict(arrowstyle='->', color='0.25', lw=1.2),
+                 fontsize=11, color='0.20')
+axes[0].set_xlabel(r'Normalized time $\Omega t / \pi$')
+axes[0].set_ylabel(r'Excited-state probability $P_e(t)$')
+axes[0].set_title('Rabi Flopping: Resonance vs Detuning')
+axes[0].set_ylim(-0.03, 1.06)
+axes[0].grid(alpha=0.3, ls=':')
+axes[0].legend(frameon=False, ncol=2)
+
+Delta_over_Omega = np.linspace(0, 4, 500)
+max_transfer = 1 / (1 + Delta_over_Omega**2)
+Omega_tilde_over_Omega = np.sqrt(1 + Delta_over_Omega**2)
+
+axes[1].plot(Delta_over_Omega, max_transfer, lw=2.8, color='#1f77b4',
+             label=r'Max transfer $\Omega^2/(\Omega^2+\Delta^2)$')
+axes[1].plot(Delta_over_Omega, Omega_tilde_over_Omega / Omega_tilde_over_Omega.max(),
+             lw=2.2, color='#ff7f0e', ls='--',
+             label=r'Normalized generalized frequency $\tilde{\Omega}$')
+axes[1].fill_between(Delta_over_Omega, 0, max_transfer, color='#1f77b4', alpha=0.12)
+axes[1].set_xlabel(r'Detuning ratio $\Delta/\Omega$')
+axes[1].set_ylabel('Normalized value')
+axes[1].set_title('Detuning Suppresses Population Transfer but Increases Oscillation Frequency')
+axes[1].set_ylim(0, 1.08)
+axes[1].grid(alpha=0.3, ls=':')
+axes[1].legend(frameon=False)
+
+plt.tight_layout()
+plt.show()
+```
+
+> [!tip] 读图要点
+> 共振曲线的核心是“能完全翻转”；失谐曲线的核心是“转得更快但翻不满”。这就是为什么做 $\pi$ 脉冲时必须校准激光频率，而做 [[AC-Stark-Effect|AC Stark]] 相位门时反而故意使用大失谐。
 
 ![[rabi_oscillation_detuned]]
 
@@ -466,6 +524,7 @@ $$
 
 ## 📝 更新记录
 
+- 2026-06-06: [doc-audit] 新增共振与失谐拉比振荡的 Python 可执行图示，解释最大布居转移与广义拉比频率随失谐量的变化。
 - 2026-06-06: 优化文档——添加 3 张 Python 图表（共振振荡、失谐对比、Ω vs 光强），补充 RWA callout，增加 ~6 处内联 wiki-link（Pauli-Matrices、Qubit-State-and-Superposition、Single-Qubit-Gates、Rydberg-Blockade 等）
 - 2026-06-06: 补充 [[Fine-Structure]] 和 [[Hyperfine-Structure]] 全文内联链接（标题、正文、callout 共 ~10 处），以及里德堡态 → [[Rydberg-Blockade]] 内联链接
 - 2026-06-06: 添加"$\Omega$ 与光强/频率的关系"和"各物理量详解"小节，详细解释 $\omega_0$ 的层级结构（玻尔能级→精细结构→超精细结构→外场修正）及各量的控制权

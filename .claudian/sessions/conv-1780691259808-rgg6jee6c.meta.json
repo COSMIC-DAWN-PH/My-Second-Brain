@@ -1,0 +1,26 @@
+{
+  "id": "conv-1780691259808-rgg6jee6c",
+  "providerId": "codex",
+  "title": "$doc-audit 加一个python图示解释拉比震荡失协和共振",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780691259808,
+  "updatedAt": 1780691470490,
+  "lastResponseAt": 1780691443616,
+  "sessionId": "019e9978-529f-7ef3-b9ec-9a568985dd30",
+  "providerState": {
+    "threadId": "019e9978-529f-7ef3-b9ec-9a568985dd30",
+    "sessionFilePath": "C:\\Users\\30505\\.codex\\sessions\\2026\\06\\06\\rollout-2026-06-06T04-27-45-019e9978-529f-7ef3-b9ec-9a568985dd30.jsonl",
+    "transcriptRootPath": "C:\\Users\\30505\\.codex\\sessions"
+  },
+  "currentNote": "Rydberg atom/Rabi-Flopping.md",
+  "usage": {
+    "inputTokens": 52467,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 51584,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 52467,
+    "percentage": 20,
+    "model": "gpt-5.5"
+  }
+}

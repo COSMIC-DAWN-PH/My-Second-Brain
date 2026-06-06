@@ -295,11 +295,13 @@ Key skill behaviors:
 - **zotero-notes**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
 - **daily-research**: 扫描 `Literature/` 和 `Rydberg atom/`，总结学习进展 + 规划当日学习任务，写入 `Daily Notes/`
 - **learning-path**: Scans comprehension fields & dependency graph in `Rydberg atom/`, generates personalized learning roadmap with tier-based path, bottleneck analysis, and progress visualization
-- **doc-audit**: 对知识笔记和讲义文档执行 9 项系统性审查（YAML/frontmatter、wiki-link、LaTeX、表格、Callout、可读性、Python 可视化、文档结构、block reference），补全链接、生成缺失图表、修复格式问题
+- **doc-audit**: 对知识笔记和讲义文档执行 9 项系统性审查（YAML/frontmatter、wiki-link、LaTeX、表格、Callout、可读性、Python 可视化、文档结构、block reference），补全链接、生成缺失图表、修复格式问题 Also checks Interactive HTML/iframe encoding so pi/minus labels do not render as `?`.
 
 ## Python 图表（替代 Mermaid）
 
 所有曲线图/分布图/统计图统一用 **Python + matplotlib** 绘制，配合 Obsidian Execute Code 插件实时渲染。
+
+**默认保留可执行 Python 代码块**：图表代码以 `plt.show()` 结尾，由 Obsidian Execute Code 实时渲染；不要默认保存 PNG，也不要默认插入 `![[...png]]` 图片嵌入。只有用户明确要求“导出图片 / 保存 PNG / 静态图像资产”时才生成图片文件。
 
 **代码中的所有图表元素必须统一使用标准英文书写**，以避免 CJK 字符警告。
 
@@ -343,6 +345,9 @@ plt.show()
 - 优先使用绝对 `file:///` URL
 - Windows 路径中的空格必须 URL 编码为 `%20`
 - 如果 iframe 不能渲染，检查：(1) 插件是否允许 iframe (2) 路径是否正确 (3) 空格是否编码
+- Interactive HTML files must include `<meta charset="UTF-8">`; fragile symbols inside iframe HTML/JavaScript labels (pi/minus/arrow) should use `&pi;`, `&minus;`, `&rarr;` or ASCII fallback like `-1`, preventing `? pulse` / `?1` rendering bugs.
+- When the user explicitly requests HTML/dynamic explanation, HTML generation is mandatory. Use stable English/ASCII for HTML UI text and JavaScript labels unless Chinese rendering is verified; before completion confirm no `? pulse`, `?1`, `2?`, `reverse ?`, or `??` remains. Python fallback may be kept only as backup, not as a substitute.
+
 
 ## 更新记录
 

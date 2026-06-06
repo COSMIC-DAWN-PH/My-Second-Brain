@@ -129,6 +129,7 @@ Methods
 
 **我的评价**：[[Quantum-Zeno-Effect]] — 知识笔记已建立 ✅
 [[CZ-Gate]] — 知识笔记已建立 ✅
+[[Rydberg-Blockade]] — 知识笔记已建立 ✅
 [[QEC]] — 知识笔记已建立 ✅
 [[Tensor-Product]] — 知识笔记已建立 ✅
 [[Gate-Eigenstates]] — 知识笔记已建立 ✅
@@ -170,6 +171,7 @@ Methods
 || 表面码 | [[Surface-Code]] | p.40 | ✅ 双链已建立 |
 || 量子芝诺效应 | [[Quantum-Zeno-Effect]] | p.40 | ✅ 双链已建立 |
 || CZ 门 | [[CZ-Gate]] | p.40 | ✅ 双链已建立 |
+|| 里德堡阻塞 | [[Rydberg-Blockade]] | p.40 | ✅ 双链已建立 |
 || 张量积 | [[Tensor-Product]] | p.40 | ✅ 双链已建立 |
 || 门算符本征态 | [[Gate-Eigenstates]] | p.40 | ✅ 双链已建立 |
 || 光镊阵列 | [[Optical-Tweezer-Arrays]] | p.40 | ✅ 双链已建立 |

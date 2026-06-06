@@ -1,6 +1,6 @@
 ---
 name: doc-audit
-description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Rydberg atom/ 知识笔记或 Handout by AI/ 讲义文档进行系统性审查，补全 wiki-link、生成/修复 Python 图表、检查 YAML/LaTeX/Callout/命名等格式合规性，严格遵循 CLAUDE.md 规范。
+description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Rydberg atom/ 知识笔记或 Handout by AI/ 讲义文档进行系统性审查，补全 wiki-link、生成/修复 Python 图表、检查 YAML/LaTeX/Callout/命名等格式合规性，严格遵循 CLAUDE.md 规范。 Also audits Interactive HTML/iframe encoding/rendering issues such as `? pulse` and `?1`.
 ---
 
 # Agent Identity: 文档质量审查与增强助理
@@ -23,6 +23,9 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 - **新增解释性内容用中文**：审查报告、补全文档正文、建议说明等以中文为主；英文术语首次出现附中文翻译。
 - **Python 代码和图表内部文字用英文**：代码注释、matplotlib 标题/坐标轴/legend/annotation 全部英文，避免 CJK 乱码。
 - **不要为规避编码问题把中文改成英文**：应通过 UTF-8 写入或转义处理。
+- **Interactive HTML encoding rule**: every `tools/*.html` file embedded by iframe must include `<meta charset="UTF-8">`; fragile symbols inside HTML/JavaScript labels such as pi/minus/arrow must use stable entities `&pi;`, `&minus;`, `&rarr;` or ASCII fallback such as `-1`, so Obsidian iframe never renders `? pulse`, `2?`, `reverse ?`, or `?1`.
+- **HTML visible-text stability rule**: For generated interactive HTML, internal visible text and JavaScript-generated labels should use stable English/ASCII by default. Avoid Chinese text or fragile Unicode symbols inside the HTML UI unless rendering has been verified; this prevents Chinese, pi/minus symbols, or arrows from becoming `?`. Always confirm the generated HTML contains none of these bad patterns: `? pulse`, `?1`, `2?`, `reverse ?`, and `??`.
+- **HTML fallback rule**: When the user explicitly asks for HTML/dynamic explanation, generating HTML is mandatory, not optional. The HTML must be repaired until usable. A Python/Markdown fallback may be kept as a safety backup, but it must not replace the requested HTML delivery.
 
 ---
 
@@ -261,19 +264,34 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 | 脉冲波形（振幅/相位 vs 时间） | 双面板子图 |
 | 概率分布 / 统计数据 | 柱状图 / 饼图 |
 
-**8.3 图表生成流程**
+**8.3 图表生成流程（Obsidian Execute Code 优先）**
 
 对每个需要补图的概念：
 
 1. **确定图表类型和数据**：从文档中的公式和参数提取
-2. **编写 Python 代码**：严格遵循 CJK-Warning-Free 规范
-3. **保存图片**：存放在文档同目录下，文件名格式 `{doc-prefix}_{concept}.png`
-   - 知识笔记：`Rydberg atom/rabi_flopping.png`
-   - 讲义：`Handout by AI/rabi_oscillations.png`
-4. **插入引用**：在文档对应位置插入 `![描述](file:///绝对路径)` 或 `![[相对图片名.png]]`
-5. **运行代码**：用 Bash 执行 Python 生成图片并验证
+2. **编写 Python 代码块**：在笔记对应位置插入 Python 代码块，严格遵循 CJK-Warning-Free 规范
+3. **默认保留可执行代码**：以 `plt.show()` 结尾，配合 Obsidian Execute Code 插件实时渲染；**不要默认保存 PNG、不要默认插入 `![[...png]]` 图片嵌入**
+4. **语法验证**：写入前至少用 `ast.parse` 检查代码块语法；必要时可临时运行代码验证，但不要把临时输出图像作为 vault 资产保存
+5. **例外情况**：只有当用户明确要求“导出图片 / 保存 PNG / 生成静态图像资产 / 嵌入图片文件”时，才生成 PNG 并插入 `![[...png]]`
 
 ---
+
+
+**8.4 Interactive HTML / iframe encoding and rendering check**
+
+When a document contains or adds `<iframe>` / `tools/*.html` dynamic explanations, audit encoding and symbol rendering in addition to the iframe path.
+
+| Check item | Required standard | Common failure |
+|--------|------|---------|
+| UTF-8 declaration | HTML `<head>` contains `<meta charset="UTF-8">` | Missing charset; Chinese text, Greek letters, or math symbols render as `?` |
+| iframe path | Use absolute `file:///` URL; encode spaces in Windows paths as `%20` | Raw Windows path or unencoded spaces |
+| Fragile symbols | Prefer `&pi;`, `&minus;`, `&rarr;` for pi/minus/arrow; final phase may use ASCII `-1` | A pi-pulse label renders as `? pulse`; a minus-one phase renders as `?1` |
+| HTML UI text | Use stable English/ASCII for visible UI text and JavaScript-generated labels unless Chinese rendering is explicitly verified | Chinese UI text or pi/minus symbols become `?`; bad patterns include `? pulse`, `?1`, `2?`, `reverse ?`, `??` |
+| Dynamic DOM text | JavaScript-generated labels/explanations/table cells must also use HTML entities or ASCII fallback | Static HTML looks fine, but JS updates create `?` |
+| Verification | Search generated HTML for mojibake patterns: `? pulse`, `?1`, `2?`, `reverse ?`; if needed, inspect the Obsidian iframe preview | Only checking source structure without checking rendered text |
+| Fallback requirement | Every interactive HTML explanation must have a stable Python or Markdown fallback nearby; if iframe rendering is poor, replace the iframe with the fallback | A note depends only on a broken iframe, making the section unusable |
+
+Repair principle: do not convert the note body to English to avoid encoding issues. Keep explanatory note text in Chinese when appropriate; fix fragile HTML/JS symbols with entities or ASCII fallback.
 
 ### Step 9：文档结构检查（R08）
 
@@ -399,14 +417,22 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 
 对每个缺失的可视化：
 1. 从文档公式和参数中提取数据
-2. 编写 matplotlib 代码（全英文标签，CJK-Warning-Free）
-3. 执行代码生成 PNG 图片
-4. 将 `![描述](file:///绝对路径)` 插入文档对应位置
+2. 在文档中编写/插入 matplotlib Python 代码块（全英文标签，CJK-Warning-Free）
+3. 默认使用 `plt.show()` 让 Obsidian Execute Code 实时渲染；**不要默认生成 PNG 文件，也不要默认插入 `![[...png]]` 图片嵌入**
+4. 写入前用 `ast.parse` 做语法检查；仅在用户明确要求静态图像资产时才保存 PNG
 
 对每个不合规的已有代码块：
 1. 修正标签语言（中文 → 英文）
 2. 补充缺失的 `plt.tight_layout()` / `plt.grid()` / `legend(frameon=False)`
 3. 修正配色方案
+4. 修正 LaTeX label 的 raw string / f-string 大括号转义问题
+
+If the user explicitly asks for "dynamic explanation / interactive figure / HTML / iframe", or a static Python figure cannot clearly explain a step-by-step process:
+1. Create a standalone HTML file under `tools/`, then embed it with an absolute `file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/tools/xxx.html` iframe.
+2. The HTML file must include `<meta charset="UTF-8">`.
+3. In HTML/JavaScript strings, write pi/minus/arrow as `&pi;`, `&minus;`, `&rarr;` or use ASCII fallback such as `-1`.
+4. After writing the file, search and fix mojibake patterns such as `? pulse`, `?1`, `2?`, `reverse ?`, and `??`. These patterns must be absent before reporting completion.
+5. If the iframe is cramped, visually confusing, has nested scrolling problems, or loses important controls, keep fixing the HTML layout until usable. Do not silently replace requested HTML with Python only; keep Python fallback only as backup.
 
 ### Step 14：修复格式问题
 
@@ -425,7 +451,7 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 - ...（已有记录）
 - YYYY-MM-DD: [doc-audit] 格式审查与增强
   - 补全 N 处 wiki-link（概念列表）
-  - 生成 M 张 Python 图表
+  - 新增/修复 M 个 Python 图表代码块
   - 修复 K 处 LaTeX 格式问题
   - 补充 J 处英文术语标注
 ```
@@ -445,6 +471,9 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 - [ ] 审查报告已按模板输出
 - [ ] 所有 wiki-link 指向真实存在的笔记文件
 - [ ] 所有 Python 代码块符合 CJK-Warning-Free 规范
+- [ ] All Interactive HTML/iframe files include UTF-8 charset, use correct `file:///` paths, and do not render pi/minus/arrow symbols as `?`.
+- [ ] Generated HTML UI text uses stable English/ASCII or verified-safe entities, and contains none of `? pulse`, `?1`, `2?`, `reverse ?`, `??`.
+- [ ] If the user requested HTML, the HTML has been fixed until usable; Python/Markdown fallback is backup only, not a substitute.
 - [ ] 所有 LaTeX 公式使用 `$$...$$` 而非 `\begin{equation}`
 - [ ] 所有表格中的竖线使用 `\vert` 而非 `|`
 - [ ] `comprehension` 字段未被修改
@@ -467,3 +496,8 @@ description: 知识笔记/讲义文档质量审查与增强技能 —— 对 Ryd
 ## 📝 更新记录
 
 - 2026-06-06: 初始创建，包含 9 项审查规则和自动修复流程
+- 2026-06-06: 明确 Python 图表默认保留为 Obsidian Execute Code 可执行代码块，不默认生成 PNG 或插入图片嵌入
+
+- 2026-06-06: Added Interactive HTML/iframe encoding audit rule: require UTF-8 charset, verify `file:///` paths, and use `&pi;`/`&minus;`/ASCII fallback to prevent pi-pulse and minus-one labels from rendering as `? pulse` or `?1`.
+- 2026-06-06: Added HTML fallback rule: broken or visually unreliable iframe explanations must be replaced by stable executable Python/Markdown fallback instead of leaving the section unusable.
+- 2026-06-06: Added mandatory HTML UI stability rule: when HTML is requested, generate and repair HTML until usable; internal HTML UI text should use stable English/ASCII and must be verified free of `? pulse`, `?1`, `2?`, `reverse ?`, and `??`.

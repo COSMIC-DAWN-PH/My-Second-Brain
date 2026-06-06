@@ -169,6 +169,7 @@ Example template in: `tools/Zotero_Template.md`
 ### Python Plotting Rules
 
 All charts use **Python + matplotlib** (no Mermaid). Key rules:
+- **Default to executable code blocks**: keep plots as Obsidian Execute Code Python blocks ending with `plt.show()`; do not save PNG files or insert `![[...png]]` image embeds unless the user explicitly asks for exported/static image assets.
 - **All plot text must be in English** — CJK causes glyph warnings in Obsidian sandbox
 - Use raw strings for LaTeX in labels: `r'Energy $\varepsilon$'`
 - Escape LaTeX braces in f-strings with `{{}}`
@@ -195,6 +196,8 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 - 优先使用绝对 `file:///` URL
 - Windows 路径中的空格必须 URL 编码为 `%20`
 - 如果 iframe 不能渲染，检查 Obsidian 插件是否允许 iframe/HTML/JavaScript
+- Interactive HTML files must include `<meta charset="UTF-8">`; fragile symbols inside iframe HTML/JavaScript labels (pi/minus/arrow) should use `&pi;`, `&minus;`, `&rarr;` or ASCII fallback like `-1`, preventing `? pulse` / `?1` rendering bugs.
+- When the user explicitly requests HTML/dynamic explanation, HTML generation is mandatory. Use stable English/ASCII for HTML UI text and JavaScript labels unless Chinese rendering is verified; before completion confirm no `? pulse`, `?1`, `2?`, `reverse ?`, or `??` remains. Python fallback may be kept only as backup, not as a substitute.
 
 ### Available Skills
 
@@ -205,7 +208,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 | **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
 | **sync-config** | `/sync-config`, "同步配置", "sync agents", "check config drift" | 配置同步元技能：同步 CLAUDE.md ↔ AGENTS.md 规则一致性，以及 .claude/ ↔ .agents/ 目录文件一致性 |
-| **doc-audit** | "审核笔记", "检查笔记", "audit note", "升级笔记", "该链接的链接，改画图的画图" | 知识笔记/讲义文档质量审查与增强：系统性扫描 YAML/wiki-link/LaTeX/Callout/可视化/格式合规性，补全链接、生成图表、修复格式 |
+| **doc-audit** | "审核笔记", "检查笔记", "audit note", "升级笔记", "该链接的链接，改画图的画图" | 知识笔记/讲义文档质量审查与增强：系统性扫描 YAML/wiki-link/LaTeX/Callout/可视化/格式合规性，补全链接、生成图表、修复格式；also checks Interactive HTML/iframe encoding so pi/minus labels do not render as `?` |
 
 ### Literature Note Sections
 
@@ -217,6 +220,7 @@ Zotero-imported notes contain:
 ### Bidirectional Linking
 
 Every knowledge note must link back to its source literature note, and every literature note must have a `## 📑 知识点索引` table linking to derived knowledge notes.
+
 
 ## Agent Memory & User Profile
 

@@ -4,8 +4,8 @@
   "title": "$doc-audit",
   "titleGenerationStatus": "failed",
   "createdAt": 1780690240682,
-  "updatedAt": 1780690529938,
-  "lastResponseAt": 1780690529938,
+  "updatedAt": 1780691418521,
+  "lastResponseAt": 1780691362066,
   "sessionId": "019e9968-c8ac-75f2-b826-a1ca5aa4724e",
   "providerState": {
     "threadId": "019e9968-c8ac-75f2-b826-a1ca5aa4724e",
@@ -14,13 +14,13 @@
   },
   "currentNote": "Rydberg atom/Rydberg-Blockade.md",
   "usage": {
-    "inputTokens": 51175,
+    "inputTokens": 112825,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 34688,
+    "cacheReadInputTokens": 112000,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 51175,
-    "percentage": 20,
+    "contextTokens": 112825,
+    "percentage": 44,
     "model": "gpt-5.5"
   }
 }

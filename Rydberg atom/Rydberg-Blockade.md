@@ -19,6 +19,7 @@ comprehension: "don't understand"
 
 # 里德堡阻塞（Rydberg Blockade）
 
+> 📄 来源文献：[[generall quantum 2026]]
 > 来源批注：*"Rydberg blockade"* — Bluvstein et al., 2026
 > 本笔记是中性原子量子计算的核心概念。里德堡阻塞是实现两量子比特门（CZ 门）的物理机制，也是整个中性原子量子计算平台的基石。
 
@@ -52,7 +53,7 @@ comprehension: "don't understand"
 | 相互作用能 | $V \propto n^{11}$ | 两个里德堡原子间的作用力极强 |
 | 寿命 | $\tau \propto n^3$ | 激发态寿命较长（$\sim 100\,\mu\text{s}$） |
 
-**关键**：$V \propto n^{11}$ 的标度关系意味着，只要 $n$ 足够大，两个里德堡原子之间的相互作用能可以远大于激光的拉比频率，从而产生"阻塞"效应。
+**关键**：$V \propto n^{11}$ 的标度关系意味着，只要 $n$ 足够大，两个里德堡原子之间的相互作用能可以远大于激光的[[Rabi-Flopping#^1212|拉比频率]]，从而产生"阻塞"效应。
 
 ---
 
@@ -78,7 +79,7 @@ $$
 H = H_1 + H_2 + V_{12} \vert r\rangle\langle r| \otimes \vert r\rangle\langle r|
 $$
 
-最后一项 $V_{12} \vert r\rangle\langle r| \otimes \vert r\rangle\langle r|$ 是关键——**只有当两个原子同时处于里德堡态时，相互作用才生效**。
+最后一项 $V_{12} \vert r\rangle\langle r| \otimes \vert r\rangle\langle r|$ 中的 [[Tensor-Product|张量积]] 是关键——**只有当两个原子同时处于里德堡态时，相互作用才生效**。
 
 ### 2.2 相互作用的来源：van der Waals 力
 
@@ -173,7 +174,7 @@ ax1.legend(frameon=False, fontsize=9, loc='upper right')
 ax1.grid(alpha=0.3, ls=':')
 
 # Annotate blockade radius
-ax1.annotate(f'$R_b \\approx {R_b:.1f}\\,\\mu$m',
+ax1.annotate(rf'$R_b \approx {R_b:.1f}\,\mu$m',
              xy=(R_b, Omega), xytext=(R_b + 3, Omega * 50),
              fontsize=11, color='#ff7f0e', fontweight='bold',
              arrowprops=dict(arrowstyle='->', color='#ff7f0e', lw=1.5))
@@ -250,9 +251,9 @@ $$
 H = \frac{\Omega}{2}\Big(\vert g,r\rangle\langle g,g\vert + \vert r,g\rangle\langle g,g\vert + \vert r,r\rangle\langle g,r\vert + \vert r,r\rangle\langle r,g\vert + \text{h.c.}\Big) + V_{12}\vert r,r\rangle\langle r,r\vert
 $$
 
-其中 $\Omega/2$ 来自单原子的激光耦合强度（旋转波近似下的 Rabi 频率的一半）。
+其中 $\Omega/2$ 来自单原子的激光耦合强度（旋转波近似，rotating-wave approximation，下的 Rabi 频率的一半）。
 
-在阻塞区间 $V_{12} \gg \Omega$，$\vert r,r\rangle$ 被能量排斥，绝热地可以从动力学中消除。定义对称的 W 态：
+在阻塞区间 $V_{12} \gg \Omega$，$\vert r,r\rangle$ 被能量排斥，可以用 [[Adiabatic-Elimination|绝热消去]] 的直觉从动力学中近似移除。简单说，$\vert r,r\rangle$ 像一个被推到很高处的能级，激光虽然仍然“看得见”它，但因为能量失配太大，系统几乎不会真正跑到那里；它主要只通过微小的 off-resonant coupling（非共振耦合）留下二阶修正。定义对称的 W 态：
 
 $$
 \vert W\rangle = \frac{1}{\sqrt{2}}\big(\vert g,r\rangle + \vert r,g\rangle\big)
@@ -302,6 +303,9 @@ $$
 - $\vert 0\rangle \equiv \vert g\rangle$（基态）
 - $\vert 1\rangle \equiv \vert r\rangle$（里德堡态）
 
+> [!warning] 简化模型说明
+> 这里为了突出阻塞机制，把逻辑态简化写成 $\vert g\rangle$ 与 $\vert r\rangle$ 的二能级模型。真实的中性原子量子比特通常编码在两个长寿命 ground / hyperfine states（基态或超精细态）中，Rydberg state 更多作为门操作中的辅助激发态；实际脉冲会先把某个逻辑态临时耦合到里德堡态，再利用阻塞产生条件相位。
+
 ### 3.2 阻塞实现 CZ 的步骤
 
 **目标**：对两个原子施加 CZ 门，使得 $\vert r,r\rangle$ 获得 $-1$ 相位，其他态不变。
@@ -336,6 +340,14 @@ $$
 
 这正是 CZ 门的效果！
 
+> [!example] HTML 动态解释：Rydberg blockade 实现 CZ
+> 这是重新生成的紧凑版交互图：无内部滚动依赖，所有控制按钮都放在顶部。若 Obsidian iframe 仍然显示异常，请直接看下面的 Python fallback 图表。
+
+<iframe src="file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/tools/rydberg_blockade_cz_dynamic.html" width="100%" height="690" style="border:1px solid #d8dee9; border-radius:8px;"></iframe>
+
+> [!example] Python 图表：Rydberg blockade 实现 CZ 的步骤
+> 下图用稳定的 Python + matplotlib 代码块展示 CZ gate 的脉冲时序与 blockade 物理图像。若需要交互版本，必须先确认 HTML/iframe 能在 Obsidian 中稳定渲染；否则优先保留此 Python fallback。
+
 ```python
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -354,66 +366,80 @@ c_ctrl = '#1f77b4'
 c_tgt = '#d62728'
 c_block = '#ff7f0e'
 
-# Timeline
 ax.plot([1, 9], [3, 3], 'k-', linewidth=1, alpha=0.3)
 
 steps = [
     (1.5, 'Init', r'$\alpha\vert g\rangle+\beta\vert r\rangle$', r'$\vert g\rangle$', c_ctrl, c_tgt),
-    (3.5, r'$\pi$ pulse', r'No change', r'$\vert g\rangle \to \vert r\rangle$', c_ctrl, c_tgt),
-    (5.5, r'$2\pi$ pulse', r'Phase $-1$ if $\vert r\rangle$', r'BLOCKED!', c_ctrl, c_block),
-    (7.5, r'$\pi$ pulse', r'No change', r'$\vert r\rangle \to \vert g\rangle$', c_ctrl, c_tgt),
+    (3.5, r'$\pi$ pulse', 'No change', r'$\vert g\rangle \to \vert r\rangle$', c_ctrl, c_tgt),
+    (5.5, r'$2\pi$ pulse', r'Phase $-1$ if $\vert r\rangle$', 'BLOCKED!', c_ctrl, c_block),
+    (7.5, r'Reverse $\pi$', 'No change', r'$\vert r\rangle \to \vert g\rangle$', c_ctrl, c_tgt),
 ]
 
 for x, label, ctrl_txt, tgt_txt, ctrl_col, tgt_col in steps:
-    ax.add_patch(mpatches.FancyBboxPatch((x-0.8, 4.2), 1.6, 0.8, boxstyle='round,pad=0.1',
-                 facecolor=c_ctrl, edgecolor='black', alpha=0.7))
-    ax.text(x, 4.6, label, ha='center', va='center', fontsize=9, color='white', fontweight='bold')
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (x - 0.8, 4.2), 1.6, 0.8,
+        boxstyle='round,pad=0.1', facecolor=c_ctrl,
+        edgecolor='black', alpha=0.75
+    ))
+    ax.text(x, 4.6, label, ha='center', va='center', fontsize=9,
+            color='white', fontweight='bold')
 
-    ax.add_patch(mpatches.FancyBboxPatch((x-0.8, 2.0), 1.6, 0.8, boxstyle='round,pad=0.1',
-                 facecolor=tgt_col, edgecolor='black', alpha=0.7))
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (x - 0.8, 2.0), 1.6, 0.8,
+        boxstyle='round,pad=0.1', facecolor=tgt_col,
+        edgecolor='black', alpha=0.75
+    ))
     ax.text(x, 2.4, tgt_txt, ha='center', va='center', fontsize=8, color='white')
+    ax.text(x, 5.45, ctrl_txt, ha='center', va='center', fontsize=8, color=c_ctrl)
 
-    ax.text(x, 5.5, ctrl_txt, ha='center', va='center', fontsize=8, color=c_ctrl)
-    ax.text(x, 1.5, 'Control', ha='center', va='center', fontsize=8, color='gray')
+ax.text(1.5, 5.85, 'Control qubit', fontsize=9, fontweight='bold', ha='center', color=c_ctrl)
+ax.text(1.5, 1.2, 'Target qubit', fontsize=9, fontweight='bold', ha='center', color=c_tgt)
+ax.text(5, 0.45, r'Result: only $\vert r,r\rangle$ gets phase $-1$ = CZ gate',
+        fontsize=10, ha='center', color=c_block, fontweight='bold')
 
-ax.text(1.5, 5.5, 'Control qubit', fontsize=9, fontweight='bold', ha='center', color=c_ctrl)
-ax.text(1.5, 0.8, 'Target qubit', fontsize=9, fontweight='bold', ha='center', color=c_tgt)
-
-# Result
-ax.text(5, 0.2, r'Result: $\vert r,r\rangle$ gets $\pi$ phase = CZ gate!', fontsize=10,
-        ha='center', color=c_block, fontweight='bold')
-
-# --- Right panel: Bloch sphere visualization ---
+# --- Right panel: conditional blockade diagram ---
 ax2 = axes[1]
-ax2.set_xlim(-2, 2)
-ax2.set_ylim(-2, 2)
-ax2.set_aspect('equal')
-ax2.set_title('Bloch Sphere: Target Qubit Evolution', fontsize=13, fontweight='bold')
+ax2.set_xlim(0, 10)
+ax2.set_ylim(0, 7)
+ax2.axis('off')
+ax2.set_title('Conditional Target Excitation', fontsize=13, fontweight='bold')
 
-# Draw Bloch sphere circle
-theta = np.linspace(0, 2*np.pi, 100)
-ax2.plot(np.cos(theta), np.sin(theta), 'k-', linewidth=1, alpha=0.3)
+# Case A: control in |g>
+ax2.text(0.5, 6.2, r'Case A: control in $\vert g\rangle$', fontsize=11, color=c_ctrl, fontweight='bold')
+ax2.plot([1.2, 3.0], [5.2, 5.2], color=c_ctrl, lw=3)
+ax2.text(2.1, 5.45, r'$\vert g\rangle$', ha='center', fontsize=10, color=c_ctrl)
+ax2.plot([5.0, 6.8], [5.2, 5.2], color=c_tgt, lw=3)
+ax2.text(5.9, 5.45, r'$\vert g\rangle \to \vert r\rangle$', ha='center', fontsize=10, color=c_tgt)
+ax2.annotate('', xy=(4.7, 5.2), xytext=(3.3, 5.2),
+             arrowprops=dict(arrowstyle='->', color='#2ca02c', lw=2))
+ax2.text(3.95, 5.55, r'allowed $\pi$ pulse', ha='center', fontsize=9, color='#2ca02c')
 
-# Axes
-ax2.annotate('', xy=(0, 1.8), xytext=(0, -1.8),
-             arrowprops=dict(arrowstyle='->', color='gray', lw=1))
-ax2.annotate('', xy=(1.8, 0), xytext=(-1.8, 0),
-             arrowprops=dict(arrowstyle='->', color='gray', lw=1))
-ax2.text(0, 1.95, r'$\vert 0\rangle = \vert g\rangle$', fontsize=10, ha='center', color=c_ctrl)
-ax2.text(0, -2.15, r'$\vert 1\rangle = \vert r\rangle$', fontsize=10, ha='center', color=c_tgt)
-ax2.text(1.95, 0, r'$\vert +\rangle$', fontsize=10, ha='center', color='gray')
+# Case B: control in |r>
+ax2.text(0.5, 3.6, r'Case B: control in $\vert r\rangle$', fontsize=11, color=c_ctrl, fontweight='bold')
+ax2.plot([1.2, 3.0], [2.6, 2.6], color=c_ctrl, lw=3)
+ax2.text(2.1, 2.85, r'$\vert r\rangle$', ha='center', fontsize=10, color=c_ctrl)
+ax2.plot([5.0, 6.8], [2.6, 2.6], color=c_tgt, lw=3)
+ax2.text(5.9, 2.85, r'target stays $\vert g\rangle$', ha='center', fontsize=10, color=c_tgt)
+ax2.annotate('', xy=(4.7, 2.6), xytext=(3.3, 2.6),
+             arrowprops=dict(arrowstyle='->', color=c_block, lw=2, linestyle='--'))
+ax2.text(3.95, 2.95, 'blocked', ha='center', fontsize=10, color=c_block, fontweight='bold')
+ax2.plot([3.55, 4.45], [2.15, 3.05], color=c_block, lw=4)
+ax2.plot([4.45, 3.55], [2.15, 3.05], color=c_block, lw=4)
 
-# Case 1: Control in |g> - target rotates fully
-angle1 = np.linspace(-np.pi/2, np.pi/2, 50)
-ax2.plot(np.cos(angle1)*0.7, np.sin(angle1)*0.7, color=c_ctrl, linewidth=2.5,
-         label='Ctrl in $\vert g\\rangle$: target rotates $\vert g\\rangle \\to \vert r\\rangle$')
-
-# Case 2: Control in |r> - target is blocked (stays at |g>)
-ax2.plot(0, -0.9, 'o', color=c_block, markersize=12, label='Ctrl in $\vert r\\rangle$: target BLOCKED at $\vert g\\rangle$')
-ax2.text(0.3, -1.1, 'stays here', fontsize=9, color=c_block)
-
-ax2.legend(frameon=False, fontsize=8, loc='lower left', bbox_to_anchor=(-0.1, -0.15))
-ax2.grid(alpha=0.15, ls=':')
+# Phase table
+rows = [
+    (r'$\vert g,g\rangle$', '+1'),
+    (r'$\vert g,r\rangle$', '+1'),
+    (r'$\vert r,g\rangle$', '+1'),
+    (r'$\vert r,r\rangle$', '-1'),
+]
+for i, (state, phase) in enumerate(rows):
+    y = 1.0 - 0.35 * i
+    color = c_block if phase == '-1' else '#334155'
+    ax2.text(1.0, y, state, fontsize=10, color=color)
+    ax2.text(3.5, y, phase, fontsize=10, color=color, fontweight='bold')
+ax2.text(1.0, 1.35, 'Input state', fontsize=10, fontweight='bold')
+ax2.text(3.5, 1.35, 'Final phase', fontsize=10, fontweight='bold')
 
 plt.tight_layout()
 plt.show()
@@ -474,7 +500,7 @@ $$
 里德堡阻塞是中性原子平台实现**所有两比特门**的物理基础：
 
 - **CZ 门**：直接利用阻塞（如上所述）
-- **CNOT 门**：CZ + 单比特门组合
+- **CNOT 门**：CZ + [[Single-Qubit-Gates|单比特门]]组合
 - **横向 CZ 门**：[[Transversal-Gate]] 中对多个原子对并行施加 CZ
 - **[[Transversal-Teleportation]]**：利用横向 CZ 作为纠缠资源
 
@@ -497,14 +523,16 @@ $$
 
 ## 📐 核心公式摘要
 
-- **V_{12}**：两原子 van der Waals 相互作用 — $V_{12} = C_6 / R^6$
-- **C_6**：van der Waals 系数 — $C_6 \propto n^{11}$
-- **R_b**：阻塞半径 — $R_b = (C_6 / \Omega)^{1/6}$
-- **阻塞条件**：阻塞有效的判据 — $V_{12} \gg \Omega$
-- **P_{\text{error}}**：错误激发概率 — $P \sim (\Omega / V_{12})^2$
-- **\Omega_{\text{eff}}**：集体 Rabi 频率（阻塞区间） — $\Omega_{\text{eff}} = \sqrt{2}\,\Omega$
-- **\vert W\rangle**：对称 W 态 — $\vert W\rangle = (\vert g,r\rangle + \vert r,g\rangle)/\sqrt{2}$
-- **H**：两原子哈密顿量 — $H = H_1 + H_2 + V_{12}\vert r\rangle\langle r\vert \otimes \vert r\rangle\langle r\vert$
+| 符号 | 物理含义 | 理论公式 / 数值 |
+|---|---|---|
+| $V_{12}$ | 两原子 van der Waals 相互作用 | $V_{12} = C_6 / R^6$ |
+| $C_6$ | van der Waals 系数 | $C_6 \propto n^{11}$ |
+| $R_b$ | 阻塞半径 | $R_b = (C_6 / \Omega)^{1/6}$ |
+| $V_{12} \gg \Omega$ | 阻塞有效的判据 | 相互作用能远大于激光 Rabi 频率 |
+| $P_{\text{error}}$ | 错误激发概率 | $P_{\text{error}} \sim (\Omega / V_{12})^2$ |
+| $\Omega_{\text{eff}}$ | 集体 Rabi 频率（阻塞区间） | $\Omega_{\text{eff}} = \sqrt{2}\,\Omega$ |
+| $\vert W\rangle$ | 对称 W 态 | $\vert W\rangle = (\vert g,r\rangle + \vert r,g\rangle)/\sqrt{2}$ |
+| $H$ | 两原子哈密顿量 | $H = H_1 + H_2 + V_{12}\vert r\rangle\langle r\vert \otimes \vert r\rangle\langle r\vert$ |
 
 
 ---
@@ -520,6 +548,9 @@ $$
 - [[Deep-Circuit-Execution]] — 里德堡阻塞在深度电路中的应用
 - [[Optical-Tweezer-Arrays]] — 囚禁和排列原子的硬件平台
 - [[QEC]] — stabilizer 测量依赖 CZ 门
+- [[Tensor-Product]] — 两原子哈密顿量中复合系统空间的基本结构
+- [[Adiabatic-Elimination]] — 解释阻塞区间中 $\vert r,r\rangle$ 如何被近似移出有效动力学
+- [[Single-Qubit-Gates]] — CNOT 可由 CZ 与单比特门组合得到
 
 ## 📝 更新记录
 
@@ -527,3 +558,12 @@ $$
 - 2026-06-01: 初始创建，包含阻塞条件、CZ 门实现、Python 图表 ×2
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性
 - 2026-06-04: 新增 §2.5 集体 Rabi 频率（√2Ω），含物理图像、数学推导、W 态子空间分析及与 start_up 笔记的交叉链接；更新核心公式摘要
+- 2026-06-06: [doc-audit] 格式审查与增强
+  - 补全现有概念链接：[[Tensor-Product]]、[[Adiabatic-Elimination]]、[[Single-Qubit-Gates]]
+  - 将核心公式摘要改为三列表格
+  - 修复 Python 图表代码中的 LaTeX raw string / f-string 写法，保留 `plt.show()` 可执行代码块
+  - 补充来源文献行、CZ 门简化模型 warning 与绝热消去直觉说明
+- 2026-06-06: 将 §3.2 的 CZ 静态 Python 图表替换为 `tools/rydberg_blockade_cz_dynamic.html` 动态交互解释。
+- 2026-06-06: ?? ?3.2 ?? HTML ? ??? ?????? iframe ???? `?` ????
+- 2026-06-06: ? ?3.2 ???? HTML/iframe ?????????? Python fallback ????? iframe ??????????
+- 2026-06-06: ???? ?3.2 ??? HTML ???????? Python fallback?
