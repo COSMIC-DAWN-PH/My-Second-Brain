@@ -1,2 +1,32 @@
-# Large binary files — not tracked in git
+# Large binary files
 *.pdf
+*.exe
+*.dll
+*.so
+*.dylib
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+
+# Claudian plugin — session data is ephemeral
+.claudian/
+
+# Obsidian workspace (personal layout, differs per device)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian graph view settings (personal preference)
+.obsidian/graph.json
+
+# Obsidian plugin binaries — install via plugin browser, only keep config
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+.obsidian/plugins/*/manifest.json
+
+# Obsidian themes — install via theme browser
+.obsidian/themes/
