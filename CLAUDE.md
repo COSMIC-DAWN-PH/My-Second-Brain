@@ -204,7 +204,7 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 | Skill | Trigger | Description |
 |-------|---------|-------------|
 | **zotero-notes** | Zotero 批注处理、知识笔记生成 | 从 Zotero 论文笔记中提取批注，生成知识笔记，建立双向链接 |
-| **daily-research** | "总结今天/昨天", "daily summary", "weekly summary", "research summary", "规划今天" | 总结学习进展 + 规划当日学习任务。扫描 Literature/ 与 Rydberg atom/，基于 block reference 证据写入 Daily Notes/ 的总结区块和学习计划。 |
+| **daily-research** | "总结今天/昨天", "daily summary", "weekly summary", "research summary", "规划今天" | 总结学习进展 + 规划当日学习任务。日记两大板块：①今日目标（交互式 HTML 知识地图 + 学习路线含检验问题和 block reference 提醒）②今天学了什么。**诚实原则**：只记录实际完成的内容，不伪造进度。知识地图使用 `tools/knowledge-map.html` 交互式 HTML（深色主题、可折叠 Phase、节点点击展开、状态筛选、进度条），通过 iframe 嵌入日记。 |
 | **literature-handout** | Paper handout generation | Scans both vaults, generates structured Chinese handout with vault cross-references |
 | **learning-path** | "学习路径", "下一步学什么", "learning path" | Scans comprehension fields in Rydberg atom/, generates Learning-Roadmap.md at vault root with tier-based path and bottleneck analysis |
 | **sync-config** | `/sync-config`, "同步配置", "sync agents", "check config drift" | 配置同步元技能：同步 CLAUDE.md ↔ AGENTS.md 规则一致性，以及 .claude/ ↔ .agents/ 目录文件一致性 |

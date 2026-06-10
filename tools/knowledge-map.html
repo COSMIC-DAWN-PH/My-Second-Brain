@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Map - Neutral Atom QC</title>
+<style>
+:root {
+  --green: #10b981; --blue: #3b82f6; --orange: #f59e0b;
+  --red: #ef4444; --gray: #94a3b8; --purple: #8b5cf6;
+  --bg: #0f172a; --card: #1e293b; --card2: #334155;
+  --text: #f1f5f9; --text2: #94a3b8; --border: #475569;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+.container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+
+/* Header */
+.header { text-align: center; margin-bottom: 28px; }
+.header h1 { font-size: 1.6em; font-weight: 700; background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 6px; }
+.header .sub { color: var(--text2); font-size: 0.85em; }
+
+/* Stats bar */
+.stats { display: flex; gap: 10px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 18px; text-align: center; min-width: 100px; transition: transform 0.2s; }
+.stat:hover { transform: translateY(-2px); }
+.stat .num { font-size: 1.8em; font-weight: 700; }
+.stat .label { font-size: 0.75em; color: var(--text2); margin-top: 2px; }
+.stat-green .num { color: var(--green); }
+.stat-blue .num { color: var(--blue); }
+.stat-orange .num { color: var(--orange); }
+.stat-red .num { color: var(--red); }
+.stat-gray .num { color: var(--gray); }
+
+/* Progress bar */
+.progress-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; }
+.progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.82em; color: var(--text2); }
+.progress-bar { height: 10px; background: var(--card2); border-radius: 5px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--green), var(--blue), var(--purple)); transition: width 1.2s ease; }
+
+/* Filter */
+.filters { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+.filter-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text2); font-size: 0.8em; cursor: pointer; transition: all 0.2s; }
+.filter-btn:hover, .filter-btn.active { background: var(--card2); color: var(--text); border-color: var(--purple); }
+
+/* Phase */
+.phase { margin-bottom: 20px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--card); transition: all 0.3s; }
+.phase.collapsed .phase-body { max-height: 0; opacity: 0; padding: 0 20px; }
+.phase-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; transition: background 0.2s; }
+.phase-header:hover { background: rgba(255,255,255,0.03); }
+.phase-chevron { font-size: 0.9em; color: var(--text2); transition: transform 0.3s; flex-shrink: 0; }
+.phase.collapsed .phase-chevron { transform: rotate(-90deg); }
+.phase-title { font-weight: 600; font-size: 1em; flex: 1; }
+.phase-badge { font-size: 0.72em; padding: 3px 10px; border-radius: 12px; font-weight: 600; flex-shrink: 0; }
+.badge-done { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+.badge-wip { background: rgba(245,158,11,0.15); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
+.badge-todo { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+.phase-body { padding: 0 20px 20px; max-height: 1200px; opacity: 1; transition: all 0.4s ease; overflow: hidden; }
+
+/* Arrow connector */
+.connector { display: flex; justify-content: center; padding: 4px 0; }
+.connector svg { width: 24px; height: 28px; }
+.connector path { stroke: var(--border); stroke-width: 2; fill: none; }
+.connector polygon { fill: var(--border); }
+
+/* Nodes */
+.nodes-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.node { flex: 1 1 calc(50% - 10px); min-width: 200px; background: var(--card2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.25s; position: relative; overflow: hidden; }
+.node::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px; }
+.node:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+.node.cls-understood::before { background: var(--green); }
+.node.cls-getting::before { background: var(--blue); }
+.node.cls-vague::before { background: var(--orange); }
+.node.cls-dont::before { background: var(--red); }
+.node.cls-todo::before { background: var(--gray); }
+.node-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.node-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cls-understood .node-dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.cls-getting .node-dot { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
+.cls-vague .node-dot { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+.cls-dont .node-dot { background: var(--red); box-shadow: 0 0 6px var(--red); }
+.cls-todo .node-dot { background: var(--gray); }
+.node-name { font-weight: 600; font-size: 0.9em; }
+.node-brief { font-size: 0.8em; color: var(--text2); margin-bottom: 8px; line-height: 1.4; }
+.node-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.tag { font-size: 0.68em; padding: 2px 7px; border-radius: 6px; font-weight: 500; }
+.tag-ref { background: rgba(139,92,246,0.2); color: #c4b5fd; }
+.tag-block { background: rgba(239,68,68,0.2); color: #fca5a5; }
+.tag-done { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+.tag-date { background: rgba(59,130,246,0.2); color: #93c5fd; }
+
+/* Expanded detail */
+.node-detail { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.82em; line-height: 1.6; color: var(--text2); }
+.node.expanded .node-detail { display: block; animation: fadeIn 0.3s ease; }
+.node-detail strong { color: var(--text); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Hidden filter */
+.node.hidden { display: none; }
+.phase.hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Knowledge Map — Neutral Atom QC</h1>
+  <div class="sub">Interactive learning progress tracker &middot; Click nodes for details</div>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="progress-wrap">
+  <div class="progress-label"><span>Overall Progress</span><span id="progress-pct">0%</span></div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+</div>
+
+<div class="filters" id="filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="understood">Understood</button>
+  <button class="filter-btn" data-filter="getting">Getting There</button>
+  <button class="filter-btn" data-filter="vague">Vague</button>
+  <button class="filter-btn" data-filter="dont">Don't Understand</button>
+  <button class="filter-btn" data-filter="todo">Not Started</button>
+</div>
+
+<div id="phases"></div>
+
+</div>
+
+<script>
+const DATA = [
+  {
+    label: "Phase A — Atomic Physics Foundations",
+    badge: "done", badgeLabel: "06-05",
+    nodes: [
+      { name: "Fine Structure", cls: "vague", brief: "J = L + S, spin-orbit coupling, relativistic corrections",
+        detail: "<strong>Status:</strong> Read on 06-05. Understand the three correction sources (spin-orbit, relativistic kinetic, Darwin). The detailed derivation in §3 has questions.<br><strong>Block ref:</strong> ^260605 (understood), ^nu260605 (derivation unclear)<br><strong>Wiki:</strong> [[Fine-Structure]]",
+        tags: [{t:"^260605",c:"done"},{t:"^nu260605",c:"block"},{t:"[[Fine-Structure]]",c:"ref"}] },
+      { name: "Hyperfine Structure", cls: "getting", brief: "F = J + I, 6.8347 GHz clock transition, qubit encoding",
+        detail: "<strong>Status:</strong> Read on 06-05. Understand F = J + I for Rb-87, the 6.8347 GHz hyperfine splitting, and clock state encoding (|0>=|F=1,mF=0>, |1>=|F=2,mF=0>).<br><strong>Block ref:</strong> ^260605 (§3, §4 understood)<br><strong>Wiki:</strong> [[Hyperfine-Structure]]",
+        tags: [{t:"^260605",c:"done"},{t:"[[Hyperfine-Structure]]",c:"ref"}] },
+      { name: "Zeeman Effect", cls: "getting", brief: "mF = 0 first-order insensitive, long coherence time",
+        detail: "<strong>Status:</strong> Read on 06-05. Understand Lande g-factor, mF=0 clock states are insensitive to first-order magnetic field noise.<br><strong>Block ref:</strong> ^260605 (§5 understood)<br><strong>Wiki:</strong> [[Zeeman-Effect]]",
+        tags: [{t:"^260605",c:"done"},{t:"[[Zeeman-Effect]]",c:"ref"}] }
+    ]
+  },
+  {
+    label: "Phase B — Single-Qubit Control",
+    badge: "wip", badgeLabel: "06-05 WIP",
+    nodes: [
+      { name: "Rabi Flopping", cls: "vague", brief: "Hamiltonian origin unclear — critical for QuTiP coding",
+        detail: "<strong>Status:</strong> Read on 06-05. §3 Hamiltonian derivation NOT understood — this is the #1 blocker for writing QuTiP code.<br><strong>Block ref:</strong> ^nu260605 (§3 not understood), ^260605 (§5.3 derivation not carefully studied)<br><strong>Key formula:</strong> H = -ℏΩ/2 · σx + ℏΔ/2 · σz (rotating frame)<br><strong>Wiki:</strong> [[Rabi-Flopping]]",
+        tags: [{t:"^nu260605",c:"block"},{t:"^260605",c:"done"},{t:"[[Rabi-Flopping]]",c:"ref"},{t:"BLOCKER",c:"block"}] },
+      { name: "Single-Qubit Gates", cls: "getting", brief: "X/Y/Z gates, pi pulses on Bloch sphere",
+        detail: "<strong>Status:</strong> Learned through §3.6 S/T gates. §4 rotation gates not yet studied.<br><strong>Block ref:</strong> ^321fbe (§3.6)<br><strong>Wiki:</strong> [[Single-Qubit-Gates]]",
+        tags: [{t:"^321fbe",c:"done"},{t:"[[Single-Qubit-Gates]]",c:"ref"}] },
+      { name: "AC Stark Effect", cls: "dont", brief: "Light shift from far-detuned laser, used for Rz gate",
+        detail: "<strong>Status:</strong> Not studied. The note exists but no block references.<br><strong>Relevance:</strong> Detuned pulse -> Rz gate, needed for phase control in QuTiP simulation.<br><strong>Wiki:</strong> [[AC-Stark-Effect]]",
+        tags: [{t:"[[AC-Stark-Effect]]",c:"ref"},{t:"Not studied",c:"block"}] }
+    ]
+  },
+  {
+    label: "Phase C — Two-Qubit Entanglement",
+    badge: "wip", badgeLabel: "06-03 basics",
+    nodes: [
+      { name: "Two-Qubit State", cls: "getting", brief: "Bell states, entanglement, tensor products",
+        detail: "<strong>Status:</strong> Basic concepts understood. §1.2 parameterization (Schmidt decomposition angles) NOT understood from 06-03.<br><strong>Block ref:</strong> ^nu260603 (§1.2 not understood)<br><strong>Wiki:</strong> [[Two-Qubit-State-and-Entanglement]]",
+        tags: [{t:"^nu260603",c:"block"},{t:"[[Two-Qubit-State-and-Entanglement]]",c:"ref"}] },
+      { name: "CZ Gate", cls: "getting", brief: "CZ = CNOT 'phase version', controlled-Z operation",
+        detail: "<strong>Status:</strong> §4.4 physical meaning understood (CZ vs CNOT equivalence). §5 Rydberg implementation NOT studied — need this for QuTiP simulation.<br><strong>Block ref:</strong> ^260603 (§4.4)<br><strong>Wiki:</strong> [[CZ-Gate]]",
+        tags: [{t:"^260603",c:"done"},{t:"§5 not studied",c:"block"},{t:"[[CZ-Gate]]",c:"ref"}] },
+      { name: "Rydberg Blockade", cls: "dont", brief: "V = C6/R6, blockade condition V >> Omega",
+        detail: "<strong>Status:</strong> comprehension: don't understand. NO block references at all. This is the core physical mechanism for CZ gates in neutral atoms.<br><strong>Key formula:</strong> V_12 = C_6/R^6, R_b = (C_6/Omega)^(1/6)<br><strong>Relevance:</strong> The two-atom Hamiltonian for QuTiP depends on this.<br><strong>Wiki:</strong> [[Rydberg-Blockade]]",
+        tags: [{t:"[[Rydberg-Blockade]]",c:"ref"},{t:"BLOCKER",c:"block"},{t:"No block ref",c:"block"}] }
+    ]
+  },
+  {
+    label: "Phase D — QuTiP Simulation",
+    badge: "todo", badgeLabel: "Not started",
+    nodes: [
+      { name: "CZ Gate Reproduction", cls: "todo", brief: "Build two-atom model, verify truth table fidelity > 99%",
+        detail: "<strong>Goal:</strong> Reproduce Levine 2019 CZ gate in QuTiP.<br><strong>Blocked by:</strong> Rabi Hamiltonian understanding + Rydberg Blockade knowledge.<br><strong>Parameters:</strong> Omega = 2pi x 3.5 MHz, V = 2pi x 24 MHz, Delta = 0.377 Omega",
+        tags: [{t:"Blocked",c:"block"}] },
+      { name: "Noise Analysis", cls: "todo", brief: "Add decay + laser fluctuation + Doppler, target 97.4%",
+        detail: "<strong>Goal:</strong> Reproduce Levine's reported fidelity of 97.4%.<br><strong>Noise sources:</strong> Rydberg lifetime ~100us, laser intensity noise 0.5-2%, Doppler from T~50uK.",
+        tags: [{t:"Target: 97.4%",c:"ref"}] },
+      { name: "CCZ / Toffoli Gate", cls: "todo", brief: "Three-atom model, 27-dim Hilbert space",
+        detail: "<strong>Goal:</strong> Extend to three atoms, verify CCZ truth table.<br><strong>Challenge:</strong> 27-dimensional state space, need blockade approximation.",
+        tags: [{t:"Advanced",c:"ref"}] },
+      { name: "Crosstalk Estimation", cls: "todo", brief: "V_cross = V_nn / 64, verify parallel feasibility",
+        detail: "<strong>Goal:</strong> Quantify inter-pair interaction for parallel gate operation.<br><strong>Key:</strong> V_cross = C_6/(2R)^6 = V_nn/64, must be << Omega.",
+        tags: [{t:"Estimation",c:"ref"}] }
+    ]
+  },
+  {
+    label: "Phase E — From Reproduction to Innovation",
+    badge: "todo", badgeLabel: "Advisor goal",
+    nodes: [
+      { name: "Levine -> Evered Comparison", cls: "todo", brief: "Quantify each improvement: pulse, n=53, dark state",
+        detail: "<strong>Advisor's path 2:</strong> Compare Levine 2019 (97.4%) with Evered 2023 (99.5%).<br><strong>Key differences:</strong> Single-pulse optimal control, n=70->n=53, dark state scattering suppression, Rabi 3.5->4.6 MHz.<br><strong>Paper:</strong> 2023-parallel gates.pdf (not yet read)",
+        tags: [{t:"Path 2",c:"ref"},{t:"Paper not read",c:"block"}] },
+      { name: "Rydberg Antiblockade", cls: "todo", brief: "V = Omega*sqrt(2) resonance, fast entanglement",
+        detail: "<strong>Advisor's path 3:</strong> Antiblockade uses interaction to bring double-excitation INTO resonance (opposite of blockade).<br><strong>Paper:</strong> Su et al. PRA 2024 — NOT in vault yet.<br><strong>Potential:</strong> Faster gates, predicted >99% fidelity.",
+        tags: [{t:"Path 3",c:"ref"},{t:"Paper missing",c:"block"}] }
+    ]
+  }
+];
+
+// Render
+const phasesDiv = document.getElementById('phases');
+let allNodes = [];
+let totalCount = 0, understoodCount = 0, gettingCount = 0, vagueCount = 0, dontCount = 0, todoCount = 0;
+
+DATA.forEach((phase, pi) => {
+  // Connector
+  if (pi > 0) {
+    const conn = document.createElement('div');
+    conn.className = 'connector';
+    conn.innerHTML = '<svg viewBox="0 0 24 28"><path d="M12 0 L12 20"/><polygon points="6,18 12,26 18,18"/></svg>';
+    phasesDiv.appendChild(conn);
+  }
+
+  const phaseEl = document.createElement('div');
+  phaseEl.className = 'phase';
+  phaseEl.dataset.phase = pi;
+
+  const badgeClass = phase.badge === 'done' ? 'badge-done' : phase.badge === 'wip' ? 'badge-wip' : 'badge-todo';
+
+  phaseEl.innerHTML = `
+    <div class="phase-header">
+      <span class="phase-chevron">▼</span>
+      <span class="phase-title">${phase.label}</span>
+      <span class="phase-badge ${badgeClass}">${phase.badgeLabel}</span>
+    </div>
+    <div class="phase-body"><div class="nodes-grid"></div></div>
+  `;
+
+  const nodesGrid = phaseEl.querySelector('.nodes-grid');
+
+  phase.nodes.forEach(node => {
+    totalCount++;
+    if (node.cls === 'understood') understoodCount++;
+    else if (node.cls === 'getting') gettingCount++;
+    else if (node.cls === 'vague') vagueCount++;
+    else if (node.cls === 'dont') dontCount++;
+    else if (node.cls === 'todo') todoCount++;
+
+    const nodeEl = document.createElement('div');
+    nodeEl.className = `node cls-${node.cls}`;
+    nodeEl.dataset.cls = node.cls;
+
+    let tagsHTML = node.tags.map(tag => `<span class="tag tag-${tag.c}">${tag.t}</span>`).join('');
+
+    nodeEl.innerHTML = `
+      <div class="node-top"><div class="node-dot"></div><div class="node-name">${node.name}</div></div>
+      <div class="node-brief">${node.brief}</div>
+      <div class="node-tags">${tagsHTML}</div>
+      <div class="node-detail">${node.detail}</div>
+    `;
+
+    nodeEl.addEventListener('click', () => {
+      nodeEl.classList.toggle('expanded');
+    });
+
+    allNodes.push(nodeEl);
+    nodesGrid.appendChild(nodeEl);
+  });
+
+  // Collapse toggle
+  phaseEl.querySelector('.phase-header').addEventListener('click', () => {
+    phaseEl.classList.toggle('collapsed');
+  });
+
+  phasesDiv.appendChild(phaseEl);
+});
+
+// Stats
+const statsDiv = document.getElementById('stats');
+const statsData = [
+  { num: understoodCount, label: 'Understood', cls: 'stat-green' },
+  { num: gettingCount, label: 'Getting There', cls: 'stat-blue' },
+  { num: vagueCount, label: 'Vague', cls: 'stat-orange' },
+  { num: dontCount, label: "Don't Know", cls: 'stat-red' },
+  { num: todoCount, label: 'Not Started', cls: 'stat-gray' },
+];
+statsData.forEach(s => {
+  const el = document.createElement('div');
+  el.className = `stat ${s.cls}`;
+  el.innerHTML = `<div class="num">${s.num}</div><div class="label">${s.label}</div>`;
+  statsDiv.appendChild(el);
+});
+
+// Progress bar
+const total = understoodCount * 4 + gettingCount * 3 + vagueCount * 2 + dontCount * 1 + todoCount * 1;
+const max = totalCount * 4;
+const pct = Math.round((total / max) * 100);
+document.getElementById('progress-pct').textContent = pct + '%';
+setTimeout(() => { document.getElementById('progress-fill').style.width = pct + '%'; }, 200);
+
+// Filter
+document.getElementById('filters').addEventListener('click', (e) => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  const filter = e.target.dataset.filter;
+
+  allNodes.forEach(n => {
+    if (filter === 'all' || n.dataset.cls === filter) {
+      n.classList.remove('hidden');
+    } else {
+      n.classList.add('hidden');
+    }
+  });
+});
+</script>
+</body>
+</html>
