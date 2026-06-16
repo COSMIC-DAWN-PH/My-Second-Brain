@@ -286,14 +286,14 @@ When creating derivative knowledge notes, use the `zotero-notes` skill (see belo
 |---|---|---|
 | **zotero-notes** | `.agents/skills/zotero-notes/SKILL.md` | Zotero 文献笔记处理：提取批注、生成知识笔记、建立双向链接 |
 | **daily-research** | `.agents/skills/daily-research/SKILL.md` | "总结今天/昨天/这周/过去 N 天", "daily summary", "weekly summary", "research summary", "规划今天" |
-| **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
+| **literature-handout** | `.agents/skills/literature_handout/SKILL.md` | Paper handout generation |
 | **learning-path** | `.agents/skills/learning-path/SKILL.md` | "学习路径", "下一步学什么", "learning path", "学习规划" |
 | **sync-config** | `.agents/skills/sync-config/SKILL.md` | `/sync-config`, "同步配置", "sync agents", "check config drift" |
 | **doc-audit** | `.agents/skills/doc-audit/SKILL.md` | "审核笔记", "检查笔记", "audit note", "升级笔记", "该链接的链接，改画图的画图" |
 
 Key skill behaviors:
 - **zotero-notes**: Enforces frontmatter, builds `[[双链]]` cross-references, generates formula tables, classifies annotations
-- **daily-research**: 扫描 `Literature/` 和 `Rydberg atom/`，总结学习进展 + 规划当日学习任务，写入 `Daily Notes/`
+- **daily-research**: 扫描 `Literature/` 和 `Rydberg atom/`，总结学习进展 + 规划当日学习任务，写入 `Daily Notes/`。日记两大板块：①今日目标（交互式 HTML 知识地图 + 学习路线含检验问题和 block reference 提醒）②今天学了什么。**诚实原则**：只记录实际完成的内容，不伪造进度。知识地图使用 `tools/knowledge-map.html` 交互式 HTML（深色主题、可折叠 Phase、节点点击展开、状态筛选、进度条），通过 iframe 嵌入日记。
 - **learning-path**: Scans comprehension fields & dependency graph in `Rydberg atom/`, generates personalized learning roadmap with tier-based path, bottleneck analysis, and progress visualization
 - **doc-audit**: 对知识笔记和讲义文档执行 9 项系统性审查（YAML/frontmatter、wiki-link、LaTeX、表格、Callout、可读性、Python 可视化、文档结构、block reference），补全链接、生成缺失图表、修复格式问题 Also checks Interactive HTML/iframe encoding so pi/minus labels do not render as `?`.
 
