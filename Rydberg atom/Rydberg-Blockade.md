@@ -65,7 +65,7 @@ comprehension: "don't understand"
 - $\vert g\rangle$：基态（ground state，量子比特的 $\vert 0\rangle$）
 - $\vert r\rangle$：里德堡态（Rydberg state，量子比特的 $\vert 1\rangle$）
 
-激光驱动 $\vert g\rangle \leftrightarrow \vert r\rangle$ 跃迁，拉比频率为 $\Omega$，失谐为 $\Delta$。
+激光驱动 $\vert g\rangle \leftrightarrow \vert r\rangle$ 跃迁，[[Rabi-Flopping|拉比频率]]为 $\Omega$，失谐为 $\Delta$。
 
 **无相互作用时**的哈密顿量（单原子）：
 
@@ -328,6 +328,9 @@ $$
 
 **Step 4：对原子 2 施加 $\pi$ 脉冲（反向）**
 - 将原子 2 的状态恢复
+
+> [!info] 什么是"脉冲"？
+> 这里的"脉冲"（pulse）指**激光脉冲**——通过控制激光的开关时间和频率，驱动原子在基态和里德堡态之间做 [[Rabi-Flopping|拉比振荡]]。**$\pi$ 脉冲** = 激光开启半个振荡周期，将态完全翻转（$\vert g\rangle \to \vert r\rangle$）；**$2\pi$ 脉冲** = 激光开启一个完整周期，$\vert g\rangle \to \vert r\rangle \to \vert g\rangle$，净效果是积累 $-1$ 相位。脉冲的形状（矩形、高斯、DRAG 等）直接影响门保真度。
 
 最终效果：
 
