@@ -33,11 +33,58 @@ $$
 \hat{H} = \frac{\hbar}{2}\begin{pmatrix} -\Delta & \Omega \\ \Omega^* & \Delta \end{pmatrix}
 $$
 
+### 这个哈密顿量是如何作用在二能级原子上的？
 
-^nu260605 这里哈密顿量由来没懂
+> [!note] 本节目标
+> 不看推导，只看"这个 $2\times2$ 矩阵到底对态做了什么"。下面用最简单的二能级例子逐步演示。
+
+#### ① 二能级态与矩阵乘法
+
+原子任意时刻处于两个态的叠加：
+
+$$
+\vert\psi\rangle = c_g\vert g\rangle + c_e\vert e\rangle = \begin{pmatrix} c_g \\ c_e \end{pmatrix}
+$$
+
+其中 $c_g, c_e$ 是复数振幅。哈密顿量作用在态上，就是普通的矩阵乘法：
+
+$$
+\hat H\vert\psi\rangle = \frac{\hbar}{2}\begin{pmatrix} -\Delta & \Omega \\ \Omega^* & \Delta \end{pmatrix}\begin{pmatrix} c_g \\ c_e \end{pmatrix}
+= \frac{\hbar}{2}\begin{pmatrix} -\Delta c_g + \Omega c_e \\ \Omega^* c_g + \Delta c_e \end{pmatrix}
+$$
+
+**看这两行，就是全部物理：**
+
+- **第一行**（$\vert g\rangle$ 的系数）：$-\Delta c_g$ —— 对角元：按自己的能量缩放；$+\Omega c_e$ —— **非对角元：把 $c_e$ 掺进来**
+- **第二行**（$\vert e\rangle$ 的系数）：$+\Omega^* c_g$ —— 把 $c_g$ 掺进来；$+\Delta c_e$ —— 按自己的能量缩放
+
+> [!tip] 一句话总结
+> **对角元管"每个态自己的能量"，非对角元管"两个态之间的耦合"。** 所以矩阵长成这样：对角线上是能量（$\mp\Delta/2$），对角线外是耦合（$\Omega/2,\ \Omega^*/2$）。
+
+#### ② 代入薛定谔方程，看它怎么让原子动起来
+
+将 $\hat H\vert\psi\rangle$ 代入含时薛定谔方程 $i\hbar\frac{d}{dt}\vert\psi\rangle = \hat H\vert\psi\rangle$，逐行对比系数：
+
+$$
+i\dot c_g = -\frac{\Delta}{2}c_g + \frac{\Omega}{2}c_e, \qquad
+i\dot c_e = \frac{\Omega^*}{2}c_g + \frac{\Delta}{2}c_e
+$$
+
+注意两个方程：$\dot c_g$ 里**有 $c_e$**，$\dot c_e$ 里**有 $c_g$**——$\vert g\rangle$ 的变化率取决于 $\vert e\rangle$ 现在有多少，反之亦然。**两个振幅互相"喂养"对方**，这就是振荡的数学根源：非对角元让 $c_g$ 与 $c_e$ 不断互换，原子就在 $\vert g\rangle \leftrightarrow \vert e\rangle$ 之间来回跑（拉比振荡）。
+
+#### ③ 具体例子：共振（$\Delta = 0$）
+
+共振时 $\Delta = 0$，矩阵退化为 $\hat H = \frac{\hbar\Omega}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$。原子从 $\vert g\rangle = \begin{pmatrix}1\\0\end{pmatrix}$ 出发：
+
+$$
+\hat H\vert g\rangle = \frac{\hbar\Omega}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}
+= \frac{\hbar\Omega}{2}\begin{pmatrix}0\\1\end{pmatrix} = \frac{\hbar\Omega}{2}\vert e\rangle
+$$
+
+$\hat H$ 把 $\vert g\rangle$ 变成了 $\vert e\rangle$ 的倍数——**哈密顿量里那个 $\Omega$ 就是把 $\vert g\rangle$ 往 $\vert e\rangle$ 方向推的力量**。于是 $c_e$ 开始增长、$\vert g\rangle$ 的成分减少，原子往激发态走；推过头了又弹回来，形成 $\sin^2(\Omega t/2)$ 的振荡。这就是下一节 [[#共振情形（$\Delta = 0$）|共振情形]] 的内容。
 
 其中：
-- $\Omega$：**拉比频率**（Rabi frequency），由驱动场强度和原子跃迁偶极矩决定，$\Omega = \frac{d \cdot E_0}{\hbar}$ ^1212
+- $\Omega$：**拉比频率**（Rabi frequency），由驱动场强度和原子跃迁偶极矩决定，$\Omega = \frac{d \cdot E_0}{\hbar}$ 
 - $\Delta = \omega_L - \omega_0$：**失谐量**（detuning），激光频率与原子共振频率之差
 
 ### $\Omega$ 到底和什么有关？——光强 vs 频率
@@ -65,8 +112,6 @@ $$
 $$
 
 **拉比频率正比于光强的平方根**。光强越大 → 电场越强 → 原子被驱动得越快 → 拉比振荡越快。例如光强翻倍（×2），$\Omega$ 增大为原来的 $\sqrt{2} \approx 1.41$ 倍，振荡周期缩短约 30%。
-
-![[rabi_freq_vs_intensity]]
 
 > [!warning] 激光频率 $\omega_L$ 不影响 $\Omega$
 > 激光频率 $\omega_L$ **不出现在 $\Omega$ 的公式里**。它的作用体现在另一个量——失谐量 $\Delta = \omega_L - \omega_0$。
@@ -445,8 +490,7 @@ plt.show()
 > [!tip] 读图要点
 > 共振曲线的核心是“能完全翻转”；失谐曲线的核心是“转得更快但翻不满”。这就是为什么做 $\pi$ 脉冲时必须校准激光频率，而做 [[AC-Stark-Effect|AC Stark]] 相位门时反而故意使用大失谐。
 
-![[rabi_oscillation_detuned]]
-
+![[rabi_oscillation_detuned.png]]
 **完整态演化公式**：初始处于 $\vert g\rangle$ 的系统，在失谐 $\Delta$ 和拉比频率 $\Omega$ 驱动下，$t$ 时刻的态为：
 
 $$
@@ -524,6 +568,7 @@ $$
 
 ## 📝 更新记录
 
+- 2026-08-02: 在 §2 哈密顿量公式后新增"这个哈密顿量是如何作用在二能级原子上的？"小节，用矩阵乘法直观演示对角元（能量）与非对角元（耦合）的作用、薛定谔方程展开与共振例子，替换原"这里哈密顿量由来没懂"占位符。
 - 2026-06-06: [doc-audit] 新增共振与失谐拉比振荡的 Python 可执行图示，解释最大布居转移与广义拉比频率随失谐量的变化。
 - 2026-06-06: 优化文档——添加 3 张 Python 图表（共振振荡、失谐对比、Ω vs 光强），补充 RWA callout，增加 ~6 处内联 wiki-link（Pauli-Matrices、Qubit-State-and-Superposition、Single-Qubit-Gates、Rydberg-Blockade 等）
 - 2026-06-06: 补充 [[Fine-Structure]] 和 [[Hyperfine-Structure]] 全文内联链接（标题、正文、callout 共 ~10 处），以及里德堡态 → [[Rydberg-Blockade]] 内联链接

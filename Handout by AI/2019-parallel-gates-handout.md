@@ -11,8 +11,8 @@ tags:
   - Rydberg
   - Gates
 date: 2026-07-04
-status: WIP
-source: "[[2019-Gates PRL]]"
+status: Evergreen
+source: "[[2019-parallel-gates-handout]]"
 ---
 
 # 🚀 极速起步：中性原子高保真并行纠缠门（2019 PRL）

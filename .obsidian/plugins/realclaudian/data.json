@@ -2,12 +2,12 @@
   "tabManagerState": {
     "openTabs": [
       {
-        "tabId": "tab-1785639604330-jci0a9w",
-        "conversationId": "conv-1781051281692-vcjjkfbi0"
+        "tabId": "tab-1785640341378-u6iifsx",
+        "conversationId": "conv-1785657573381-jxb7dxy4k"
       },
       {
-        "draftModel": "haiku",
-        "tabId": "tab-1785640341378-u6iifsx",
+        "draftModel": "opencode:opencode-go/deepseek-v4-flash",
+        "tabId": "tab-1785658126531-6oongru",
         "conversationId": null
       }
     ],
