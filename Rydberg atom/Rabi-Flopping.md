@@ -12,6 +12,13 @@ comprehension: "vague"
 > 📄 来源文献：[[generall quantum 2026]] · 原始批注见 [p.40](zotero://select/library/items/SL8QGCV5)
 
 > 来源批注：*"Rabi oscillation"* — Bluvstein et al., 2026, p.40
+## 0.个人总结
+1. $$ \hat{H} = \frac{\hbar}{2}\begin{pmatrix} -\Delta & \Omega \\ \Omega^* & \Delta \end{pmatrix} $$
+这个式子是厄米的，有$H=H^\dagger$ 必然有厄米的性质比如说
+- 对角线实数等
+- 对称位置共轭
+2. 然后求解有非谐振的就是写出薛定谔方程去求就行
+3. 谐振最大才能保证能达到$\vert 1 \rangle$，定义出来一个等效拉比频率作为分母影响布居 理论上条件应该是$\vert\Delta\vert \ll \Omega$ [[AC-Stark-Effect|AC Stark 效应]]与蜡笔振荡正好反过来
 
 ## 1. 物理直觉：什么是拉比振荡？
 
