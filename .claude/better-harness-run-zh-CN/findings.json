@@ -1,0 +1,179 @@
+{
+  "summary": {
+    "projectName": "量子计算科研笔记库",
+    "locale": "zh-CN",
+    "modelId": "agent-work-loop-v4",
+    "reportContractVersion": 25,
+    "overview": "本仓库具备详尽的人工可读式代理指令和专门定制的 skill，但这些机制尚未接入自动化验证、依赖管理和变更确认流程。结果是当前工作流仍停留在纯手动阶段：规则存在，却未被强制执行。",
+    "dimensions": [
+      {
+        "id": "task-understanding",
+        "label": "任务理解",
+        "score": 68,
+        "summary": "AGENTS.md 与 CLAUDE.md 给出了清晰的仓库规范，但双文件同步规则以及 skill 名称/文件名不一致，造成了权威来源的歧义。",
+        "findingRefs": [
+          "skill-filename-casing-inconsistency",
+          "twin-rule-files-manual-sync"
+        ]
+      },
+      {
+        "id": "controlled-execution",
+        "label": "可控执行",
+        "score": 52,
+        "summary": "资源脚本存在，但缺少依赖清单、doctor 命令或文档化的重置路径；同时 skill 目录存在大小写不一致。",
+        "findingRefs": [
+          "no-automated-validation-gates",
+          "asset-scripts-write-without-verification",
+          "skill-filename-casing-inconsistency"
+        ]
+      },
+      {
+        "id": "change-validation",
+        "label": "改动验证",
+        "score": 42,
+        "summary": "doc-audit skill 提供了详尽的手动检查清单，但没有自动化测试、CI 或受影响检查路由来验证编辑。",
+        "findingRefs": [
+          "no-automated-validation-gates"
+        ]
+      },
+      {
+        "id": "reliable-delivery",
+        "label": "可靠交付",
+        "score": 38,
+        "summary": "Git 历史存在且工作区干净，但缺少 PR/合并工作流或自动化恢复路径。",
+        "findingRefs": [
+          "asset-scripts-write-without-verification"
+        ]
+      },
+      {
+        "id": "learning-capture",
+        "label": "经验沉淀",
+        "score": 35,
+        "summary": "Skill 已配置，但缺少会话证据表明它们被调用、验证或在后续任务中提升了结果。",
+        "findingRefs": [
+          "twin-rule-files-manual-sync",
+          "long-skills-lack-progressive-references"
+        ]
+      }
+    ],
+    "aiAgentPractice": {
+      "inspectedSurfaces": [
+        "Rules",
+        "Skills"
+      ],
+      "coverageRows": [
+        {
+          "surface": "Rules",
+          "scopes": [
+            "Project"
+          ],
+          "count": 2,
+          "paths": [
+            "AGENTS.md",
+            "CLAUDE.md"
+          ]
+        },
+        {
+          "surface": "Skills",
+          "scopes": [
+            "Project"
+          ],
+          "count": 5,
+          "paths": [
+            ".claude/skills/doc-audit/SKILL.md",
+            ".claude/skills/learning-path/SKILL.md",
+            ".claude/skills/literature_handout/SKILL.md",
+            ".claude/skills/sync-config/SKILL.md",
+            ".claude/skills/zotero-notes/SKILL.md"
+          ]
+        }
+      ]
+    },
+    "assignmentSummaries": []
+  },
+  "findings": [
+    {
+      "id": "no-automated-validation-gates",
+      "title": "绘图管线缺少自动化验证与依赖关卡",
+      "severity": "Medium",
+      "reason": "项目中包含为笔记和讲义生成图表的 Python 脚本，但本次扫描显示 0 个测试文件、0 个 CI 配置、没有 requirements.txt 也没有 pyproject.toml。doc-audit skill 仅提供手动检查清单，因此脚本损坏、依赖缺失或 YAML frontmatter 格式错误都可能被静默提交。代理工作流只能依赖人工触发 skill 和肉眼检查。",
+      "dimensionRefs": [
+        "change-validation",
+        "controlled-execution"
+      ],
+      "aiFixPrompt": "为 Python 绘图管线增加最轻量的自动化关卡，防止静默损坏。创建 requirements.txt 或 pyproject.toml 固定 numpy 与 matplotlib 版本；添加一个轻量 pytest 冒烟测试，导入每个脚本并验证它能生成图句柄而不写文件；将测试绑定到每次提交的 GitHub Action 或本地 pre-commit hook。先从 Rydberg atom/attachments/ 和 Handout by AI/generate_assets.py 开始。",
+      "expectedArtifact": "脚本 + 配置",
+      "expectedOutput": [
+        "一个可一键安装的依赖清单。",
+        "一个当绘图脚本无法运行即失败的聚焦测试。",
+        "一个下一位代理可执行的验证命令。"
+      ]
+    },
+    {
+      "id": "asset-scripts-write-without-verification",
+      "title": "资源生成脚本修改工作区后缺少重置与校验",
+      "severity": "Medium",
+      "reason": "Handout by AI/generate_assets.py 与 Rydberg atom/attachments/*.py 会按硬编码路径向仓库写入 PNG。运行这些脚本即改变工作区，且没有任何检查来确认已提交的 PNG 与生成它们的脚本保持一致。代理可能在重新生成资源后提交，导致仓库中残留陈旧或无关的图片。",
+      "dimensionRefs": [
+        "reliable-delivery",
+        "controlled-execution"
+      ],
+      "aiFixPrompt": "让资源生成脚本变得安全且可验证。添加 --check 或 --dry-run 模式，将生成的 PNG 字节与已提交文件比较，不一致时非零退出；添加 Makefile 或任务脚本，提供 regenerate-assets 与 verify-assets 两个目标；在 AGENTS.md/CLAUDE.md 中记录预期命令，让下一位代理知道何时以及如何运行。",
+      "expectedArtifact": "脚本 + 规则",
+      "expectedOutput": [
+        "一个可确定性重新生成全部仓库资源的命令。",
+        "一个当提交 PNG 与当前脚本不一致即失败的命令。",
+        "项目规则中注明：修改绘图代码后需运行 verify-assets。"
+      ]
+    },
+    {
+      "id": "skill-filename-casing-inconsistency",
+      "title": "Skill 文件命名与项目自身约定不一致",
+      "severity": "Low",
+      "reason": "AGENTS.md 与 CLAUDE.md 规定 skill 文件应命名为 SKILL.md（大写）。然而 daily-research skill 在 .claude/skills/daily-research/ 和 .agents/skills/daily-research/ 中均以 skill.md（小写）存在。此外，literature_handout skill 的文件夹名称与其 YAML frontmatter 中声明的 skill 名称 literature-handout 不一致。这些不一致在区分大小写的文件系统上可能破坏 skill 发现，也使规则集自相矛盾。",
+      "dimensionRefs": [
+        "task-understanding",
+        "controlled-execution"
+      ],
+      "aiFixPrompt": "让所有 skill 文件和文件夹统一符合 SKILL.md 约定以及声明的 skill 名称。将 .claude/skills/daily-research/skill.md 和 .agents/skills/daily-research/skill.md 重命名为 SKILL.md；将 .claude/skills/literature_handout/ 和 .agents/skills/literature_handout/ 文件夹重命名为 literature-handout/，使文件夹与 YAML name 字段一致。然后运行 sync-config skill，确认 .claude/ 与 .agents/ 无漂移。",
+      "expectedArtifact": "重命名 + 规则更新",
+      "expectedOutput": [
+        "每个 skill 文件均命名为 SKILL.md。",
+        "每个 skill 文件夹与 YAML name 字段完全一致。",
+        "sync-config 报告 .claude/ 与 .agents/ 之间无漂移。"
+      ]
+    },
+    {
+      "id": "twin-rule-files-manual-sync",
+      "title": "双份规则文件依赖手动同步",
+      "severity": "Low",
+      "reason": "CLAUDE.md 与 AGENTS.md 自称为仓库规则的两份同步副本，sync-config skill 负责维护二者一致。这种手动双文件模式存在漂移风险：若只更新其中一个文件，不同代理或会话将读到相互矛盾的指令。目前没有自动化检查能阻止这种分歧。",
+      "dimensionRefs": [
+        "task-understanding",
+        "learning-capture"
+      ],
+      "aiFixPrompt": "用单一事实来源取代手动双文件同步。要么让 AGENTS.md 成为一行指向 CLAUDE.md 的重定向（或反过来），要么添加 CI/pre-commit 检查，当两份文件不一致时直接失败。如果必须同时保留两者，请用一个脚本从其中一份生成另一份，并在规则中记录该构建步骤。",
+      "expectedArtifact": "规则 + 检查",
+      "expectedOutput": [
+        "一份权威规则文件，或一份带文档化构建步骤的生成文件。",
+        "当两份文件不同步时即失败的检查。"
+      ]
+    },
+    {
+      "id": "long-skills-lack-progressive-references",
+      "title": "长 skill 缺少渐进式引用拆分",
+      "severity": "Low",
+      "reason": "lint 包标记 doc-audit（503 行）、learning-path（263 行）、literature_handout（314 行）、sync-config（351 行）和 zotero-notes（250 行）均没有本地 Markdown 引用。单文件 skill 长度过大会增加维护负担，也不利于高效加载到上下文。其中 doc-audit 尤其超过硬上限阈值，是整个 lint 包中唯一的 warning。",
+      "dimensionRefs": [
+        "learning-capture"
+      ],
+      "aiFixPrompt": "将最长的 skill 重构为 SKILL.md 入口 + 本地参考文档。对 doc-audit，把详细的 10 步检查清单抽取到 references/checklist.md，SKILL.md 只保留触发条件、作用域和调用说明；对 sync-config 与 literature-handout 做同样处理。确保抽出的参考文档位于同一 skill 文件夹内，并用相对 Markdown 链接引用。",
+      "expectedArtifact": "重构后的 skill",
+      "expectedOutput": [
+        "每个 SKILL.md 控制在 200 行以内。",
+        "详细流程放在同目录下的兄弟 .md 文件中，并从 SKILL.md 引用。",
+        "Skill 触发条件与预期产物仍然清晰可发现。"
+      ]
+    }
+  ]
+}

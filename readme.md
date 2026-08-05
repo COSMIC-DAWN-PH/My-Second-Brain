@@ -15,7 +15,7 @@
 | **`Daily Notes/`** | 日度科研进展与随笔日记 | 记录你每天的实验想法、文献学习进度，同时是 AI **科研日常追踪技能（daily-research）** 自动追加或更新写入的目的地。 |
 | **`Handout by AI/`** | AI 辅助研读学术讲义区 | 存放 AI 为你量身定制的顶级论文导读讲义（如 [start_up.md](file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/Handout%20by%20AI/start_up.md)）及与其配套的 200 DPI 科学仿真插图。 |
 | **`tools/`** | 模板与本地脚本工具区 | 包含 `Zotero_Template.md`（Zotero 导入排版标准模板）和用于提取 PDF 批注的底层可执行程序。 |
-| **`.agents/skills/`** | 针对本笔记库的**私有 AI 技能库** | 包含 [zotero-notes](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/zotero-notes/SKILL.md) 与 [daily-research](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/daily-research/skill.md) 技能。 |
+| **`.agents/skills/`** | 针对本笔记库的**私有 AI 技能库** | 包含 [zotero-notes](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/zotero-notes/SKILL.md) 与 [daily-research](file:///c:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/.agents/skills/daily-research/SKILL.md) 技能。 |
 | **`AGENTS.md`** | **AI 助理的行为法则与笔记规范宪章** | 任何进入本仓库的 AI 编码助手必须阅读的第一文件，规定了文件命名、LaTeX 语法、双链书写以及 Python 绘图的防报错规则。 |
 | **`readme.md`** | 仓库主页与使用指南（当前文件） | 仓库的整体导航与协作指引。 |
 

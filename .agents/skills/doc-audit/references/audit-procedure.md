@@ -1,0 +1,389 @@
+<!-- doc-audit 完整审查流程（从 SKILL.md 拆分）——SKILL.md 会在执行时要求先读取本文件。-->
+# doc-audit 审查与修复流程（完整版）
+
+本文件由 doc-audit 的 SKILL.md 引用，包含前置准备、10 项审查、自动修复与自检清单的完整细节。
+
+---
+
+## 2. 前置准备
+
+### Step 0：加载上下文
+
+**0.1 读取用户画像**
+
+读取 `.agents/memory/user_profile.json`，了解用户学术阶段和物理背景，用于判断解释深度是否合适。
+
+**0.2 扫描 vault 已有笔记索引**
+
+扫描 `Rydberg atom/` 下所有 `.md` 文件，建立「已有概念索引」：
+- 文件名（即概念英文名）
+- YAML `aliases`（中英文别名）
+- YAML `status`（Draft / WIP / Evergreen / Archive）
+- YAML `comprehension`（理解程度，仅供读取参考，不得修改）
+
+**0.3 扫描讲义索引**
+
+扫描 `Handout by AI/` 下所有 `.md` 文件，了解哪些讲义已存在、对应哪些论文。
+
+**0.4 扫描文献笔记索引**
+
+扫描 `Literature/` 下所有 `.md` 文件的文件名和 `aliases`，用于交叉引用检查。
+
+**输出**：内存中的三个索引表——概念索引、讲义索引、文献索引。后续所有检查基于这三个索引执行。
+
+---
+
+## 3. 审查流程
+
+对目标文档执行以下 **10 项系统性检查**，每项检查独立编号，结果记录在审查报告中。
+
+### Step 1：读取目标文档
+
+用 `Read` 工具读取目标文档**全文**（不指定 limit），确保完整覆盖。
+
+---
+
+### Step 2：YAML Frontmatter 检查（R01）
+
+检查 frontmatter 是否包含所有必需字段：
+
+| 字段 | 知识笔记必需 | 讲义必需 | 说明 |
+|------|:-----------:|:-------:|------|
+| `aliases` | ✅ | ✅ | 中英文别名，用于 Obsidian 搜索 |
+| `tags` | ✅ | ✅ | 标签列表 |
+| `date` | ✅ | ✅ | 创建日期 `YYYY-MM-DD` |
+| `status` | ✅ | ✅ | Draft / WIP / Evergreen / Archive |
+| `source` | ✅ | ✅ | 来源文献的 `[[wiki-link]]` |
+| `comprehension` | ✅ | ❌ | 仅知识笔记需要。**⛔ AI 禁止修改此字段** |
+
+**检查要点**：
+- 字段值格式是否正确（如日期格式、status 枚举值）
+- `source` 是否使用 `[[wiki-link]]` 格式而非纯文本
+- `aliases` 是否包含中文别名
+- `tags` 是否包含 `[Physics, Quantum]` 基础标签
+
+**不合规处理**：列出缺失/格式错误的字段，给出修复建议。不自动修改 `comprehension`。
+
+---
+
+### Step 3：Wiki-Link 完整性检查（R02）
+
+这是本技能的**核心检查项**。
+
+**3.1 扫描文档中的所有物理概念**
+
+遍历文档全文，识别以下类别的概念：
+- 专有名词（如"里德堡阻塞"、"拉比振荡"、"CZ 门"、"表面码"）
+- 物理量（如"拉比频率"、"失谐量"、"阻塞半径"）
+- 方法/技术（如"绝热消去"、"旋转波近似"、"表象变换"）
+- 引用的其他笔记（如"你在 XXX 中学过..."）
+
+**3.2 对照概念索引**
+
+对每个识别出的概念，检查：
+1. 是否已有 `[[wiki-link]]` 指向 vault 中的对应笔记？
+2. 如果 vault 中存在对应笔记但文档中没有链接 → **标记为"需补链"**
+3. 如果 vault 中不存在对应笔记 → **标记为"需新建笔记"或"已知新概念"**
+4. 如果文档中有 `[[wiki-link]]` 但指向不存在的文件 → **标记为"断链"**
+
+**3.3 Wiki-Link 语法检查**
+
+对已有的 wiki-link，检查格式合规性：
+
+| 规则 | ✅ 正确 | ❌ 错误 |
+|------|---------|---------|
+| 不用反包裹 | `[[Rydberg-Blockade]]` | `` `[[Rydberg-Blockade]]` `` |
+| 中文显示名 | `[[Rydberg-Blockade\|里德堡阻塞]]` | `[[里德堡阻塞 (Rydberg Blockade)]]` |
+| 表格内转义管道符 | `[[Rydberg-Blockade\|里德堡阻塞]]` | `[[Rydberg-Blockade|里德堡阻塞]]` |
+| 章节链接 | `[[Rabi-Flopping#Step 3\|推导]]` | `[推导](#step-3)` |
+| 章节显示文字含标题 | `[[CZ-Gate#5. 在 Rydberg 体系中的实现\|CZ-Gate §5 Rydberg 实现]]` | `[[CZ-Gate#5. 在 Rydberg 体系中的实现\|§5]]` |
+
+**⚠️ 章节链接显示文字审查要点**：当链接格式为 `[[File#章节标题|§N]]` 且显示文字仅为纯编号（如 `§4`、`§5.2`）时，必须标记为不合规。正确格式为 `文件名 §N 标题关键词`（如 `Hyperfine-Structure §4 Clock State 编码`、`start_up §2.3 暗态物理学`），让读者不用 hover 就能知道目标知识点属于哪篇文章。
+
+**输出**：
+- `需补链` 概念列表（含建议的 `[[目标笔记名]]` 格式）
+- `断链` 列表
+- `建议新建笔记` 列表
+
+---
+
+### Step 4：LaTeX 公式格式检查（R03）
+
+**4.1 公式环境**
+
+| 规则 | ✅ 正确 | ❌ 错误 |
+|------|---------|---------|
+| 行内公式 | `$\Omega$` | `\\( \Omega \\)` |
+| 独立公式块 | `$$...$$` | `\begin{equation}...\end{equation}` |
+| 不用 equation 环境 | `$$\hat{H} = ...$$` | `\begin{equation}\hat{H} = ...\end{equation}` |
+
+**4.2 表格中的 LaTeX 特殊字符**
+
+| 规则 | ✅ 正确 | ❌ 错误 |
+|------|---------|---------|
+| 表格中的竖线用 `\vert` | `$\vert 0\rangle$` | `$\|0\rangle$` |
+| 正常段落可用 `\|` | `$\|0\rangle$`（段落中 OK） | — |
+
+**4.3 LaTeX 大括号与 f-string 冲突**
+
+在 Python 代码块中检查：
+- f-string 中的 LaTeX 大括号是否用 `{{}}` 转义
+- 是否使用 raw string `r'...'` 避免转义问题
+
+**输出**：列出所有不合规的公式位置和修复建议。
+
+---
+
+### Step 5：表格格式检查（R04）
+
+**5.1 Markdown 表格中的 LaTeX**
+
+扫描所有 `| ... |` 表格行，检查：
+- 是否有 `$|0\rangle$` 这种会被解析器误识别为列分隔符的写法
+- 应替换为 `$\vert 0\rangle$`
+
+**5.2 核心公式摘要表**
+
+检查文档末尾是否有 `## 📐 核心公式摘要` 表格，格式为：
+
+```markdown
+| 符号 | 物理含义 | 理论公式 / 数值 |
+|---|---|---|
+| $\Omega_{\mathrm{eff}}$ | 有效拉比频率 | $\Omega_{\mathrm{eff}} \approx \frac{\Omega_b \Omega_r}{2\Delta}$ |
+```
+
+- 三列：符号 / 含义 / 公式
+- 每个核心物理量是否都已收录
+
+---
+
+### Step 6：Obsidian Callout 使用检查（R05）
+
+检查文档是否合理使用了 Obsidian Callout 标注框：
+
+| Callout 类型 | 应出现的场景 |
+|-------------|------------|
+| `> [!tip]` | 物理直觉、记忆技巧、核心类比 |
+| `> [!warning]` | 易错点、边界条件、常见误解 |
+| `> [!info]` | 补充背景知识、前置知识回顾 |
+| `> [!danger]` | 严重错误警告 |
+| `> [!question]` | 值得深思的问题 |
+| `> [!example]` | 典型应用实例 |
+
+**检查要点**：
+- 每个重要公式/概念推导前是否有物理直觉 callout
+- 易错点是否有 `> [!warning]` 标注
+- 如果整篇文档没有使用任何 callout → 标记为"建议增加 callout"并给出具体位置建议
+
+---
+
+### Step 7：可读性标准检查（R06）
+
+检查文档是否满足 CLAUDE.md 的可读性标准：
+
+| 检查项 | 标准 | 判定方法 |
+|--------|------|---------|
+| 物理图像先行 | 每个概念先用直觉/类比解释，再进入数学 | 检查公式前是否有文字解释或 callout |
+| 数学推导完整 | 公式不跳步，每步有说明 | 检查推导段落是否有"为什么可以这样做"的解释 |
+| 自包含可理解 | 笔记内部能独立理解 | 检查是否有未解释就使用的符号或概念 |
+| 联系实际 | 说明在中性原子量子计算中的应用 | 检查是否有"在实验中..."、"论文中..."等关联 |
+| 英文术语标注 | 关键名词首次出现附英文 | 通读全文，检查每个物理概念首次出现处 |
+
+**输出**：逐项列出不达标的位置和改进建议。
+
+---
+
+### Step 8：Python 可视化审查（R07）
+
+这是本技能的**另一个核心检查项**。
+
+**8.1 已有代码块合规性检查**
+
+对文档中已有的 Python 代码块，逐项检查：
+
+| 检查项 | 标准 | 判定方法 |
+|--------|------|---------|
+| 全英文标签 | title/xlabel/ylabel/legend/annotation 无 CJK | 扫描 `plt.` 和 `ax.` 调用 |
+| `plt.tight_layout()` | 必须存在 | 扫描代码块 |
+| 无框图例 | `legend(frameon=False)` | 扫描 `legend` 调用 |
+| 网格线 | `plt.grid(alpha=0.3, ls=':')` | 扫描代码块 |
+| 配色方案 | 使用 `#1f77b4`, `#ff7f0e`, `#2ca02c`, `#d62728` | 扫描 `color` 参数 |
+| LaTeX raw string | `r'...'` 格式 | 扫描 LaTeX 标签 |
+
+**8.2 缺失可视化检测**
+
+识别文档中以下适合可视化但**没有**配图的概念：
+
+| 物理概念类型 | 建议图表类型 |
+|------------|------------|
+| 随时间演化的物理量（拉比振荡、退相干） | 折线图：横轴时间，纵轴概率/幅度 |
+| 参数依赖关系（$\Omega$ vs 光强、$V(r)$ vs 距离） | 折线图 + 标注关键参数点 |
+| 能级结构 / 能量分裂 | 能级图（水平线 + 箭头标注） |
+| 门保真度随参数变化 | 折线图 + 阈值线 |
+| 布洛赫球态演化 | 引用 `tools/bloch_sphere.html` iframe |
+| 脉冲波形（振幅/相位 vs 时间） | 双面板子图 |
+| 概率分布 / 统计数据 | 柱状图 / 饼图 |
+
+**8.3 图表生成流程（Obsidian Execute Code 优先）**
+
+对每个需要补图的概念：
+
+1. **确定图表类型和数据**：从文档中的公式和参数提取
+2. **编写 Python 代码块**：在笔记对应位置插入 Python 代码块，严格遵循 CJK-Warning-Free 规范
+3. **默认保留可执行代码**：以 `plt.show()` 结尾，配合 Obsidian Execute Code 插件实时渲染；**不要默认保存 PNG、不要默认插入 `![[...png]]` 图片嵌入**
+4. **语法验证**：写入前至少用 `ast.parse` 检查代码块语法；必要时可临时运行代码验证，但不要把临时输出图像作为 vault 资产保存
+5. **例外情况**：只有当用户明确要求“导出图片 / 保存 PNG / 生成静态图像资产 / 嵌入图片文件”时，才生成 PNG 并插入 `![[...png]]`
+
+---
+
+
+**8.4 Interactive HTML / iframe encoding and rendering check**
+
+When a document contains or adds `<iframe>` / `tools/*.html` dynamic explanations, audit encoding and symbol rendering in addition to the iframe path.
+
+| Check item | Required standard | Common failure |
+|--------|------|---------|
+| UTF-8 declaration | HTML `<head>` contains `<meta charset="UTF-8">` | Missing charset; Chinese text, Greek letters, or math symbols render as `?` |
+| iframe path | Use absolute `file:///` URL; encode spaces in Windows paths as `%20` | Raw Windows path or unencoded spaces |
+| Fragile symbols | Prefer `&pi;`, `&minus;`, `&rarr;` for pi/minus/arrow; final phase may use ASCII `-1` | A pi-pulse label renders as `? pulse`; a minus-one phase renders as `?1` |
+| HTML UI text | Use stable English/ASCII for visible UI text and JavaScript-generated labels unless Chinese rendering is explicitly verified | Chinese UI text or pi/minus symbols become `?`; bad patterns include `? pulse`, `?1`, `2?`, `reverse ?`, `??` |
+| Dynamic DOM text | JavaScript-generated labels/explanations/table cells must also use HTML entities or ASCII fallback | Static HTML looks fine, but JS updates create `?` |
+| Verification | Search generated HTML for mojibake patterns: `? pulse`, `?1`, `2?`, `reverse ?`; if needed, inspect the Obsidian iframe preview | Only checking source structure without checking rendered text |
+| Fallback requirement | Every interactive HTML explanation must have a stable Python or Markdown fallback nearby; if iframe rendering is poor, replace the iframe with the fallback | A note depends only on a broken iframe, making the section unusable |
+
+Repair principle: do not convert the note body to English to avoid encoding issues. Keep explanatory note text in Chinese when appropriate; fix fragile HTML/JS symbols with entities or ASCII fallback.
+
+### Step 9：文档结构检查（R08）
+
+**9.1 知识笔记结构**
+
+检查 `Rydberg atom/` 笔记是否符合标准结构：
+
+1. YAML frontmatter（Step 2 已检查）
+2. 块引用来源标注：`> 📄 来源文献：[[...]]`
+3. 物理直觉先行（Step 7 已检查）
+4. Obsidian Callouts（Step 6 已检查）
+5. 完整数学推导
+6. `## 📐 核心公式摘要` 表格（Step 5 已检查）
+7. Wiki-link 交叉引用（Step 3 已检查）
+8. `## 📝 更新记录` 时间线
+
+**9.2 讲义结构**
+
+检查 `Handout by AI/` 讲义是否符合标准结构：
+
+1. 讲义目标说明（`> **讲义目标**：...`）
+2. 目录使用 `[[#章节标题]]` 格式（无 `{#anchor-N}` 残留）
+3. 中英双语术语标注
+4. Python 可视化代码块
+5. `## 💡 新知识点补全提醒` 区块
+6. `## 📐 核心公式摘要` 表格
+
+**9.3 双向链接完整性（知识笔记 ↔ 文献笔记）**
+
+- 知识笔记 frontmatter 含 `source: "[[文献笔记]]"`
+- 知识笔记正文含来源引用行
+- 对应文献笔记的 `## 📑 知识点索引` 表格是否包含此知识笔记
+
+---
+
+### Step 10：Block Reference 检查（R09）
+
+检查知识笔记中的学习进度标记：
+
+- `^YYMMDD` 标记（表示"在此日期前已学懂"）
+- `^nuYYMMDD` 标记（表示"在此日期前没学懂"）
+- 确保标记位于段落末尾（规范位置）
+- 区间语义是否清晰（`^已学` → `^没懂` → `^已学` 交替）
+
+> **⛔ AI 禁令**：不得修改、新增或删除 block reference 标记。仅报告当前状态供参考。
+
+---
+
+---
+
+## 5. 自动修复流程
+
+审查报告输出后，等待用户确认再执行修复。修复顺序：
+
+### Step 11：修复 YAML Frontmatter
+
+补齐缺失字段，修正格式错误。**不修改 `comprehension` 字段**。
+
+### Step 12：补全 Wiki-Link
+
+对每个 `需补链` 的概念：
+1. 确认目标笔记在概念索引中存在
+2. 在概念首次出现处添加 `[[English-Name]]` 或 `[[English-Name|中文显示名]]`
+3. 如果在表格中使用，转义管道符：`[[English-Name\|中文显示名]]`
+
+对每个 `断链`：
+1. 如果目标笔记在 vault 中存在但文件名不匹配 → 修正链接
+2. 如果目标笔记不存在 → 标记为 `需新建笔记`，暂不创建
+
+### Step 13：生成/修复 Python 图表
+
+对每个缺失的可视化：
+1. 从文档公式和参数中提取数据
+2. 在文档中编写/插入 matplotlib Python 代码块（全英文标签，CJK-Warning-Free）
+3. 默认使用 `plt.show()` 让 Obsidian Execute Code 实时渲染；**不要默认生成 PNG 文件，也不要默认插入 `![[...png]]` 图片嵌入**
+4. 写入前用 `ast.parse` 做语法检查；仅在用户明确要求静态图像资产时才保存 PNG
+
+对每个不合规的已有代码块：
+1. 修正标签语言（中文 → 英文）
+2. 补充缺失的 `plt.tight_layout()` / `plt.grid()` / `legend(frameon=False)`
+3. 修正配色方案
+4. 修正 LaTeX label 的 raw string / f-string 大括号转义问题
+
+If the user explicitly asks for "dynamic explanation / interactive figure / HTML / iframe", or a static Python figure cannot clearly explain a step-by-step process:
+1. Create a standalone HTML file under `tools/`, then embed it with an absolute `file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/tools/xxx.html` iframe.
+2. The HTML file must include `<meta charset="UTF-8">`.
+3. In HTML/JavaScript strings, write pi/minus/arrow as `&pi;`, `&minus;`, `&rarr;` or use ASCII fallback such as `-1`.
+4. After writing the file, search and fix mojibake patterns such as `? pulse`, `?1`, `2?`, `reverse ?`, and `??`. These patterns must be absent before reporting completion.
+5. If the iframe is cramped, visually confusing, has nested scrolling problems, or loses important controls, keep fixing the HTML layout until usable. Do not silently replace requested HTML with Python only; keep Python fallback only as backup.
+
+### Step 14：修复格式问题
+
+- 修正 LaTeX 环境（`\begin{equation}` → `$$`）
+- 修正表格中的 `$|0\rangle$` → `$\vert 0\rangle$`
+- 添加缺失的 callout 标注
+- 补充缺失的英文术语注释
+
+### Step 15：追加更新记录
+
+在文档末尾的 `## 📝 更新记录` 区块追加本次审查的修改摘要：
+
+```markdown
+## 📝 更新记录
+
+- ...（已有记录）
+- YYYY-MM-DD: [doc-audit] 格式审查与增强
+  - 补全 N 处 wiki-link（概念列表）
+  - 新增/修复 M 个 Python 图表代码块
+  - 修复 K 处 LaTeX 格式问题
+  - 补充 J 处英文术语标注
+```
+
+---
+
+## 6. 质量检查清单（审查者自检）
+
+执行审查前自检：
+- [ ] 已读取 `.agents/memory/user_profile.json`
+- [ ] 已扫描 `Rydberg atom/` 建立概念索引
+- [ ] 已扫描 `Handout by AI/` 建立讲义索引
+- [ ] 已扫描 `Literature/` 建立文献索引
+
+审查完成后自检：
+- [ ] 所有 9 项检查（R01–R09）已执行
+- [ ] 审查报告已按模板输出
+- [ ] 所有 wiki-link 指向真实存在的笔记文件
+- [ ] 所有 Python 代码块符合 CJK-Warning-Free 规范
+- [ ] All Interactive HTML/iframe files include UTF-8 charset, use correct `file:///` paths, and do not render pi/minus/arrow symbols as `?`.
+- [ ] Generated HTML UI text uses stable English/ASCII or verified-safe entities, and contains none of `? pulse`, `?1`, `2?`, `reverse ?`, `??`.
+- [ ] If the user requested HTML, the HTML has been fixed until usable; Python/Markdown fallback is backup only, not a substitute.
+- [ ] 所有 LaTeX 公式使用 `$$...$$` 而非 `\begin{equation}`
+- [ ] 所有表格中的竖线使用 `\vert` 而非 `|`
+- [ ] `comprehension` 字段未被修改
+- [ ] 更新记录已追加
+

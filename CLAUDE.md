@@ -25,6 +25,7 @@ Before generating any physics content, **read** `.agents/memory/user_profile.jso
 ### Naming & Syntax Rules
 
 - **File names**: Always `English-Name.md` (Chinese aliases go in YAML `aliases` field)
+- **Skill 文件命名**: 所有 skill 定义文件统一命名为 `SKILL.md`（全大写），skill 文件夹名必须与 YAML frontmatter 的 `name` 字段完全一致（如 `literature-handout/` ↔ `name: literature-handout`）
 - **Wiki-links**: `[[English-Name]]` or `[[English-Name|中文显示名]]` — NEVER wrap in backticks (breaks Obsidian indexing)
 - **Wiki-links inside Markdown tables**: Escape display pipes as `[[English-Name\|中文显示名]]`; otherwise the `|` breaks table columns. Normal paragraphs can use `[[English-Name|中文显示名]]`.
 - **链接到具体章节**：`[[English-Name#章节标题]]` — 点击后直接跳转到目标笔记的对应章节。章节标题必须与笔记中的 `##` / `###` 标题文字完全一致。示例：`[[2023-parallel-gates-handout#6. 核心创新一：时间最优单脉冲门]]`
@@ -183,6 +184,17 @@ All charts use **Python + matplotlib** (no Mermaid). Key rules:
 - **自包含与高颜值**：图表应具备极高美感，能够独立说明问题。
 
 > 本 vault 不再使用 Mermaid 图表，所有数据图均由 Python 生成。
+
+### 资产与校验命令（Asset & Validation Commands）
+
+所有命令在仓库根目录运行。首次使用先安装依赖：`python -m pip install -r requirements.txt`。
+
+| 命令 | 作用 |
+|------|------|
+| `python tools/tasks.py test` | 运行绘图管线冒烟测试（只验证脚本能画出图，不写任何文件） |
+| `python tools/tasks.py verify-assets` | 只读校验：把每个绘图脚本重跑进临时目录，与已提交 PNG 逐字节比对；有资源过期或缺失时退出码非 0。**修改绘图代码后必须运行此命令** |
+| `python tools/tasks.py regenerate-assets` | 就地重新生成全部绘图资源（会写入 PNG，改变工作区） |
+| `python tools/tasks.py check-rules-sync` | 检查 AGENTS.md 与 CLAUDE.md 是否在核心规则上漂移；不一致时退出码非 0 |
 
 ### Interactive HTML / iframe
 

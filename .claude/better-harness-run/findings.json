@@ -1,0 +1,179 @@
+{
+  "summary": {
+    "projectName": "Quantum Computing Research Vault",
+    "locale": "en",
+    "modelId": "agent-work-loop-v4",
+    "reportContractVersion": 25,
+    "overview": "The vault has thorough human-readable agent instructions and purpose-built skills, but those mechanisms are not wired into automated validation, dependency management, or change acceptance. The result is a manual-only workflow where rules exist but are not enforced.",
+    "dimensions": [
+      {
+        "id": "task-understanding",
+        "label": "Task Understanding",
+        "score": 68,
+        "summary": "AGENTS.md and CLAUDE.md give clear vault conventions, but the twin-file sync rule and skill-name/filename inconsistencies create ambiguity about the authoritative source.",
+        "findingRefs": [
+          "skill-filename-casing-inconsistency",
+          "twin-rule-files-manual-sync"
+        ]
+      },
+      {
+        "id": "controlled-execution",
+        "label": "Controlled Execution",
+        "score": 52,
+        "summary": "Asset scripts exist, yet there is no dependency manifest, doctor command, or documented reset path, and the skill tree has a casing mismatch.",
+        "findingRefs": [
+          "no-automated-validation-gates",
+          "asset-scripts-write-without-verification",
+          "skill-filename-casing-inconsistency"
+        ]
+      },
+      {
+        "id": "change-validation",
+        "label": "Change Validation",
+        "score": 42,
+        "summary": "The doc-audit skill supplies a thorough manual checklist, but no automated tests, CI, or affected-check routing verify edits.",
+        "findingRefs": [
+          "no-automated-validation-gates"
+        ]
+      },
+      {
+        "id": "reliable-delivery",
+        "label": "Reliable Delivery",
+        "score": 38,
+        "summary": "Git history is present and the working tree is clean, but there is no PR/merge workflow or automated recovery path.",
+        "findingRefs": [
+          "asset-scripts-write-without-verification"
+        ]
+      },
+      {
+        "id": "learning-capture",
+        "label": "Learning Capture",
+        "score": 35,
+        "summary": "Skills are configured, but no session evidence is available to show they are invoked, validated, or improving later outcomes.",
+        "findingRefs": [
+          "twin-rule-files-manual-sync",
+          "long-skills-lack-progressive-references"
+        ]
+      }
+    ],
+    "aiAgentPractice": {
+      "inspectedSurfaces": [
+        "Rules",
+        "Skills"
+      ],
+      "coverageRows": [
+        {
+          "surface": "Rules",
+          "scopes": [
+            "Project"
+          ],
+          "count": 2,
+          "paths": [
+            "AGENTS.md",
+            "CLAUDE.md"
+          ]
+        },
+        {
+          "surface": "Skills",
+          "scopes": [
+            "Project"
+          ],
+          "count": 5,
+          "paths": [
+            ".claude/skills/doc-audit/SKILL.md",
+            ".claude/skills/learning-path/SKILL.md",
+            ".claude/skills/literature_handout/SKILL.md",
+            ".claude/skills/sync-config/SKILL.md",
+            ".claude/skills/zotero-notes/SKILL.md"
+          ]
+        }
+      ]
+    },
+    "assignmentSummaries": []
+  },
+  "findings": [
+    {
+      "id": "no-automated-validation-gates",
+      "title": "No automated validation or dependency gates protect the plotting pipeline",
+      "severity": "Medium",
+      "reason": "The project contains Python scripts that generate figures for notes and handouts, but the bundle shows 0 test files, 0 CI configuration, no requirements.txt, and no pyproject.toml. The doc-audit skill provides a manual checklist, so a broken script, missing dependency, or malformed YAML frontmatter can be committed without any mechanical signal. This leaves the agent workflow dependent on human-triggered skills and visual inspection.",
+      "dimensionRefs": [
+        "change-validation",
+        "controlled-execution"
+      ],
+      "aiFixPrompt": "Add the smallest automated gate that prevents silent breakage in the Python plotting pipeline. Create a requirements.txt or pyproject.toml pinning numpy and matplotlib, add a lightweight pytest smoke test that imports each script and checks it can produce a figure handle without writing files, and wire the test to run on each commit via a GitHub Action or local pre-commit hook. Start with the scripts in Rydberg atom/attachments/ and Handout by AI/generate_assets.py.",
+      "expectedArtifact": "Script + Config",
+      "expectedOutput": [
+        "A dependency manifest that an agent can install in one command.",
+        "A focused test that fails when a plotting script cannot run.",
+        "A documented command the next agent can run to verify the pipeline."
+      ]
+    },
+    {
+      "id": "asset-scripts-write-without-verification",
+      "title": "Asset-generation scripts mutate the working tree without reset or verification",
+      "severity": "Medium",
+      "reason": "Handout by AI/generate_assets.py and the Rydberg atom/attachments/*.py scripts write PNG outputs into the repository at hard-coded paths. Running them changes the working tree, and there is no check that the committed PNGs are current with the scripts that produced them. An agent could regenerate assets, commit, and leave stale or unrelated images in the vault.",
+      "dimensionRefs": [
+        "reliable-delivery",
+        "controlled-execution"
+      ],
+      "aiFixPrompt": "Make the asset-generation scripts safe and verifiable. Add a --check or --dry-run mode that compares the generated PNG bytes against the committed files and exits non-zero on mismatch, add a Makefile or task script with a 'regenerate-assets' target and a 'verify-assets' target, and document the expected command in AGENTS.md/CLAUDE.md so the next agent knows when and how to run it.",
+      "expectedArtifact": "Script + Rule",
+      "expectedOutput": [
+        "A command that regenerates all vault assets deterministically.",
+        "A command that fails if committed PNGs do not match the current scripts.",
+        "A note in the project rules telling agents to run verify-assets after changing plotting code."
+      ]
+    },
+    {
+      "id": "skill-filename-casing-inconsistency",
+      "title": "Skill file naming is inconsistent with the project's own convention",
+      "severity": "Low",
+      "reason": "AGENTS.md and CLAUDE.md state that skill files are named SKILL.md (uppercase). The daily-research skill, however, exists as skill.md (lowercase) in both .claude/skills/daily-research/ and .agents/skills/daily-research/. In addition, the literature_handout skill folder does not match the skill name literature-handout declared in its YAML frontmatter. These inconsistencies can break skill discovery on case-sensitive filesystems and make the rule set self-contradictory.",
+      "dimensionRefs": [
+        "task-understanding",
+        "controlled-execution"
+      ],
+      "aiFixPrompt": "Align every skill file and folder with the SKILL.md convention and the declared skill name. Rename .claude/skills/daily-research/skill.md and .agents/skills/daily-research/skill.md to SKILL.md. Rename the .claude/skills/literature_handout/ and .agents/skills/literature_handout/ folders to literature-handout/ so the folder matches the YAML name field. Run the sync-config skill to verify .claude/ and .agents/ remain mirrors.",
+      "expectedArtifact": "Rename + Rule update",
+      "expectedOutput": [
+        "Every skill file is named SKILL.md.",
+        "Every skill folder matches the YAML name field exactly.",
+        "sync-config reports no drift between .claude/ and .agents/."
+      ]
+    },
+    {
+      "id": "twin-rule-files-manual-sync",
+      "title": "Twin rule files require manual synchronization",
+      "severity": "Low",
+      "reason": "CLAUDE.md and AGENTS.md declare themselves as synchronized duplicate copies of vault rules, and the sync-config skill is responsible for keeping them consistent. This manual twin-file pattern is a drift risk: if one file is updated without the other, different agents or sessions will read contradictory instructions. No automated check currently blocks such divergence.",
+      "dimensionRefs": [
+        "task-understanding",
+        "learning-capture"
+      ],
+      "aiFixPrompt": "Replace the manual dual-file sync with a single source of truth. Either keep AGENTS.md as a one-line redirect to CLAUDE.md (or vice versa), or add a CI/pre-commit check that fails if the two files differ. If both files must remain for compatibility, generate one from the other with a small script and document the build step in the rules.",
+      "expectedArtifact": "Rule + Check",
+      "expectedOutput": [
+        "One canonical rule file, or a generated second file with a documented build step.",
+        "A check that fails when the two files are out of sync."
+      ]
+    },
+    {
+      "id": "long-skills-lack-progressive-references",
+      "title": "Long skills lack progressive references",
+      "severity": "Low",
+      "reason": "The lint envelope flags doc-audit (503 lines), learning-path (263 lines), literature_handout (314 lines), sync-config (351 lines), and zotero-notes (250 lines) as having no local Markdown references. Single-file skills of this length are harder to maintain and load into context efficiently. The doc-audit skill in particular exceeds the hard-cap threshold and is the only warning in the lint envelope.",
+      "dimensionRefs": [
+        "learning-capture"
+      ],
+      "aiFixPrompt": "Refactor the longest skills into a SKILL.md entry point plus local reference documents. For doc-audit, extract the detailed 10-step checklist into references/checklist.md and keep only the trigger, scope, and invocation instructions in SKILL.md. Repeat for sync-config and literature-handout. Ensure the extracted references live in the same skill folder and are linked with relative Markdown links.",
+      "expectedArtifact": "Refactored skills",
+      "expectedOutput": [
+        "Each SKILL.md is under 200 lines.",
+        "Detailed procedures live in sibling .md files referenced by the SKILL.md.",
+        "The skill triggers and expected artifacts remain discoverable."
+      ]
+    }
+  ]
+}

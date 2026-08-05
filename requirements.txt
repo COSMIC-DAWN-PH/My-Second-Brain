@@ -1,0 +1,6 @@
+# Quantum Computing Research Vault — Python dependencies for the plotting pipeline
+# Install once:  python -m pip install -r requirements.txt
+# Run the smoke tests:  python -m pytest tests/ -q
+numpy==2.5.0
+matplotlib==3.11.0
+pytest>=8.0

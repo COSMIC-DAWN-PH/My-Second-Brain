@@ -286,7 +286,7 @@ When creating derivative knowledge notes, use the `zotero-notes` skill (see belo
 |---|---|---|
 | **zotero-notes** | `.agents/skills/zotero-notes/SKILL.md` | Zotero 文献笔记处理：提取批注、生成知识笔记、建立双向链接 |
 | **daily-research** | `.agents/skills/daily-research/SKILL.md` | "总结今天/昨天/这周/过去 N 天", "daily summary", "weekly summary", "research summary", "规划今天" |
-| **literature-handout** | `.agents/skills/literature_handout/SKILL.md` | Paper handout generation |
+| **literature-handout** | `.agents/skills/literature-handout/SKILL.md` | Paper handout generation |
 | **learning-path** | `.agents/skills/learning-path/SKILL.md` | "学习路径", "下一步学什么", "learning path", "学习规划" |
 | **sync-config** | `.agents/skills/sync-config/SKILL.md` | `/sync-config`, "同步配置", "sync agents", "check config drift" |
 | **doc-audit** | `.agents/skills/doc-audit/SKILL.md` | "审核笔记", "检查笔记", "audit note", "升级笔记", "该链接的链接，改画图的画图" |
@@ -332,6 +332,17 @@ plt.show()
 - **Python 代码自检**：写入笔记前至少用 `ast.parse` 检查代码块语法。
 
 > 本 vault 不再使用 Mermaid 图表，所有数据图均由 Python 生成。
+
+## 资产与校验命令（Asset & Validation Commands）
+
+所有命令在仓库根目录运行。首次使用先安装依赖：`python -m pip install -r requirements.txt`。
+
+| 命令 | 作用 |
+|------|------|
+| `python tools/tasks.py test` | 运行绘图管线冒烟测试（只验证脚本能画出图，不写任何文件） |
+| `python tools/tasks.py verify-assets` | 只读校验：把每个绘图脚本重跑进临时目录，与已提交 PNG 逐字节比对；有资源过期或缺失时退出码非 0。**修改绘图代码后必须运行此命令** |
+| `python tools/tasks.py regenerate-assets` | 就地重新生成全部绘图资源（会写入 PNG，改变工作区） |
+| `python tools/tasks.py check-rules-sync` | 检查 AGENTS.md 与 CLAUDE.md 是否在核心规则上漂移；不一致时退出码非 0 |
 
 ## Interactive HTML / iframe
 

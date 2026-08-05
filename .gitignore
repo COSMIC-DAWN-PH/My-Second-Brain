@@ -13,6 +13,11 @@ desktop.ini
 # Temporary files
 tmp/
 
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
 # Claudian plugin — session data is ephemeral
 .claudian/
 
