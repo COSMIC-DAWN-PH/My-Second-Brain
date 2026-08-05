@@ -552,6 +552,20 @@ $$
 > [!info] 为什么 π 脉冲这么重要？
 > π 脉冲（$t = \pi/\Omega$）恰好把原子从 $\vert g\rangle$ 完全翻转到 $\vert e\rangle$——这是实现 X 门（量子 NOT 门）的物理基础。π/2 脉冲则产生等权叠加态 $\vert +\rangle$，是量子并行性的起点。
 
+## 6. 双光子跃迁与有效拉比频率（进阶）
+
+上面讲的都是"一束激光、两个能级"的单光子拉比振荡。但中性原子实验中，里德堡激发通常用**双光子跃迁**：一束蓝光以 $\Omega_1$ 驱动 $\vert 1\rangle \to \vert e\rangle$，一束红光以 $\Omega_2$ 驱动 $\vert e\rangle \to \vert r\rangle$，经中间态 $\vert e\rangle$ 间接到达 [[Rydberg-Blockade|里德堡态]] $\vert r\rangle$。当单光子失谐 $\Delta$ 远大于激光强度（$\Delta \gg \Omega_1, \Omega_2$）时，中间态被**绝热消去**，三能级系统约化为 $\{\vert 1\rangle, \vert r\rangle\}$ 的有效二能级系统，其有效拉比频率为：
+
+$$
+\boxed{\Omega_{\mathrm{eff}} \approx \frac{\Omega_1 \Omega_2}{2\Delta}}
+$$
+
+> [!tip] 物理直觉
+> 中间态 $\vert e\rangle$ 就像"中转站"：有效驱动强度由两束激光**共同贡献**（$\Omega_{\mathrm{eff}} \propto \Omega_1 \Omega_2$），而失谐 $\Delta$ 越大、中转站越"够不着"，有效驱动越弱（$\Omega_{\mathrm{eff}} \propto 1/\Delta$）——这正是"速度 vs 纯度"两难困境的一端。
+
+> [!info] 完整推导
+> 从三能级 Hamiltonian 出发的逐步推导、数值例子与暗态物理，见 [[start_up#2. 双光子跃迁与中间态消去|start_up §2.2 双光子跃迁与中间态消去]]。
+
 ---
 
 ## 📐 核心公式摘要
@@ -561,6 +575,7 @@ $$
 - **$\tilde{\Omega}$**：广义拉比频率 — $\tilde{\Omega} = \sqrt{\Omega^2 + \Delta^2}$
 - **$P_{\vert 1\rangle}(t)$**：跃迁概率（共振） — $\sin^2(\Omega t/2)$
 - **$P_{\vert 1\rangle}(t)$**：跃迁概率（失谐） — $(\Omega/\tilde{\Omega})^2 \sin^2(\tilde{\Omega}t/2)$
+- **$\Omega_{\mathrm{eff}}$**：双光子有效拉比频率 — $\Omega_{\mathrm{eff}} \approx \Omega_1\Omega_2/(2\Delta)$（完整推导见 [[start_up#2. 双光子跃迁与中间态消去|start_up §2.2 双光子跃迁与中间态消去]]）
 
 
 ---
@@ -572,9 +587,11 @@ $$
 - [[CZ-Gate]] — 利用 π 脉冲和阻塞实现两比特门
 - [[Transversal-Gate]] — 并行施加 CZ 门
 - [[Optical-Tweezer-Arrays]] — 原子囚禁平台
+- [[start_up]] — 双光子跃迁与有效拉比频率 $\Omega_{\mathrm{eff}}$ 的完整推导（§2.2）
 
 ## 📝 更新记录
 
+- 2026-08-02: 新增 §6 双光子跃迁与有效拉比频率，引入 $\Omega_{\mathrm{eff}} \approx \Omega_1\Omega_2/(2\Delta)$ 并与 [[start_up#2. 双光子跃迁与中间态消去|start_up §2.2]] 建立双向链接
 - 2026-08-02: 在 §2 哈密顿量公式后新增"这个哈密顿量是如何作用在二能级原子上的？"小节，用矩阵乘法直观演示对角元（能量）与非对角元（耦合）的作用、薛定谔方程展开与共振例子，替换原"这里哈密顿量由来没懂"占位符。
 - 2026-06-06: [doc-audit] 新增共振与失谐拉比振荡的 Python 可执行图示，解释最大布居转移与广义拉比频率随失谐量的变化。
 - 2026-06-06: 优化文档——添加 3 张 Python 图表（共振振荡、失谐对比、Ω vs 光强），补充 RWA callout，增加 ~6 处内联 wiki-link（Pauli-Matrices、Qubit-State-and-Superposition、Single-Qubit-Gates、Rydberg-Blockade 等）
