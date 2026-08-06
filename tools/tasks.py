@@ -9,12 +9,17 @@ Exposes the same targets a Makefile would, as plain subprocesses:
 
 Each target exits non-zero when its check fails or a script errors.
 """
+import os
 import pathlib
 import subprocess
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PYTHON = sys.executable
+
+# Force the Agg (non-interactive) backend for every generator so the committed
+# PNG bytes are deterministic and match what tools/verify_assets.py produces.
+AGG_ENV = {**os.environ, "MPLBACKEND": "Agg"}
 
 # Every generator script that writes a committed PNG (in dependency-safe order).
 GENERATORS = [
@@ -29,8 +34,8 @@ GENERATORS = [
 ]
 
 
-def _run(argv: list) -> int:
-    proc = subprocess.run(argv, cwd=ROOT)
+def _run(argv: list, *, agg: bool = False) -> int:
+    proc = subprocess.run(argv, cwd=ROOT, env=AGG_ENV if agg else None)
     return proc.returncode
 
 
@@ -42,7 +47,7 @@ def target_regenerate_assets() -> int:
     code = 0
     for script in GENERATORS:
         print(f"\n--- {script} ---")
-        code |= _run([PYTHON, str(ROOT / script)])
+        code |= _run([PYTHON, str(ROOT / script)], agg=True)
     return code
 
 

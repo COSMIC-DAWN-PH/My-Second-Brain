@@ -66,5 +66,5 @@ ax.spines['right'].set_visible(False)
 ax.invert_yaxis()
 
 plt.tight_layout()
-plt.savefig('Rydberg atom/attachments/learning-progress-2026-06-02.png', dpi=150, bbox_inches='tight')
+plt.savefig('Rydberg atom/attachments/learning-progress-2026-06-03.png', dpi=150, bbox_inches='tight')
 print('Chart saved successfully.')

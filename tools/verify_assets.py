@@ -39,7 +39,7 @@ ASSETS = [
     ("Rydberg atom/attachments/learning-progress-2026-06-02.py", "Rydberg atom/attachments/learning-progress-2026-06-02.png"),
     ("Rydberg atom/attachments/learning-progress-2026-06-10.py", "Rydberg atom/attachments/learning-progress-2026-06-10.png"),
     ("tools/gen_progress_chart.py", "Rydberg atom/attachments/learning-progress-2026-06-04.png"),
-    ("tools/plot_learning_progress.py", "Rydberg atom/attachments/learning-progress-2026-06-02.png"),
+    ("tools/plot_learning_progress.py", "Rydberg atom/attachments/learning-progress-2026-06-03.png"),
 ]
 
 
@@ -47,10 +47,14 @@ def _capture(script_rel: str, tmp: pathlib.Path) -> dict:
     """Run one generator with plt.savefig redirected under tmp.
 
     Returns {output_rel: pathlib.Path} for every file the script tried to write.
+    rcParams are reset to defaults first so a script run here renders exactly as
+    it would when run standalone (matching the committed PNG bytes).
     """
     captured = {}
     real_savefig = plt.savefig
     real_show = plt.show
+
+    matplotlib.rcdefaults()  # isolate from any rcParams mutated by earlier scripts
 
     def redirected(path, *args, **kwargs):
         p = pathlib.Path(path)

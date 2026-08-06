@@ -136,37 +136,7 @@ description: 科研日常追踪技能（总结 + 规划）—— 扫描 Literatu
 
 ### 4.1 写入结构
 
-每次运行后，将以下结构化内容写入目标 Daily Note：
-
-```markdown
----
-
-<!-- research-summary:start YYYY-MM-DD..YYYY-MM-DD -->
-## 📅 今日/单日/本周/阶段性科研进展总结（YYYY-MM-DD 或 YYYY-MM-DD ~ YYYY-MM-DD）
-
-> 时间范围：YYYY-MM-DD ~ YYYY-MM-DD
-
-### 📚 阅读记录
-
-- **[文献/讲义标题]**：阅读了哪些章节，重点关注了什么概念
-
-### 📖 学了什么
-
-| 知识点 | 学习状态 | 来源 |
-|--------|---------|------|
-| [概念名] | ✅ 已理解 / 🟠 初步了解 / 🔴 没懂 | [[笔记名#章节标题\|章节名]] 或 [[笔记名#^block-id\|章节名]] |
-
-### ❓ 没懂的地方
-
-- [[笔记名#^nuBlockId\|章节名]]：哪里卡住了，需要后续复习
-
-### 📌 下一步
-
-- [ ] [待学习的内容，引用具体章节链接]
-
-<!-- research-summary:end YYYY-MM-DD..YYYY-MM-DD -->
----
-```
+> 每次运行后写入目标 Daily Note 的 Markdown 模板见 **[references/summary-template.md](references/summary-template.md)**。
 
 ### 4.2 内容填充规则
 
@@ -288,135 +258,13 @@ comprehension 字段 = **只读**，AI 不读取用于决策，更不修改
 | Rydberg atom | `Rydberg atom/` |
 | Daily Notes | `Daily Notes/` |
 
-### 5.2 学习计划项格式规范（Learning Plan Item Format）
+### 5.2 学习计划与日记结构格式
 
-> **每次生成学习计划时，每个学习项必须严格遵循以下格式。**
-
-```markdown
-**Part N：主题（~X min）**
-
-- [ ] [[讲义#章节标题|讲义 §N 主题]]——核心知识点一句话
-- 🔗 对照 [[相关笔记]]——说明关联
-- 🔗 对照 [[相关笔记#^block-id|笔记 §N 标题]]——说明关联
-- 放 `^YYMMDD` 或 `^nuYYMMDD`
-```
-
-**格式要求：**
-1. **主任务行**：`- [ ] [[讲义#章节标题|讲义 §N 主题]]` + 破折号 + 核心知识点一句话概括
-2. **对照链接行**（可选但推荐）：`- 🔗 对照 [[相关笔记]]` + 说明与当前任务的关联（如"你已学过的 xxx"、"笔记中有完整推导"等）
-3. **⚠️ block reference 提醒行（必须）**：最后一行写 `放 \`^YYMMDD\` 或 \`^nuYYMMDD\``，提醒用户在学完后放置进度标记。日期根据当天日期自动填入。
-
-**示例（2026-06-05）：**
-```markdown
-**Part 2.1：拉比振荡（~10 min）**
-
-- [x] [[start_up#1. 单比特相干驱动：拉比振荡|start_up §2.1 单比特相干驱动：拉比振荡]]——$P(t)=\sin^2(\Omega t/2)$
-- 🔗 对照 [[Rabi-Flopping]]——笔记中有完整 Hamiltonian 推导和**失谐态演化公式**（已补充）
-- 🔗 对照 [[Single-Qubit-Gates#^321fbe|Single-Qubit-Gates §3.6 前]]——你已学过的 $\pi$ 脉冲和 Pauli 门
-- 放 `^260605` 或 `^nu260605`
-```
-
-### 5.2.1 Phase 检验与 block reference 提醒（必须）
-
-> **每个 Phase 结束后，必须包含两个附加元素：**
-
-**① 检验问题（`> [!tip] Phase N 检验`）**
-
-每个 Phase 学完后，用 Obsidian callout 给出 2-4 个检验问题，测试用户是否真正理解。问题应指向具体章节，用 `→ 对照 [[笔记#章节|章节名]]` 指引参考。
-
-```markdown
-> [!tip] Phase 1 检验
-> **Q1**：写出单 qubit 在微波驱动下的 Hamiltonian（旋转框架下），解释每一项的物理来源。
-> **Q2**：什么条件下系统做纯相位演化（Rz 门）？
-```
-
-**② block reference 提醒**
-
-在每个 Phase 的最后一行（检验问题之后），提醒用户放置进度标记：
-
-```markdown
-- 放 `^YYMMDD` 或 `^nuYYMMDD`
-```
-
-### 5.2.2 日记整体结构规范
-
-> 每份 Daily Note 的正文（research-summary 块之外）应遵循以下两大板块结构：
-
-**板块一：今日目标**
-- 📍 现在到哪了（当前进度一句话，诚实反映实际状态）
-- 🗺️ 知识地图（交互式 HTML，通过 iframe 嵌入，把今天要学的内容和之前学过的串联起来）
-- 🔗 今日内容 → vault 知识笔记对照表
-- ⏰ 学习路线（N 阶段，每阶段有具体任务 + wikilinks + 检验问题 + block reference 提醒）
-- 🔬 模拟任务框架（如有，标注"待实施"或实际进度）
-- 📚 学习资源速查
-
-**板块二：今天学了什么**
-- 📖 学了什么（基于 block reference 证据，无证据 = 没学）
-- ❓ 没懂的地方（wikilinks 到 `^nu` 标记处）
-- 📌 需要补充（待办清单）
-
-**原则**：
-- 学习路线要**详细**：具体到章节标题、wikilinks、核心公式
-- 学了什么要**精简**：只列证据确凿的内容
-- 知识地图用**交互式 HTML**：可折叠 Phase、节点点击展开详情、状态筛选、进度条
-- **诚实**：只记录实际完成的内容，不伪造进度
+> 学习计划项格式、Phase 检验问题、block reference 提醒与日记整体结构见 **[references/learning-plan-format.md](references/learning-plan-format.md)**。
 
 ### 5.2.3 知识地图：交互式 HTML 标准
 
-> 知识地图使用**交互式 HTML** 文件，存放在 `tools/knowledge-map.html`。
-> **每次更新日记时，必须同步更新 HTML 中的节点状态。**
-
-**HTML 必须包含的交互功能（2026-06-10 标准）：**
-
-| 功能 | 说明 |
-|------|------|
-| 深色主题 | 专业科技风格，渐变标题（`--bg: #0f172a`） |
-| 统计面板 | 顶部显示各状态数量（understood / getting there / vague / don't know / not started） |
-| 加权进度条 | 按 comprehension 加权计算百分比，渐变动画 |
-| 状态筛选按钮 | 点击过滤只显示某个状态的节点 |
-| 可折叠 Phase | 点击 Phase 标题展开/收起，带动画 |
-| 节点点击展开 | 点击任意节点显示详情（block ref、关键公式、wiki-link、状态说明） |
-| 左侧色条 | 每个节点左边有 4px 状态色条 |
-| 标签系统 | `tag-ref`(紫色) = wiki-link, `tag-block`(红色) = blocker/没懂, `tag-done`(绿色) = block ref, `tag-date`(蓝色) = 日期 |
-| 悬停动画 | 节点上浮 + 阴影效果 |
-
-**状态着色规则：**
-- `cls-understood` → 绿色 `#10b981`
-- `cls-getting` → 蓝色 `#3b82f6`
-- `cls-vague` → 橙色 `#f59e0b`
-- `cls-dont` → 红色 `#ef4444`
-- `cls-todo` → 灰色 `#94a3b8`
-
-**数据结构：**
-```javascript
-const DATA = [
-  {
-    label: "Phase A — Title",
-    badge: "done" | "wip" | "todo",
-    badgeLabel: "06-05 Done",
-    nodes: [
-      {
-        name: "Node Name",
-        cls: "understood" | "getting" | "vague" | "dont" | "todo",
-        brief: "One-line description",
-        detail: "<strong>Status:</strong> ...<br><strong>Block ref:</strong> ...<br><strong>Wiki:</strong> [[...]]",
-        tags: [{t:"^260605", c:"done"}, {t:"[[Note]]", c:"ref"}, {t:"BLOCKER", c:"block"}]
-      }
-    ]
-  }
-];
-```
-
-**嵌入方式：**
-```html
-<iframe src="file:///C:/Personal%20Profile/Profile/ScienceResearch/Quantum%20Computing/tools/knowledge-map.html" width="100%" height="680" style="border:1px solid #d8dee9; border-radius:6px;"></iframe>
-```
-
-**更新规则：**
-- 当用户在知识笔记中放置新的 block reference 时，同步更新 HTML 中对应节点的 `cls` 和 `tags`
-- 新增笔记时，在对应 Phase 的 `nodes` 数组中添加新节点
-- 新增学习阶段时，添加新的 Phase 对象
-- HTML 文件路径：`tools/knowledge-map.html`
+> 交互式知识地图（`tools/knowledge-map.html`）的完整功能、状态着色、数据结构与更新规则见 **[references/knowledge-map-spec.md](references/knowledge-map-spec.md)**。更新日记时必须同步更新 HTML 节点状态。
 
 ### 5.3 写入顺序
 
@@ -474,3 +322,7 @@ const DATA = [
 | “总结过去 3 天” | 今天往前 3 天，含今天 | `## 📅 阶段性科研进展总结（start ~ end）` |
 | “weekly summary” | 过去 7 天，含今天 | `## 📅 本周科研进展总结（start ~ end）` |
 | “总结 2026-06-01 到 2026-06-03” | 指定日期段 | `## 📅 阶段性科研进展总结（2026-06-01 ~ 2026-06-03）` |
+
+## 📝 更新记录
+
+- 2026-08-05: 渐进式拆分——写入模板/学习计划格式/知识地图规范移至 references/，SKILL.md 保留核心规则与触发
