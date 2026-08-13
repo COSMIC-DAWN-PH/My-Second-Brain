@@ -2,15 +2,11 @@
   "tabManagerState": {
     "openTabs": [
       {
-        "tabId": "tab-1785684758210-tg19d5u",
-        "conversationId": "conv-1785684775573-zgh5jsqf5"
-      },
-      {
         "draftModel": "opencode:opencode-go/deepseek-v4-flash",
         "tabId": "tab-1785685026063-rqo9lhn",
         "conversationId": null
       }
     ],
-    "activeTabId": "tab-1785684758210-tg19d5u"
+    "activeTabId": "tab-1785685026063-rqo9lhn"
   }
 }

@@ -237,7 +237,6 @@ $E_0$ 是激光电场的峰值振幅，和激光功率（强度）的关系见�
 > | $\Omega$ | $d$ 和 $E_0$ 的综合 | ✅ 间接调 | 主要通过调 $E_0$（功率） |
 > | $\Delta$ | $\omega_L$ 和 $\omega_0$ 的差 | ✅ 间接调 | 通过调 $\omega_L$ |
 
-[^1]
 ### 共振情形（$\Delta = 0$）
 
 共振意味着激光频率恰好等于原子跃迁频率：$\omega_L = \omega_0$，即 $\Delta = 0$。这时驱动场与原子"完美匹配"，布居转移效率最高。
@@ -403,7 +402,8 @@ $$
 
 验证概率守恒：$P_{\vert 0\rangle} + P_{\vert 1\rangle} = \cos^2(\Omega t/2) + \sin^2(\Omega t/2) = 1$ ✓
 
-^260605 具体推导没认真看
+[^3] 
+ ^[具体推导没认真看]
 
 #### Step 7：物理图像总结
 
@@ -536,6 +536,8 @@ $$
 2. **里德堡激发**：将原子从 $\vert 1\rangle$ 激发到[[Rydberg-Blockade|里德堡态]] $\vert r\rangle$ 的过程本身就是一个拉比 π 脉冲，是 [[CZ-Gate]]（经由 [[Rydberg-Blockade]]）的核心步骤
 3. **稳定子测量**：在 [[QEC]] 的 syndrome 提取中，辅助比特经过一系列拉比脉冲与数据比特相互作用后被测量
 
+
+
 ### 5.2 失谐脉冲与 Rz 门
 
 当激光脉冲的失谐量远大于拉比频率（$\Delta \gg \Omega$）时，原子几乎不发生布居转移（$P_{\vert e\rangle} \approx 0$），但两个能级会各自积累不同的动力学相位。对初始态 $\alpha\vert g\rangle + \beta\vert e\rangle$，经过持续时间为 $t$ 的失谐脉冲后，$\vert e\rangle$ 相对 $\vert g\rangle$ 累积相位 $\varphi = \Delta t$，等效于施加了 $R_z(\varphi)$ 旋转门：
@@ -602,6 +604,4 @@ $$
 - 2026-03-29: 初始创建
 - 2026-06-01: 添加 Obsidian Callouts 标注，优化可读性
 
-[^1]: nu260802
-
-[^2]: 
+[^3]: zheli 
