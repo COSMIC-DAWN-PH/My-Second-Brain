@@ -1,0 +1,8 @@
+interface:
+  display_name: "Review Flashcards & Quiz"
+  short_description: "Turn neutral-atom QC notes into flashcard and quiz HTML"
+  brand_color: "#4f46e5"
+  default_prompt: "Use $review-flashcards-quiz to turn selected neutral-atom quantum computing notes into a validated flashcard and quiz HTML deck."
+
+policy:
+  allow_implicit_invocation: true
